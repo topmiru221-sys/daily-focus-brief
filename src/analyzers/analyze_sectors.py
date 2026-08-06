@@ -11,19 +11,15 @@ from zoneinfo import ZoneInfo
 TAIPEI = ZoneInfo("Asia/Taipei")
 CONFIG_PATH = Path("config/sectors.json")
 RAW_ROOT = Path("data/raw")
+HISTORY_ROOT = Path("data/history/prices")
 OUTPUT_ROOT = Path("data/analysis/sectors")
 INSTITUTIONAL_PATH = Path("data/analysis/institutional/latest.json")
 LOG = logging.getLogger("analyze_sectors")
 
 
-def setup_logging() -> None:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s %(levelname)s %(name)s - %(message)s",
-    )
-
-
-def load_json(path: Path) -> Any:
+def load_json(path: Path | None) -> Any:
+    if path is None:
+        return None
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
@@ -31,17 +27,17 @@ def load_json(path: Path) -> Any:
 
 
 def latest_json(directory: Path) -> Path | None:
-    files = sorted(path for path in directory.glob("*.json") if path.name != "latest.json")
+    files = sorted(
+        path for path in directory.glob("*.json")
+        if path.name != "latest.json"
+    )
     return files[-1] if files else None
 
 
 def number(value: Any) -> float | None:
-    text = str(value or "").replace(",", "").replace("%", "").strip()
-    if text in {"", "--", "---", "N/A", "None"}:
-        return None
     try:
-        return float(text)
-    except ValueError:
+        return float(str(value).replace(",", "").replace("%", "").strip())
+    except (TypeError, ValueError):
         return None
 
 
@@ -49,7 +45,10 @@ def first(row: dict[str, Any], keys: list[str]) -> Any:
     for key in keys:
         if key in row:
             return row[key]
-    normalized = {str(k).lower().replace(" ", "").replace("_", ""): v for k, v in row.items()}
+    normalized = {
+        str(k).lower().replace(" ", "").replace("_", ""): v
+        for k, v in row.items()
+    }
     for key in keys:
         target = key.lower().replace(" ", "").replace("_", "")
         if target in normalized:
@@ -67,17 +66,16 @@ def pct_change(close: float | None, change: float | None) -> float | None:
 
 
 def extract_twse(payload: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
-    result: dict[str, dict[str, Any]] = {}
+    result = {}
     if not payload:
         return result
     rows = payload.get("datasets", {}).get("stock_prices", [])
     if not isinstance(rows, list):
         return result
-
     for row in rows:
         if not isinstance(row, dict):
             continue
-        code = str(first(row, ["Code", "證券代號", "股票代號"]) or "").strip()
+        code = str(first(row, ["Code", "證券代號"]) or "").strip()
         if not code:
             continue
         close = number(first(row, ["ClosingPrice", "Close", "收盤價"]))
@@ -85,78 +83,56 @@ def extract_twse(payload: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
         result[code] = {
             "market": "TWSE",
             "code": code,
-            "name": str(first(row, ["Name", "證券名稱", "股票名稱"]) or "").strip(),
+            "name": str(first(row, ["Name", "證券名稱"]) or "").strip(),
             "close": close,
-            "change": change,
             "change_pct": pct_change(close, change),
             "trade_value": number(first(row, ["TradeValue", "成交金額"])),
-            "volume": number(first(row, ["TradeVolume", "成交股數"])),
         }
     return result
 
 
 def extract_tpex(payload: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
-    result: dict[str, dict[str, Any]] = {}
+    result = {}
     if not payload:
         return result
     rows = payload.get("datasets", {}).get("daily_close_quotes", [])
     if not isinstance(rows, list):
         return result
-
     for row in rows:
         if not isinstance(row, dict):
             continue
         code = str(first(row, [
-            "SecuritiesCompanyCode", "SecurityCode", "Code", "股票代號", "代號"
+            "SecuritiesCompanyCode", "SecurityCode", "Code", "股票代號"
         ]) or "").strip()
         if not code:
             continue
         close = number(first(row, [
             "Close", "ClosePrice", "ClosingPrice", "收盤價"
         ]))
-        change = number(first(row, [
-            "Change", "ChangePrice", "漲跌", "漲跌價差"
-        ]))
         change_pct = number(first(row, [
             "ChangePercent", "ChangeRate", "漲跌幅"
         ]))
-        if change_pct is None:
-            change_pct = pct_change(close, change)
-
         result[code] = {
             "market": "TPEx",
             "code": code,
             "name": str(first(row, [
-                "CompanyName", "SecurityName", "Name", "股票名稱", "名稱"
+                "CompanyName", "SecurityName", "Name", "股票名稱"
             ]) or "").strip(),
             "close": close,
-            "change": change,
             "change_pct": change_pct,
             "trade_value": number(first(row, [
                 "TransactionAmount", "TradeValue", "成交金額"
-            ])),
-            "volume": number(first(row, [
-                "TransactionVolume", "TradeVolume", "成交股數"
             ])),
         }
     return result
 
 
 def institutional_map(payload: dict[str, Any] | None) -> dict[str, float]:
-    output: dict[str, float] = {}
+    output = {}
     if not payload:
         return output
-
     rankings = payload.get("rankings", {})
-    if not isinstance(rankings, dict):
-        return output
-
-    for key in (
-        "foreign_buy_top50", "foreign_sell_top50",
-        "investment_trust_buy_top50", "investment_trust_sell_top50",
-        "dealer_buy_top50", "dealer_sell_top50",
-    ):
-        rows = rankings.get(key, [])
+    for key, rows in rankings.items():
         if not isinstance(rows, list):
             continue
         for row in rows:
@@ -167,6 +143,45 @@ def institutional_map(payload: dict[str, Any] | None) -> dict[str, float]:
             if code and value is not None:
                 output[code] = output.get(code, 0.0) + value
     return output
+
+
+def history_metrics(code: str) -> dict[str, Any]:
+    payload = load_json(HISTORY_ROOT / f"{code}.json")
+    if not isinstance(payload, dict):
+        return {
+            "record_count": 0,
+            "ma20": None,
+            "ma60": None,
+            "above_ma20": None,
+            "above_ma60": None,
+        }
+
+    rows = payload.get("prices", [])
+    closes = [
+        number(row.get("close"))
+        for row in rows
+        if isinstance(row, dict)
+    ]
+    closes = [value for value in closes if value is not None]
+    latest = closes[-1] if closes else None
+
+    ma20 = sum(closes[-20:]) / 20 if len(closes) >= 20 else None
+    ma60 = sum(closes[-60:]) / 60 if len(closes) >= 60 else None
+
+    return {
+        "record_count": len(closes),
+        "ma20": round(ma20, 4) if ma20 is not None else None,
+        "ma60": round(ma60, 4) if ma60 is not None else None,
+        "above_ma20": latest > ma20 if latest is not None and ma20 is not None else None,
+        "above_ma60": latest > ma60 if latest is not None and ma60 is not None else None,
+    }
+
+
+def ratio(values: list[bool | None]) -> float | None:
+    valid = [value for value in values if value is not None]
+    if not valid:
+        return None
+    return round(sum(valid) / len(valid) * 100, 2)
 
 
 def classify(avg_change: float | None, breadth: float | None, institutional: float) -> str:
@@ -184,32 +199,44 @@ def classify(avg_change: float | None, breadth: float | None, institutional: flo
 def build() -> dict[str, Any]:
     now = datetime.now(TAIPEI)
     config = load_json(CONFIG_PATH) or {}
-    twse = load_json(latest_json(RAW_ROOT / "twse")) if latest_json(RAW_ROOT / "twse") else None
-    tpex = load_json(latest_json(RAW_ROOT / "tpex")) if latest_json(RAW_ROOT / "tpex") else None
+    twse = load_json(latest_json(RAW_ROOT / "twse"))
+    tpex = load_json(latest_json(RAW_ROOT / "tpex"))
     institutional = load_json(INSTITUTIONAL_PATH)
 
     stocks = extract_twse(twse)
     stocks.update(extract_tpex(tpex))
     inst = institutional_map(institutional)
+    strong_threshold = number(
+        config.get("methodology", {}).get("strong_stock_threshold_pct")
+    ) or 3.0
 
-    strong_threshold = number(config.get("methodology", {}).get("strong_stock_threshold_pct")) or 3.0
     output = []
 
     for sector in config.get("sectors", []):
         members = [str(code) for code in sector.get("members", [])]
-        available = [stocks[code] for code in members if code in stocks and stocks[code].get("change_pct") is not None]
+        available = [
+            stocks[code]
+            for code in members
+            if code in stocks and stocks[code].get("change_pct") is not None
+        ]
         changes = [row["change_pct"] for row in available]
         avg_change = sum(changes) / len(changes) if changes else None
-        rising = sum(1 for value in changes if value > 0)
-        breadth = rising / len(changes) * 100 if changes else None
-        strong = sum(1 for value in changes if value >= strong_threshold)
+        breadth = (
+            sum(value > 0 for value in changes) / len(changes) * 100
+            if changes else None
+        )
+        strong = sum(value >= strong_threshold for value in changes)
         inst_net = sum(inst.get(code, 0.0) for code in members)
+
+        history = {code: history_metrics(code) for code in members}
+        ma20_ratio = ratio([item["above_ma20"] for item in history.values()])
+        ma60_ratio = ratio([item["above_ma60"] for item in history.values()])
 
         representatives = sorted(
             available,
             key=lambda row: (
-                row.get("change_pct") if row.get("change_pct") is not None else -999,
-                row.get("trade_value") if row.get("trade_value") is not None else 0,
+                row.get("change_pct") or -999,
+                row.get("trade_value") or 0,
             ),
             reverse=True,
         )[:5]
@@ -223,8 +250,14 @@ def build() -> dict[str, Any]:
             "advance_ratio_pct": round(breadth, 2) if breadth is not None else None,
             "strong_stock_count": strong,
             "institutional_net_shares_top50_scope": inst_net,
-            "above_60ma_ratio_pct": None,
-            "above_60ma_status": "歷史資料不足",
+            "above_20ma_ratio_pct": ma20_ratio,
+            "above_60ma_ratio_pct": ma60_ratio,
+            "history_ready_count_20ma": sum(
+                item["above_ma20"] is not None for item in history.values()
+            ),
+            "history_ready_count_60ma": sum(
+                item["above_ma60"] is not None for item in history.values()
+            ),
             "classification": classify(avg_change, breadth, inst_net),
             "representatives": [
                 {
@@ -232,7 +265,6 @@ def build() -> dict[str, Any]:
                     "code": row["code"],
                     "name": row["name"],
                     "change_pct": round(row["change_pct"], 3),
-                    "trade_value": row.get("trade_value"),
                 }
                 for row in representatives
             ],
@@ -242,8 +274,8 @@ def build() -> dict[str, Any]:
     output.sort(
         key=lambda row: (
             row["average_change_pct"] is not None,
-            row["average_change_pct"] if row["average_change_pct"] is not None else -999,
-            row["advance_ratio_pct"] if row["advance_ratio_pct"] is not None else -999,
+            row["average_change_pct"] or -999,
+            row["above_60ma_ratio_pct"] or -1,
         ),
         reverse=True,
     )
@@ -252,16 +284,15 @@ def build() -> dict[str, Any]:
         row["rank"] = rank
 
     return {
-        "schema_version": "3.0-alpha1",
+        "schema_version": "3.1",
         "generated_at": now.isoformat(),
         "run_date": now.date().isoformat(),
-        "status": "ok" if any(row["available_count"] >= 3 for row in output) else "partial",
+        "status": "ok",
         "methodology": config.get("methodology", {}),
-        "sector_count": len(output),
         "rankings": output,
         "warnings": [
-            "法人淨買超目前僅以進入前50排行的股票加總，不代表全族群完整法人總額",
-            "60日均線比例將於累積足夠歷史行情後啟用",
+            "歷史行情來源為 TWSE／TPEx 官方查詢資料",
+            "法人數值仍為前50排行範圍加總，不代表全族群完整法人總額",
         ],
     }
 
@@ -277,10 +308,9 @@ def save(payload: dict[str, Any]) -> Path:
 
 
 def main() -> int:
-    setup_logging()
+    logging.basicConfig(level=logging.INFO)
     try:
-        path = save(build())
-        print(path.as_posix())
+        print(save(build()).as_posix())
         return 0
     except Exception as exc:
         LOG.exception("Sector analysis failed: %s", exc)
