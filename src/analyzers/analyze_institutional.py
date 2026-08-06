@@ -40,8 +40,8 @@ def load_json(path: Path | None) -> dict[str, Any] | None:
         return None
 
 
-def clean_key(value: Any) -> str:
-    return re.sub(r"[\s()（）_\-／/及陸資外資自營商]", "", str(value or "")).lower()
+def normalize_key(value: Any) -> str:
+    return re.sub(r"[^a-z0-9\u4e00-\u9fff]", "", str(value or "").lower())
 
 
 def number(value: Any) -> float | None:
@@ -54,13 +54,20 @@ def number(value: Any) -> float | None:
         return None
 
 
-def find_value(row: dict[str, Any], patterns: list[str]) -> Any:
-    normalized = {clean_key(key): value for key, value in row.items()}
-    for pattern in patterns:
-        target = clean_key(pattern)
-        for key, value in normalized.items():
-            if target and target in key:
+def exact_or_contains(row: dict[str, Any], candidates: list[str]) -> Any:
+    normalized = {normalize_key(k): v for k, v in row.items()}
+
+    for candidate in candidates:
+        key = normalize_key(candidate)
+        if key in normalized:
+            return normalized[key]
+
+    for candidate in candidates:
+        key = normalize_key(candidate)
+        for existing, value in normalized.items():
+            if key and key in existing:
                 return value
+
     return None
 
 
@@ -74,108 +81,105 @@ def legacy_rows(payload: dict[str, Any]) -> list[dict[str, Any]]:
     for values in rows:
         if not isinstance(values, list):
             continue
-        result.append(
-            {
-                str(fields[index]): values[index] if index < len(values) else None
-                for index in range(len(fields))
-            }
-        )
+        result.append({
+            str(fields[i]): values[i] if i < len(values) else None
+            for i in range(len(fields))
+        })
     return result
 
 
-def normalize_row(
-    row: dict[str, Any],
-    market: str,
-) -> dict[str, Any] | None:
-    code = find_value(
-        row,
-        ["證券代號", "股票代號", "代號", "code", "stockno"],
-    )
-    name = find_value(
-        row,
-        ["證券名稱", "股票名稱", "名稱", "name"],
-    )
+def normalize_twse(row: dict[str, Any]) -> dict[str, Any] | None:
+    code = exact_or_contains(row, ["證券代號", "股票代號"])
+    name = exact_or_contains(row, ["證券名稱", "股票名稱"])
+
+    foreign = number(exact_or_contains(row, [
+        "外陸資買賣超股數(不含外資自營商)",
+        "外資及陸資買賣超股數",
+    ]))
+    trust = number(exact_or_contains(row, ["投信買賣超股數"]))
+    dealer = number(exact_or_contains(row, ["自營商買賣超股數"]))
+    total = number(exact_or_contains(row, ["三大法人買賣超股數"]))
 
     if code is None:
         return None
 
-    foreign = number(
-        find_value(
-            row,
-            [
-                "外陸資買賣超股數不含外資自營商",
-                "外資及陸資買賣超股數",
-                "外資買賣超股數",
-                "foreignnetbuysell",
-                "foreigninvestmentnetbuysell",
-            ],
-        )
-    )
-    trust = number(
-        find_value(
-            row,
-            [
-                "投信買賣超股數",
-                "investmenttrustnetbuysell",
-                "trustnetbuysell",
-            ],
-        )
-    )
+    if dealer is None:
+        proprietary = number(exact_or_contains(row, ["自營商自行買賣買賣超股數"]))
+        hedge = number(exact_or_contains(row, ["自營商避險買賣超股數"]))
+        parts = [v for v in (proprietary, hedge) if v is not None]
+        dealer = sum(parts) if parts else None
 
-    dealer_total = number(
-        find_value(
-            row,
-            [
-                "自營商買賣超股數",
-                "dealernetbuysell",
-            ],
-        )
-    )
-    dealer_proprietary = number(
-        find_value(
-            row,
-            [
-                "自營商自行買賣買賣超股數",
-                "dealerproprietarynetbuysell",
-            ],
-        )
-    )
-    dealer_hedge = number(
-        find_value(
-            row,
-            [
-                "自營商避險買賣超股數",
-                "dealerhedgenetbuysell",
-            ],
-        )
-    )
-
-    if dealer_total is None:
-        components = [
-            value
-            for value in (dealer_proprietary, dealer_hedge)
-            if value is not None
-        ]
-        dealer_total = sum(components) if components else None
-
-    total = number(
-        find_value(
-            row,
-            [
-                "三大法人買賣超股數",
-                "totalinstitutionalnetbuysell",
-                "totalnetbuysell",
-            ],
-        )
-    )
     if total is None:
-        components = [
-            value for value in (foreign, trust, dealer_total)
-            if value is not None
-        ]
-        total = sum(components) if components else None
+        parts = [v for v in (foreign, trust, dealer) if v is not None]
+        total = sum(parts) if parts else None
 
-    if all(value is None for value in (foreign, trust, dealer_total, total)):
+    return build_row("TWSE", code, name, foreign, trust, dealer, total)
+
+
+def normalize_tpex(row: dict[str, Any]) -> dict[str, Any] | None:
+    code = exact_or_contains(row, [
+        "SecuritiesCompanyCode",
+        "SecurityCode",
+        "Code",
+        "股票代號",
+        "代號",
+    ])
+    name = exact_or_contains(row, [
+        "CompanyName",
+        "SecurityName",
+        "Name",
+        "股票名稱",
+        "名稱",
+    ])
+
+    foreign = number(exact_or_contains(row, [
+        "Foreign Investors include Mainland Area Investors (Foreign Dealers excluded)-Total Difference",
+        "ForeignInvestorsincludeMainlandAreaInvestorsForeignDealersexcludedTotalDifference",
+        "ForeignInvestorsTotalDifference",
+        "ForeignNetBuySell",
+        "外資及陸資買賣超股數",
+    ]))
+    trust = number(exact_or_contains(row, [
+        "Securities Investment Trust Companies-Total Difference",
+        "SecuritiesInvestmentTrustCompaniesTotalDifference",
+        "InvestmentTrustTotalDifference",
+        "InvestmentTrustNetBuySell",
+        "投信買賣超股數",
+    ]))
+    dealer = number(exact_or_contains(row, [
+        "Dealers-Total Difference",
+        "DealersTotalDifference",
+        "DealerTotalDifference",
+        "DealerNetBuySell",
+        "自營商買賣超股數",
+    ]))
+    total = number(exact_or_contains(row, [
+        "Total Difference",
+        "TotalDifference",
+        "TotalNetBuySell",
+        "三大法人買賣超股數",
+    ]))
+
+    if code is None:
+        return None
+
+    if total is None:
+        parts = [v for v in (foreign, trust, dealer) if v is not None]
+        total = sum(parts) if parts else None
+
+    return build_row("TPEx", code, name, foreign, trust, dealer, total)
+
+
+def build_row(
+    market: str,
+    code: Any,
+    name: Any,
+    foreign: float | None,
+    trust: float | None,
+    dealer: float | None,
+    total: float | None,
+) -> dict[str, Any] | None:
+    if all(v is None for v in (foreign, trust, dealer, total)):
         return None
 
     return {
@@ -184,7 +188,7 @@ def normalize_row(
         "name": str(name or "").strip(),
         "foreign_net_shares": foreign,
         "investment_trust_net_shares": trust,
-        "dealer_net_shares": dealer_total,
+        "dealer_net_shares": dealer,
         "total_institutional_net_shares": total,
     }
 
@@ -196,10 +200,10 @@ def extract_twse(payload: dict[str, Any] | None) -> list[dict[str, Any]]:
     if not isinstance(report, dict):
         return []
     return [
-        normalized
+        item
         for row in legacy_rows(report)
-        for normalized in [normalize_row(row, "TWSE")]
-        if normalized
+        for item in [normalize_twse(row)]
+        if item
     ]
 
 
@@ -210,52 +214,46 @@ def extract_tpex(payload: dict[str, Any] | None) -> list[dict[str, Any]]:
     if not isinstance(rows, list):
         return []
     return [
-        normalized
+        item
         for row in rows
         if isinstance(row, dict)
-        for normalized in [normalize_row(row, "TPEx")]
-        if normalized
+        for item in [normalize_tpex(row)]
+        if item
     ]
 
 
 def ranking(
     rows: list[dict[str, Any]],
     field: str,
-    *,
     descending: bool,
     limit: int = 50,
 ) -> list[dict[str, Any]]:
-    valid = [row for row in rows if row.get(field) is not None]
-    valid.sort(
-        key=lambda row: row[field],
-        reverse=descending,
-    )
+    valid = [r for r in rows if r.get(field) is not None]
+    valid.sort(key=lambda r: r[field], reverse=descending)
 
-    selected = valid[:limit]
-    result = []
-    for rank, row in enumerate(selected, start=1):
+    output = []
+    for rank, row in enumerate(valid[:limit], start=1):
         value = row[field]
-        result.append(
-            {
-                "rank": rank,
-                "market": row["market"],
-                "code": row["code"],
-                "name": row["name"],
-                "net_shares": value,
-                "net_lots": round(value / 1000, 3),
-            }
-        )
-    return result
+        output.append({
+            "rank": rank,
+            "market": row["market"],
+            "code": row["code"],
+            "name": row["name"],
+            "net_shares": value,
+            "net_lots": round(value / 1000, 3),
+        })
+    return output
 
 
 def build_analysis() -> dict[str, Any]:
     now = datetime.now(TAIPEI)
-    twse_path = latest_json(RAW_ROOT / "twse")
-    tpex_path = latest_json(RAW_ROOT / "tpex")
-    twse = load_json(twse_path)
-    tpex = load_json(tpex_path)
+    twse = load_json(latest_json(RAW_ROOT / "twse"))
+    tpex = load_json(latest_json(RAW_ROOT / "tpex"))
 
-    rows = extract_twse(twse) + extract_tpex(tpex)
+    twse_rows = extract_twse(twse)
+    tpex_rows = extract_tpex(tpex)
+    rows = twse_rows + tpex_rows
+
     data_dates = [
         value
         for value in [
@@ -265,69 +263,62 @@ def build_analysis() -> dict[str, Any]:
         if isinstance(value, str)
     ]
 
-    status = "ok" if rows else "pending"
+    coverage_ok = len(twse_rows) > 0 and len(tpex_rows) > 0
+
+    notes = []
+    if not twse_rows:
+        notes.append("上市法人明細未取得")
+    if not tpex_rows:
+        notes.append("上櫃法人明細未取得或欄位未匹配")
+    if not rows:
+        notes.append("法人排行維持待更新")
 
     return {
-        "schema_version": "2.5",
+        "schema_version": "2.6",
         "generated_at": now.isoformat(),
         "run_date": now.date().isoformat(),
         "data_date": max(data_dates) if data_dates else None,
-        "status": status,
+        "status": "ok" if coverage_ok else ("partial" if rows else "pending"),
         "units": {
             "net_shares": "股",
             "net_lots": "張，1張=1000股",
         },
         "coverage": {
             "parsed_rows": len(rows),
-            "twse_rows": sum(row["market"] == "TWSE" for row in rows),
-            "tpex_rows": sum(row["market"] == "TPEx" for row in rows),
+            "twse_rows": len(twse_rows),
+            "tpex_rows": len(tpex_rows),
+            "full_market_coverage": coverage_ok,
         },
         "rankings": {
-            "foreign_buy_top50": ranking(
-                rows, "foreign_net_shares", descending=True
-            ),
-            "foreign_sell_top50": ranking(
-                rows, "foreign_net_shares", descending=False
-            ),
+            "foreign_buy_top50": ranking(rows, "foreign_net_shares", True),
+            "foreign_sell_top50": ranking(rows, "foreign_net_shares", False),
             "investment_trust_buy_top50": ranking(
-                rows, "investment_trust_net_shares", descending=True
+                rows, "investment_trust_net_shares", True
             ),
             "investment_trust_sell_top50": ranking(
-                rows, "investment_trust_net_shares", descending=False
+                rows, "investment_trust_net_shares", False
             ),
-            "dealer_buy_top50": ranking(
-                rows, "dealer_net_shares", descending=True
-            ),
-            "dealer_sell_top50": ranking(
-                rows, "dealer_net_shares", descending=False
-            ),
+            "dealer_buy_top50": ranking(rows, "dealer_net_shares", True),
+            "dealer_sell_top50": ranking(rows, "dealer_net_shares", False),
         },
-        "notes": (
-            []
-            if rows
-            else ["法人明細尚未取得或官方欄位無法核對，維持待更新"]
-        ),
+        "notes": notes,
     }
 
 
 def save(payload: dict[str, Any]) -> Path:
     OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
-    run_date = payload["run_date"]
-    output_path = OUTPUT_ROOT / f"{run_date}.json"
-    latest_path = OUTPUT_ROOT / "latest.json"
-
-    content = json.dumps(payload, ensure_ascii=False, indent=2)
-    output_path.write_text(content, encoding="utf-8")
-    latest_path.write_text(content, encoding="utf-8")
-    return output_path
+    output = OUTPUT_ROOT / f"{payload['run_date']}.json"
+    latest = OUTPUT_ROOT / "latest.json"
+    text = json.dumps(payload, ensure_ascii=False, indent=2)
+    output.write_text(text, encoding="utf-8")
+    latest.write_text(text, encoding="utf-8")
+    return output
 
 
 def main() -> int:
     setup_logging()
     try:
-        payload = build_analysis()
-        path = save(payload)
-        LOG.info("Institutional analysis written to %s", path)
+        path = save(build_analysis())
         print(path.as_posix())
         return 0
     except Exception as exc:
