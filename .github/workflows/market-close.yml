@@ -45,6 +45,9 @@ jobs:
       - name: Analyze institutional trading
         run: python src/analyzers/analyze_institutional.py
 
+      - name: Analyze market direction
+        run: python src/analyzers/analyze_market_direction.py
+
       - name: Commit generated data
         run: |
           if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
@@ -55,5 +58,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw data/normalized data/analysis
-          git commit -m "data: update market and institutional analysis"
+          git commit -m "data: update market decision analysis"
           git push
