@@ -15,7 +15,7 @@ concurrency:
 jobs:
   fetch-market-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
 
     steps:
       - name: Checkout repository
@@ -42,6 +42,9 @@ jobs:
       - name: Normalize and validate market data
         run: python src/normalizers/normalize_market.py
 
+      - name: Analyze institutional trading
+        run: python src/analyzers/analyze_institutional.py
+
       - name: Commit generated data
         run: |
           if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
@@ -51,6 +54,6 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/raw data/normalized
-          git commit -m "data: update and validate market snapshots"
+          git add data/raw data/normalized data/analysis
+          git commit -m "data: update market and institutional analysis"
           git push
