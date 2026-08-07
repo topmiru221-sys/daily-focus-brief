@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{const nav=document.querySelector(".quick-nav");if(nav&&!nav.querySelector('a[href="./development.html"]')){const a=document.createElement("a");a.href="./development.html";a.textContent="開發進度";nav.appendChild(a)}});
