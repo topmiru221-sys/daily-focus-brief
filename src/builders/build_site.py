@@ -3,32 +3,13 @@ import json
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
-
-TAIPEI=ZoneInfo("Asia/Taipei")
-PUBLIC_DATA=Path("public/data")
-SOURCES={
- "market":Path("data/analysis/market/latest.json"),
- "institutional":Path("data/analysis/institutional/latest.json"),
- "sectors":Path("data/analysis/sectors/latest.json"),
-}
-def read_json(path):
-    if not path.exists():
-        return {"status":"pending","notes":[f"{path} not found"]}
-    try:
-        p=json.loads(path.read_text(encoding="utf-8"))
-        return p if isinstance(p,dict) else {"status":"pending"}
-    except json.JSONDecodeError:
-        return {"status":"pending","notes":[f"{path} invalid json"]}
+T=ZoneInfo("Asia/Taipei"); P=Path("public/data"); S={"market":Path("data/analysis/market/latest.json"),"institutional":Path("data/analysis/institutional/latest.json"),"sectors":Path("data/analysis/sectors/latest.json"),"capital_flow":Path("data/analysis/capital_flow/latest.json"),"research":Path("data/analysis/research/latest.json")}
+def load(p):
+ try:return json.loads(p.read_text(encoding="utf-8"))
+ except:return {"status":"pending"}
 def main():
-    PUBLIC_DATA.mkdir(parents=True,exist_ok=True)
-    payloads={}
-    for name,source in SOURCES.items():
-        p=read_json(source);payloads[name]=p
-        (PUBLIC_DATA/f"{name}.json").write_text(json.dumps(p,ensure_ascii=False,indent=2),encoding="utf-8")
-    dates=[p.get("data_date") or p.get("run_date") for p in payloads.values() if isinstance(p,dict)]
-    dates=[x for x in dates if isinstance(x,str)]
-    meta={"schema_version":"3.3-alpha","generated_at":datetime.now(TAIPEI).isoformat(),"data_date":max(dates) if dates else None,"modules":{k:v.get("status","pending") for k,v in payloads.items()}}
-    (PUBLIC_DATA/"meta.json").write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding="utf-8")
-    return 0
-if __name__=="__main__":
-    raise SystemExit(main())
+ P.mkdir(parents=True,exist_ok=True); ps={}; dates={}
+ for n,p in S.items():
+  x=load(p); ps[n]=x; dates[n]=x.get("data_date") or x.get("official_data_date"); (P/f"{n}.json").write_text(json.dumps(x,ensure_ascii=False,indent=2),encoding="utf-8")
+ valid=[x for x in dates.values() if isinstance(x,str)]; meta={"schema_version":"4.1-alpha","generated_at":datetime.now(T).isoformat(),"latest_common_data_date":min(valid) if valid else None,"latest_available_data_date":max(valid) if valid else None,"module_dates":dates,"date_consistency":"ok" if len(set(valid))<=1 else "mixed","modules":{k:v.get("status","pending") for k,v in ps.items()},"warning":None if len(set(valid))<=1 else "各模組資料日期不一致，請分別判讀。"}; (P/"meta.json").write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding="utf-8")
+if __name__=="__main__":main()
