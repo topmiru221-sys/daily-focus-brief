@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>晨報｜Daily Focus Brief</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<style>
+.morning-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
+.brief-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.brief-card,.todo-source,.top-item{background:var(--panel2);border-radius:14px;padding:14px}
+.brief-card strong{display:block;margin-top:6px;font-size:1.15rem}
+.watch-row{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-top:1px solid var(--line)}
+.todo-source{border:1px dashed var(--line);color:var(--muted)}
+.top-list{display:grid;gap:10px;margin-top:12px}
+.top-item{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center}
+.rank{font-weight:900;color:var(--accent)}
+.status-good{color:var(--green)}.status-warn{color:var(--yellow)}
+@media(max-width:900px){.morning-grid,.brief-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div><p class="eyebrow">MORNING BRIEF</p><h1>晨報</h1><p id="updated" class="muted">資料載入中…</p></div>
+  <a class="chip link-chip" href="./">返回首頁</a>
+</header>
+<main class="container">
+<section class="morning-grid">
+  <article class="panel">
+    <div class="panel-head">
+      <div><p class="eyebrow">BEFORE OPEN</p><h2>今天開盤前先看這裡</h2></div>
+      <span id="marketBadge" class="market-badge neutral">待更新</span>
+    </div>
+    <p id="headline" class="lead">整理前一交易日可驗證資料中。</p>
+    <div id="briefGrid" class="brief-grid"></div>
+    <div id="marketWarnings" class="warning-list"></div>
+  </article>
+  <article class="panel">
+    <p class="eyebrow">DATA COVERAGE</p><h2>晨報資料完整度</h2>
+    <div id="coverageList" class="top-list"></div>
+    <p class="muted">Alpha 版只顯示已接入且可核對資料；未接資料不使用推測值。</p>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-head"><div><p class="eyebrow">MARKET PLAYBOOK</p><h2>昨晚盤後留下的市場劇本</h2></div></div>
+  <div class="two-col">
+    <article class="panel"><h3>今天先盯哪些族群</h3><div id="focusSectors" class="top-list"></div></article>
+    <article class="panel"><h3>開盤後要驗證什麼</h3><div id="tomorrowQuestions"></div></article>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-head"><div><p class="eyebrow">DECISION TOP</p><h2>優先研究清單</h2></div><a class="chip link-chip" href="./decision.html">搜尋個股</a></div>
+  <div id="decisionList" class="top-list"></div>
+</section>
+
+<section class="section-block">
+  <div class="section-head"><div><p class="eyebrow">INSTITUTION</p><h2>法人前一交易日重點</h2></div></div>
+  <div class="two-col">
+    <article class="panel"><h3>外資買超 Top 5</h3><div id="foreignTop" class="top-list"></div></article>
+    <article class="panel"><h3>投信買超 Top 5</h3><div id="trustTop" class="top-list"></div></article>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-head"><div><p class="eyebrow">NEXT DATA</p><h2>尚待接回的原始晨報資料</h2></div></div>
+  <div class="card-grid">
+    <div class="todo-source"><strong>全球市場／SOX／NASDAQ</strong><br>待接穩定來源</div>
+    <div class="todo-source"><strong>VIX／Put Call</strong><br>待接回原始風險模組</div>
+    <div class="todo-source"><strong>美元／美債／ADR／夜盤</strong><br>待逐項驗證資料來源</div>
+  </div>
+</section>
+</main>
+<footer>晨報用於整理開盤前可驗證資訊；不預測盤勢，也不構成買賣建議。</footer>
+<script>
+const nf=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:2}),state={};
+async function load(n){
+  try{
+    const r=await fetch(`./data/${n}.json?v=${Date.now()}`,{cache:'no-store'});
+    if(!r.ok)throw Error(r.status);
+    state[n]=await r.json();
+  }catch(e){state[n]={status:'error'};}
+}
+const metric=(a,b)=>`<div class="brief-card"><span class="muted">${a}</span><strong>${b??'待更新'}</strong></div>`;
+const stock=(x,i,e='')=>`<div class="top-item"><span class="rank">#${i+1}</span><div><strong>${x.name||x.code||'—'}</strong><div class="muted">${x.code||''}</div></div><strong>${e}</strong></div>`;
+(async()=>{
+  await Promise.all(['market','playbook','decision','institutional','meta'].map(load));
+  const m=state.market||{},p=state.playbook||{},d=state.decision||{},inst=state.institutional||{},meta=state.meta||{};
+  updated.textContent=`資料基準：${p.data_date||m.run_date||meta.latest_available_data_date||'待更新'}｜網站更新：${meta.generated_at||'待更新'}`;
+  marketBadge.textContent=m.verdict||'待更新';
+  marketBadge.className='market-badge '+(m.verdict==='偏多'?'positive':m.verdict==='偏空'?'negative':'neutral');
+  headline.textContent=p.headline||'市場劇本待更新。';
+  const s=(m.signals||[])[0];
+  briefGrid.innerHTML=
+    metric('市場方向',m.verdict||'待更新')+
+    metric('加權漲跌',s?`${nf.format(s.value)} ${s.unit||''}`:'待更新')+
+    metric('Decision 可搜尋',d.decision_count?`${d.decision_count} 檔`:'待更新');
+  marketWarnings.innerHTML=(m.warnings||[]).map(x=>`⚠ ${x}`).join('<br>');
+  coverageList.innerHTML=[
+    ['台股盤後','已接入'],['市場劇本','已接入'],['法人 Top50','已接入'],
+    ['Decision','已接入'],['全球市場','待接'],['VIX / PutCall','待接']
+  ].map(([a,b])=>`<div class="watch-row"><span>${a}</span><strong class="${b==='已接入'?'status-good':'status-warn'}">${b}</strong></div>`).join('');
+  focusSectors.innerHTML=(p.focus_sectors||[]).slice(0,5).map((x,i)=>
+    `<div class="top-item"><span class="rank">#${i+1}</span><div><strong>${x.name}</strong><div class="muted">${x.state||''}｜持續 ${x.persistence_ratio_pct??'—'}%</div></div><strong>${x.latest_score??'—'}</strong></div>`
+  ).join('')||'<p class="muted">待更新</p>';
+  tomorrowQuestions.innerHTML=(p.tomorrow_questions||[]).map(x=>`<div class="watch-row"><span>• ${x}</span></div>`).join('')||'<p class="muted">待更新</p>';
+  decisionList.innerHTML=(d.rankings||[]).slice(0,8).map((x,i)=>
+    `<div class="top-item"><span class="rank">#${i+1}</span><div><a href="./decision.html?code=${x.code}"><strong>${x.name||x.code}</strong></a><div class="muted">${(x.sectors||[]).join('／')}｜${x.conclusion||''}</div></div><strong>${x.decision_score??'—'}｜${x.grade||''}</strong></div>`
+  ).join('')||'<p class="muted">待更新</p>';
+  foreignTop.innerHTML=(inst.rankings?.foreign_buy_top50||[]).slice(0,5).map((x,i)=>stock(x,i,`${nf.format(x.net_lots??0)}張`)).join('')||'<p class="muted">待更新</p>';
+  trustTop.innerHTML=(inst.rankings?.investment_trust_buy_top50||[]).slice(0,5).map((x,i)=>stock(x,i,`${nf.format(x.net_lots??0)}張`)).join('')||'<p class="muted">待更新</p>';
+})();
+</script>
+</body>
+</html>
