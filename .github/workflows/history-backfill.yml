@@ -13,37 +13,43 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-
+    timeout-minutes: 90
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
-
+        with:
+          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
-           fetch-depth: 0
-
+          python-version: "3.12"
+          cache: pip
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Backfill official stock history
+      - name: Backfill sector and hot-stock history
         run: python src/fetchers/fetch_history.py
-
-      - name: Rebuild sector radar with moving averages
+      - name: Rebuild sector radar
         run: python src/analyzers/analyze_sectors.py
-
-      - name: Commit history and sector breadth
+      - name: Rebuild flow persistence
+        run: python src/analyzers/analyze_flow_persistence.py
+      - name: Rebuild market playbook
+        run: python src/analyzers/build_market_playbook.py
+      - name: Rebuild research pools
+        continue-on-error: true
+        run: python src/analyzers/build_research_pool.py
+      - name: Rebuild Decision Engine
+        run: python src/analyzers/build_decision_engine.py
+      - name: Rebuild website data
+        run: python src/builders/build_site.py
+      - name: Commit history and rebuilt analysis
         run: |
           if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
             echo "No changes."
             exit 0
           fi
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/history data/analysis/sectors
-          git commit -m "data: backfill official price history and moving averages"
-
+          git add data/history data/analysis public/data
+          git commit -m "data: backfill priority stocks and rebuild decision cards"
           git pull --rebase origin main
           git push origin HEAD:main
