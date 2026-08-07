@@ -11,7 +11,7 @@ concurrency:
 jobs:
   fetch-market-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v6
         with:
@@ -31,13 +31,13 @@ jobs:
       - name: Analyze capital flow
         continue-on-error: true
         run: python src/analyzers/analyze_capital_flow.py
-      - name: Analyze 5-day flow persistence
-        run: python src/analyzers/analyze_flow_persistence.py
-      - name: Build market playbook
-        run: python src/analyzers/build_market_playbook.py
+      - run: python src/analyzers/analyze_flow_persistence.py
+      - run: python src/analyzers/build_market_playbook.py
       - name: Build research pools
         continue-on-error: true
         run: python src/analyzers/build_research_pool.py
+      - name: Build Decision Engine
+        run: python src/analyzers/build_decision_engine.py
       - run: python src/builders/build_site.py
       - name: Commit generated data and website
         run: |
@@ -48,6 +48,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw data/normalized data/analysis public/data
-          git commit -m "data: update flow persistence and market playbook"
+          git commit -m "data: update decision engine and risk cards"
           git pull --rebase origin main
           git push origin HEAD:main
