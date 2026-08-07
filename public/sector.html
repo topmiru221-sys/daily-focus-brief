@@ -1,4 +1,259 @@
-<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sector Center｜Daily Focus Brief</title><link rel="stylesheet" href="./assets/styles.css"><style>.sector-picker{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.sector-btn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:999px;padding:10px 14px;cursor:pointer}.sector-btn.active{background:var(--accent);color:#071021;font-weight:800}.summary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}.good{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}.role{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:4px 8px;display:inline-block}@media(max-width:900px){.summary-grid{grid-template-columns:repeat(2,1fr)}}</style></head><body>
-<header class="hero"><div><p class="eyebrow">SECTOR INTELLIGENCE CENTER</p><h1 id="pageTitle">族群情報中心</h1><p id="updated" class="muted">資料載入中…</p></div><a class="chip link-chip" href="./">返回首頁</a></header>
-<main class="container"><section class="panel"><div class="section-head"><div><p class="eyebrow">SECTORS</p><h2>選擇族群</h2></div></div><div id="picker" class="sector-picker"></div></section><section id="summary" class="section-block"></section><section class="section-block"><div class="section-head"><div><p class="eyebrow">CONCEPT STOCKS</p><h2>概念股 × Decision × Risk</h2></div></div><p class="muted">Alpha版先把族群成分股與 Decision Engine 串起來。Leader 為目前 Decision Score 較高的研究領先股，不等同「主力」認定。</p><div class="table-wrap"><table><thead><tr><th>角色</th><th>代號</th><th>名稱</th><th>Decision</th><th>收盤</th><th>20MA距離</th><th>60MA距離</th><th>回檔風險</th><th>R/R</th><th>狀態</th></tr></thead><tbody id="stocks"></tbody></table></div></section></main>
-<script>let db=null,current=null;const fmt=v=>v==null?'—':Number(v).toFixed(2);const toneRisk=v=>v==null?'':v<=5?'good':v<=8?'warn':'bad';function querySector(){return new URLSearchParams(location.search).get('id')}function renderPicker(){picker.innerHTML=(db.sectors||[]).map(s=>`<button class="sector-btn ${current&&s.id===current.id?'active':''}" data-id="${s.id}">${s.name}</button>`).join('');document.querySelectorAll('.sector-btn').forEach(b=>b.onclick=()=>select(b.dataset.id,true))}function select(id,push=false){current=(db.sectors||[]).find(s=>s.id===id)||(db.sectors||[])[0];if(!current)return;if(push)history.replaceState(null,'',`?id=${encodeURIComponent(current.id)}`);pageTitle.textContent=current.name+'｜族群情報中心';renderPicker();renderSummary();renderStocks()}function renderSummary(){const s=current,l=s.leader||{};summary.innerHTML=`<article class="panel"><div class="panel-head"><div><p class="eyebrow">${s.id}</p><h2>${s.name}</h2></div><div class="score">${s.today_rank?'#'+s.today_rank:'—'}</div></div><div class="summary-grid"><div class="metric"><span class="muted">今日漲跌</span><strong>${fmt(s.average_change_pct)}%</strong></div><div class="metric"><span class="muted">資金分數</span><strong>${fmt(s.flow_score)}</strong></div><div class="metric"><span class="muted">近5日持續</span><strong>${fmt(s.persistence_ratio_pct)}%</strong></div><div class="metric"><span class="muted">站上60MA</span><strong>${fmt(s.above_60ma_ratio_pct)}%</strong></div><div class="metric"><span class="muted">Decision覆蓋</span><strong>${s.decision_coverage_count}/${s.member_count}</strong></div></div><p class="lead">${s.flow_state||'資金狀態待更新'}｜${s.persistence_state||'持續度資料累積中'}</p>${l.code?`<p>研究領先股：<a href="./decision.html?code=${l.code}"><strong>${l.name||l.code} ${l.code}</strong></a>｜Decision ${l.decision_score??'—'}</p>`:''}</article>`}function renderStocks(){stocks.innerHTML=(current.stocks||[]).map((x,i)=>{const role=i===0&&x.decision_score!=null?'Leader':x.source_pool==='research'?'Research':x.source_pool==='watch'?'Watch':x.source_pool==='general'?'General':'Data pending';return `<tr><td><span class="role">${role}</span></td><td><a href="./decision.html?code=${x.code}">${x.code}</a></td><td><strong>${x.name||x.code}</strong></td><td>${x.decision_score==null?'—':x.decision_score+'｜'+(x.grade||'')}</td><td>${x.close??'—'}</td><td>${x.distance_ma20_pct==null?'—':fmt(x.distance_ma20_pct)+'%'}</td><td>${x.distance_ma60_pct==null?'—':fmt(x.distance_ma60_pct)+'%'}</td><td class="${toneRisk(x.risk_pct)}">${x.risk_pct==null?'—':fmt(x.risk_pct)+'%'}</td><td>${x.rr1??'—'}</td><td>${x.conclusion||((x.risk_flags||[])[0]||'待更新')}</td></tr>`}).join('')}fetch('./data/sector_center.json',{cache:'no-store'}).then(r=>r.json()).then(x=>{db=x;updated.textContent=`資料日期：${x.data_date||'待更新'}｜族群 ${x.sector_count||0} 個`;select(querySector(),false)}).catch(e=>updated.textContent='載入失敗：'+e.message)</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sector Center｜Daily Focus Brief</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<style>
+.sector-picker{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.sector-btn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:999px;padding:10px 14px;cursor:pointer}
+.sector-btn.active{background:var(--accent);color:#071021;font-weight:800}
+.summary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}
+.health-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;margin-top:18px}
+.leader-box{background:var(--panel2);border-radius:16px;padding:18px}
+.leader-score{font-size:2rem;font-weight:900}
+.good{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}
+.role{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:4px 8px;display:inline-block}
+.source-note{font-size:.85rem;color:var(--muted);margin-top:10px}
+.stock-name a{text-decoration:none}.stock-name a:hover{text-decoration:underline}
+.empty-note{padding:18px;color:var(--muted)}
+@media(max-width:900px){.summary-grid{grid-template-columns:repeat(2,1fr)}.health-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div>
+<p class="eyebrow">SECTOR INTELLIGENCE CENTER</p>
+<h1 id="pageTitle">族群情報中心</h1>
+<p id="updated" class="muted">資料載入中…</p>
+</div>
+<a class="chip link-chip" href="./">返回首頁</a>
+</header>
+
+<main class="container">
+<section class="panel">
+<div class="section-head">
+<div><p class="eyebrow">SECTORS</p><h2>選擇族群</h2></div>
+<span id="dataMode" class="chip">載入中</span>
+</div>
+<div id="picker" class="sector-picker"></div>
+</section>
+
+<section id="summary" class="section-block"></section>
+
+<section class="section-block">
+<div class="section-head">
+<div><p class="eyebrow">CONCEPT STOCKS</p><h2>概念股 × Decision × Risk</h2></div>
+</div>
+<p class="muted">先比較風險與位置，再看報酬空間。Leader 為目前 Decision Score 較高的研究領先股，不等同「主力」認定。</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>角色</th><th>代號</th><th>名稱</th><th>Decision</th><th>收盤</th><th>20MA距離</th><th>60MA距離</th><th>回檔風險</th><th>R/R</th><th>狀態</th></tr>
+</thead>
+<tbody id="stocks"></tbody>
+</table>
+</div>
+</section>
+</main>
+
+<script>
+let db=null,current=null;
+const fmt=v=>v==null||Number.isNaN(Number(v))?'—':Number(v).toFixed(2);
+const toneRisk=v=>v==null?'':Number(v)<=5?'good':Number(v)<=8?'warn':'bad';
+const qid=()=>new URLSearchParams(location.search).get('id');
+
+async function json(path){
+ const r=await fetch(path,{cache:'no-store'});
+ if(!r.ok) throw new Error(`${path} ${r.status}`);
+ const type=r.headers.get('content-type')||'';
+ if(!type.includes('json')) throw new Error(`${path} 回傳的不是 JSON`);
+ return r.json();
+}
+
+function mapFallback(sectors,decision,flow,capital){
+ const dmap=new Map((decision.rankings||[]).map(x=>[String(x.code),x]));
+ const fmap=new Map((flow.rankings||[]).map(x=>[String(x.sector_id),x]));
+ const cmap=new Map((capital.rankings||[]).map(x=>[String(x.sector_id),x]));
+
+ const rows=(sectors.rankings||[]).map(s=>{
+   const fp=fmap.get(String(s.id))||{},cap=cmap.get(String(s.id))||{};
+   const members=(s.members||[]).length?s.members:(s.representatives||[]).map(x=>x.code);
+   const reps=new Map((s.representatives||[]).map(x=>[String(x.code),x]));
+
+   const stocks=(members||[]).map(code=>{
+      code=String(code);
+      const d=dmap.get(code),rep=reps.get(code)||{};
+      if(!d) return {
+        code,name:rep.name||code,market:rep.market||null,
+        decision_score:null,grade:null,confidence_pct:0,
+        source_pool:'missing',risk_flags:['尚未完成 Decision Card']
+      };
+      const t=d.technical||{};
+      return {
+        code,name:d.name||rep.name||code,market:d.market||rep.market,
+        decision_score:d.decision_score,grade:d.grade,confidence_pct:d.confidence_pct,
+        source_pool:d.source_pool,close:t.close,price_date:t.price_date,
+        ma20:t.ma20,ma60:t.ma60,distance_ma20_pct:t.distance_ma20_pct,
+        distance_ma60_pct:t.distance_ma60_pct,risk_pct:t.risk_pct,
+        rr1:t.rr1,volume_ratio20:t.volume_ratio20,
+        risk_flags:d.risk_flags||[],conclusion:d.conclusion
+      };
+   }).sort((a,b)=>(b.decision_score??-1)-(a.decision_score??-1));
+
+   const covered=stocks.filter(x=>x.decision_score!=null);
+   return {
+     id:s.id,name:s.name,member_count:stocks.length,
+     decision_coverage_count:covered.length,
+     average_decision_score:covered.length?covered.reduce((a,x)=>a+x.decision_score,0)/covered.length:null,
+     today_rank:s.rank,average_change_pct:s.average_change_pct,
+     advance_ratio_pct:s.advance_ratio_pct,
+     above_20ma_ratio_pct:s.above_20ma_ratio_pct,
+     above_60ma_ratio_pct:s.above_60ma_ratio_pct,
+     strong_stock_count:s.strong_stock_count,classification:s.classification,
+     flow_score:cap.flow_score,flow_state:cap.flow_state,
+     persistence_score:fp.average_score,persistence_ratio_pct:fp.persistence_ratio_pct,
+     persistence_state:fp.state,score_change:fp.score_change,
+     effective_days:fp.effective_days,leader:covered[0]||null,stocks
+   };
+ });
+
+ return {
+   schema_version:'5.2.1-fallback',
+   data_date:decision.data_date||sectors.run_date,
+   status:'ok',
+   sector_count:rows.length,
+   sectors:rows
+ };
+}
+
+async function loadDB(){
+ try{
+   const primary=await json('./data/sector_center.json');
+   dataMode.textContent='Sector Center';
+   return primary;
+ }catch(primaryError){
+   try{
+     const [s,d,f,c]=await Promise.all([
+       json('./data/sectors.json'),
+       json('./data/decision.json'),
+       json('./data/flow_persistence.json'),
+       json('./data/capital_flow.json')
+     ]);
+     dataMode.textContent='Fallback';
+     return mapFallback(s,d,f,c);
+   }catch(fallbackError){
+     throw new Error(`主資料失敗：${primaryError.message}；回退資料也失敗：${fallbackError.message}`);
+   }
+ }
+}
+
+function renderPicker(){
+ picker.innerHTML=(db.sectors||[]).map(s=>
+   `<button class="sector-btn ${current&&s.id===current.id?'active':''}" data-id="${s.id}">${s.name}</button>`
+ ).join('');
+ document.querySelectorAll('.sector-btn').forEach(b=>b.onclick=()=>select(b.dataset.id,true));
+}
+
+function select(id,push=false){
+ current=(db.sectors||[]).find(s=>s.id===id)||(db.sectors||[])[0];
+ if(!current){
+   summary.innerHTML='<article class="panel empty-note">目前沒有族群資料。</article>';
+   return;
+ }
+ if(push) history.replaceState(null,'',`?id=${encodeURIComponent(current.id)}`);
+ pageTitle.textContent=current.name+'｜族群情報中心';
+ renderPicker();
+ renderSummary();
+ renderStocks();
+}
+
+function renderSummary(){
+ const s=current,l=s.leader||{};
+ const risk=l.risk_pct;
+ const riskLabel=risk==null?'待更新':risk<=5?'低':risk<=8?'中':'高';
+ const riskClass=risk==null?'':risk<=5?'good':risk<=8?'warn':'bad';
+
+ summary.innerHTML=`<article class="panel">
+ <div class="panel-head">
+   <div><p class="eyebrow">${s.id}</p><h2>${s.name}</h2></div>
+   <div class="score">${s.today_rank?'#'+s.today_rank:'—'}</div>
+ </div>
+
+ <div class="summary-grid">
+   <div class="metric"><span class="muted">今日漲跌</span><strong>${fmt(s.average_change_pct)}%</strong></div>
+   <div class="metric"><span class="muted">資金分數</span><strong>${fmt(s.flow_score)}</strong></div>
+   <div class="metric"><span class="muted">近5日持續</span><strong>${fmt(s.persistence_ratio_pct)}%</strong></div>
+   <div class="metric"><span class="muted">站上60MA</span><strong>${fmt(s.above_60ma_ratio_pct)}%</strong></div>
+   <div class="metric"><span class="muted">Decision覆蓋</span><strong>${s.decision_coverage_count??0}/${s.member_count??0}</strong></div>
+ </div>
+
+ <div class="health-grid">
+   <div>
+     <p class="lead">${s.flow_state||'資金狀態待更新'}｜${s.persistence_state||'持續度資料累積中'}</p>
+     <div class="reason-list">
+       族群分類：${s.classification||'待更新'}<br>
+       資金分數變化：${fmt(s.score_change)}<br>
+       有效歷史天數：${s.effective_days??'—'}
+     </div>
+   </div>
+
+   <div class="leader-box">
+     <p class="eyebrow">CURRENT RESEARCH LEADER</p>
+     ${l.code?`
+       <h3><a href="./decision.html?code=${l.code}">${l.name||l.code} ${l.code}</a></h3>
+       <div class="leader-score">${l.decision_score??'—'}｜${l.grade||''}</div>
+       <p>
+         回檔風險：<span class="${riskClass}">${risk==null?'—':fmt(risk)+'%'}（${riskLabel}）</span><br>
+         第一目標 R/R：${l.rr1??'—'}<br>
+         價格日期：${l.price_date||'待更新'}
+       </p>`:'<p>尚無完整 Decision Card。</p>'}
+   </div>
+ </div>
+
+ <p class="source-note">
+ 資料日期：${db.data_date||'待更新'}。Decision 高不代表適合追價；仍應優先比較結構失效距離與風險報酬。
+ </p>
+ </article>`;
+}
+
+function renderStocks(){
+ const rows=current.stocks||[];
+ if(!rows.length){
+   stocks.innerHTML='<tr><td colspan="10" class="empty-note">目前沒有成分股資料。</td></tr>';
+   return;
+ }
+
+ stocks.innerHTML=rows.map((x,i)=>{
+   const role=i===0&&x.decision_score!=null?'Leader':
+     x.source_pool==='research'?'Research':
+     x.source_pool==='watch'?'Watch':
+     x.source_pool==='general'?'General':'Data pending';
+
+   return `<tr>
+   <td><span class="role">${role}</span></td>
+   <td><a href="./decision.html?code=${x.code}">${x.code}</a></td>
+   <td class="stock-name"><a href="./decision.html?code=${x.code}"><strong>${x.name||x.code}</strong></a></td>
+   <td>${x.decision_score==null?'—':x.decision_score+'｜'+(x.grade||'')}</td>
+   <td>${x.close??'—'}</td>
+   <td>${x.distance_ma20_pct==null?'—':fmt(x.distance_ma20_pct)+'%'}</td>
+   <td>${x.distance_ma60_pct==null?'—':fmt(x.distance_ma60_pct)+'%'}</td>
+   <td class="${toneRisk(x.risk_pct)}">${x.risk_pct==null?'—':fmt(x.risk_pct)+'%'}</td>
+   <td>${x.rr1??'—'}</td>
+   <td>${x.conclusion||((x.risk_flags||[])[0]||'待更新')}</td>
+   </tr>`;
+ }).join('');
+}
+
+loadDB().then(x=>{
+ db=x;
+ updated.textContent=`資料日期：${x.data_date||'待更新'}｜族群 ${x.sector_count||0} 個`;
+ select(qid(),false);
+}).catch(e=>{
+ updated.textContent='載入失敗：'+e.message;
+ summary.innerHTML=`<article class="panel"><h2>族群資料暫時無法載入</h2><p class="warning-list">${e.message}</p></article>`;
+});
+</script>
+</body>
+</html>
