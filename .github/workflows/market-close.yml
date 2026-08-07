@@ -14,9 +14,12 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v6
-        with: {fetch-depth: 0}
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
-        with: {python-version: "3.12", cache: pip}
+        with:
+          python-version: "3.12"
+          cache: pip
       - run: pip install -r requirements.txt
       - run: python src/fetchers/fetch_twse.py
       - run: python src/fetchers/fetch_tpex.py
@@ -25,15 +28,22 @@ jobs:
       - run: python src/analyzers/analyze_institutional.py
       - run: python src/analyzers/analyze_market_direction.py
       - run: python src/analyzers/analyze_sectors.py
-      - run: python src/analyzers/analyze_capital_flow.py
-      - run: python src/analyzers/build_research_pool.py
+      - name: Analyze capital flow
+        continue-on-error: true
+        run: python src/analyzers/analyze_capital_flow.py
+      - name: Build research pools
+        continue-on-error: true
+        run: python src/analyzers/build_research_pool.py
       - run: python src/builders/build_site.py
       - name: Commit generated data and website
         run: |
-          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then exit 0; fi
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo "No changes."
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw data/normalized data/analysis public/data
-          git commit -m "data: update market flow research and website"
+          git commit -m "data: update complete decision dashboard"
           git pull --rebase origin main
           git push origin HEAD:main
