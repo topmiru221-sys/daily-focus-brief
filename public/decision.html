@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decision Card｜Daily Focus Brief</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<style>
+.search-row{display:flex;gap:10px;max-width:600px}.search-row input{flex:1;padding:13px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:var(--text)}
+.component-row{display:grid;grid-template-columns:140px 1fr 60px;gap:12px;align-items:center;padding:10px 0}.bar{height:10px;background:var(--panel2);border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:var(--accent)}
+.level-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.level{background:var(--panel2);border-radius:14px;padding:14px}
+@media(max-width:700px){.component-row{grid-template-columns:100px 1fr 45px}.level-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero"><div><p class="eyebrow">DECISION ENGINE ALPHA</p><h1>個股 Decision Card</h1><p class="muted">分數可追溯、風險先於報酬。</p></div><a class="chip link-chip" href="./">返回首頁</a></header>
+<main class="container">
+<section class="panel">
+<div class="search-row"><input id="stockCode" placeholder="輸入股票代號，例如 2383"><button id="searchBtn" class="tab active">查看</button></div>
+<p id="statusText" class="muted">載入資料中…</p>
+</section>
+<section id="decisionRoot" class="section-block"></section>
+</main>
+<script>
+const fmt=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:2});let data;
+const q=new URLSearchParams(location.search).get('code');if(q)stockCode.value=q;
+function box(label,value,unit=''){return `<div class="level"><span class="muted">${label}</span><strong>${value??'—'}${value!=null?unit:''}</strong></div>`}
+function render(item){
+ if(!item){decisionRoot.innerHTML='<article class="panel">找不到這個代號，或尚未進入研究／觀察池。</article>';return}
+ const t=item.technical||{}, comps=item.components||{};
+ decisionRoot.innerHTML=`
+ <section class="dashboard-grid">
+ <article class="panel"><p class="eyebrow">${item.market||''} ${item.code}</p><div class="panel-head"><h2>${item.name||item.code}</h2><div class="score">${item.decision_score}｜${item.grade}</div></div>
+ <p class="lead">${item.conclusion}</p><p class="muted">信心度 ${item.confidence_pct}%｜分析資料 ${data.data_date||'待更新'}｜價格資料 ${t.price_date||'待更新'}</p>
+ ${(item.risk_flags||[]).map(x=>`<div class="risk-flag">⚠ ${x}</div>`).join('')}</article>
+ <article class="panel"><h2>技術位置</h2><div class="level-grid">${box('收盤價',t.close)}${box('20MA',t.ma20)}${box('60MA',t.ma60)}${box('距20MA',t.distance_ma20_pct,'%')}${box('距60MA',t.distance_ma60_pct,'%')}${box('20日量比',t.volume_ratio20,'x')}</div></article>
+ </section>
+ <section class="two-col section-block">
+ <article class="panel"><h2>決策分數拆解</h2>${Object.entries(comps).map(([k,v])=>`<div class="component-row"><span>${k}</span><div class="bar"><span style="width:${v}%"></span></div><strong>${fmt.format(v)}</strong></div>`).join('')}</article>
+ <article class="panel"><h2>交易風險框架</h2><div class="level-grid">${box('建議失效價',t.suggested_stop)}${box('回檔風險',t.risk_pct,'%')}${box('第一目標',t.target1)}${box('第一目標空間',t.reward1_pct,'%')}${box('第一目標 R/R',t.rr1)}${box('第二目標 R/R',t.rr2)}</div></article>
+ </section>
+ <section class="two-col section-block">
+ <article class="panel"><h2>支撐</h2>${(t.supports||[]).map(x=>`<div class="signal"><span>${x.label}</span><strong>${x.price}（${x.distance_pct}%）</strong></div>`).join('')||'待更新'}</article>
+ <article class="panel"><h2>壓力</h2>${(t.resistances||[]).map(x=>`<div class="signal"><span>${x.label}</span><strong>${x.price}（+${x.upside_pct}%）</strong></div>`).join('')||'待更新'}</article>
+ </section>
+ <section class="panel section-block"><h2>為什麼進入名單？</h2><div class="reason-list">${(item.reasons||[]).map(x=>`✓ ${x}`).join('<br>')}</div></section>`;
+}
+function find(){const code=stockCode.value.trim();render((data?.rankings||[]).find(x=>x.code===code))}
+fetch('./data/decision.json',{cache:'no-store'}).then(r=>r.json()).then(x=>{data=x;statusText.textContent=`資料日期：${x.data_date||'待更新'}｜共 ${x.decision_count||0} 檔`;if(stockCode.value)find()}).catch(e=>statusText.textContent='載入失敗：'+e.message);
+searchBtn.onclick=find;stockCode.onkeydown=e=>{if(e.key==='Enter')find()};
+</script>
+</body></html>
