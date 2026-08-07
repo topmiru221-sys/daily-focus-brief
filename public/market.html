@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Center｜Daily Focus Brief</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<style>
+.center-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.module-card{background:var(--panel2);border-radius:14px;padding:15px}.module-card strong{display:block;font-size:1.2rem;margin-top:5px}
+.data-status{font-size:.84rem;color:var(--muted);margin-top:8px}.pending{color:var(--yellow)}
+@media(max-width:850px){.center-grid,.module-grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header class="hero"><div><p class="eyebrow">MARKET CENTER</p><h1>市場中心</h1><p id="updated" class="muted">資料載入中…</p></div><a class="chip link-chip" href="./">返回首頁</a></header>
+<main class="container">
+<section class="center-grid">
+<article class="panel"><div class="panel-head"><div><p class="eyebrow">TAIWAN MARKET</p><h2>台股市場狀態</h2></div><span id="marketBadge" class="market-badge neutral">待更新</span></div><p id="headline" class="lead">等待市場資料。</p><div id="marketSignals" class="module-grid"></div><div id="warnings" class="warning-list"></div></article>
+<article class="panel"><p class="eyebrow">BASELINE MODULES</p><h2>原始市場模組</h2><div id="baselineModules" class="module-grid"></div></article>
+</section>
+
+<section class="section-block"><div class="section-head"><div><p class="eyebrow">FOCUS</p><h2>前一交易日資金聚焦</h2></div></div><div id="focus" class="card-grid"></div></section>
+
+<section class="section-block"><div class="section-head"><div><p class="eyebrow">ETF / WARRANT</p><h2>ETF 與權證</h2></div></div><div class="two-col">
+<article class="panel"><h3>ETF</h3><div id="etfBox"></div></article>
+<article class="panel"><h3>權證</h3><div id="warrantBox"></div></article>
+</div></section>
+</main>
+<footer>市場中心只顯示已取得資料；未取得項目明確標示待接。</footer>
+<script src="./assets/baseline-common.js"></script>
+<script>
+(async()=>{
+ const [m,p,vix,pc,etf,warrant]=await Promise.all(["market","playbook","vix","putcall","etf","warrant"].map(DFB.load));
+ updated.textContent=`市場資料：${DFB.dateOf(m)}｜劇本：${DFB.dateOf(p)}`;
+ marketBadge.textContent=m.verdict||"待更新";
+ marketBadge.className="market-badge "+(m.verdict==="偏多"?"positive":m.verdict==="偏空"?"negative":"neutral");
+ headline.textContent=p.headline||"市場方向資料尚未完整。";
+ marketSignals.innerHTML=(m.signals||[]).map(x=>`<div class="module-card"><span class="muted">${x.name}</span><strong>${DFB.fmt(x.value)} ${x.unit||""}</strong></div>`).join("")||'<div class="module-card">市場訊號待更新</div>';
+ warnings.innerHTML=(m.warnings||[]).map(x=>"⚠ "+x).join("<br>");
+ const mods=[["VIX",vix],["Put / Call",pc],["ETF",etf],["權證",warrant]];
+ baselineModules.innerHTML=mods.map(([n,x])=>{const s=DFB.state(x);return `<div class="module-card"><span>${s[0]} ${n}</span><strong>${s[1]}</strong><div class="data-status">資料日期：${DFB.dateOf(x)}</div></div>`}).join("");
+ focus.innerHTML=(p.focus_sectors||[]).slice(0,6).map(x=>`<article class="panel"><h3>${x.name}</h3><div class="score">${x.latest_score??"—"}</div><p class="muted">${x.state||""}<br>持續度 ${x.persistence_ratio_pct??"—"}%</p></article>`).join("")||'<article class="panel">待更新</article>';
+ function renderRaw(target,x,label){
+   const s=DFB.state(x);
+   if(x.status==="missing"){target.innerHTML=`<p class="pending">🟡 ${label} 今日資料尚未接入。頁面保留，後續只需接 JSON 即可。</p>`;return}
+   const rows=x.rankings||x.items||x.data||[];
+   if(Array.isArray(rows)&&rows.length){target.innerHTML=rows.slice(0,10).map((r,i)=>`<div class="flow-row"><span>#${i+1} ${r.name||r.code||r.symbol||"—"}</span><strong>${r.change_pct!=null?DFB.fmt(r.change_pct)+"%":DFB.fmt(r.value)}</strong></div>`).join("");}
+   else target.innerHTML=`<p>${s[0]} ${s[1]}</p><p class="muted">資料日期：${DFB.dateOf(x)}</p>`;
+ }
+ renderRaw(etfBox,etf,"ETF"); renderRaw(warrantBox,warrant,"權證");
+})();
+</script></body></html>

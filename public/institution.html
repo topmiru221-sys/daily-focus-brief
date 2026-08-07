@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Institution Center｜Daily Focus Brief</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<style>
+.center-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.status-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.status-card{background:var(--panel2);border-radius:14px;padding:14px}.pending{color:var(--yellow)}
+@media(max-width:900px){.center-grid,.status-grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header class="hero"><div><p class="eyebrow">INSTITUTION CENTER</p><h1>籌碼中心</h1><p id="updated" class="muted">資料載入中…</p></div><a class="chip link-chip" href="./">返回首頁</a></header>
+<main class="container">
+<section class="panel"><div class="panel-head"><div><p class="eyebrow">DATA STATUS</p><h2>今日盤後籌碼</h2></div><span id="coverage" class="chip">載入中</span></div><div id="statusGrid" class="status-grid"></div></section>
+
+<section class="section-block"><div class="section-head"><div><p class="eyebrow">FOREIGN / TRUST</p><h2>外資／投信 Top 50</h2></div></div>
+<div class="tabs"><button class="tab active" data-tab="foreign_buy_top50">外資買超</button><button class="tab" data-tab="foreign_sell_top50">外資賣超</button><button class="tab" data-tab="investment_trust_buy_top50">投信買超</button><button class="tab" data-tab="investment_trust_sell_top50">投信賣超</button></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>市場</th><th>代碼</th><th>名稱</th><th>買賣超（張）</th></tr></thead><tbody id="table"></tbody></table></div></section>
+
+<section class="section-block"><div class="section-head"><div><p class="eyebrow">MARGIN / LENDING</p><h2>融資融券與借券</h2></div></div><div class="center-grid">
+<article class="panel"><h3>融資融券</h3><div id="marginBox"></div></article>
+<article class="panel"><h3>借券</h3><div id="lendingBox"></div></article>
+</div></section>
+</main>
+<footer>18:00 以當下可取得資料建置；未公布項目不延後整站發布。</footer>
+<script src="./assets/baseline-common.js"></script>
+<script>
+let inst={};
+function renderTab(key){const rows=inst.rankings?.[key]||[];table.innerHTML=rows.map(x=>`<tr><td>${x.rank}</td><td>${x.market||""}</td><td>${x.code}</td><td>${x.name}</td><td>${DFB.fmt(x.net_lots,3)}</td></tr>`).join("")||'<tr><td colspan="5">待更新</td></tr>'}
+(async()=>{
+ const [i,margin,lending]=await Promise.all(["institutional","margin","securities_lending"].map(DFB.load));inst=i;
+ updated.textContent=`法人資料日期：${DFB.dateOf(i)}｜產生：${DFB.genOf(i)}`;
+ coverage.textContent=i.coverage?.full_market_coverage?`全市場 ${DFB.fmt(i.coverage.parsed_rows,0)} 筆`:"資料部分";
+ const cards=[["外資/投信",i],["融資融券",margin],["借券",lending],["更新策略",{status:"ok",data_date:"18:00"}]];
+ statusGrid.innerHTML=cards.map(([n,x])=>{const s=DFB.state(x);return `<div class="status-card"><span>${s[0]} ${n}</span><strong>${s[1]}</strong><div class="muted">${n==="更新策略"?"每日18:00一次":`資料：${DFB.dateOf(x)}`}</div></div>`}).join("");
+ renderTab("foreign_buy_top50");
+ document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderTab(b.dataset.tab)});
+ function pendingBox(el,x,label){
+   if(x.status==="missing"){el.innerHTML=`<p class="pending">🟡 ${label} JSON 尚未接入。18:00 若官方資料尚未取得，就保留此狀態，不阻擋整站更新。</p>`;return}
+   el.innerHTML=`<p>🟢 已取得資料</p><p class="muted">資料日期：${DFB.dateOf(x)}｜最後建置：${DFB.genOf(x)}</p>`;
+ }
+ pendingBox(marginBox,margin,"融資融券"); pendingBox(lendingBox,lending,"借券");
+})();
+</script></body></html>

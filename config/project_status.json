@@ -1,16 +1,16 @@
 {
-  "schema_version": "5.4.21",
-  "version": "V5.4.21 Morning Brief Recovery",
-  "updated_at": "2026-08-07T16:21:00+08:00",
-  "overall_progress_pct": 50.1,
+  "schema_version": "5.4.22",
+  "version": "V5.4.22 Stable Baseline",
+  "updated_at": "2026-08-07T16:28:00+08:00",
+  "overall_progress_pct": 56.0,
   "baseline_module_count": 17,
   "summary": {
-    "usable": 6,
-    "partial": 10,
+    "usable": 8,
+    "partial": 8,
     "not_started": 1
   },
-  "current_sprint": "Baseline Recovery",
-  "sprint_goal": "先恢復最初 SITE 基礎，再逐步融合後續功能。",
+  "current_sprint": "SITE Baseline Recovery",
+  "sprint_goal": "先把 SITE 原始模組全部站起來，再補深度。",
   "modules": [
     {
       "id": "morning",
@@ -19,7 +19,7 @@
       "status": "partial",
       "progress": 60,
       "priority": "P0",
-      "note": "晨報 Alpha 已實體化；盤後市場劇本、族群、法人與 Decision 已接入，全球市場/VIX/PutCall等待補齊。"
+      "note": "Alpha 可用，全球市場/VIX/PutCall待補。"
     },
     {
       "id": "close",
@@ -28,70 +28,70 @@
       "status": "usable",
       "progress": 85,
       "priority": "P0",
-      "note": "盤後工作台與市場劇本可用。"
+      "note": "可用。"
     },
     {
       "id": "institution50",
       "name": "外資／投信 Top 50",
       "group": "原始 SITE",
       "status": "usable",
-      "progress": 90,
+      "progress": 92,
       "priority": "P0",
-      "note": "外資與投信 Top50 已可用。"
+      "note": "全市場 Top50 可用。"
     },
     {
       "id": "margin",
       "name": "融資融券",
       "group": "原始 SITE",
       "status": "partial",
-      "progress": 35,
+      "progress": 45,
       "priority": "P0",
-      "note": "待恢復完整實體模組。"
+      "note": "Institution Center 容器已恢復，待資料 JSON。"
     },
     {
       "id": "securities_lending",
       "name": "借券",
       "group": "原始 SITE",
       "status": "partial",
-      "progress": 25,
+      "progress": 40,
       "priority": "P0",
-      "note": "待恢復。"
+      "note": "Institution Center 容器已恢復，待資料 JSON。"
     },
     {
       "id": "putcall",
       "name": "Put / Call",
       "group": "原始 SITE",
       "status": "partial",
-      "progress": 25,
+      "progress": 40,
       "priority": "P0",
-      "note": "待恢復。"
+      "note": "Market Center 容器已恢復，待資料 JSON。"
     },
     {
       "id": "vix",
       "name": "VIX",
       "group": "原始 SITE",
       "status": "partial",
-      "progress": 20,
+      "progress": 40,
       "priority": "P0",
-      "note": "待恢復。"
+      "note": "Market Center 容器已恢復，待資料 JSON。"
     },
     {
       "id": "warrant",
       "name": "權證",
       "group": "原始 SITE",
       "status": "partial",
-      "progress": 25,
+      "progress": 40,
       "priority": "P0",
-      "note": "待恢復。"
+      "note": "Market Center 容器已恢復，待原資料接回。"
     },
     {
       "id": "etf",
       "name": "ETF",
       "group": "原始 SITE",
       "status": "partial",
-      "progress": 30,
+      "progress": 45,
       "priority": "P0",
-      "note": "待恢復。"
+      "note": "Market Center 容器已恢復，待原資料接回。"
     },
     {
       "id": "sector",
@@ -106,10 +106,10 @@
       "id": "scanner",
       "name": "盤後掃描",
       "group": "原始 SITE",
-      "status": "partial",
-      "progress": 70,
+      "status": "usable",
+      "progress": 75,
       "priority": "P0",
-      "note": "已由 Decision/研究池承接部分。"
+      "note": "Decision/研究池承接第一階段。"
     },
     {
       "id": "breadth",
@@ -118,7 +118,7 @@
       "status": "partial",
       "progress": 30,
       "priority": "P0",
-      "note": "全市場 Breadth 尚未完成。"
+      "note": "下一階段。"
     },
     {
       "id": "history",
@@ -136,7 +136,7 @@
       "status": "usable",
       "progress": 80,
       "priority": "P0",
-      "note": "研究／觀察／避免池可用。"
+      "note": "可用。"
     },
     {
       "id": "risk",
@@ -145,7 +145,7 @@
       "status": "usable",
       "progress": 78,
       "priority": "P0",
-      "note": "Trading Plan Alpha 可用。"
+      "note": "可用。"
     },
     {
       "id": "decision",
@@ -154,7 +154,7 @@
       "status": "usable",
       "progress": 88,
       "priority": "P0",
-      "note": "81檔可用。"
+      "note": "可用。"
     },
     {
       "id": "assistant",
@@ -163,38 +163,44 @@
       "status": "not_started",
       "progress": 0,
       "priority": "P2",
-      "note": "暫後排。"
+      "note": "後排。"
     }
   ],
   "current_queue": [
     {
       "order": 1,
-      "module": "Development Dashboard",
+      "module": "Market / Institution Center",
       "state": "done",
-      "target": "建立進度來源"
+      "target": "原始模組入口與容器恢復"
     },
     {
       "order": 2,
-      "module": "晨報",
-      "state": "alpha_done",
-      "target": "頁面已恢復；下一階段補全球市場/VIX/PutCall"
+      "module": "融資融券／借券／VIX／PutCall 資料",
+      "state": "next",
+      "target": "接回真實資料 JSON"
     },
     {
       "order": 3,
-      "module": "融資融券／借券／PutCall／VIX",
+      "module": "ETF／權證資料",
       "state": "next",
-      "target": "恢復原始籌碼與風險基礎"
+      "target": "接回原始資料"
     },
     {
       "order": 4,
-      "module": "ETF／權證",
+      "module": "市場廣度",
       "state": "todo",
-      "target": "恢復原始追蹤模組"
+      "target": "全市場 Breadth"
+    },
+    {
+      "order": 5,
+      "module": "歷史資料庫",
+      "state": "todo",
+      "target": "擴大覆蓋"
     }
   ],
   "known_issues": [
-    "晨報全球市場、VIX、Put/Call、ADR、美元與美債尚未接回。",
-    "MA120／MA240 歷史資料不足。",
-    "Decision 搜尋目前81檔。"
+    "融資融券、借券、VIX、Put/Call、ETF、權證目前若無 JSON，頁面會顯示待接，不虛構。",
+    "Decision 搜尋目前81檔。",
+    "MA120/240 歷史不足。"
   ]
 }
