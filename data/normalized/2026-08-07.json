@@ -1,6 +1,6 @@
 {
   "schema_version": "2.4",
-  "generated_at": "2026-08-07T11:03:58.764459+08:00",
+  "generated_at": "2026-08-07T11:21:28.302754+08:00",
   "run_date": "2026-08-07",
   "official_data_date": "2026-08-06",
   "freshness": "delayed",
@@ -13,10 +13,8 @@
       "trade_value_twd": 974054973424.0,
       "trade_volume": 10650583944.0,
       "transactions": 4630303.0,
-      "source_status": "partial",
-      "source_errors": {
-        "institutional_detail": "Unable to fetch TWSE data after 3 attempts: HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=45)"
-      }
+      "source_status": "ok",
+      "source_errors": {}
     },
     "tpex": {
       "status": "pending",
@@ -32,33 +30,37 @@
   "sources": {
     "twse": {
       "name": "twse",
-      "status": "partial",
+      "status": "ok",
       "file": "data/raw/twse/2026-08-07.json",
-      "generated_at": "2026-08-07T11:00:37.276922+08:00",
+      "generated_at": "2026-08-07T11:18:12.947415+08:00",
       "snapshot_date": null,
-      "errors": {
-        "institutional_detail": "Unable to fetch TWSE data after 3 attempts: HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=45)"
-      }
+      "errors": {}
     },
     "tpex": {
       "name": "tpex",
-      "status": "ok",
+      "status": "partial",
       "file": "data/raw/tpex/2026-08-07.json",
-      "generated_at": "2026-08-07T11:03:21.733802+08:00",
+      "generated_at": "2026-08-07T11:19:36.612928+08:00",
       "snapshot_date": "2026-08-07",
-      "errors": {}
+      "errors": {
+        "market_highlight": "Unable to fetch TPEx data after 3 attempts: 520 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/tpex_mainborad_highlight",
+        "daily_close_quotes": "Unable to fetch TPEx data after 3 attempts: 520 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes",
+        "daily_trading_index": "Unable to fetch TPEx data after 3 attempts: 520 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index",
+        "institutional_detail": "Unable to fetch TPEx data after 3 attempts: 520 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/tpex_3insti_daily_trading",
+        "investment_trust_trading": "Unable to fetch TPEx data after 3 attempts: 520 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/tpex_3insti_trading",
+        "margin_balance": "Unable to fetch TPEx data after 3 attempts: 520 Server Error: <none> for url: https://www.tpex.org.tw/openapi/v1/tpex_mainboard_margin_balance"
+      }
     },
     "taifex": {
       "name": "taifex",
       "status": "ok",
       "file": "data/raw/taifex/2026-08-07.json",
-      "generated_at": "2026-08-07T11:03:37.850001+08:00",
+      "generated_at": "2026-08-07T11:21:24.581778+08:00",
       "snapshot_date": "2026-08-07",
       "errors": {}
     }
   },
   "warnings": [
-    "官方最新資料日期晚於執行日期，標示為延遲資料",
-    "TWSE 法人資料尚未完整取得"
+    "官方最新資料日期晚於執行日期，標示為延遲資料"
   ]
 }
