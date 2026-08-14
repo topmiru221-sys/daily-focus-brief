@@ -64,43 +64,67 @@ def build_lending(twse):
         u=f"https://www.twse.com.tw/exchangeReport/TWT93U?response=json&date={d}"
         j=requests.get(u,headers={"User-Agent":"Mozilla/5.0"},timeout=25).json()
         fields=j.get("fields") or []; data=j.get("data") or []
-        items=[]; total=0
+        items=[]; official_total=None
         for row in data:
-            rec=dict(zip(fields,row))
             code=str(row[0]).strip() if row else ""
             name=str(row[1]).strip() if len(row)>1 else ""
-            # TWT93U layout: code,name, 6 short-sale cols, then lending previous/sell/return/adjust/balance/limit
             bal=num(row[12]) if len(row)>12 else None
             sold=num(row[9]) if len(row)>9 else None
             returned=num(row[10]) if len(row)>10 else None
-            if bal is not None:
-                total+=bal
+            if name=="合計":
+                official_total=bal
+                continue
+            if bal is not None and code:
                 items.append({"code":code,"name":name,"lending_sell":sold,"returned":returned,"balance":bal})
         items.sort(key=lambda x:x["balance"] or 0,reverse=True)
+        calc_total=sum((x["balance"] or 0) for x in items)
+        total=official_total if official_total is not None else calc_total
         return {"status":"ok" if items else "pending","data_date":twse.get("official_data_date"),
                 "generated_at":datetime.now(TZ).isoformat(),"source":"TWSE TWT93U",
-                "summary":{"lending_sell_balance":total} if items else {},"items":items[:50]}
+                "summary":{"lending_sell_balance":total,"calculated_item_total":calc_total} if items else {},
+                "items":items[:50],
+                "note":"summary 優先採 TWSE 合計列；合計列不再混入個股排行與重複加總。"}
     except Exception as e:
         return {"status":"pending","data_date":twse.get("official_data_date"),"generated_at":datetime.now(TZ).isoformat(),
                 "source":"TWSE TWT93U","error":str(e)}
 
 def classify(twse):
-    rows=twse.get("datasets",{}).get("stock_prices",[]); etf=[]; warrant=[]
+    rows=twse.get("datasets",{}).get("stock_prices",[]); etf=[]
     for r in rows if isinstance(rows,list) else []:
         code=str(first(r,"Code","證券代號","股票代號") or ""); name=str(first(r,"Name","證券名稱","股票名稱") or "")
         item={"code":code,"name":name,"volume":num(first(r,"TradeVolume","成交股數","成交量")) or 0,
               "change":num(first(r,"Change","漲跌價差","ChangePercent"))}
-        # ETFs/funds: common 00xxxx codes, including active A/B/D suffix products.
         is_etf=bool(re.fullmatch(r"00\d{3}[A-Z]?",code)) or "ETF" in name.upper()
-        # TWSE warrants are normally 6 chars and names explicitly contain 購/售.
-        is_warrant=bool(re.fullmatch(r"\d{5,6}[A-Z]?",code)) and ("購" in name or "售" in name) and not is_etf
         if is_etf:etf.append(item)
-        if is_warrant:warrant.append(item)
-    etf.sort(key=lambda x:x["volume"],reverse=True); warrant.sort(key=lambda x:x["volume"],reverse=True)
+    etf.sort(key=lambda x:x["volume"],reverse=True)
     d=twse.get("official_data_date"); now=datetime.now(TZ).isoformat()
-    return ({"status":"ok" if etf else "pending","data_date":d,"generated_at":now,"source":"TWSE STOCK_DAY_ALL","items":etf[:30]},
-            {"status":"ok" if warrant else "pending","data_date":d,"generated_at":now,"source":"TWSE STOCK_DAY_ALL",
-             "items":warrant[:30],"note":None if warrant else "STOCK_DAY_ALL 未提供可辨識權證時維持 pending，不以 ETF 代替。"})
+    return {"status":"ok" if etf else "pending","data_date":d,"generated_at":now,
+            "source":"TWSE STOCK_DAY_ALL","items":etf[:30]}
+
+def build_warrant(twse):
+    try:
+        u="https://openapi.twse.com.tw/v1/opendata/t187ap42_L"
+        rows=requests.get(u,headers={"User-Agent":"Mozilla/5.0"},timeout=30).json()
+        items=[]
+        for r in rows if isinstance(rows,list) else []:
+            if not isinstance(r,dict): continue
+            code=str(first(r,"權證代號","證券代號","WarrantCode","Code") or "").strip()
+            name=str(first(r,"權證名稱","證券名稱","WarrantName","Name") or "").strip()
+            vol=num(first(r,"成交量","成交股數","TradeVolume","交易量"))
+            amount=num(first(r,"成交金額","TradeValue","交易金額"))
+            underlying=str(first(r,"標的證券代號","標的代號","UnderlyingCode","標的證券") or "").strip()
+            if code:
+                items.append({"code":code,"name":name,"underlying":underlying,
+                              "volume":vol or 0,"trade_value":amount})
+        items.sort(key=lambda x:(x["volume"] or 0),reverse=True)
+        return {"status":"ok" if items else "pending","data_date":twse.get("official_data_date"),
+                "generated_at":datetime.now(TZ).isoformat(),
+                "source":"TWSE OpenAPI t187ap42_L 上市認購(售)權證每日成交資料檔",
+                "items":items[:50],"row_count":len(items)}
+    except Exception as e:
+        return {"status":"pending","data_date":twse.get("official_data_date"),
+                "generated_at":datetime.now(TZ).isoformat(),
+                "source":"TWSE OpenAPI t187ap42_L","error":str(e)}
 
 def build_vix():
     try:
@@ -116,5 +140,5 @@ def main():
     twse=latest("data/raw/twse"); taifex=latest("data/raw/taifex")
     save("margin",build_margin(twse)); save("securities_lending",build_lending(twse))
     save("putcall",build_putcall(taifex)); save("vix",build_vix())
-    e,w=classify(twse);save("etf",e);save("warrant",w)
+    e=classify(twse); save("etf",e); save("warrant",build_warrant(twse))
 if __name__=="__main__":main()
