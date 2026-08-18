@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{const n=document.querySelector(".quick-nav");[["./breadth.html","市場廣度"],["./history.html","歷史資料"]].forEach(([h,t])=>{if(n&&!n.querySelector(`a[href="${h}"]`)){const a=document.createElement("a");a.href=h;a.textContent=t;n.appendChild(a)}})});
