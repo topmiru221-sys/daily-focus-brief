@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{const n=document.querySelector(".quick-nav");[["./decision.html","Decision"],["./stock-risk.html","Risk"],["./sector.html","族群中心"]].forEach(([h,t])=>{if(n&&!n.querySelector(`a[href="${h}"]`)){const a=document.createElement("a");a.href=h;a.textContent=t;n.appendChild(a)}})});
