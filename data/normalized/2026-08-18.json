@@ -1,6 +1,6 @@
 {
   "schema_version": "2.4",
-  "generated_at": "2026-08-18T13:39:13.083241+08:00",
+  "generated_at": "2026-08-18T14:21:44.903422+08:00",
   "run_date": "2026-08-18",
   "official_data_date": "2026-08-17",
   "freshness": "delayed",
@@ -13,8 +13,10 @@
       "trade_value_twd": 981055134845.0,
       "trade_volume": 10616088292.0,
       "transactions": 4740651.0,
-      "source_status": "ok",
-      "source_errors": {}
+      "source_status": "partial",
+      "source_errors": {
+        "institutional_detail": "Unable to fetch TWSE data after 3 attempts: HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=45)"
+      }
     },
     "tpex": {
       "status": "pending",
@@ -30,17 +32,19 @@
   "sources": {
     "twse": {
       "name": "twse",
-      "status": "ok",
+      "status": "partial",
       "file": "data/raw/twse/2026-08-18.json",
-      "generated_at": "2026-08-18T13:38:35.563602+08:00",
+      "generated_at": "2026-08-18T14:18:00.560581+08:00",
       "snapshot_date": null,
-      "errors": {}
+      "errors": {
+        "institutional_detail": "Unable to fetch TWSE data after 3 attempts: HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=45)"
+      }
     },
     "tpex": {
       "name": "tpex",
       "status": "ok",
       "file": "data/raw/tpex/2026-08-18.json",
-      "generated_at": "2026-08-18T13:38:53.526104+08:00",
+      "generated_at": "2026-08-18T14:20:28.709658+08:00",
       "snapshot_date": "2026-08-18",
       "errors": {}
     },
@@ -48,12 +52,13 @@
       "name": "taifex",
       "status": "ok",
       "file": "data/raw/taifex/2026-08-18.json",
-      "generated_at": "2026-08-18T13:39:10.360188+08:00",
+      "generated_at": "2026-08-18T14:21:33.955789+08:00",
       "snapshot_date": "2026-08-18",
       "errors": {}
     }
   },
   "warnings": [
-    "官方最新資料日期晚於執行日期，標示為延遲資料"
+    "官方最新資料日期晚於執行日期，標示為延遲資料",
+    "TWSE 法人資料尚未完整取得"
   ]
 }
