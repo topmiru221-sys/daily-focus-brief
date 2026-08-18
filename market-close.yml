@@ -44,11 +44,18 @@ jobs:
         run: python src/analyzers/build_research_pool.py
       - name: Build Decision Engine
         run: python src/analyzers/build_decision_engine.py
+
       - name: Build Sector Center
         run: python src/analyzers/build_sector_center.py
-        - name: Build breadth and history
-  run: python src/analyzers/build_breadth_history.py
-      - run: python src/builders/build_site.py
+
+      - name: Build baseline market modules
+        run: python src/analyzers/build_baseline_modules.py
+
+      - name: Build breadth and history
+        run: python src/analyzers/build_breadth_history.py
+
+      - name: Build Site
+        run: python src/builders/build_site.py
 
       - name: Commit generated data and website
         run: |
