@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{const n=document.querySelector(".quick-nav");if(n&&!n.querySelector('a[href="./research-risk.html"]')){const a=document.createElement("a");a.href="./research-risk.html";a.textContent="研究×風險";n.appendChild(a)}});
