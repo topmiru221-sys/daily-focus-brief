@@ -12,7 +12,8 @@ SOURCES={
 "sector_center":Path("data/analysis/sector_center/latest.json"),
 "margin":Path("data/analysis/baseline/margin.json"),"securities_lending":Path("data/analysis/baseline/securities_lending.json"),
 "putcall":Path("data/analysis/baseline/putcall.json"),"vix":Path("data/analysis/baseline/vix.json"),
-"etf":Path("data/analysis/baseline/etf.json"),"warrant":Path("data/analysis/baseline/warrant.json")}
+"etf":Path("data/analysis/baseline/etf.json"),"warrant":Path("data/analysis/baseline/warrant.json"),
+"breadth":Path("data/analysis/breadth/latest.json"),"history":Path("data/analysis/history/latest.json")}
 def read(p):
     try:
         v=json.loads(p.read_text(encoding="utf-8")); return v if isinstance(v,dict) else {"status":"pending"}
@@ -24,7 +25,7 @@ def main():
         dates[n]=mdate(p); (OUT/f"{n}.json").write_text(json.dumps(p,ensure_ascii=False,indent=2),encoding="utf-8")
     core=["market","institutional","sectors","capital_flow","research","flow_persistence","playbook","decision","sector_center"]
     valid=sorted({dates[k] for k in core if isinstance(dates.get(k),str)})
-    meta={"schema_version":"5.4.22.2","generated_at":datetime.now(TZ).isoformat(),
+    meta={"schema_version":"5.4.28","generated_at":datetime.now(TZ).isoformat(),
           "latest_available_data_date":max(valid) if valid else None,"latest_common_data_date":min(valid) if valid else None,
           "module_dates":dates,"date_consistency":"ok" if len(valid)<=1 else "mixed",
           "modules":{k:v.get("status","pending") for k,v in payloads.items()},
