@@ -9,7 +9,7 @@ SOURCES={
 "sectors":Path("data/analysis/sectors/latest.json"),"capital_flow":Path("data/analysis/capital_flow/latest.json"),
 "research":Path("data/analysis/research/latest.json"),"flow_persistence":Path("data/analysis/flow_persistence/latest.json"),
 "playbook":Path("data/analysis/playbook/latest.json"),"decision":Path("data/analysis/decision/latest.json"),
-"sector_center":Path("data/analysis/sector_center/latest.json"),
+"sector_center":Path("data/analysis/sector_center/latest.json"),"theme_intelligence":Path("data/analysis/theme_intelligence/latest.json"),
 "margin":Path("data/analysis/baseline/margin.json"),"securities_lending":Path("data/analysis/baseline/securities_lending.json"),
 "putcall":Path("data/analysis/baseline/putcall.json"),"vix":Path("data/analysis/baseline/vix.json"),
 "etf":Path("data/analysis/baseline/etf.json"),"warrant":Path("data/analysis/baseline/warrant.json"),
@@ -23,9 +23,9 @@ def main():
     OUT.mkdir(parents=True,exist_ok=True); payloads={k:read(v) for k,v in SOURCES.items()}; dates={}
     for n,p in payloads.items():
         dates[n]=mdate(p); (OUT/f"{n}.json").write_text(json.dumps(p,ensure_ascii=False,indent=2),encoding="utf-8")
-    core=["market","institutional","sectors","capital_flow","research","flow_persistence","playbook","decision","sector_center"]
+    core=["market","institutional","sectors","capital_flow","research","flow_persistence","playbook","decision","sector_center","theme_intelligence"]
     valid=sorted({dates[k] for k in core if isinstance(dates.get(k),str)})
-    meta={"schema_version":"5.4.32","generated_at":datetime.now(TZ).isoformat(),
+    meta={"schema_version":"5.4.33","generated_at":datetime.now(TZ).isoformat(),
           "latest_available_data_date":max(valid) if valid else None,"latest_common_data_date":min(valid) if valid else None,
           "module_dates":dates,"date_consistency":"ok" if len(valid)<=1 else "mixed",
           "modules":{k:v.get("status","pending") for k,v in payloads.items()},
