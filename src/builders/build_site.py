@@ -25,7 +25,7 @@ def main():
         dates[n]=mdate(p); (OUT/f"{n}.json").write_text(json.dumps(p,ensure_ascii=False,indent=2),encoding="utf-8")
     core=["market","institutional","sectors","capital_flow","research","flow_persistence","playbook","decision","sector_center"]
     valid=sorted({dates[k] for k in core if isinstance(dates.get(k),str)})
-    meta={"schema_version":"5.4.28","generated_at":datetime.now(TZ).isoformat(),
+    meta={"schema_version":"5.4.32","generated_at":datetime.now(TZ).isoformat(),
           "latest_available_data_date":max(valid) if valid else None,"latest_common_data_date":min(valid) if valid else None,
           "module_dates":dates,"date_consistency":"ok" if len(valid)<=1 else "mixed",
           "modules":{k:v.get("status","pending") for k,v in payloads.items()},
