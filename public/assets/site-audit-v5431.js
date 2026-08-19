@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>setTimeout(()=>{const s=document.querySelector("#system-progress");if(!s)return;const h=s.querySelector(".section-head .chip");if(h)h.textContent="14/17 核心完成";const n=s.querySelector(".muted");if(n)n.textContent="V5.4.31 驗屋：14 項核心完成；權證仍待深化、ETF需完整驗收、AI Assistant尚未施工。"},50));
