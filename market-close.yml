@@ -44,18 +44,15 @@ jobs:
         run: python src/analyzers/build_research_pool.py
       - name: Build Decision Engine
         run: python src/analyzers/build_decision_engine.py
-
       - name: Build Sector Center
         run: python src/analyzers/build_sector_center.py
-
+      - name: Build Theme Intelligence
+        run: python src/analyzers/build_theme_intelligence.py
       - name: Build baseline market modules
         run: python src/analyzers/build_baseline_modules.py
-
       - name: Build breadth and history
         run: python src/analyzers/build_breadth_history.py
-
-      - name: Build Site
-        run: python src/builders/build_site.py
+      - run: python src/builders/build_site.py
 
       - name: Commit generated data and website
         run: |
@@ -66,7 +63,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw data/normalized data/analysis public/data
-          git commit -m "data: update sector intelligence center"
+          git commit -m "data: update sector and theme intelligence"
           git pull --rebase origin main
           git push origin HEAD:main
 
