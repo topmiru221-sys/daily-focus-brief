@@ -1,0 +1,52 @@
+name: Priority 120D History Backfill
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 11 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: priority-history-backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Build priority 120-day universe
+        run: python src/builders/build_priority_history_universe.py
+      - name: Backfill next priority batch
+        run: python src/fetchers/fetch_history.py --priority-file data/analysis/priority_history_universe.json --target-records 120 --batch-size 100
+      - name: Re-sync stored daily snapshots
+        run: python src/builders/sync_daily_history.py
+      - name: Rebuild Decision Engine
+        run: python src/analyzers/build_decision_engine.py
+      - name: Rebuild website and health status
+        run: |
+          python src/builders/build_site.py
+          python src/builders/build_project_status.py
+          python scripts/validate_market_close.py
+      - name: Commit priority history progress
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/history data/analysis/decision data/analysis/priority_history_universe.json public/data
+          git commit -m "data: expand priority 120-day history coverage"
+          git pull --rebase origin main
+          git push origin HEAD:main

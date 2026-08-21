@@ -42,6 +42,8 @@ jobs:
       - name: Build research pools
         continue-on-error: true
         run: python src/analyzers/build_research_pool.py
+      - name: Refresh priority 120-day universe
+        run: python src/builders/build_priority_history_universe.py
       - name: Sync daily full-market price history
         run: python src/builders/sync_daily_history.py
       - name: Build Decision Engine
@@ -69,7 +71,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw data/normalized data/analysis data/history public/data
-          git commit -m "data: update V5.4.39 history integrity"
+          git commit -m "data: update V5.4.40 priority history coverage"
           git pull --rebase origin main
           git push origin HEAD:main
 
