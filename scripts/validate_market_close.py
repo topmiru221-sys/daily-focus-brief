@@ -14,11 +14,13 @@ def load(path: str) -> dict:
     return value
 
 def main() -> int:
-    meta=load("public/data/meta.json"); themes=load("public/data/theme_intelligence.json"); sectors=load("public/data/sector_center.json"); errors=[]
+    meta=load("public/data/meta.json"); themes=load("public/data/theme_intelligence.json"); sectors=load("public/data/sector_center.json"); project=load("public/data/project_status.json"); errors=[]
     if not meta.get("publish_ready"): errors.extend(meta.get("publication_blockers") or ["meta.publish_ready is false"])
     if themes.get("status")!="ok": errors.append(f"theme_intelligence status={themes.get('status')}")
     if not str(themes.get("schema_version","")).startswith("5.4.36"): errors.append("theme_intelligence schema is not V5.4.36")
     if themes.get("data_date")!=sectors.get("data_date"): errors.append("Theme Intelligence and Sector Center dates differ")
+    if not str(project.get("schema_version","")).startswith("5.4.37"): errors.append("project_status schema is not V5.4.37")
+    if project.get("data_date")!=meta.get("latest_common_data_date"): errors.append("Project Status and core data dates differ")
     sector_ids={row.get("id") for row in sectors.get("sectors") or []}; rows=themes.get("themes") or []
     if [row.get("rank") for row in rows]!=list(range(1,len(rows)+1)): errors.append("Theme ranks are not continuous")
     for row in rows:
