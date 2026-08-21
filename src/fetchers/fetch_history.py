@@ -12,7 +12,7 @@ HOT_CONFIG_PATH=Path("config/hot_stocks.json")
 OUTPUT_ROOT=Path("data/history/prices")
 LOG=logging.getLogger("fetch_history")
 TWSE_URL="https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY"
-TPEX_URL="https://www.tpex.org.tw/web/stock/aftertrading/daily_trading_info/st43_result.php"
+TPEX_URL="https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock"
 
 def setup_logging():
     logging.basicConfig(level=logging.INFO,format="%(asctime)s %(levelname)s %(name)s - %(message)s")
@@ -20,11 +20,15 @@ def setup_logging():
 def load_json(path): return json.loads(path.read_text(encoding="utf-8"))
 
 def request_json(url,*,params,attempts=3,timeout=45):
-    headers={"User-Agent":"daily-focus-brief/5.1.1","Accept":"application/json,text/plain,*/*","Referer":"https://www.twse.com.tw/"}
+    referer="https://www.tpex.org.tw/zh-tw/mainboard/trading/info/stock-pricing.html" if "tpex.org.tw" in url else "https://www.twse.com.tw/"
+    headers={"User-Agent":"daily-focus-brief/5.4.40.1","Accept":"application/json,text/plain,*/*","Referer":referer}
     last=None
     for attempt in range(1,attempts+1):
         try:
-            r=requests.get(url,params=params,headers=headers,timeout=timeout);r.raise_for_status();return r.json()
+            r=requests.get(url,params=params,headers=headers,timeout=timeout)
+            if r.status_code==403:
+                raise RuntimeError(f"Official data source rejected the request (HTTP 403): {r.url}")
+            r.raise_for_status();return r.json()
         except (requests.RequestException,ValueError) as exc:
             last=exc;LOG.warning("Request failed %s/%s: %s",attempt,attempts,exc)
             if attempt<attempts: time.sleep(2**(attempt-1))
@@ -61,7 +65,11 @@ def parse_twse(payload):
 
 def parse_tpex(payload):
     if not isinstance(payload,dict): return []
-    rows=payload.get("aaData") or payload.get("data") or payload.get("tables") or []
+    tables=payload.get("tables")
+    if isinstance(tables,list) and tables and isinstance(tables[0],dict):
+        rows=tables[0].get("data",[])
+    else:
+        rows=payload.get("aaData") or payload.get("data") or []
     if isinstance(rows,dict): rows=rows.get("data",[])
     out=[]
     for row in rows:
@@ -85,7 +93,7 @@ def fetch_twse(code,months):
 def fetch_tpex(code,months):
     rows=[]
     for m in months:
-        rows.extend(parse_tpex(request_json(TPEX_URL,params={"l":"zh-tw","d":f"{m.year-1911}/{m.month:02d}","stkno":code})));time.sleep(.28)
+        rows.extend(parse_tpex(request_json(TPEX_URL,params={"date":m.strftime("%Y/%m/01"),"code":code,"response":"json"})));time.sleep(.28)
     return rows
 
 def codes_from_config(path,key):
