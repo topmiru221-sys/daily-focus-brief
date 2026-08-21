@@ -21,6 +21,7 @@ const nf=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:2});let db;
 const q=new URLSearchParams(location.search).get('code');if(q)stockCode.value=q;
 const val=(v,u='')=>v==null?'—':nf.format(v)+u;
 const box=(a,b,u='')=>`<div class="level"><span class="muted">${a}</span><strong>${val(b,u)}</strong></div>`;
+const info=(a,b)=>`<div class="level"><span class="muted">${a}</span><strong>${b??'—'}</strong></div>`;
 const indi=(a,b,u='',note='')=>`<div class="indicator"><span class="muted">${a}</span><strong>${b==null?(note||'—'):val(b,u)}</strong></div>`;
 
 function render(x,code){
@@ -30,7 +31,8 @@ function render(x,code){
  <section class="dashboard-grid">
   <article class="panel"><p class="eyebrow">${x.market||''} ${x.code}</p><div class="panel-head"><h2>${x.name||x.code}</h2><div class="score">${x.decision_score}｜${x.grade}</div></div>
    <div class="plan-action">${p.action||x.conclusion||'待更新'}</div>
-   <p class="muted">Trend：${t.trend||'—'}｜Position：${t.position||'—'}｜Confidence：${x.confidence_pct}%｜價格日期：${t.price_date||'—'}</p>
+   <div class="level-grid">${box('當日收盤價',t.close)}${info('價格日期',t.price_date)}${info('卡片等級',x.card_label||'待確認')}${box('歷史筆數',x.history_record_count??t.record_count)}${box('信心度',x.confidence_pct,'%')}</div>
+   <p class="muted">Trend：${t.trend||'資料不足'}｜Position：${t.position||'資料不足'}</p>
    ${(x.risk_flags||[]).map(v=>`<div class="risk-flag">⚠ ${v}</div>`).join('')}
   </article>
   <article class="panel"><h2>Risk First</h2><div class="level-grid">${box('失效價',p.invalidation)}${box('合理回檔風險',p.risk_pct,'%')}${box('第一目標 R/R',p.rr1)}${box('觀察／觸發價',p.trigger)}${box('第一目標',p.target1)}${box('第二目標',p.target2)}</div></article>
@@ -64,7 +66,7 @@ loadDecision().then(x=>{
  db=x;
  const currentSchema=String(x.schema_version||'');
  statusText.textContent=`目前可搜尋 ${x.decision_count||0} 檔｜全市場 ${x.universe_count||0} 檔｜完整歷史 ${x.history_coverage_count||0} 檔｜Engine ${currentSchema||'未知'}`;
- if(currentSchema.startsWith('5.4.38')){
+ if(currentSchema.startsWith('5.4.39')){
    syncText.className='sync-note ok';syncText.textContent='✓ 已載入新版 Technical Engine 資料';
  }else{
    syncText.className='sync-note warn';syncText.textContent='⚠ 目前仍載入舊版 decision.json，請等待 Pages 部署或強制重新整理';

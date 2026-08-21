@@ -1,24 +1,31 @@
 name: Market Close
+
 on:
   workflow_dispatch:
   schedule:
     - cron: "30 9 * * 1-5"
+
 permissions:
   contents: write
   pages: write
   id-token: write
+
 concurrency:
   group: market-close
   cancel-in-progress: false
+
 jobs:
   fetch-market-data:
     runs-on: ubuntu-latest
     timeout-minutes: 50
     steps:
       - uses: actions/checkout@v6
-        with: {fetch-depth: 0}
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
-        with: {python-version: "3.12", cache: pip}
+        with:
+          python-version: "3.12"
+          cache: pip
       - run: pip install -r requirements.txt
       - run: python src/fetchers/fetch_twse.py
       - run: python src/fetchers/fetch_tpex.py
@@ -35,22 +42,37 @@ jobs:
       - name: Build research pools
         continue-on-error: true
         run: python src/analyzers/build_research_pool.py
-      - run: python src/analyzers/build_decision_engine.py
-      - run: python src/analyzers/build_sector_center.py
+      - name: Sync daily full-market price history
+        run: python src/builders/sync_daily_history.py
+      - name: Build Decision Engine
+        run: python src/analyzers/build_decision_engine.py
+      - name: Build Sector Center
+        run: python src/analyzers/build_sector_center.py
+      - name: Build Theme Intelligence
+        run: python src/analyzers/build_theme_intelligence.py
       - name: Build baseline market modules
         run: python src/analyzers/build_baseline_modules.py
+      - name: Build breadth and history
+        run: python src/analyzers/build_breadth_history.py
       - run: python src/builders/build_site.py
+      - name: Build live system health
+        run: python src/builders/build_project_status.py
       - name: Validate publication contract
         run: python scripts/validate_market_close.py
+
       - name: Commit generated data and website
         run: |
-          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then echo "No changes."; exit 0; fi
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo "No changes."
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/raw data/normalized data/analysis public/data
-          git commit -m "data: update baseline market modules"
+          git add data/raw data/normalized data/analysis data/history public/data
+          git commit -m "data: update V5.4.39 history integrity"
           git pull --rebase origin main
           git push origin HEAD:main
+
   deploy-pages:
     needs: fetch-market-data
     runs-on: ubuntu-latest
@@ -58,10 +80,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v6
-        with: {ref: main}
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
-        with: {path: public}
-      - id: deployment
+      - name: Checkout latest generated site
+        uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload public folder
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4

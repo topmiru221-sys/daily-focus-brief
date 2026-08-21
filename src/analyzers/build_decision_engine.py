@@ -41,12 +41,12 @@ def latest_universe():
         payload=load_json(files[-1]); day=payload.get("data_date") or files[-1].stem
         for row in payload.get("datasets",{}).get(key,[]):
             code=str(row.get(ck) or "").strip(); price=num(row.get(pk))
-            if len(code)==4 and code.isdigit() and price is not None: out[code]={"name":row.get(nk) or code,"market":market,"date":day,"close":price,"volume":num(row.get(vk))}
+            if len(code)==4 and code.isdigit() and price is not None and price>0: out[code]={"name":row.get(nk) or code,"market":market,"date":day,"close":price,"volume":num(row.get(vk))}
     return out
 
 def metrics(code,quote=None):
     payload=load_json(HISTORY_ROOT/f"{code}.json")
-    rows=payload.get("prices",[]) if isinstance(payload.get("prices"),list) else []
+    rows=[r for r in payload.get("prices",[]) if isinstance(r,dict) and (num(r.get("close")) or 0)>0] if isinstance(payload.get("prices"),list) else []
     if quote and not any(r.get("date")==quote["date"] for r in rows): rows=rows+[{"date":quote["date"],"close":quote["close"],"open":quote["close"],"high":quote["close"],"low":quote["close"],"volume":quote.get("volume")}]
     return calculate(rows)
 
@@ -78,15 +78,19 @@ def main():
             for s in item.get("sectors",[]):
                 if s not in m["sectors"]:m["sectors"].append(s)
 
-    universe=latest_universe(); history_codes=sorted(p.stem for p in HISTORY_ROOT.glob("*.json") if p.name!="_status.json")
-    all_codes=sorted(set(universe)|set(history_codes)|set(pool_map))
+    universe=latest_universe(); history_codes=sorted(p.stem for p in HISTORY_ROOT.glob("*.json") if not p.name.startswith("_"))
+    all_codes=sorted(universe)
     decisions=[]
 
     for code in all_codes:
         pool=pool_map.get(code,{})
         meta=stock_meta.get(code,{"name":code,"market":None,"sectors":[]})
         quote=universe.get(code); technical=metrics(code,quote)
-        rule=evaluate(technical)
+        records=technical.get("record_count",0); current=bool(quote and technical.get("price_date")==quote.get("date"))
+        card_level="complete" if current and records>=60 else "watch" if current and records>=20 else "basic"
+        card_label={"complete":"完整 Decision Card","watch":"技術觀察卡","basic":"即時基礎卡"}[card_level]
+        rule=evaluate(technical if card_level!="basic" else {"status":"missing"})
+        if card_level!="complete": rule["trading_plan"]={"action":"歷史資料累積中，暫不建立交易計畫","trigger":None,"invalidation":None,"target1":None,"target2":None,"risk_pct":None,"rr1":None}
         sector_names=list(dict.fromkeys(list(pool.get("sectors",[]))+list(meta.get("sectors",[]))))
         sector_rows=[sector_by_name[s] for s in sector_names if s in sector_by_name]
         flow_rows=[flow_by_name[s] for s in sector_names if s in flow_by_name]
@@ -112,6 +116,8 @@ def main():
             bool(sector_rows),bool(flow_rows),bool(pool)
         ]
         confidence=round(sum(confidence_parts)/len(confidence_parts)*100,1)
+        if card_level=="basic": confidence=min(confidence,20.0)
+        elif card_level=="watch": confidence=min(confidence,60.0)
 
         reasons=list(dict.fromkeys(list(pool.get("reasons") or [])+rule["reasons"]))[:12]
         flags=list(dict.fromkeys(list(pool.get("risk_flags") or [])+rule["risk_flags"]))[:12]
@@ -120,6 +126,7 @@ def main():
             "code":code,"name":pool.get("name") or (quote or {}).get("name") or meta.get("name") or code,
             "market":pool.get("market") or (quote or {}).get("market") or meta.get("market"),"source_pool":pool.get("source_pool") or "general",
             "sectors":sector_names,"decision_score":decision,"grade":grade(decision),"confidence_pct":confidence,
+            "card_level":card_level,"card_label":card_label,"history_record_count":records,"latest_price_current":current,
             "components":{"research":round(research_score,1),"sector":round(sector_score,1),"flow":round(flow_score,1),
                           "institution":round(institution_score,1),"technical":round(technical_score,1),"risk_quality":round(risk_score,1)},
             "technical":technical,"trading_plan":rule["trading_plan"],"reasons":reasons,"risk_flags":flags,
@@ -128,8 +135,9 @@ def main():
 
     decisions.sort(key=lambda r:(r["decision_score"],r["confidence_pct"]),reverse=True)
     payload={
-        "schema_version":"5.4.38-decision-universe","generated_at":now.isoformat(),"data_date":research.get("data_date"),
-        "status":"ok" if decisions else "pending","decision_count":len(decisions),"history_coverage_count":len(history_codes),
+        "schema_version":"5.4.39-history-integrity","generated_at":now.isoformat(),"data_date":research.get("data_date"),
+        "status":"ok" if decisions else "pending","decision_count":len(decisions),
+        "history_coverage_count":sum(r.get("card_level")=="complete" for r in decisions),"daily_history_count":len(history_codes),
         "universe_count":len(universe),"universe_source":"daily official TWSE + TPEx 4-digit equity candidates",
         "rankings":decisions,
         "research_pool":[r for r in decisions if r["source_pool"]=="research"][:10],
