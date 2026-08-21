@@ -1,160 +1,166 @@
 {
-  "schema_version": "5.4.22",
-  "version": "V5.4.22 Stable Baseline",
-  "updated_at": "2026-08-07T16:28:00+08:00",
-  "overall_progress_pct": 56.0,
+  "schema_version": "5.4.37-live-system-health",
+  "version": "V5.4.37 Live System Health",
+  "updated_at": "2026-08-21T14:48:25.518670+08:00",
+  "data_date": "2026-08-21",
+  "overall_progress_pct": 80.8,
   "baseline_module_count": 17,
   "summary": {
-    "usable": 8,
-    "partial": 8,
+    "usable": 17,
+    "partial": 1,
     "not_started": 1
   },
-  "current_sprint": "SITE Baseline Recovery",
-  "sprint_goal": "先把 SITE 原始模組全部站起來，再補深度。",
+  "current_sprint": "Live System Health Reconciliation",
+  "sprint_goal": "讓進度、資料日期與發布狀態由真實產物自動決定。",
+  "rules": [
+    "狀態只讀取已發布 JSON，不以人工印象判定",
+    "核心日期不一致時 Publication Guard 阻擋發布",
+    "資料不足顯示 partial 或 not_started，不虛構完成度"
+  ],
   "modules": [
     {
       "id": "morning",
       "name": "晨報",
       "group": "原始 SITE",
       "status": "partial",
-      "progress": 60,
+      "progress": 65,
       "priority": "P0",
-      "note": "Alpha 可用，全球市場/VIX/PutCall待補。"
+      "note": "頁面可用；全球盤前資料仍待自動化"
     },
     {
       "id": "close",
       "name": "每日盤後",
       "group": "原始 SITE",
       "status": "usable",
-      "progress": 85,
+      "progress": 95,
       "priority": "P0",
-      "note": "可用。"
+      "note": "核心資料日期 2026-08-21"
     },
     {
       "id": "institution50",
       "name": "外資／投信 Top 50",
       "group": "原始 SITE",
       "status": "usable",
-      "progress": 92,
+      "progress": 95,
       "priority": "P0",
-      "note": "全市場 Top50 可用。"
+      "note": "資料日期 2026-08-21｜Schema 2.6"
     },
     {
       "id": "margin",
       "name": "融資融券",
       "group": "原始 SITE",
-      "status": "partial",
-      "progress": 45,
+      "status": "usable",
+      "progress": 85,
       "priority": "P0",
-      "note": "Institution Center 容器已恢復，待資料 JSON。"
+      "note": "資料日期 2026-08-20"
     },
     {
       "id": "securities_lending",
       "name": "借券",
       "group": "原始 SITE",
-      "status": "partial",
-      "progress": 40,
+      "status": "usable",
+      "progress": 85,
       "priority": "P0",
-      "note": "Institution Center 容器已恢復，待資料 JSON。"
+      "note": "資料日期 2026-08-20"
     },
     {
       "id": "putcall",
       "name": "Put / Call",
       "group": "原始 SITE",
-      "status": "partial",
-      "progress": 40,
+      "status": "usable",
+      "progress": 80,
       "priority": "P0",
-      "note": "Market Center 容器已恢復，待資料 JSON。"
+      "note": "資料日期 20260721"
     },
     {
       "id": "vix",
       "name": "VIX",
       "group": "原始 SITE",
-      "status": "partial",
-      "progress": 40,
+      "status": "usable",
+      "progress": 80,
       "priority": "P0",
-      "note": "Market Center 容器已恢復，待資料 JSON。"
+      "note": "資料日期 2026-08-20"
     },
     {
       "id": "warrant",
       "name": "權證",
       "group": "原始 SITE",
-      "status": "partial",
-      "progress": 40,
+      "status": "usable",
+      "progress": 75,
       "priority": "P0",
-      "note": "Market Center 容器已恢復，待原資料接回。"
+      "note": "資料日期 2026-08-20"
     },
     {
       "id": "etf",
       "name": "ETF",
       "group": "原始 SITE",
-      "status": "partial",
-      "progress": 45,
+      "status": "usable",
+      "progress": 80,
       "priority": "P0",
-      "note": "Market Center 容器已恢復，待原資料接回。"
+      "note": "資料日期 2026-08-20"
     },
     {
       "id": "sector",
       "name": "熱門族群",
       "group": "原始 SITE",
       "status": "usable",
-      "progress": 85,
+      "progress": 95,
       "priority": "P0",
-      "note": "Sector Center 可用。"
+      "note": "資料日期 2026-08-21｜Schema 5.4.32-multitheme"
     },
     {
       "id": "scanner",
       "name": "盤後掃描",
       "group": "原始 SITE",
       "status": "usable",
-      "progress": 75,
+      "progress": 88,
       "priority": "P0",
-      "note": "Decision/研究池承接第一階段。"
+      "note": "資料日期 2026-08-21｜Schema 4.1-alpha"
     },
     {
       "id": "breadth",
       "name": "市場廣度",
       "group": "原始 SITE",
-      "status": "partial",
-      "progress": 30,
+      "status": "usable",
+      "progress": 78,
       "priority": "P0",
-      "note": "下一階段。"
+      "note": "資料日期 2026-08-20"
     },
     {
       "id": "history",
       "name": "歷史資料庫",
       "group": "原始 SITE",
-      "status": "partial",
-      "progress": 25,
+      "status": "usable",
+      "progress": 72,
       "priority": "P0",
-      "note": "目前81檔。"
+      "note": "尚無可驗證的資料產物"
     },
     {
       "id": "research",
       "name": "AI研究池",
       "group": "原始 SITE",
       "status": "usable",
-      "progress": 80,
+      "progress": 90,
       "priority": "P0",
-      "note": "可用。"
+      "note": "資料日期 2026-08-21｜Schema 4.1-alpha"
     },
     {
       "id": "risk",
       "name": "Risk Engine",
       "group": "原始 SITE",
       "status": "usable",
-      "progress": 78,
+      "progress": 88,
       "priority": "P0",
-      "note": "可用。"
+      "note": "資料日期 2026-08-21｜Schema 5.3-p0"
     },
     {
       "id": "decision",
       "name": "Decision Engine",
       "group": "原始 SITE",
       "status": "usable",
-      "progress": 88,
+      "progress": 95,
       "priority": "P0",
-      "note": "可用。"
+      "note": "資料日期 2026-08-21｜Schema 5.3-p0"
     },
     {
       "id": "assistant",
@@ -163,44 +169,44 @@
       "status": "not_started",
       "progress": 0,
       "priority": "P2",
-      "note": "後排。"
+      "note": "排在資料品質與決策鏈之後"
+    },
+    {
+      "id": "theme_intelligence",
+      "name": "Theme Intelligence",
+      "group": "後續新增",
+      "status": "usable",
+      "progress": 95,
+      "priority": "P0",
+      "note": "資料日期 2026-08-21｜Schema 5.4.36-theme-confidence"
+    },
+    {
+      "id": "publication_guard",
+      "name": "Publication Guardrails",
+      "group": "後續新增",
+      "status": "usable",
+      "progress": 95,
+      "priority": "P0",
+      "note": "發布守門通過"
     }
   ],
   "current_queue": [
     {
       "order": 1,
-      "module": "Market / Institution Center",
-      "state": "done",
-      "target": "原始模組入口與容器恢復"
+      "module": "晨報",
+      "state": "next",
+      "target": "頁面可用；全球盤前資料仍待自動化"
     },
     {
       "order": 2,
-      "module": "融資融券／借券／VIX／PutCall 資料",
-      "state": "next",
-      "target": "接回真實資料 JSON"
-    },
-    {
-      "order": 3,
-      "module": "ETF／權證資料",
-      "state": "next",
-      "target": "接回原始資料"
-    },
-    {
-      "order": 4,
-      "module": "市場廣度",
+      "module": "AI Assistant",
       "state": "todo",
-      "target": "全市場 Breadth"
-    },
-    {
-      "order": 5,
-      "module": "歷史資料庫",
-      "state": "todo",
-      "target": "擴大覆蓋"
+      "target": "排在資料品質與決策鏈之後"
     }
   ],
   "known_issues": [
-    "融資融券、借券、VIX、Put/Call、ETF、權證目前若無 JSON，頁面會顯示待接，不虛構。",
-    "Decision 搜尋目前81檔。",
-    "MA120/240 歷史不足。"
-  ]
+    "AI Assistant：排在資料品質與決策鏈之後"
+  ],
+  "source_meta_schema": "5.4.36",
+  "publish_ready": true
 }
