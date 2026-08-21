@@ -53,6 +53,8 @@ jobs:
       - name: Build breadth and history
         run: python src/analyzers/build_breadth_history.py
       - run: python src/builders/build_site.py
+      - name: Validate publication contract
+        run: python scripts/validate_market_close.py
 
       - name: Commit generated data and website
         run: |

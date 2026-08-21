@@ -25,10 +25,16 @@ def main():
         dates[n]=mdate(p); (OUT/f"{n}.json").write_text(json.dumps(p,ensure_ascii=False,indent=2),encoding="utf-8")
     core=["market","institutional","sectors","capital_flow","research","flow_persistence","playbook","decision","sector_center","theme_intelligence"]
     valid=sorted({dates[k] for k in core if isinstance(dates.get(k),str)})
-    meta={"schema_version":"5.4.33","generated_at":datetime.now(TZ).isoformat(),
+    allowed={"ok","partial"}; blockers=[]
+    for k in core:
+        if payloads[k].get("status","pending") not in allowed:blockers.append(f"{k}: status={payloads[k].get('status','pending')}")
+        if not dates.get(k):blockers.append(f"{k}: missing data_date")
+    if len(valid)>1:blockers.append("core module data dates are mixed")
+    meta={"schema_version":"5.4.36","generated_at":datetime.now(TZ).isoformat(),
           "latest_available_data_date":max(valid) if valid else None,"latest_common_data_date":min(valid) if valid else None,
           "module_dates":dates,"date_consistency":"ok" if len(valid)<=1 else "mixed",
           "modules":{k:v.get("status","pending") for k,v in payloads.items()},
-          "warning":None if len(valid)<=1 else "核心模組資料日期不一致，請依個別日期判讀。"}
+          "publish_ready":not blockers,"publication_blockers":blockers,
+          "warning":None if not blockers else "發布守門檢查未通過；請先確認 publication_blockers。"}
     (OUT/"meta.json").write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding="utf-8");return 0
 if __name__=="__main__":raise SystemExit(main())

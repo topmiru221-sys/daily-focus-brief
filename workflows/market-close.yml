@@ -40,6 +40,8 @@ jobs:
       - name: Build baseline market modules
         run: python src/analyzers/build_baseline_modules.py
       - run: python src/builders/build_site.py
+      - name: Validate publication contract
+        run: python scripts/validate_market_close.py
       - name: Commit generated data and website
         run: |
           if git diff --quiet && [ -z "$(git status --porcelain)" ]; then echo "No changes."; exit 0; fi

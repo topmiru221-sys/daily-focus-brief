@@ -32,15 +32,29 @@ def rotation(now_score, hist_scores):
         if x>=55: conf+=1
         else: break
     prev=valid[0] if valid else None
-    if now_score>=70 and (d1 is None or d1>=3): state="加速強勢"
+    if now_score>=55 and d1 is not None and d1<=-8: state="假突破風險"
+    elif now_score>=70 and (d1 is None or d1>=3): state="加速強勢"
     elif now_score>=55 and prev is not None and prev<55: state="新轉強"
     elif now_score>=55 and conf>=2: state="持續強勢"
     elif prev is not None and prev>=55 and now_score<55 and now_score>=40: state="降溫"
     elif prev is not None and prev>=40 and now_score<40: state="退潮"
-    elif now_score>=55 and d1 is not None and d1<=-8: state="假突破風險"
     elif now_score>=40: state="中性觀察"
     else: state="弱勢"
     return {"rotation_state":state,"score_change_1d":d1,"score_change_5d":d5,"confirmation_days":conf if now_score>=55 else 0}
+def confidence(base, history_points):
+    metrics=("flow_score","persistence_ratio_pct","advance_ratio_pct","above_60ma_ratio_pct","average_decision_score")
+    available=sum(base.get(k) is not None for k in metrics)
+    coverage=round(available/len(metrics)*100)
+    score=round(coverage*.7+min(history_points,5)/5*30)
+    level="高" if score>=80 else "中" if score>=55 else "低"
+    return {"confidence_score":score,"confidence_level":level,"metric_coverage_pct":coverage,"history_points":history_points}
+def posture(state, level):
+    if level=="低":return "資料累積中"
+    if state in ("加速強勢","新轉強"):return "優先研究，不追價"
+    if state=="持續強勢":return "持續追蹤，等待風險報酬比"
+    if state in ("假突破風險","降溫"):return "降低追價，等待再確認"
+    if state in ("退潮","弱勢"):return "暫緩新增研究"
+    return "觀察名單"
 def score_row(sectors):
     flow=avg([s.get("flow_score") for s in sectors]); per=avg([s.get("persistence_ratio_pct") for s in sectors]); br=avg([s.get("advance_ratio_pct") for s in sectors]); ma=avg([s.get("above_60ma_ratio_pct") for s in sectors]); dec=avg([s.get("average_decision_score") for s in sectors])
     strength=round(flow*.30+per*.25+br*.20+ma*.15+dec*.10,1) if None not in (flow,per,br,ma,dec) else None
@@ -58,17 +72,18 @@ def main():
         tax=s.get("taxonomy") or {}
         for n in tax.get("mega_theme") or []:maps["mega_themes"].setdefault(n,[]).append(s)
         for n in tax.get("theme") or []:maps["themes"].setdefault(n,[]).append(s)
-    payload={"schema_version":"5.4.34-theme-rotation","generated_at":now.isoformat(),"data_date":src.get("data_date"),"status":"ok" if sectors else "pending"}
+    payload={"schema_version":"5.4.36-theme-confidence","generated_at":now.isoformat(),"data_date":src.get("data_date"),"status":"ok" if sectors else "pending"}
     for kind,hist in (("mega_themes",mega_hist),("themes",theme_hist)):
         rows=[]
         for name,ss in maps[kind].items():
             base=score_row(ss); hs=[m.get(name,{}).get("strength_score") for _,m in hist]
-            x={"name":name,**base,**rotation(base.get("strength_score"),hs),"history":[{"date":d,"strength_score":m.get(name,{}).get("strength_score")} for d,m in hist]}
+            rotation_result=rotation(base.get("strength_score"),hs); quality=confidence(base,len([v for v in hs if v is not None]))
+            x={"name":name,**base,**rotation_result,**quality,"decision_posture":posture(rotation_result["rotation_state"],quality["confidence_level"]),"history":[{"date":d,"strength_score":m.get(name,{}).get("strength_score")} for d,m in hist]}
             if kind=="themes":x["mega_themes"]=sorted({m for s in ss for m in ((s.get("taxonomy") or {}).get("mega_theme") or [])})
             x["sectors"]=[{"id":s.get("id"),"name":s.get("name"),"today_rank":s.get("today_rank"),"flow_score":s.get("flow_score"),"persistence_ratio_pct":s.get("persistence_ratio_pct")} for s in ss]; rows.append(x)
         rows.sort(key=lambda x:(x.get("strength_score") is not None,x.get("strength_score") or -1),reverse=True)
         for i,x in enumerate(rows,1):x["rank"]=i
         payload[kind]=rows
-    payload["mega_theme_count"]=len(payload.get("mega_themes",[])); payload["theme_count"]=len(payload.get("themes",[])); payload["history_days_available"]=len(prev[:5]); payload["methodology"]={"strength_score":"Flow 30% + Persistence 25% + Advance Breadth 20% + Above MA60 15% + Decision 10%.","rotation":"以目前分數與最近最多5個交易日歷史比較；歷史不足時保留當日判讀，不虛構變化。"}
+    payload["mega_theme_count"]=len(payload.get("mega_themes",[])); payload["theme_count"]=len(payload.get("themes",[])); payload["history_days_available"]=len(prev[:5]); payload["methodology"]={"strength_score":"Flow 30% + Persistence 25% + Advance Breadth 20% + Above MA60 15% + Decision 10%.","rotation":"以目前分數與最近最多5個交易日歷史比較；歷史不足時保留當日判讀，不虛構變化。","confidence":"指標完整度 70% + 最多 5 個歷史交易日 30%；信心低時不輸出積極決策姿態。"}
     OUT.mkdir(parents=True,exist_ok=True); text=json.dumps(payload,ensure_ascii=False,indent=2); (OUT/"latest.json").write_text(text,encoding="utf-8"); (OUT/f"{today}.json").write_text(text,encoding="utf-8"); return 0
 if __name__=="__main__":raise SystemExit(main())
