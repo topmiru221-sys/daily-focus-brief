@@ -42,6 +42,8 @@ jobs:
       - name: Build research pools
         continue-on-error: true
         run: python src/analyzers/build_research_pool.py
+      - name: Sync daily full-market price history
+        run: python src/builders/sync_daily_history.py
       - name: Build Decision Engine
         run: python src/analyzers/build_decision_engine.py
       - name: Build Sector Center
@@ -66,8 +68,8 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/raw data/normalized data/analysis public/data
-          git commit -m "data: update V5.4.38 decision universe"
+          git add data/raw data/normalized data/analysis data/history public/data
+          git commit -m "data: update V5.4.39 history integrity"
           git pull --rebase origin main
           git push origin HEAD:main
 
