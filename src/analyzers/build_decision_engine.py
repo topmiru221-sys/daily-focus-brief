@@ -17,6 +17,7 @@ SECTOR_PATH=Path("data/analysis/sectors/latest.json")
 FLOW_PATH=Path("data/analysis/flow_persistence/latest.json")
 HISTORY_ROOT=Path("data/history/prices")
 OUTPUT_ROOT=Path("data/analysis/decision")
+RAW_ROOT=Path("data/raw")
 
 def load_json(path):
     try:
@@ -31,9 +32,23 @@ def avg(values):
 def grade(score):
     return "S" if score>=90 else "A" if score>=80 else "B" if score>=70 else "C" if score>=60 else "D"
 
-def metrics(code):
+def latest_universe():
+    out={}
+    specs=(("twse","stock_prices","Code","Name","ClosingPrice","TradeVolume","TWSE"),("tpex","daily_close_quotes","SecuritiesCompanyCode","CompanyName","Close","TradingShares","TPEx"))
+    for folder,key,ck,nk,pk,vk,market in specs:
+        files=sorted((RAW_ROOT/folder).glob("*.json"))
+        if not files: continue
+        payload=load_json(files[-1]); day=payload.get("data_date") or files[-1].stem
+        for row in payload.get("datasets",{}).get(key,[]):
+            code=str(row.get(ck) or "").strip(); price=num(row.get(pk))
+            if len(code)==4 and code.isdigit() and price is not None: out[code]={"name":row.get(nk) or code,"market":market,"date":day,"close":price,"volume":num(row.get(vk))}
+    return out
+
+def metrics(code,quote=None):
     payload=load_json(HISTORY_ROOT/f"{code}.json")
-    return calculate(payload.get("prices",[]) if isinstance(payload.get("prices"),list) else [])
+    rows=payload.get("prices",[]) if isinstance(payload.get("prices"),list) else []
+    if quote and not any(r.get("date")==quote["date"] for r in rows): rows=rows+[{"date":quote["date"],"close":quote["close"],"open":quote["close"],"high":quote["close"],"low":quote["close"],"volume":quote.get("volume")}]
+    return calculate(rows)
 
 def main():
     now=datetime.now(TAIPEI)
@@ -63,14 +78,14 @@ def main():
             for s in item.get("sectors",[]):
                 if s not in m["sectors"]:m["sectors"].append(s)
 
-    history_codes=sorted(p.stem for p in HISTORY_ROOT.glob("*.json") if p.name!="_status.json")
-    all_codes=sorted(set(history_codes)|set(pool_map))
+    universe=latest_universe(); history_codes=sorted(p.stem for p in HISTORY_ROOT.glob("*.json") if p.name!="_status.json")
+    all_codes=sorted(set(universe)|set(history_codes)|set(pool_map))
     decisions=[]
 
     for code in all_codes:
         pool=pool_map.get(code,{})
         meta=stock_meta.get(code,{"name":code,"market":None,"sectors":[]})
-        technical=metrics(code)
+        quote=universe.get(code); technical=metrics(code,quote)
         rule=evaluate(technical)
         sector_names=list(dict.fromkeys(list(pool.get("sectors",[]))+list(meta.get("sectors",[]))))
         sector_rows=[sector_by_name[s] for s in sector_names if s in sector_by_name]
@@ -102,8 +117,8 @@ def main():
         flags=list(dict.fromkeys(list(pool.get("risk_flags") or [])+rule["risk_flags"]))[:12]
 
         decisions.append({
-            "code":code,"name":pool.get("name") or meta.get("name") or code,
-            "market":pool.get("market") or meta.get("market"),"source_pool":pool.get("source_pool") or "general",
+            "code":code,"name":pool.get("name") or (quote or {}).get("name") or meta.get("name") or code,
+            "market":pool.get("market") or (quote or {}).get("market") or meta.get("market"),"source_pool":pool.get("source_pool") or "general",
             "sectors":sector_names,"decision_score":decision,"grade":grade(decision),"confidence_pct":confidence,
             "components":{"research":round(research_score,1),"sector":round(sector_score,1),"flow":round(flow_score,1),
                           "institution":round(institution_score,1),"technical":round(technical_score,1),"risk_quality":round(risk_score,1)},
@@ -113,8 +128,9 @@ def main():
 
     decisions.sort(key=lambda r:(r["decision_score"],r["confidence_pct"]),reverse=True)
     payload={
-        "schema_version":"5.3-p0","generated_at":now.isoformat(),"data_date":research.get("data_date"),
+        "schema_version":"5.4.38-decision-universe","generated_at":now.isoformat(),"data_date":research.get("data_date"),
         "status":"ok" if decisions else "pending","decision_count":len(decisions),"history_coverage_count":len(history_codes),
+        "universe_count":len(universe),"universe_source":"daily official TWSE + TPEx 4-digit equity candidates",
         "rankings":decisions,
         "research_pool":[r for r in decisions if r["source_pool"]=="research"][:10],
         "watch_pool":[r for r in decisions if r["source_pool"]=="watch"][:10],

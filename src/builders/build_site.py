@@ -30,7 +30,7 @@ def main():
         if payloads[k].get("status","pending") not in allowed:blockers.append(f"{k}: status={payloads[k].get('status','pending')}")
         if not dates.get(k):blockers.append(f"{k}: missing data_date")
     if len(valid)>1:blockers.append("core module data dates are mixed")
-    meta={"schema_version":"5.4.36","generated_at":datetime.now(TZ).isoformat(),
+    meta={"schema_version":"5.4.38","generated_at":datetime.now(TZ).isoformat(),
           "latest_available_data_date":max(valid) if valid else None,"latest_common_data_date":min(valid) if valid else None,
           "module_dates":dates,"date_consistency":"ok" if len(valid)<=1 else "mixed",
           "modules":{k:v.get("status","pending") for k,v in payloads.items()},
