@@ -65,8 +65,8 @@ async function loadDecision(){
 loadDecision().then(x=>{
  db=x;
  const currentSchema=String(x.schema_version||'');
- statusText.textContent=`目前可搜尋 ${x.decision_count||0} 檔｜全市場 ${x.universe_count||0} 檔｜完整歷史 ${x.history_coverage_count||0} 檔｜Engine ${currentSchema||'未知'}`;
- if(currentSchema.startsWith('5.4.39')){
+ const p120=x.priority_120d||{};statusText.textContent=`目前可搜尋 ${x.decision_count||0} 檔｜完整歷史 ${x.history_coverage_count||0} 檔｜優先120日 ${p120.complete_count||0}/${p120.target_count||0}｜Engine ${currentSchema||'未知'}`;
+ if(currentSchema.startsWith('5.4.40')){
    syncText.className='sync-note ok';syncText.textContent='✓ 已載入新版 Technical Engine 資料';
  }else{
    syncText.className='sync-note warn';syncText.textContent='⚠ 目前仍載入舊版 decision.json，請等待 Pages 部署或強制重新整理';

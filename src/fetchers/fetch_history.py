@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json, logging, re, sys, time
+import argparse, json, logging, re, sys, time
 from datetime import date, datetime
 from pathlib import Path
 from typing import Any
@@ -93,7 +93,9 @@ def codes_from_config(path,key):
     cfg=load_json(path)
     return {str(c) for g in cfg.get(key,[]) for c in g.get("members",[]) if str(c).isdigit()}
 
-def unique_codes():
+def unique_codes(priority_file=None):
+    if priority_file and Path(priority_file).exists():
+        return [str(row.get("code")) for row in load_json(Path(priority_file)).get("stocks",[]) if str(row.get("code","")).isdigit()]
     return sorted(codes_from_config(SECTOR_CONFIG_PATH,"sectors")|codes_from_config(HOT_CONFIG_PATH,"groups"))
 
 def merge_rows(existing,new):
@@ -113,19 +115,26 @@ def save(code,market,rows):
     (OUTPUT_ROOT/f"{code}.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
 
 def main():
-    setup_logging();months=month_starts(6);codes=unique_codes();failures=[];successes=[]
+    parser=argparse.ArgumentParser();parser.add_argument("--priority-file");parser.add_argument("--target-records",type=int,default=120);parser.add_argument("--batch-size",type=int,default=0);args=parser.parse_args()
+    setup_logging();months=month_starts(8);codes=unique_codes(args.priority_file)
+    codes=[c for c in codes if len(load_existing(c))<args.target_records]
+    if args.batch_size>0: codes=codes[:args.batch_size]
+    failures=[];successes=[]
     for i,code in enumerate(codes,1):
         LOG.info("Fetching %s (%s/%s)",code,i,len(codes))
         try:
-            rows=fetch_twse(code,months);market="TWSE" if rows else "unknown"
-            if not rows:
+            existing_payload=load_json(OUTPUT_ROOT/f"{code}.json") if (OUTPUT_ROOT/f"{code}.json").exists() else {}
+            known_market=existing_payload.get("market")
+            rows=fetch_tpex(code,months) if known_market=="TPEx" else fetch_twse(code,months)
+            market=known_market or ("TWSE" if rows else "unknown")
+            if not rows and known_market not in {"TWSE","TPEx"}:
                 rows=fetch_tpex(code,months);market="TPEx" if rows else "unknown"
             if not rows:
                 failures.append({"code":code,"error":"No official historical rows returned"});continue
             merged=merge_rows(load_existing(code),rows);save(code,market,merged);successes.append({"code":code,"market":market,"record_count":len(merged)})
         except Exception as exc:
             LOG.exception("Failed %s",code);failures.append({"code":code,"error":str(exc)})
-    summary={"generated_at":datetime.now(TAIPEI).isoformat(),"requested_codes":len(codes),"success_count":len(successes),"failed_count":len(failures),"successful_codes":successes,"failed_codes":failures}
+    summary={"generated_at":datetime.now(TAIPEI).isoformat(),"mode":"priority" if args.priority_file else "config","target_records":args.target_records,"requested_codes":len(codes),"success_count":len(successes),"failed_count":len(failures),"successful_codes":successes,"failed_codes":failures}
     OUTPUT_ROOT.mkdir(parents=True,exist_ok=True);(OUTPUT_ROOT/"_status.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps(summary,ensure_ascii=False));return 0
 

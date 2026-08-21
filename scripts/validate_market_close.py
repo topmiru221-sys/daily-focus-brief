@@ -21,10 +21,11 @@ def main() -> int:
     if themes.get("data_date")!=sectors.get("data_date"): errors.append("Theme Intelligence and Sector Center dates differ")
     if not str(project.get("schema_version","")).startswith("5.4.37"): errors.append("project_status schema is not V5.4.37")
     if project.get("data_date")!=meta.get("latest_common_data_date"): errors.append("Project Status and core data dates differ")
-    if not str(decision.get("schema_version","")).startswith("5.4.39"): errors.append("Decision schema is not V5.4.39")
+    if not str(decision.get("schema_version","")).startswith("5.4.40"): errors.append("Decision schema is not V5.4.40")
     if decision.get("decision_count",0)<decision.get("universe_count",0): errors.append("Decision cards do not cover the daily universe")
     if decision.get("universe_count",0)<1000: errors.append("Decision daily universe is unexpectedly small")
     if any(not row.get("latest_price_current") for row in decision.get("rankings",[])): errors.append("Decision contains stale latest prices")
+    if not decision.get("priority_120d",{}).get("target_count"): errors.append("Priority 120-day universe is missing")
     sector_ids={row.get("id") for row in sectors.get("sectors") or []}; rows=themes.get("themes") or []
     if [row.get("rank") for row in rows]!=list(range(1,len(rows)+1)): errors.append("Theme ranks are not continuous")
     for row in rows:

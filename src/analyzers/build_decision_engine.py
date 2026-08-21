@@ -18,6 +18,7 @@ FLOW_PATH=Path("data/analysis/flow_persistence/latest.json")
 HISTORY_ROOT=Path("data/history/prices")
 OUTPUT_ROOT=Path("data/analysis/decision")
 RAW_ROOT=Path("data/raw")
+PRIORITY_PATH=Path("data/analysis/priority_history_universe.json")
 
 def load_json(path):
     try:
@@ -134,11 +135,14 @@ def main():
         })
 
     decisions.sort(key=lambda r:(r["decision_score"],r["confidence_pct"]),reverse=True)
+    priority_payload=load_json(PRIORITY_PATH); priority_codes={str(r.get("code")) for r in priority_payload.get("stocks",[])}
+    priority_complete=sum(r.get("code") in priority_codes and r.get("history_record_count",0)>=120 for r in decisions)
     payload={
-        "schema_version":"5.4.39-history-integrity","generated_at":now.isoformat(),"data_date":research.get("data_date"),
+        "schema_version":"5.4.40-priority-120d","generated_at":now.isoformat(),"data_date":research.get("data_date"),
         "status":"ok" if decisions else "pending","decision_count":len(decisions),
         "history_coverage_count":sum(r.get("card_level")=="complete" for r in decisions),"daily_history_count":len(history_codes),
         "universe_count":len(universe),"universe_source":"daily official TWSE + TPEx 4-digit equity candidates",
+        "priority_120d":{"target_count":len(priority_codes),"complete_count":priority_complete,"pending_count":max(0,len(priority_codes)-priority_complete),"target_records":120},
         "rankings":decisions,
         "research_pool":[r for r in decisions if r["source_pool"]=="research"][:10],
         "watch_pool":[r for r in decisions if r["source_pool"]=="watch"][:10],
