@@ -53,6 +53,8 @@ jobs:
       - name: Build breadth and history
         run: python src/analyzers/build_breadth_history.py
       - run: python src/builders/build_site.py
+      - name: Validate publication contract
+        run: python scripts/validate_market_close.py
 
       - name: Commit generated data and website
         run: |
@@ -63,7 +65,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw data/normalized data/analysis public/data
-          git commit -m "data: update sector intelligence center"
+          git commit -m "data: update V5.4.36 theme confidence"
           git pull --rebase origin main
           git push origin HEAD:main
 
