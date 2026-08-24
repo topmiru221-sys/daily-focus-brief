@@ -28,7 +28,7 @@ jobs:
       - name: Build priority 120-day universe
         run: python src/builders/build_priority_history_universe.py
       - name: Backfill next priority batch
-        run: python src/fetchers/fetch_history.py --priority-file data/analysis/priority_history_universe.json --target-records 120 --batch-size 100
+        run: python src/fetchers/fetch_history.py --priority-file data/analysis/priority_history_universe.json --target-records 120 --batch-size 40
       - name: Re-sync stored daily snapshots
         run: python src/builders/sync_daily_history.py
       - name: Rebuild Decision Engine
