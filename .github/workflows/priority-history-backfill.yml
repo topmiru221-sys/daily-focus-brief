@@ -37,7 +37,8 @@ jobs:
         run: |
           python src/builders/build_site.py
           python src/builders/build_project_status.py
-          python scripts/validate_market_close.py
+      - name: Validate priority history progress
+        run: python scripts/validate_priority_history.py
       - name: Commit priority history progress
         run: |
           if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
