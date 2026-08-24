@@ -21,17 +21,22 @@ def load_json(path): return json.loads(path.read_text(encoding="utf-8"))
 
 def request_json(url,*,params,attempts=3,timeout=45):
     referer="https://www.tpex.org.tw/zh-tw/mainboard/trading/info/stock-pricing.html" if "tpex.org.tw" in url else "https://www.twse.com.tw/"
-    headers={"User-Agent":"daily-focus-brief/5.4.40.1","Accept":"application/json,text/plain,*/*","Referer":referer}
+    headers={"User-Agent":"daily-focus-brief/5.4.40.2","Accept":"application/json,text/plain,*/*","Referer":referer}
     last=None
     for attempt in range(1,attempts+1):
         try:
             r=requests.get(url,params=params,headers=headers,timeout=timeout)
             if r.status_code==403:
                 raise RuntimeError(f"Official data source rejected the request (HTTP 403): {r.url}")
-            r.raise_for_status();return r.json()
+            r.raise_for_status()
+            try:
+                return r.json()
+            except ValueError as exc:
+                content_type=r.headers.get("content-type","unknown")
+                raise ValueError(f"Non-JSON response (HTTP {r.status_code}, content-type {content_type})") from exc
         except (requests.RequestException,ValueError) as exc:
             last=exc;LOG.warning("Request failed %s/%s: %s",attempt,attempts,exc)
-            if attempt<attempts: time.sleep(2**(attempt-1))
+            if attempt<attempts: time.sleep((5,20)[attempt-1])
     raise RuntimeError(str(last))
 
 def month_starts(month_count=6):
@@ -87,13 +92,13 @@ def parse_tpex(payload):
 def fetch_twse(code,months):
     rows=[]
     for m in months:
-        rows.extend(parse_twse(request_json(TWSE_URL,params={"response":"json","date":m.strftime("%Y%m%d"),"stockNo":code})));time.sleep(.28)
+        rows.extend(parse_twse(request_json(TWSE_URL,params={"response":"json","date":m.strftime("%Y%m%d"),"stockNo":code})));time.sleep(1.25)
     return rows
 
 def fetch_tpex(code,months):
     rows=[]
     for m in months:
-        rows.extend(parse_tpex(request_json(TPEX_URL,params={"date":m.strftime("%Y/%m/01"),"code":code,"response":"json"})));time.sleep(.28)
+        rows.extend(parse_tpex(request_json(TPEX_URL,params={"date":m.strftime("%Y/%m/01"),"code":code,"response":"json"})));time.sleep(.5)
     return rows
 
 def codes_from_config(path,key):
@@ -129,6 +134,9 @@ def main():
     if args.batch_size>0: codes=codes[:args.batch_size]
     failures=[];successes=[]
     for i,code in enumerate(codes,1):
+        if i>1 and (i-1)%10==0:
+            LOG.info("Cooling down official data requests for 15 seconds")
+            time.sleep(15)
         LOG.info("Fetching %s (%s/%s)",code,i,len(codes))
         try:
             existing_payload=load_json(OUTPUT_ROOT/f"{code}.json") if (OUTPUT_ROOT/f"{code}.json").exists() else {}
