@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:48.113521+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:33.819036+08:00",
   "code": "7642",
   "name": "昶瑞機電",
   "market": "TPEx",
@@ -301,42 +301,21 @@
       "label": "水平壓力"
     }
   ],
-  "support_resistance_zones": [
-    {
-      "low": 78.94,
-      "high": 79.66,
-      "center": 79.3,
-      "touches": 2,
-      "last_date": "2026-08-26",
-      "type": "resistance",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 79.94,
-      "high": 80.66,
-      "center": 80.3,
-      "touches": 1,
-      "last_date": "2026-08-10",
-      "type": "resistance",
-      "source": "pivot_cluster"
-    },
+  "support_zones": [
     {
       "low": 76.59,
       "high": 77.31,
       "center": 76.95,
       "touches": 2,
       "last_date": "2026-08-26",
+      "last_index": 13,
       "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 81.64,
-      "high": 82.36,
-      "center": 82.0,
-      "touches": 1,
-      "last_date": "2026-08-14",
-      "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 59.6,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 2.66,
+      "tested_recently": true
     },
     {
       "low": 75.44,
@@ -344,8 +323,61 @@
       "center": 75.8,
       "touches": 1,
       "last_date": "2026-08-19",
+      "last_index": 8,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 39.8,
+      "display_label": "次要支撐",
+      "rank": 2,
+      "distance_pct": 4.22,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 78.94,
+      "high": 79.66,
+      "center": 79.3,
+      "touches": 2,
+      "last_date": "2026-08-26",
+      "last_index": 13,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 68.5,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 0.38,
+      "tested_recently": true
+    },
+    {
+      "low": 79.94,
+      "high": 80.66,
+      "center": 80.3,
+      "touches": 1,
+      "last_date": "2026-08-10",
+      "last_index": 2,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 43.4,
+      "display_label": "次要壓力",
+      "rank": 2,
+      "distance_pct": 1.65,
+      "tested_recently": true
+    },
+    {
+      "low": 81.64,
+      "high": 82.36,
+      "center": 82.0,
+      "touches": 1,
+      "last_date": "2026-08-14",
+      "last_index": 5,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 37.8,
+      "display_label": "觀察壓力",
+      "rank": 3,
+      "distance_pct": 3.8,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -374,6 +406,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距離關鍵壓力很近，容易震盪。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:47.709080+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:33.603127+08:00",
   "code": "3008",
   "name": "大立光",
   "market": "TWSE",
@@ -1757,15 +1757,21 @@
       "label": "上升壓力"
     }
   ],
-  "support_resistance_zones": [
+  "support_zones": [
     {
       "low": 6290.0,
       "high": 6605.0,
       "center": 6447.5,
       "touches": 1,
       "last_date": "2026-08-29",
+      "last_index": 124,
       "type": "support",
-      "source": "gap"
+      "source": "gap",
+      "strength_score": 54,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 9.58,
+      "tested_recently": true
     },
     {
       "low": 5740.0,
@@ -1773,53 +1779,14 @@
       "center": 5807.5,
       "touches": 1,
       "last_date": "2026-08-28",
+      "last_index": 123,
       "type": "support",
-      "source": "gap"
-    },
-    {
-      "low": 5718.21,
-      "high": 5781.79,
-      "center": 5750.0,
-      "touches": 1,
-      "last_date": "2026-08-24",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 5328.21,
-      "high": 5391.79,
-      "center": 5360.0,
-      "touches": 1,
-      "last_date": "2026-06-22",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 5203.21,
-      "high": 5266.79,
-      "center": 5235.0,
-      "touches": 1,
-      "last_date": "2026-06-25",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 4738.21,
-      "high": 4801.79,
-      "center": 4770.0,
-      "touches": 1,
-      "last_date": "2026-08-07",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 4453.21,
-      "high": 4516.79,
-      "center": 4485.0,
-      "touches": 1,
-      "last_date": "2026-07-14",
-      "type": "support",
-      "source": "pivot_cluster"
+      "source": "gap",
+      "strength_score": 53,
+      "display_label": "次要支撐",
+      "rank": 2,
+      "distance_pct": 21.65,
+      "tested_recently": true
     },
     {
       "low": 4168.37,
@@ -1827,64 +1794,17 @@
       "center": 4210.0,
       "touches": 4,
       "last_date": "2026-08-12",
+      "last_index": 112,
       "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 3953.21,
-      "high": 4016.79,
-      "center": 3985.0,
-      "touches": 1,
-      "last_date": "2026-07-15",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 3839.87,
-      "high": 3903.46,
-      "center": 3871.67,
-      "touches": 3,
-      "last_date": "2026-07-08",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 3550.0,
-      "high": 3755.0,
-      "center": 3652.5,
-      "touches": 1,
-      "last_date": "2026-06-09",
-      "type": "support",
-      "source": "gap"
-    },
-    {
-      "low": 3600.87,
-      "high": 3684.13,
-      "center": 3642.5,
-      "touches": 2,
-      "last_date": "2026-07-30",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 2475.87,
-      "high": 2564.13,
-      "center": 2520.0,
-      "touches": 4,
-      "last_date": "2026-05-11",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 2385.87,
-      "high": 2454.13,
-      "center": 2420.0,
-      "touches": 4,
-      "last_date": "2026-04-23",
-      "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 52,
+      "display_label": "觀察支撐",
+      "rank": 3,
+      "distance_pct": 67.81,
+      "tested_recently": true
     }
   ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -1935,6 +1855,26 @@
       "source": "decision.target"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "已進入不追價區，避免追高",
+    "confidence": "high",
+    "reason": "現價偏離均線／支撐過遠，上方風險報酬比下降。"
+  },
   "decision_snapshot": {
     "score": 48.2,
     "grade": "D",

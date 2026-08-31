@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:46.419296+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:32.865959+08:00",
   "code": "4433",
   "name": "興采",
   "market": "TPEx",
@@ -309,33 +309,53 @@
       "label": "下降壓力"
     }
   ],
-  "support_resistance_zones": [
-    {
-      "low": 18.86,
-      "high": 19.04,
-      "center": 18.95,
-      "touches": 1,
-      "last_date": "2026-08-18",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
+  "support_zones": [
     {
       "low": 18.66,
       "high": 18.84,
       "center": 18.75,
       "touches": 2,
       "last_date": "2026-08-26",
+      "last_index": 13,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 64.7,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 1.33,
+      "tested_recently": true
     },
     {
-      "low": 19.31,
-      "high": 19.49,
-      "center": 19.4,
+      "low": 18.86,
+      "high": 19.04,
+      "center": 18.95,
       "touches": 1,
-      "last_date": "2026-08-10",
+      "last_date": "2026-08-18",
+      "last_index": 7,
+      "type": "support",
+      "source": "pivot_cluster",
+      "strength_score": 53.9,
+      "display_label": "次要支撐",
+      "rank": 2,
+      "distance_pct": 0.26,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 19.55,
+      "high": 19.9,
+      "center": 19.73,
+      "touches": 1,
+      "last_date": "2026-08-14",
+      "last_index": 5,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "gap",
+      "strength_score": 53.7,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 3.84,
+      "tested_recently": true
     },
     {
       "low": 19.51,
@@ -343,26 +363,29 @@
       "center": 19.6,
       "touches": 1,
       "last_date": "2026-08-18",
+      "last_index": 7,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 42.4,
+      "display_label": "次要壓力",
+      "rank": 2,
+      "distance_pct": 3.16,
+      "tested_recently": true
     },
     {
-      "low": 19.55,
-      "high": 19.9,
-      "center": 19.73,
+      "low": 19.31,
+      "high": 19.49,
+      "center": 19.4,
       "touches": 1,
-      "last_date": "2026-08-14",
+      "last_date": "2026-08-10",
+      "last_index": 2,
       "type": "resistance",
-      "source": "gap"
-    },
-    {
-      "low": 20.11,
-      "high": 20.29,
-      "center": 20.2,
-      "touches": 1,
-      "last_date": "2026-08-12",
-      "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 41.6,
+      "display_label": "觀察壓力",
+      "rank": 3,
+      "distance_pct": 2.11,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -391,6 +414,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入預設回測區，適合等確認。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

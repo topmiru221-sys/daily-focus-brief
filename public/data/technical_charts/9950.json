@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:46.577193+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:32.956038+08:00",
   "code": "9950",
   "name": "萬國通",
   "market": "TPEx",
@@ -284,24 +284,38 @@
       "label": "下降壓力"
     }
   ],
-  "support_resistance_zones": [
-    {
-      "low": 10.44,
-      "high": 10.53,
-      "center": 10.48,
-      "touches": 3,
-      "last_date": "2026-08-28",
-      "type": "resistance",
-      "source": "pivot_cluster"
-    },
+  "support_zones": [
     {
       "low": 10.09,
       "high": 10.18,
       "center": 10.13,
       "touches": 3,
       "last_date": "2026-08-25",
+      "last_index": 12,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 69.6,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 2.17,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 10.44,
+      "high": 10.53,
+      "center": 10.48,
+      "touches": 3,
+      "last_date": "2026-08-28",
+      "last_index": 14,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 74.8,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 1.26,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -330,6 +344,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距離關鍵壓力很近，容易震盪。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

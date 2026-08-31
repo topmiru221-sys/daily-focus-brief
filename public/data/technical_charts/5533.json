@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:44.969660+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:32.041734+08:00",
   "code": "5533",
   "name": "皇鼎",
   "market": "TWSE",
@@ -364,24 +364,38 @@
       "label": "水平壓力"
     }
   ],
-  "support_resistance_zones": [
-    {
-      "low": 13.94,
-      "high": 14.09,
-      "center": 14.01,
-      "touches": 7,
-      "last_date": "2026-08-28",
-      "type": "resistance",
-      "source": "pivot_cluster"
-    },
+  "support_zones": [
     {
       "low": 13.69,
       "high": 13.9,
       "center": 13.79,
       "touches": 8,
       "last_date": "2026-08-28",
+      "last_index": 15,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 83.5,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 1.16,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 13.94,
+      "high": 14.09,
+      "center": 14.01,
+      "touches": 7,
+      "last_date": "2026-08-28",
+      "last_index": 15,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 86.2,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 0.43,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -410,6 +424,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入預設回測區，適合等確認。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

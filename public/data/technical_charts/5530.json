@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:44.685190+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:31.884413+08:00",
   "code": "5530",
   "name": "龍巖",
   "market": "TPEx",
@@ -293,24 +293,21 @@
       "label": "上升壓力"
     }
   ],
-  "support_resistance_zones": [
-    {
-      "low": 51.07,
-      "high": 51.53,
-      "center": 51.3,
-      "touches": 1,
-      "last_date": "2026-08-24",
-      "type": "resistance",
-      "source": "pivot_cluster"
-    },
+  "support_zones": [
     {
       "low": 50.46,
       "high": 51.07,
       "center": 50.77,
       "touches": 3,
       "last_date": "2026-08-17",
+      "last_index": 6,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 68.6,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 0.85,
+      "tested_recently": true
     },
     {
       "low": 49.67,
@@ -318,17 +315,14 @@
       "center": 49.9,
       "touches": 1,
       "last_date": "2026-08-24",
+      "last_index": 11,
       "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 48.67,
-      "high": 49.13,
-      "center": 48.9,
-      "touches": 1,
-      "last_date": "2026-08-18",
-      "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 48.8,
+      "display_label": "次要支撐",
+      "rank": 2,
+      "distance_pct": 2.61,
+      "tested_recently": true
     },
     {
       "low": 47.6,
@@ -336,8 +330,31 @@
       "center": 47.95,
       "touches": 1,
       "last_date": "2026-08-10",
+      "last_index": 2,
       "type": "support",
-      "source": "gap"
+      "source": "gap",
+      "strength_score": 41,
+      "display_label": "觀察支撐",
+      "rank": 3,
+      "distance_pct": 6.78,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 51.07,
+      "high": 51.53,
+      "center": 51.3,
+      "touches": 1,
+      "last_date": "2026-08-24",
+      "last_index": 11,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 58.2,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 0.2,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -366,6 +383,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入預設回測區，適合等確認。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

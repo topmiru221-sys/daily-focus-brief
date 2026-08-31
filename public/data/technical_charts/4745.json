@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:45.683941+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:32.448068+08:00",
   "code": "4745",
   "name": "合富-KY",
   "market": "TPEx",
@@ -293,24 +293,21 @@
       "label": "下降壓力"
     }
   ],
-  "support_resistance_zones": [
+  "support_zones": [
     {
-      "low": 11.8,
-      "high": 11.9,
-      "center": 11.85,
-      "touches": 1,
-      "last_date": "2026-08-14",
+      "low": 11.5,
+      "high": 11.6,
+      "center": 11.55,
+      "touches": 2,
+      "last_date": "2026-08-20",
+      "last_index": 9,
       "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 11.95,
-      "high": 12.05,
-      "center": 12.0,
-      "touches": 1,
-      "last_date": "2026-08-24",
-      "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 54.2,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 3.03,
+      "tested_recently": true
     },
     {
       "low": 11.65,
@@ -318,17 +315,46 @@
       "center": 11.7,
       "touches": 1,
       "last_date": "2026-08-25",
+      "last_index": 12,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 53.3,
+      "display_label": "次要支撐",
+      "rank": 2,
+      "distance_pct": 1.71,
+      "tested_recently": true
     },
     {
-      "low": 11.5,
-      "high": 11.6,
-      "center": 11.55,
-      "touches": 2,
-      "last_date": "2026-08-20",
+      "low": 11.8,
+      "high": 11.9,
+      "center": 11.85,
+      "touches": 1,
+      "last_date": "2026-08-14",
+      "last_index": 5,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 51.3,
+      "display_label": "觀察支撐",
+      "rank": 3,
+      "distance_pct": 0.42,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 11.95,
+      "high": 12.05,
+      "center": 12.0,
+      "touches": 1,
+      "last_date": "2026-08-24",
+      "last_index": 11,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 55.6,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 0.84,
+      "tested_recently": true
     },
     {
       "low": 12.25,
@@ -336,8 +362,14 @@
       "center": 12.3,
       "touches": 1,
       "last_date": "2026-08-13",
+      "last_index": 4,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 38.6,
+      "display_label": "次要壓力",
+      "rank": 2,
+      "distance_pct": 3.36,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -366,6 +398,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入預設回測區，適合等確認。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:46.526664+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:32.926589+08:00",
   "code": "6161",
   "name": "捷波",
   "market": "TPEx",
@@ -259,24 +259,38 @@
       "label": "下降壓力"
     }
   ],
-  "support_resistance_zones": [
+  "support_zones": [
     {
       "low": 49.32,
       "high": 49.78,
       "center": 49.55,
       "touches": 1,
       "last_date": "2026-08-21",
+      "last_index": 10,
       "type": "support",
-      "source": "pivot_cluster"
-    },
+      "source": "pivot_cluster",
+      "strength_score": 52.0,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 1.51,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 51.37,
       "high": 51.83,
       "center": 51.6,
       "touches": 1,
       "last_date": "2026-08-24",
+      "last_index": 11,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 48.7,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 2.58,
+      "tested_recently": true
     },
     {
       "low": 51.87,
@@ -284,8 +298,14 @@
       "center": 52.1,
       "touches": 1,
       "last_date": "2026-08-10",
+      "last_index": 2,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 35.7,
+      "display_label": "次要壓力",
+      "rank": 2,
+      "distance_pct": 3.58,
+      "tested_recently": true
     },
     {
       "low": 54.17,
@@ -293,8 +313,14 @@
       "center": 54.4,
       "touches": 1,
       "last_date": "2026-08-13",
+      "last_index": 4,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 27,
+      "display_label": "觀察壓力",
+      "rank": 3,
+      "distance_pct": 8.15,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -323,6 +349,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距離關鍵壓力很近，容易震盪。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

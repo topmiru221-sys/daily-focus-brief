@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:44.309998+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:31.678943+08:00",
   "code": "6451",
   "name": "訊芯-KY",
   "market": "TWSE",
@@ -262,15 +262,21 @@
       "label": "下降壓力"
     }
   ],
-  "support_resistance_zones": [
+  "support_zones": [
     {
-      "low": 472.71,
-      "high": 476.79,
-      "center": 474.75,
-      "touches": 2,
-      "last_date": "2026-08-19",
-      "type": "resistance",
-      "source": "pivot_cluster"
+      "low": 382.46,
+      "high": 386.54,
+      "center": 384.5,
+      "touches": 1,
+      "last_date": "2026-08-26",
+      "last_index": 14,
+      "type": "support",
+      "source": "pivot_cluster",
+      "strength_score": 36,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 17.95,
+      "tested_recently": true
     },
     {
       "low": 389.46,
@@ -278,17 +284,31 @@
       "center": 391.5,
       "touches": 1,
       "last_date": "2026-08-20",
+      "last_index": 10,
       "type": "support",
-      "source": "pivot_cluster"
-    },
+      "source": "pivot_cluster",
+      "strength_score": 32,
+      "display_label": "次要支撐",
+      "rank": 2,
+      "distance_pct": 15.84,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
     {
-      "low": 382.46,
-      "high": 386.54,
-      "center": 384.5,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "type": "support",
-      "source": "pivot_cluster"
+      "low": 472.71,
+      "high": 476.79,
+      "center": 474.75,
+      "touches": 2,
+      "last_date": "2026-08-19",
+      "last_index": 9,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 46.3,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 4.69,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -317,6 +337,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:46.960961+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:33.181802+08:00",
   "code": "8176",
   "name": "智捷",
   "market": "TPEx",
@@ -250,24 +250,38 @@
       "label": "水平壓力"
     }
   ],
-  "support_resistance_zones": [
+  "support_zones": [
     {
       "low": 9.66,
       "high": 9.78,
       "center": 9.72,
       "touches": 2,
       "last_date": "2026-08-25",
+      "last_index": 12,
       "type": "support",
-      "source": "pivot_cluster"
-    },
+      "source": "pivot_cluster",
+      "strength_score": 65.3,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 0.93,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 10.36,
       "high": 10.44,
       "center": 10.4,
       "touches": 2,
       "last_date": "2026-08-14",
+      "last_index": 5,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 37.9,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 6.01,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -296,6 +310,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入預設回測區，適合等確認。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

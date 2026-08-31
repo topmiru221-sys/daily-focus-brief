@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:46.870587+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:33.130337+08:00",
   "code": "2440",
   "name": "太空梭",
   "market": "TWSE",
@@ -271,24 +271,21 @@
       "label": "下降壓力"
     }
   ],
-  "support_resistance_zones": [
+  "support_zones": [
     {
       "low": 13.98,
       "high": 14.12,
       "center": 14.05,
       "touches": 1,
       "last_date": "2026-08-24",
+      "last_index": 12,
       "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 14.95,
-      "high": 15.4,
-      "center": 15.18,
-      "touches": 1,
-      "last_date": "2026-08-14",
-      "type": "resistance",
-      "source": "gap"
+      "source": "pivot_cluster",
+      "strength_score": 47.9,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 2.85,
+      "tested_recently": true
     },
     {
       "low": 13.47,
@@ -296,8 +293,31 @@
       "center": 13.55,
       "touches": 2,
       "last_date": "2026-08-26",
+      "last_index": 14,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 45.1,
+      "display_label": "次要支撐",
+      "rank": 2,
+      "distance_pct": 6.64,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 14.95,
+      "high": 15.4,
+      "center": 15.18,
+      "touches": 1,
+      "last_date": "2026-08-14",
+      "last_index": 6,
+      "type": "resistance",
+      "source": "gap",
+      "strength_score": 48.9,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 5.05,
+      "tested_recently": true
     },
     {
       "low": 15.93,
@@ -305,8 +325,14 @@
       "center": 16.0,
       "touches": 1,
       "last_date": "2026-08-12",
+      "last_index": 4,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 26,
+      "display_label": "次要壓力",
+      "rank": 2,
+      "distance_pct": 10.73,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -335,6 +361,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

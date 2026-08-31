@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:46.048773+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:32.655818+08:00",
   "code": "1452",
   "name": "宏益",
   "market": "TWSE",
@@ -313,24 +313,38 @@
       "label": "水平壓力"
     }
   ],
-  "support_resistance_zones": [
+  "support_zones": [
     {
       "low": 11.28,
       "high": 11.42,
       "center": 11.35,
       "touches": 4,
       "last_date": "2026-08-21",
+      "last_index": 11,
       "type": "support",
-      "source": "pivot_cluster"
-    },
+      "source": "pivot_cluster",
+      "strength_score": 82.2,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 0.44,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 11.51,
       "high": 11.66,
       "center": 11.58,
       "touches": 3,
       "last_date": "2026-08-25",
+      "last_index": 13,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 71.6,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 1.58,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -359,6 +373,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "現價位於主要支撐區內，近期測試 4 次。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

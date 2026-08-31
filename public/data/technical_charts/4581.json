@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:46.314841+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:32.806060+08:00",
   "code": "4581",
   "name": "光隆精密-KY",
   "market": "TWSE",
@@ -347,24 +347,38 @@
       "label": "上升壓力"
     }
   ],
-  "support_resistance_zones": [
+  "support_zones": [
     {
       "low": 47.04,
       "high": 47.68,
       "center": 47.36,
       "touches": 4,
       "last_date": "2026-08-26",
+      "last_index": 14,
       "type": "support",
-      "source": "pivot_cluster"
-    },
+      "source": "pivot_cluster",
+      "strength_score": 82.5,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 1.14,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 48.56,
       "high": 48.99,
       "center": 48.77,
       "touches": 2,
       "last_date": "2026-08-26",
+      "last_index": 14,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 62.7,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 1.82,
+      "tested_recently": true
     },
     {
       "low": 48.65,
@@ -372,8 +386,14 @@
       "center": 49.83,
       "touches": 1,
       "last_date": "2026-08-13",
+      "last_index": 5,
       "type": "resistance",
-      "source": "gap"
+      "source": "gap",
+      "strength_score": 51.9,
+      "display_label": "次要壓力",
+      "rank": 2,
+      "distance_pct": 4.03,
+      "tested_recently": true
     },
     {
       "low": 50.28,
@@ -381,17 +401,14 @@
       "center": 50.5,
       "touches": 1,
       "last_date": "2026-08-10",
+      "last_index": 2,
       "type": "resistance",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 52.08,
-      "high": 52.52,
-      "center": 52.3,
-      "touches": 1,
-      "last_date": "2026-08-12",
-      "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 27.3,
+      "display_label": "觀察壓力",
+      "rank": 3,
+      "distance_pct": 5.43,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -420,6 +437,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入預設回測區，適合等確認。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

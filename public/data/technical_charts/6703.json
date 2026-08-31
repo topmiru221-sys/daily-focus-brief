@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:47.199342+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:33.318022+08:00",
   "code": "6703",
   "name": "軒郁",
   "market": "TPEx",
@@ -301,33 +301,53 @@
       "label": "下降壓力"
     }
   ],
-  "support_resistance_zones": [
-    {
-      "low": 102.04,
-      "high": 102.96,
-      "center": 102.5,
-      "touches": 1,
-      "last_date": "2026-08-25",
-      "type": "support",
-      "source": "pivot_cluster"
-    },
-    {
-      "low": 103.41,
-      "high": 104.34,
-      "center": 103.88,
-      "touches": 4,
-      "last_date": "2026-08-28",
-      "type": "resistance",
-      "source": "pivot_cluster"
-    },
+  "support_zones": [
     {
       "low": 100.79,
       "high": 101.71,
       "center": 101.25,
       "touches": 2,
       "last_date": "2026-08-19",
+      "last_index": 8,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 58.2,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 1.73,
+      "tested_recently": true
+    },
+    {
+      "low": 102.04,
+      "high": 102.96,
+      "center": 102.5,
+      "touches": 1,
+      "last_date": "2026-08-25",
+      "last_index": 12,
+      "type": "support",
+      "source": "pivot_cluster",
+      "strength_score": 58.1,
+      "display_label": "次要支撐",
+      "rank": 2,
+      "distance_pct": 0.49,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 103.41,
+      "high": 104.34,
+      "center": 103.88,
+      "touches": 4,
+      "last_date": "2026-08-28",
+      "last_index": 14,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 84.6,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 0.85,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -356,6 +376,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入預設回測區，適合等確認。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

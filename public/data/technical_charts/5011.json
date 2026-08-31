@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:45.236697+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:32.188358+08:00",
   "code": "5011",
   "name": "久陽",
   "market": "TPEx",
@@ -259,24 +259,21 @@
       "label": "下降壓力"
     }
   ],
-  "support_resistance_zones": [
-    {
-      "low": 19.07,
-      "high": 19.23,
-      "center": 19.15,
-      "touches": 1,
-      "last_date": "2026-08-13",
-      "type": "resistance",
-      "source": "pivot_cluster"
-    },
+  "support_zones": [
     {
       "low": 17.92,
       "high": 18.08,
       "center": 18.0,
       "touches": 1,
       "last_date": "2026-08-21",
+      "last_index": 10,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 44.1,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 3.61,
+      "tested_recently": true
     },
     {
       "low": 17.19,
@@ -284,8 +281,31 @@
       "center": 17.27,
       "touches": 2,
       "last_date": "2026-08-25",
+      "last_index": 12,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 44,
+      "display_label": "次要支撐",
+      "rank": 2,
+      "distance_pct": 7.99,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 19.07,
+      "high": 19.23,
+      "center": 19.15,
+      "touches": 1,
+      "last_date": "2026-08-13",
+      "last_index": 4,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 41.3,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 2.68,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -314,6 +334,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距離關鍵壓力很近，容易震盪。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

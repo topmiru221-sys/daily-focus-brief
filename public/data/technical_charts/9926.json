@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:44.364211+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:31.708239+08:00",
   "code": "9926",
   "name": "新海",
   "market": "TWSE",
@@ -288,24 +288,38 @@
       "label": "上升壓力"
     }
   ],
-  "support_resistance_zones": [
-    {
-      "low": 49.16,
-      "high": 49.91,
-      "center": 49.54,
-      "touches": 4,
-      "last_date": "2026-08-28",
-      "type": "resistance",
-      "source": "pivot_cluster"
-    },
+  "support_zones": [
     {
       "low": 48.28,
       "high": 48.72,
       "center": 48.5,
       "touches": 1,
       "last_date": "2026-08-19",
+      "last_index": 9,
       "type": "support",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 51.1,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 1.24,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 49.16,
+      "high": 49.91,
+      "center": 49.54,
+      "touches": 4,
+      "last_date": "2026-08-28",
+      "last_index": 15,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "strength_score": 84.4,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 0.9,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -334,6 +348,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距離關鍵壓力很近，容易震盪。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.43-chart-decision-overlay",
-  "generated_at": "2026-08-31T14:38:44.648159+08:00",
+  "schema_version": "5.4.44-smart-zones",
+  "generated_at": "2026-08-31T14:55:31.863754+08:00",
   "code": "2712",
   "name": "遠雄來",
   "market": "TWSE",
@@ -309,24 +309,38 @@
       "label": "下降壓力"
     }
   ],
-  "support_resistance_zones": [
+  "support_zones": [
     {
       "low": 14.2,
       "high": 14.4,
       "center": 14.3,
       "touches": 4,
       "last_date": "2026-08-28",
+      "last_index": 14,
       "type": "support",
-      "source": "pivot_cluster"
-    },
+      "source": "pivot_cluster",
+      "strength_score": 86.6,
+      "display_label": "主要支撐",
+      "rank": 1,
+      "distance_pct": 0.35,
+      "tested_recently": true
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 14.4,
       "high": 14.5,
       "center": 14.45,
       "touches": 1,
       "last_date": "2026-08-31",
+      "last_index": 16,
       "type": "resistance",
-      "source": "gap"
+      "source": "gap",
+      "strength_score": 77.2,
+      "display_label": "關鍵壓力",
+      "rank": 1,
+      "distance_pct": 0.7,
+      "tested_recently": true
     },
     {
       "low": 14.64,
@@ -334,8 +348,14 @@
       "center": 14.7,
       "touches": 1,
       "last_date": "2026-08-24",
+      "last_index": 11,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 49.2,
+      "display_label": "次要壓力",
+      "rank": 2,
+      "distance_pct": 2.44,
+      "tested_recently": true
     },
     {
       "low": 14.89,
@@ -343,8 +363,14 @@
       "center": 14.95,
       "touches": 1,
       "last_date": "2026-08-11",
+      "last_index": 2,
       "type": "resistance",
-      "source": "pivot_cluster"
+      "source": "pivot_cluster",
+      "strength_score": 33.3,
+      "display_label": "觀察壓力",
+      "rank": 3,
+      "distance_pct": 4.18,
+      "tested_recently": true
     }
   ],
   "decision_zones": [
@@ -373,6 +399,26 @@
       "source": "ma20_extension/resistance"
     }
   ],
+  "layer_defaults": {
+    "candles": true,
+    "volume": true,
+    "ma5": false,
+    "ma20": true,
+    "ma60": true,
+    "ma120": false,
+    "trend_ascending": false,
+    "trend_descending": false,
+    "supports": true,
+    "resistances": true,
+    "gaps": false,
+    "decision_zones": true,
+    "targets": true
+  },
+  "entry_hint": {
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "現價位於主要支撐區內，近期測試 4 次。"
+  },
   "decision_snapshot": {
     "score": 44.5,
     "grade": "D",
