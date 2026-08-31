@@ -48,7 +48,7 @@ jobs:
         run: python src/builders/sync_daily_history.py
       - name: Build Decision Engine
         run: python src/analyzers/build_decision_engine.py
-      - name: Build Chart Decision Overlay
+      - name: Build Smart Chart Overlay
         run: python src/analyzers/build_technical_chart.py
       - name: Build Sector Center
         run: python src/analyzers/build_sector_center.py
@@ -73,7 +73,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw data/normalized data/analysis data/history public/data
-          git commit -m "data: update V5.4.43 chart decision overlay"
+          git commit -m "data: update V5.4.44 interactive chart layers"
           git pull --rebase origin main
           git push origin HEAD:main
 
