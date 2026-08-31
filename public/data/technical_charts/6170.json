@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-08-31T15:10:58.182530+08:00",
+  "generated_at": "2026-09-01T01:09:07.053912+08:00",
   "code": "6170",
   "name": "統振",
   "market": "TPEx",
-  "record_count": 17,
+  "record_count": 18,
   "first_date": "2026-08-06",
-  "last_date": "2026-08-31",
+  "last_date": "2026-09-01",
   "candles": [
     {
       "date": "2026-08-06",
@@ -211,6 +211,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-01",
+      "open": 48.65,
+      "high": 48.65,
+      "low": 48.0,
+      "close": 48.15,
+      "volume": 80000.0,
+      "ma5": 48.66,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -279,14 +291,14 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 3,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 1.44,
-      "strength_score": 105.1,
+      "distance_pct_abs": 0.31,
+      "strength_score": 107.4,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 1.46
+      "distance_pct": 0.31
     },
     {
       "low": 47.1,
@@ -299,14 +311,14 @@
       "source": "pivot_cluster",
       "tests": 9,
       "held_tests": 8,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 2.81,
-      "strength_score": 102.4,
+      "distance_pct_abs": 1.7,
+      "strength_score": 104.6,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 2.89
+      "distance_pct": 1.73
     },
     {
       "low": 46.53,
@@ -319,17 +331,38 @@
       "source": "pivot_cluster",
       "tests": 5,
       "held_tests": 5,
-      "last_test_bars_ago": 11,
+      "last_test_bars_ago": 12,
       "ma_overlap": [],
-      "distance_pct_abs": 4.0,
-      "strength_score": 94.0,
+      "distance_pct_abs": 2.91,
+      "strength_score": 96.2,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察支撐",
-      "distance_pct": 4.17
+      "distance_pct": 2.99
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 48.98,
+      "high": 49.42,
+      "center": 49.2,
+      "touches": 1,
+      "last_date": "2026-08-28",
+      "last_index": 14,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.18,
+      "strength_score": 79.6,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.18
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -340,11 +373,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 49.42,
+      "high": 50.21,
+      "center": 49.42,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 52.6,
-      "high": 55.75,
-      "center": 52.6,
+      "low": 52.0,
+      "high": 55.12,
+      "center": 52.0,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -364,9 +405,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 6 次、守住 3 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

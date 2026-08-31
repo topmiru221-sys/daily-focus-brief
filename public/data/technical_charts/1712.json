@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-08-31T15:11:00.570274+08:00",
+  "generated_at": "2026-09-01T01:09:08.436828+08:00",
   "code": "1712",
   "name": "興農",
   "market": "TWSE",
-  "record_count": 18,
+  "record_count": 19,
   "first_date": "2026-08-06",
-  "last_date": "2026-08-31",
+  "last_date": "2026-09-01",
   "candles": [
     {
       "date": "2026-08-06",
@@ -223,10 +223,40 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-01",
+      "open": 39.9,
+      "high": 40.05,
+      "low": 39.7,
+      "close": 39.8,
+      "volume": 653544.0,
+      "ma5": 39.87,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
-  "trendlines": [],
+  "trendlines": [
+    {
+      "role": "resistance",
+      "direction": "ascending",
+      "from": {
+        "index": 5,
+        "date": "2026-08-13",
+        "price": 39.6
+      },
+      "to": {
+        "index": 16,
+        "date": "2026-08-29",
+        "price": 40.2
+      },
+      "slope": 0.0545,
+      "strength": 2,
+      "label": "上升壓力"
+    }
+  ],
   "support_zones": [
     {
       "low": 39.42,
@@ -237,8 +267,8 @@
       "last_index": 5,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 9,
-      "held_tests": 4,
+      "tests": 10,
+      "held_tests": 5,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
       "distance_pct_abs": 0.5,
@@ -259,7 +289,7 @@
       "source": "pivot_cluster",
       "tests": 5,
       "held_tests": 5,
-      "last_test_bars_ago": 9,
+      "last_test_bars_ago": 10,
       "ma_overlap": [],
       "distance_pct_abs": 2.76,
       "strength_score": 102.5,
@@ -269,7 +299,28 @@
       "distance_pct": 2.84
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 40.02,
+      "high": 40.38,
+      "center": 40.2,
+      "touches": 1,
+      "last_date": "2026-08-29",
+      "last_index": 16,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.01,
+      "strength_score": 97.0,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.01
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -278,6 +329,14 @@
       "high": 40.08,
       "center": 39.6,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 40.38,
+      "high": 41.03,
+      "center": 40.38,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",

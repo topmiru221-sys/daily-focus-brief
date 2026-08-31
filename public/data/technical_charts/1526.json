@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-08-31T15:11:00.286885+08:00",
+  "generated_at": "2026-09-01T01:09:08.275423+08:00",
   "code": "1526",
   "name": "日馳",
   "market": "TWSE",
-  "record_count": 18,
+  "record_count": 19,
   "first_date": "2026-08-06",
-  "last_date": "2026-08-31",
+  "last_date": "2026-09-01",
   "candles": [
     {
       "date": "2026-08-06",
@@ -223,6 +223,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-01",
+      "open": 16.6,
+      "high": 16.6,
+      "low": 16.4,
+      "close": 16.45,
+      "volume": 126458.0,
+      "ma5": 16.38,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -243,6 +255,23 @@
       "slope": -0.025,
       "strength": 2,
       "label": "下降支撐"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 2,
+        "date": "2026-08-10",
+        "price": 19.45
+      },
+      "to": {
+        "index": 16,
+        "date": "2026-08-29",
+        "price": 16.8
+      },
+      "slope": -0.1893,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [
@@ -257,7 +286,7 @@
       "source": "pivot_cluster",
       "tests": 3,
       "held_tests": 3,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
       "distance_pct_abs": 1.22,
       "strength_score": 96.6,
@@ -267,7 +296,28 @@
       "distance_pct": 1.23
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 16.73,
+      "high": 16.87,
+      "center": 16.8,
+      "touches": 1,
+      "last_date": "2026-08-29",
+      "last_index": 16,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 6,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.13,
+      "strength_score": 103.7,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.13
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -276,6 +326,14 @@
       "high": 16.45,
       "center": 16.25,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 16.87,
+      "high": 17.14,
+      "center": 16.87,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",

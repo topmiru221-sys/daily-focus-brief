@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-08-31T15:10:56.493526+08:00",
+  "generated_at": "2026-09-01T01:09:06.091197+08:00",
   "code": "7786",
   "name": "東方風能",
   "market": "TWSE",
-  "record_count": 18,
+  "record_count": 19,
   "first_date": "2026-08-06",
-  "last_date": "2026-08-31",
+  "last_date": "2026-09-01",
   "candles": [
     {
       "date": "2026-08-06",
@@ -223,6 +223,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-01",
+      "open": 119.0,
+      "high": 120.0,
+      "low": 116.5,
+      "close": 120.0,
+      "volume": 246784.0,
+      "ma5": 120.0,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -245,7 +257,28 @@
       "label": "下降支撐"
     }
   ],
-  "support_zones": [],
+  "support_zones": [
+    {
+      "low": 118.46,
+      "high": 119.54,
+      "center": 119.0,
+      "touches": 1,
+      "last_date": "2026-08-25",
+      "last_index": 13,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.83,
+      "strength_score": 82.3,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.84
+    }
+  ],
   "resistance_zones": [
     {
       "low": 120.46,
@@ -258,7 +291,7 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 3,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
       "distance_pct_abs": 0.83,
       "strength_score": 106.3,
@@ -269,6 +302,14 @@
     }
   ],
   "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 117.57,
+      "high": 120.43,
+      "center": 119.0,
+      "source": "decision.trigger/validated_support/ma20"
+    },
     {
       "kind": "breakout",
       "label": "突破確認區",
@@ -302,9 +343,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

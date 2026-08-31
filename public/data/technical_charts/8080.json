@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-08-31T15:10:58.342961+08:00",
+  "generated_at": "2026-09-01T01:09:07.145817+08:00",
   "code": "8080",
   "name": "泰霖",
   "market": "TPEx",
-  "record_count": 17,
+  "record_count": 18,
   "first_date": "2026-08-06",
-  "last_date": "2026-08-31",
+  "last_date": "2026-09-01",
   "candles": [
     {
       "date": "2026-08-06",
@@ -211,6 +211,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-01",
+      "open": 28.5,
+      "high": 29.0,
+      "low": 28.0,
+      "close": 29.0,
+      "volume": 38000.0,
+      "ma5": 28.2,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -248,6 +260,23 @@
       "slope": 0.0,
       "strength": 2,
       "label": "水平支撐"
+    },
+    {
+      "role": "support",
+      "direction": "ascending",
+      "from": {
+        "index": 8,
+        "date": "2026-08-19",
+        "price": 27.7
+      },
+      "to": {
+        "index": 15,
+        "date": "2026-08-29",
+        "price": 27.8
+      },
+      "slope": 0.0143,
+      "strength": 2,
+      "label": "上升支撐"
     },
     {
       "role": "resistance",
@@ -294,39 +323,37 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 8,
-      "held_tests": 6,
+      "tests": 9,
+      "held_tests": 7,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.0,
-      "strength_score": 108.0,
+      "distance_pct_abs": 3.45,
+      "strength_score": 101.1,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 0.0
+      "distance_pct": 3.57
     },
     {
-      "low": 27.57,
-      "high": 27.83,
-      "center": 27.7,
-      "touches": 2,
-      "last_date": "2026-08-19",
-      "last_index": 8,
+      "low": 27.6,
+      "high": 27.86,
+      "center": 27.73,
+      "touches": 3,
+      "last_date": "2026-08-29",
+      "last_index": 15,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 10,
-      "held_tests": 8,
-      "last_test_bars_ago": 5,
+      "tests": 12,
+      "held_tests": 10,
+      "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 1.07,
-      "strength_score": 105.9,
+      "distance_pct_abs": 4.38,
+      "strength_score": 99.2,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 1.08
-    }
-  ],
-  "resistance_zones": [
+      "distance_pct": 4.58
+    },
     {
       "low": 28.17,
       "high": 28.43,
@@ -334,20 +361,21 @@
       "touches": 1,
       "last_date": "2026-08-24",
       "last_index": 11,
-      "type": "resistance",
+      "type": "support",
       "source": "pivot_cluster",
       "tests": 3,
-      "held_tests": 2,
-      "last_test_bars_ago": 5,
+      "held_tests": 1,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 1.07,
-      "strength_score": 90.9,
+      "distance_pct_abs": 2.41,
+      "strength_score": 82.2,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.07
+      "rank": 3,
+      "display_label": "觀察支撐",
+      "distance_pct": 2.47
     }
   ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -358,19 +386,11 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 28.43,
-      "high": 28.88,
-      "center": 28.43,
-      "source": "validated_resistance/trigger"
-    },
-    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 30.24,
-      "high": 32.05,
-      "center": 30.24,
+      "low": 31.32,
+      "high": 33.2,
+      "center": 31.32,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -390,9 +410,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 8 次、守住 6 次。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-08-31T15:10:57.067425+08:00",
+  "generated_at": "2026-09-01T01:09:06.415299+08:00",
   "code": "2538",
   "name": "基泰",
   "market": "TWSE",
-  "record_count": 18,
+  "record_count": 19,
   "first_date": "2026-08-06",
-  "last_date": "2026-08-31",
+  "last_date": "2026-09-01",
   "candles": [
     {
       "date": "2026-08-06",
@@ -223,6 +223,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-01",
+      "open": 9.03,
+      "high": 9.03,
+      "low": 8.9,
+      "close": 8.9,
+      "volume": 972921.0,
+      "ma5": 9.01,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -260,29 +272,66 @@
       "slope": -0.025,
       "strength": 2,
       "label": "下降壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 13,
+        "date": "2026-08-25",
+        "price": 9.17
+      },
+      "to": {
+        "index": 16,
+        "date": "2026-08-29",
+        "price": 9.15
+      },
+      "slope": -0.0067,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 9.14,
-      "high": 9.23,
-      "center": 9.18,
-      "touches": 2,
-      "last_date": "2026-08-25",
-      "last_index": 13,
+      "low": 8.96,
+      "high": 9.04,
+      "center": 9.0,
+      "touches": 1,
+      "last_date": "2026-08-20",
+      "last_index": 10,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 10,
-      "held_tests": 10,
+      "tests": 8,
+      "held_tests": 2,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 3.15,
-      "strength_score": 101.7,
+      "distance_pct_abs": 1.12,
+      "strength_score": 99.8,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 3.15
+      "distance_pct": 1.12
+    },
+    {
+      "low": 9.13,
+      "high": 9.22,
+      "center": 9.17,
+      "touches": 3,
+      "last_date": "2026-08-29",
+      "last_index": 16,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 13,
+      "held_tests": 13,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.03,
+      "strength_score": 101.9,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 3.03
     },
     {
       "low": 9.23,
@@ -295,43 +344,23 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 4,
-      "last_test_bars_ago": 8,
+      "last_test_bars_ago": 9,
       "ma_overlap": [],
       "distance_pct_abs": 4.16,
       "strength_score": 99.7,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 4.16
-    },
-    {
-      "low": 8.96,
-      "high": 9.04,
-      "center": 9.0,
-      "touches": 1,
-      "last_date": "2026-08-20",
-      "last_index": 10,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 7,
-      "held_tests": 1,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 1.12,
-      "strength_score": 93.8,
-      "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 1.12
+      "distance_pct": 4.16
     }
   ],
   "decision_zones": [
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 9.23,
-      "high": 9.38,
-      "center": 9.23,
+      "low": 9.04,
+      "high": 9.18,
+      "center": 9.04,
       "source": "validated_resistance/trigger"
     },
     {
@@ -359,9 +388,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

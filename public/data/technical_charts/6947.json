@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-08-31T15:10:59.132814+08:00",
+  "generated_at": "2026-09-01T01:09:07.598089+08:00",
   "code": "6947",
   "name": "台鎔科技",
   "market": "TWSE",
-  "record_count": 18,
+  "record_count": 19,
   "first_date": "2026-08-06",
-  "last_date": "2026-08-31",
+  "last_date": "2026-09-01",
   "candles": [
     {
       "date": "2026-08-06",
@@ -223,11 +223,62 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-01",
+      "open": 70.7,
+      "high": 70.7,
+      "low": 69.5,
+      "close": 69.8,
+      "volume": 241310.0,
+      "ma5": 70.02,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
-  "trendlines": [],
-  "support_zones": [],
+  "trendlines": [
+    {
+      "role": "support",
+      "direction": "flat",
+      "from": {
+        "index": 14,
+        "date": "2026-08-26",
+        "price": 69.1
+      },
+      "to": {
+        "index": 16,
+        "date": "2026-08-29",
+        "price": 69.1
+      },
+      "slope": 0.0,
+      "strength": 2,
+      "label": "水平支撐"
+    }
+  ],
+  "support_zones": [
+    {
+      "low": 68.79,
+      "high": 69.41,
+      "center": 69.1,
+      "touches": 2,
+      "last_date": "2026-08-29",
+      "last_index": 16,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.0,
+      "strength_score": 82.0,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 1.01
+    }
+  ],
   "resistance_zones": [
     {
       "low": 72.39,
@@ -240,7 +291,7 @@
       "source": "pivot_cluster",
       "tests": 5,
       "held_tests": 4,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
       "distance_pct_abs": 4.15,
       "strength_score": 99.7,
@@ -251,6 +302,14 @@
     }
   ],
   "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 68.27,
+      "high": 69.93,
+      "center": 69.1,
+      "source": "decision.trigger/validated_support/ma20"
+    },
     {
       "kind": "breakout",
       "label": "突破確認區",
@@ -284,9 +343,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

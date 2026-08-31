@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-08-31T15:10:58.718133+08:00",
+  "generated_at": "2026-09-01T01:09:07.362149+08:00",
   "code": "6161",
   "name": "捷波",
   "market": "TPEx",
-  "record_count": 17,
+  "record_count": 18,
   "first_date": "2026-08-06",
-  "last_date": "2026-08-31",
+  "last_date": "2026-09-01",
   "candles": [
     {
       "date": "2026-08-06",
@@ -211,6 +211,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-01",
+      "open": 50.6,
+      "high": 50.6,
+      "low": 49.3,
+      "close": 49.55,
+      "volume": 76000.0,
+      "ma5": 50.25,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -257,33 +269,50 @@
       "slope": -0.4,
       "strength": 2,
       "label": "下降壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 11,
+        "date": "2026-08-24",
+        "price": 51.6
+      },
+      "to": {
+        "index": 15,
+        "date": "2026-08-29",
+        "price": 51.4
+      },
+      "slope": -0.05,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 51.37,
-      "high": 51.83,
-      "center": 51.6,
-      "touches": 1,
-      "last_date": "2026-08-24",
-      "last_index": 11,
+      "low": 51.28,
+      "high": 51.72,
+      "center": 51.5,
+      "touches": 2,
+      "last_date": "2026-08-29",
+      "last_index": 15,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 5,
-      "held_tests": 5,
-      "last_test_bars_ago": 4,
+      "tests": 7,
+      "held_tests": 7,
+      "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 2.58,
-      "strength_score": 102.8,
+      "distance_pct_abs": 3.94,
+      "strength_score": 100.1,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 2.58
+      "distance_pct": 3.94
     },
     {
-      "low": 51.87,
-      "high": 52.33,
+      "low": 51.88,
+      "high": 52.32,
       "center": 52.1,
       "touches": 1,
       "last_date": "2026-08-10",
@@ -292,18 +321,18 @@
       "source": "pivot_cluster",
       "tests": 3,
       "held_tests": 2,
-      "last_test_bars_ago": 11,
+      "last_test_bars_ago": 12,
       "ma_overlap": [],
-      "distance_pct_abs": 3.58,
-      "strength_score": 79.8,
+      "distance_pct_abs": 5.15,
+      "strength_score": 76.7,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 3.58
+      "distance_pct": 5.15
     },
     {
-      "low": 54.17,
-      "high": 54.63,
+      "low": 54.18,
+      "high": 54.62,
       "center": 54.4,
       "touches": 1,
       "last_date": "2026-08-13",
@@ -312,31 +341,31 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 1,
-      "last_test_bars_ago": 12,
+      "last_test_bars_ago": 13,
       "ma_overlap": [],
-      "distance_pct_abs": 8.15,
-      "strength_score": 55.7,
+      "distance_pct_abs": 9.79,
+      "strength_score": 54,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 8.15
+      "distance_pct": 9.79
     }
   ],
   "decision_zones": [
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 51.83,
-      "high": 52.66,
-      "center": 51.83,
+      "low": 51.72,
+      "high": 52.55,
+      "center": 51.72,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 54.32,
-      "high": 57.58,
-      "center": 54.32,
+      "low": 53.51,
+      "high": 56.72,
+      "center": 53.51,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -356,9 +385,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "近期無有效支撐，不宜硬找進場點",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
