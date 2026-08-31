@@ -46,6 +46,8 @@ jobs:
         run: python src/builders/build_priority_history_universe.py
       - name: Sync daily full-market price history
         run: python src/builders/sync_daily_history.py
+      - name: Build Technical Chart Intelligence
+        run: python src/analyzers/build_technical_chart.py
       - name: Build Decision Engine
         run: python src/analyzers/build_decision_engine.py
       - name: Build Sector Center
@@ -71,7 +73,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw data/normalized data/analysis data/history public/data
-          git commit -m "data: update V5.4.40 priority history coverage"
+          git commit -m "data: update V5.4.42 technical chart intelligence"
           git pull --rebase origin main
           git push origin HEAD:main
 
