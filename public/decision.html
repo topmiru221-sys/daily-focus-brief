@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hant"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Trading Plan｜Daily Focus Brief</title><link rel="stylesheet" href="./assets/styles.css"><link rel="stylesheet" href="./assets/technical-chart-v5442.css">
+<title>Trading Plan｜Daily Focus Brief</title><link rel="stylesheet" href="./assets/styles.css"><link rel="stylesheet" href="./assets/technical-chart-v5443.css">
 <style>
 .search-row{display:flex;gap:10px;max-width:650px}.search-row input{flex:1;padding:13px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:var(--text)}
 .component-row{display:grid;grid-template-columns:140px 1fr 60px;gap:12px;align-items:center;padding:9px 0}.bar{height:9px;background:var(--panel2);border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:var(--accent)}
@@ -9,83 +9,15 @@
 .indicator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.indicator{background:var(--panel2);border-radius:12px;padding:12px}.indicator strong{display:block;margin-top:4px}
 .sync-note{margin-top:8px;font-size:.85rem}.ok{color:var(--green)}.warn{color:var(--yellow)}
 @media(max-width:800px){.indicator-grid{grid-template-columns:repeat(2,1fr)}.level-grid{grid-template-columns:1fr}.search-row{flex-direction:column}.component-row{grid-template-columns:100px 1fr 45px}}
-</style></head>
-<body>
+</style></head><body>
 <header class="hero"><div><p class="eyebrow">DECISION → TRADING PLAN</p><h1>個股交易計畫</h1><p class="muted">先看失效與風險，再看報酬。</p></div><a class="chip link-chip" href="./">返回首頁</a></header>
-<main class="container">
-<section class="panel"><div class="search-row"><input id="stockCode" inputmode="numeric" placeholder="輸入股票代號，例如 2383"><button id="searchBtn" class="tab active">查看</button></div><p id="statusText" class="muted">載入資料中…</p><p id="syncText" class="sync-note muted"></p></section>
-<section id="root" class="section-block"></section>
-</main>
-<script src="./assets/technical-chart-v5442.js"></script>
+<main class="container"><section class="panel"><div class="search-row"><input id="stockCode" inputmode="numeric" placeholder="輸入股票代號，例如 2383"><button id="searchBtn" class="tab active">查看</button></div><p id="statusText" class="muted">載入資料中…</p><p id="syncText" class="sync-note muted"></p></section><section id="root" class="section-block"></section></main>
+<script src="./assets/technical-chart-v5443.js"></script>
 <script>
-const nf=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:2});let db;
-const q=new URLSearchParams(location.search).get('code');if(q)stockCode.value=q;
-const val=(v,u='')=>v==null?'—':nf.format(v)+u;
-const box=(a,b,u='')=>`<div class="level"><span class="muted">${a}</span><strong>${val(b,u)}</strong></div>`;
-const info=(a,b)=>`<div class="level"><span class="muted">${a}</span><strong>${b??'—'}</strong></div>`;
-const indi=(a,b,u='',note='')=>`<div class="indicator"><span class="muted">${a}</span><strong>${b==null?(note||'—'):val(b,u)}</strong></div>`;
-
-function render(x,code){
- if(!x){root.innerHTML=`<article class="panel"><h2>${code}</h2><p>尚未建立這檔股票的歷史資料。</p></article>`;return}
- const t=x.technical||{},p=x.trading_plan||{},c=x.components||{};
- root.innerHTML=`
- <section class="dashboard-grid">
-  <article class="panel"><p class="eyebrow">${x.market||''} ${x.code}</p><div class="panel-head"><h2>${x.name||x.code}</h2><div class="score">${x.decision_score}｜${x.grade}</div></div>
-   <div class="plan-action">${p.action||x.conclusion||'待更新'}</div>
-   <div class="level-grid">${box('當日收盤價',t.close)}${info('價格日期',t.price_date)}${info('卡片等級',x.card_label||'待確認')}${box('歷史筆數',x.history_record_count??t.record_count)}${box('信心度',x.confidence_pct,'%')}</div>
-   <p class="muted">Trend：${t.trend||'資料不足'}｜Position：${t.position||'資料不足'}</p>
-   ${(x.risk_flags||[]).map(v=>`<div class="risk-flag">⚠ ${v}</div>`).join('')}
-  </article>
-  <article class="panel"><h2>Risk First</h2><div class="level-grid">${box('失效價',p.invalidation)}${box('合理回檔風險',p.risk_pct,'%')}${box('第一目標 R/R',p.rr1)}${box('觀察／觸發價',p.trigger)}${box('第一目標',p.target1)}${box('第二目標',p.target2)}</div></article>
- </section>
- <section class="panel section-block"><h2>Technical Engine</h2><div class="indicator-grid">
- ${indi('MA5',t.ma5,'','需5日資料')}${indi('MA10',t.ma10,'','需10日資料')}${indi('MA20',t.ma20,'','需20日資料')}${indi('MA60',t.ma60,'','需60日資料')}
- ${indi('MA120',t.ma120,'','需120日資料')}${indi('MA240',t.ma240,'','需240日資料')}${indi('RSI14',t.rsi14,'','需15日資料')}${indi('ATR14',t.atr14,'','需14日資料')}
- ${indi('MACD',t.macd,'','需26日以上')}${indi('MACD Signal',t.macd_signal,'','需26日以上')}${indi('KD-K',t.kd_k,'','需9日資料')}${indi('KD-D',t.kd_d,'','需9日資料')}
- ${indi('20日量比',t.volume_ratio20,'x','需20日量資料')}${indi('60日量比',t.volume_ratio60,'x','需60日量資料')}${indi('布林上緣',t.bollinger_upper,'','需20日資料')}${indi('布林下緣',t.bollinger_lower,'','需20日資料')}
- </div></section>
- <section class="two-col section-block">
-  <article class="panel"><h2>Decision 分數拆解</h2>${Object.entries(c).map(([k,v])=>`<div class="component-row"><span>${k}</span><div class="bar"><span style="width:${v}%"></span></div><strong>${nf.format(v)}</strong></div>`).join('')}</article>
-  <article class="panel"><h2>可解釋依據</h2><div class="reason-list">${(x.reasons||[]).map(v=>`✓ ${v}`).join('<br>')||'資料不足'}</div></article>
- </section>
- <section class="two-col section-block">
-  <article class="panel"><h2>支撐</h2>${(t.supports||[]).map(v=>`<div class="signal"><span>${v.label}</span><strong>${v.price}（${v.distance_pct}%）</strong></div>`).join('')||'待更新'}</article>
-  <article class="panel"><h2>壓力</h2>${(t.resistances||[]).map(v=>`<div class="signal"><span>${v.label}</span><strong>${v.price}（+${v.upside_pct}%）</strong></div>`).join('')||'待更新'}</article>
- </section>`;
-}
-
-function find(){
- const code=stockCode.value.trim().replace(/\D/g,'');
- stockCode.value=code;
- if(!code)return;
- render((db?.rankings||[]).find(x=>String(x.code)===code),code);
- window.DFBTechnicalChart?.load(code);
-}
-
-async function loadDecision(){
- const stamp=Date.now();
- const r=await fetch(`./data/decision.json?v=${stamp}`,{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
- if(!r.ok)throw new Error(`HTTP ${r.status}`);
- return r.json();
-}
-
-loadDecision().then(x=>{
- db=x;
- const currentSchema=String(x.schema_version||'');
- const p120=x.priority_120d||{};statusText.textContent=`目前可搜尋 ${x.decision_count||0} 檔｜完整歷史 ${x.history_coverage_count||0} 檔｜優先120日 ${p120.complete_count||0}/${p120.target_count||0}｜Engine ${currentSchema||'未知'}`;
- if(currentSchema.startsWith('5.4.40')){
-   syncText.className='sync-note ok';syncText.textContent='✓ 已載入新版 Technical Engine 資料';
- }else{
-   syncText.className='sync-note warn';syncText.textContent='⚠ 目前仍載入舊版 decision.json，請等待 Pages 部署或強制重新整理';
- }
- if(stockCode.value)find();
-}).catch(e=>{
- statusText.textContent='載入失敗：'+e.message;
- syncText.textContent='請確認 public/data/decision.json 已部署。';
-});
-searchBtn.onclick=find;stockCode.onkeydown=e=>{if(e.key==='Enter')find()};
-</script>
-<script src="./assets/global-stock-name.js"></script>
-<script src="./assets/site-audit-v5431.js"></script>
-</body>
-</html>
+const nf=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:2});let db;const q=new URLSearchParams(location.search).get('code');if(q)stockCode.value=q;
+const val=(v,u='')=>v==null?'—':nf.format(v)+u,box=(a,b,u='')=>`<div class="level"><span class="muted">${a}</span><strong>${val(b,u)}</strong></div>`,info=(a,b)=>`<div class="level"><span class="muted">${a}</span><strong>${b??'—'}</strong></div>`,indi=(a,b,u='',note='')=>`<div class="indicator"><span class="muted">${a}</span><strong>${b==null?(note||'—'):val(b,u)}</strong></div>`;
+function render(x,code){if(!x){root.innerHTML=`<article class="panel"><h2>${code}</h2><p>尚未建立這檔股票的歷史資料。</p></article>`;return}const t=x.technical||{},p=x.trading_plan||{},c=x.components||{};root.innerHTML=`<section class="dashboard-grid"><article class="panel"><p class="eyebrow">${x.market||''} ${x.code}</p><div class="panel-head"><h2>${x.name||x.code}</h2><div class="score">${x.decision_score}｜${x.grade}</div></div><div class="plan-action">${p.action||x.conclusion||'待更新'}</div><div class="level-grid">${box('當日收盤價',t.close)}${info('價格日期',t.price_date)}${info('卡片等級',x.card_label||'待確認')}${box('歷史筆數',x.history_record_count??t.record_count)}${box('信心度',x.confidence_pct,'%')}</div><p class="muted">Trend：${t.trend||'資料不足'}｜Position：${t.position||'資料不足'}</p>${(x.risk_flags||[]).map(v=>`<div class="risk-flag">⚠ ${v}</div>`).join('')}</article><article class="panel"><h2>Risk First</h2><div class="level-grid">${box('失效價',p.invalidation)}${box('合理回檔風險',p.risk_pct,'%')}${box('第一目標 R/R',p.rr1)}${box('觀察／觸發價',p.trigger)}${box('第一目標',p.target1)}${box('第二目標',p.target2)}</div></article></section><section class="panel section-block"><h2>Technical Engine</h2><div class="indicator-grid">${indi('MA5',t.ma5,'','需5日資料')}${indi('MA10',t.ma10,'','需10日資料')}${indi('MA20',t.ma20,'','需20日資料')}${indi('MA60',t.ma60,'','需60日資料')}${indi('MA120',t.ma120,'','需120日資料')}${indi('MA240',t.ma240,'','需240日資料')}${indi('RSI14',t.rsi14,'','需15日資料')}${indi('ATR14',t.atr14,'','需14日資料')}${indi('MACD',t.macd,'','需26日以上')}${indi('MACD Signal',t.macd_signal,'','需26日以上')}${indi('KD-K',t.kd_k,'','需9日資料')}${indi('KD-D',t.kd_d,'','需9日資料')}${indi('20日量比',t.volume_ratio20,'x','需20日量資料')}${indi('60日量比',t.volume_ratio60,'x','需60日量資料')}${indi('布林上緣',t.bollinger_upper,'','需20日資料')}${indi('布林下緣',t.bollinger_lower,'','需20日資料')}</div></section><section class="two-col section-block"><article class="panel"><h2>Decision 分數拆解</h2>${Object.entries(c).map(([k,v])=>`<div class="component-row"><span>${k}</span><div class="bar"><span style="width:${v}%"></span></div><strong>${nf.format(v)}</strong></div>`).join('')}</article><article class="panel"><h2>可解釋依據</h2><div class="reason-list">${(x.reasons||[]).map(v=>`✓ ${v}`).join('<br>')||'資料不足'}</div></article></section><section class="two-col section-block"><article class="panel"><h2>支撐</h2>${(t.supports||[]).map(v=>`<div class="signal"><span>${v.label}</span><strong>${v.price}（${v.distance_pct}%）</strong></div>`).join('')||'待更新'}</article><article class="panel"><h2>壓力</h2>${(t.resistances||[]).map(v=>`<div class="signal"><span>${v.label}</span><strong>${v.price}（+${v.upside_pct}%）</strong></div>`).join('')||'待更新'}</article></section>`}
+function find(){const code=stockCode.value.trim().replace(/\D/g,'');stockCode.value=code;if(!code)return;render((db?.rankings||[]).find(x=>String(x.code)===code),code);window.DFBTechnicalChart?.load(code)}
+async function loadDecision(){const r=await fetch(`./data/decision.json?v=${Date.now()}`,{cache:'no-store'});if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json()}
+loadDecision().then(x=>{db=x;const p120=x.priority_120d||{};statusText.textContent=`目前可搜尋 ${x.decision_count||0} 檔｜完整歷史 ${x.history_coverage_count||0} 檔｜優先120日 ${p120.complete_count||0}/${p120.target_count||0}｜Engine ${x.schema_version||'未知'}`;syncText.className='sync-note ok';syncText.textContent='✓ Decision + Chart Overlay 已連線';if(stockCode.value)find()}).catch(e=>{statusText.textContent='載入失敗：'+e.message});searchBtn.onclick=find;stockCode.onkeydown=e=>{if(e.key==='Enter')find()};
+</script><script src="./assets/global-stock-name.js"></script><script src="./assets/site-audit-v5431.js"></script></body></html>
