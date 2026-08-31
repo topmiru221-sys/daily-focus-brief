@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hant"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Trading Plan｜Daily Focus Brief</title><link rel="stylesheet" href="./assets/styles.css">
+<title>Trading Plan｜Daily Focus Brief</title><link rel="stylesheet" href="./assets/styles.css"><link rel="stylesheet" href="./assets/technical-chart-v5442.css">
 <style>
 .search-row{display:flex;gap:10px;max-width:650px}.search-row input{flex:1;padding:13px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:var(--text)}
 .component-row{display:grid;grid-template-columns:140px 1fr 60px;gap:12px;align-items:center;padding:9px 0}.bar{height:9px;background:var(--panel2);border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:var(--accent)}
@@ -16,6 +16,7 @@
 <section class="panel"><div class="search-row"><input id="stockCode" inputmode="numeric" placeholder="輸入股票代號，例如 2383"><button id="searchBtn" class="tab active">查看</button></div><p id="statusText" class="muted">載入資料中…</p><p id="syncText" class="sync-note muted"></p></section>
 <section id="root" class="section-block"></section>
 </main>
+<script src="./assets/technical-chart-v5442.js"></script>
 <script>
 const nf=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:2});let db;
 const q=new URLSearchParams(location.search).get('code');if(q)stockCode.value=q;
@@ -53,7 +54,13 @@ function render(x,code){
  </section>`;
 }
 
-function find(){const code=stockCode.value.trim().replace(/\D/g,'');stockCode.value=code;if(!code)return;render((db?.rankings||[]).find(x=>String(x.code)===code),code)}
+function find(){
+ const code=stockCode.value.trim().replace(/\D/g,'');
+ stockCode.value=code;
+ if(!code)return;
+ render((db?.rankings||[]).find(x=>String(x.code)===code),code);
+ window.DFBTechnicalChart?.load(code);
+}
 
 async function loadDecision(){
  const stamp=Date.now();
