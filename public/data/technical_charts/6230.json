@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.975537+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:58.807616+08:00",
   "code": "6230",
   "name": "尼得科超眾",
   "market": "TWSE",
@@ -314,6 +314,26 @@
   ],
   "support_zones": [
     {
+      "low": 106.51,
+      "high": 107.49,
+      "center": 107.0,
+      "touches": 1,
+      "last_date": "2026-08-13",
+      "last_index": 5,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 7,
+      "held_tests": 5,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.28,
+      "strength_score": 103.4,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 2.34
+    },
+    {
       "low": 108.0,
       "high": 108.5,
       "center": 108.25,
@@ -322,11 +342,16 @@
       "last_index": 15,
       "type": "support",
       "source": "gap",
-      "strength_score": 73.4,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 1.15,
-      "tested_recently": true
+      "tests": 9,
+      "held_tests": 7,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.14,
+      "strength_score": 99.7,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 1.15
     },
     {
       "low": 105.01,
@@ -337,26 +362,16 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 46.4,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 3.79,
-      "tested_recently": true
-    },
-    {
-      "low": 106.51,
-      "high": 107.49,
-      "center": 107.0,
-      "touches": 1,
-      "last_date": "2026-08-13",
-      "last_index": 5,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 42.9,
-      "display_label": "觀察支撐",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.65,
+      "strength_score": 91.7,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 2.34,
-      "tested_recently": true
+      "display_label": "觀察支撐",
+      "distance_pct": 3.79
     }
   ],
   "resistance_zones": [
@@ -369,36 +384,26 @@
       "last_index": 2,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 28.9,
-      "display_label": "關鍵壓力",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 9,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.02,
+      "strength_score": 89.0,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 5.02,
-      "tested_recently": true
-    },
-    {
-      "low": 118.51,
-      "high": 119.49,
-      "center": 119.0,
-      "touches": 1,
-      "last_date": "2026-08-14",
-      "last_index": 6,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 28,
-      "display_label": "次要壓力",
-      "rank": 2,
-      "distance_pct": 8.68,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 5.02
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 106.95,
-      "high": 109.55,
-      "center": 108.25,
-      "source": "decision.trigger/ma20/support"
+      "low": 105.72,
+      "high": 108.28,
+      "center": 107.0,
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -406,7 +411,7 @@
       "low": 115.49,
       "high": 117.34,
       "center": 115.49,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -433,9 +438,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
-    "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

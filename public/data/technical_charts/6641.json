@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.897596+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.525903+08:00",
   "code": "6641",
   "name": "基士德-KY",
   "market": "TWSE",
@@ -314,29 +314,19 @@
       "last_index": 12,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 67.4,
-      "display_label": "主要支撐",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 5,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.11,
+      "strength_score": 107.8,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.11,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.11
     }
   ],
   "resistance_zones": [
-    {
-      "low": 18.25,
-      "high": 18.4,
-      "center": 18.33,
-      "touches": 2,
-      "last_date": "2026-08-21",
-      "last_index": 11,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 52.9,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 3.56,
-      "tested_recently": true
-    },
     {
       "low": 18.02,
       "high": 18.18,
@@ -346,11 +336,36 @@
       "last_index": 14,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 52.0,
-      "display_label": "次要壓力",
+      "tests": 10,
+      "held_tests": 10,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.26,
+      "strength_score": 103.5,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.26
+    },
+    {
+      "low": 18.25,
+      "high": 18.4,
+      "center": 18.33,
+      "touches": 2,
+      "last_date": "2026-08-21",
+      "last_index": 11,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 6,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.56,
+      "strength_score": 91.9,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 2.26,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 3.56
     }
   ],
   "decision_zones": [
@@ -360,7 +375,7 @@
       "low": 17.47,
       "high": 17.89,
       "center": 17.68,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -368,7 +383,7 @@
       "low": 18.18,
       "high": 18.47,
       "center": 18.18,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -397,7 +412,13 @@
   "entry_hint": {
     "label": "接近主要支撐，可等回測反應",
     "confidence": "high",
-    "reason": "現價位於主要支撐區內，近期測試 2 次。"
+    "reason": "主要支撐已測試 5 次、守住 5 次。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

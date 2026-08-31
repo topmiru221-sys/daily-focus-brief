@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.121064+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.064358+08:00",
   "code": "6505",
   "name": "台塑化",
   "market": "TWSE",
@@ -315,11 +315,16 @@
       "last_index": 10,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 49.7,
-      "display_label": "主要支撐",
+      "tests": 11,
+      "held_tests": 10,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.82,
+      "strength_score": 104.4,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 1.85,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 1.85
     },
     {
       "low": 68.28,
@@ -330,11 +335,16 @@
       "last_index": 13,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 44.3,
-      "display_label": "次要支撐",
+      "tests": 6,
+      "held_tests": 5,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.92,
+      "strength_score": 100.2,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 4.08,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 4.08
     }
   ],
   "resistance_zones": [
@@ -347,11 +357,16 @@
       "last_index": 5,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 52.3,
-      "display_label": "關鍵壓力",
+      "tests": 8,
+      "held_tests": 7,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.17,
+      "strength_score": 103.7,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 2.17,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.17
     },
     {
       "low": 76.03,
@@ -362,11 +377,16 @@
       "last_index": 12,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 43,
-      "display_label": "次要壓力",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 5,
+      "ma_overlap": [],
+      "distance_pct_abs": 6.93,
+      "strength_score": 70.1,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 6.93,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 6.93
     }
   ],
   "decision_zones": [
@@ -376,7 +396,7 @@
       "low": 69.26,
       "high": 70.94,
       "center": 70.1,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -384,7 +404,7 @@
       "low": 73.27,
       "high": 74.44,
       "center": 73.27,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -413,7 +433,13 @@
   "entry_hint": {
     "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價距離關鍵壓力很近，容易震盪。"
+    "reason": "現價距有效壓力區低於 3%。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

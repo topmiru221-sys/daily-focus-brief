@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.090375+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.009494+08:00",
   "code": "8442",
   "name": "威宏-KY",
   "market": "TWSE",
@@ -306,11 +306,16 @@
       "last_index": 15,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 61.9,
-      "display_label": "主要支撐",
+      "tests": 11,
+      "held_tests": 7,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.27,
+      "strength_score": 103.5,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 2.33,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 2.33
     },
     {
       "low": 43.16,
@@ -321,11 +326,16 @@
       "last_index": 7,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 46.0,
-      "display_label": "次要支撐",
+      "tests": 6,
+      "held_tests": 6,
+      "last_test_bars_ago": 10,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.24,
+      "strength_score": 99.5,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 4.43,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 4.43
     }
   ],
   "resistance_zones": [
@@ -338,11 +348,16 @@
       "last_index": 15,
       "type": "resistance",
       "source": "gap",
-      "strength_score": 56.8,
-      "display_label": "關鍵壓力",
+      "tests": 4,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.3,
+      "strength_score": 85.4,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 5.3,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 5.3
     },
     {
       "low": 49.9,
@@ -353,11 +368,16 @@
       "last_index": 14,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 36,
-      "display_label": "次要壓力",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 10.6,
+      "strength_score": 66,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 10.6,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 10.6
     }
   ],
   "decision_zones": [
@@ -367,7 +387,7 @@
       "low": 43.74,
       "high": 44.8,
       "center": 44.27,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -375,7 +395,7 @@
       "low": 48.8,
       "high": 49.58,
       "center": 48.8,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -404,7 +424,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

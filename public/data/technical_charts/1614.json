@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.397455+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.571901+08:00",
   "code": "1614",
   "name": "三洋電",
   "market": "TWSE",
@@ -306,11 +306,16 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 77.3,
-      "display_label": "主要支撐",
+      "tests": 11,
+      "held_tests": 11,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.42,
+      "strength_score": 107.2,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.43,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.43
     }
   ],
   "resistance_zones": [
@@ -323,26 +328,16 @@
       "last_index": 15,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 66.4,
-      "display_label": "關鍵壓力",
+      "tests": 8,
+      "held_tests": 7,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.14,
+      "strength_score": 105.7,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 1.14,
-      "tested_recently": true
-    },
-    {
-      "low": 31.21,
-      "high": 31.49,
-      "center": 31.35,
-      "touches": 1,
-      "last_date": "2026-08-10",
-      "last_index": 2,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 39.9,
-      "display_label": "次要壓力",
-      "rank": 2,
-      "distance_pct": 2.28,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.14
     }
   ],
   "decision_zones": [
@@ -352,7 +347,7 @@
       "low": 30.15,
       "high": 30.89,
       "center": 30.52,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -360,7 +355,7 @@
       "low": 31.14,
       "high": 31.64,
       "center": 31.14,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -389,7 +384,13 @@
   "entry_hint": {
     "label": "接近主要支撐，可等回測反應",
     "confidence": "high",
-    "reason": "現價位於主要支撐區內，近期測試 3 次。"
+    "reason": "主要支撐已測試 11 次、守住 11 次。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

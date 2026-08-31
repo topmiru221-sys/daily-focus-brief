@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:31.985169+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.010800+08:00",
   "code": "6533",
   "name": "晶心科",
   "market": "TWSE",
@@ -1759,34 +1759,26 @@
   ],
   "support_zones": [
     {
-      "low": 240.12,
-      "high": 243.68,
-      "center": 241.9,
-      "touches": 5,
-      "last_date": "2026-08-24",
-      "last_index": 120,
+      "low": 248.31,
+      "high": 250.69,
+      "center": 249.5,
+      "touches": 1,
+      "last_date": "2026-05-25",
+      "last_index": 57,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 60,
-      "display_label": "主要支撐",
+      "tests": 24,
+      "held_tests": 11,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 6.03,
+      "strength_score": 101.9,
+      "evidence_count": 4,
       "rank": 1,
-      "distance_pct": 9.76,
-      "tested_recently": true
-    },
-    {
-      "low": 259.31,
-      "high": 261.69,
-      "center": 260.5,
-      "touches": 2,
-      "last_date": "2026-08-11",
-      "last_index": 111,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 51.5,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 1.92,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 6.41
     },
     {
       "low": 251.81,
@@ -1797,30 +1789,41 @@
       "last_index": 118,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 47.2,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 4.94,
-      "tested_recently": true
-    }
-  ],
-  "resistance_zones": [
+      "tests": 17,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.71,
+      "strength_score": 98.6,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 4.94
+    },
     {
-      "low": 276.31,
-      "high": 278.69,
-      "center": 277.5,
+      "low": 245.81,
+      "high": 248.19,
+      "center": 247.0,
       "touches": 1,
-      "last_date": "2026-04-23",
-      "last_index": 36,
-      "type": "resistance",
+      "last_date": "2026-07-16",
+      "last_index": 93,
+      "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 15.9,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 4.52,
-      "tested_recently": true
+      "tests": 25,
+      "held_tests": 12,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 6.97,
+      "strength_score": 100.1,
+      "evidence_count": 4,
+      "rank": 3,
+      "display_label": "觀察支撐",
+      "distance_pct": 7.49
     }
   ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -1828,22 +1831,22 @@
       "low": 244.81,
       "high": 250.75,
       "center": 247.78,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 278.69,
-      "high": 283.15,
-      "center": 278.69,
-      "source": "nearest_resistance/trigger"
+      "low": 247.78,
+      "high": 251.74,
+      "center": 247.78,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 277.5,
-      "high": 294.15,
-      "center": 277.5,
+      "low": 267.6,
+      "high": 283.66,
+      "center": 267.6,
       "source": "ma20_extension/resistance"
     },
     {
@@ -1889,7 +1892,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 52.9,

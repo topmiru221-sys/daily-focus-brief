@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:31.858481+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:56.771064+08:00",
   "code": "4551",
   "name": "智伸科",
   "market": "TWSE",
@@ -298,44 +298,19 @@
       "last_index": 5,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 48.7,
-      "display_label": "主要支撐",
+      "tests": 5,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.09,
+      "strength_score": 101.8,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 3.18,
-      "tested_recently": true
-    },
-    {
-      "low": 148.27,
-      "high": 149.73,
-      "center": 149.0,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 36,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 8.72,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 3.18
     }
   ],
   "resistance_zones": [
-    {
-      "low": 181.27,
-      "high": 182.73,
-      "center": 182.0,
-      "touches": 1,
-      "last_date": "2026-08-14",
-      "last_index": 6,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 28,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 12.35,
-      "tested_recently": true
-    },
     {
       "low": 176.27,
       "high": 177.73,
@@ -345,11 +320,16 @@
       "last_index": 2,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 24,
-      "display_label": "次要壓力",
-      "rank": 2,
-      "distance_pct": 9.26,
-      "tested_recently": true
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 11,
+      "ma_overlap": [],
+      "distance_pct_abs": 9.26,
+      "strength_score": 60,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 9.26
     }
   ],
   "decision_zones": [
@@ -359,7 +339,7 @@
       "low": 155.12,
       "high": 158.88,
       "center": 157.0,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -367,7 +347,7 @@
       "low": 177.73,
       "high": 180.57,
       "center": 177.73,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -396,7 +376,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.148555+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.317051+08:00",
   "code": "6727",
   "name": "亞泰金屬",
   "market": "TPEx",
@@ -235,21 +235,6 @@
   ],
   "support_zones": [
     {
-      "low": 411.58,
-      "high": 416.42,
-      "center": 414.0,
-      "touches": 1,
-      "last_date": "2026-08-19",
-      "last_index": 8,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 31,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 29.71,
-      "tested_recently": true
-    },
-    {
       "low": 478.58,
       "high": 483.42,
       "center": 481.0,
@@ -258,26 +243,16 @@
       "last_index": 7,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 30,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 11.64,
-      "tested_recently": true
-    },
-    {
-      "low": 379.58,
-      "high": 384.42,
-      "center": 382.0,
-      "touches": 1,
-      "last_date": "2026-08-14",
-      "last_index": 5,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 28,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 40.58,
-      "tested_recently": true
+      "tests": 3,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 10.43,
+      "strength_score": 75,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 11.64
     }
   ],
   "resistance_zones": [],
@@ -288,7 +263,7 @@
       "low": 475.23,
       "high": 486.77,
       "center": 481.0,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -317,7 +292,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

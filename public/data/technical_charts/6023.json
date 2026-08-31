@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:31.889733+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:56.830593+08:00",
   "code": "6023",
   "name": "元大期",
   "market": "TPEx",
@@ -224,23 +224,7 @@
     }
   ],
   "trendlines": [],
-  "support_zones": [
-    {
-      "low": 80.83,
-      "high": 81.57,
-      "center": 81.2,
-      "touches": 1,
-      "last_date": "2026-08-21",
-      "last_index": 10,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 54.1,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 0.99,
-      "tested_recently": true
-    }
-  ],
+  "support_zones": [],
   "resistance_zones": [
     {
       "low": 83.13,
@@ -251,29 +235,26 @@
       "last_index": 14,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 54.7,
-      "display_label": "關鍵壓力",
+      "tests": 8,
+      "held_tests": 8,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.83,
+      "strength_score": 104.3,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 1.83,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.83
     }
   ],
   "decision_zones": [
-    {
-      "kind": "retest",
-      "label": "回測區",
-      "low": 80.23,
-      "high": 82.17,
-      "center": 81.2,
-      "source": "decision.trigger/ma20/support"
-    },
     {
       "kind": "breakout",
       "label": "突破確認區",
       "low": 83.87,
       "high": 85.21,
       "center": 83.87,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -300,9 +281,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "reason": "現價距有效壓力區低於 3%。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

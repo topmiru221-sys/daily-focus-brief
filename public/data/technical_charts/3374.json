@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.931253+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:58.726627+08:00",
   "code": "3374",
   "name": "精材",
   "market": "TPEx",
@@ -1759,49 +1759,66 @@
   ],
   "support_zones": [
     {
-      "low": 284.56,
-      "high": 290.11,
-      "center": 287.33,
-      "touches": 3,
-      "last_date": "2026-08-25",
-      "last_index": 120,
+      "low": 349.76,
+      "high": 353.24,
+      "center": 351.5,
+      "touches": 1,
+      "last_date": "2026-08-11",
+      "last_index": 110,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 52,
-      "display_label": "主要支撐",
+      "tests": 9,
+      "held_tests": 6,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 8.94,
+      "strength_score": 90.1,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 34.34,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 9.82
     },
     {
-      "low": 323.82,
-      "high": 327.72,
-      "center": 325.77,
-      "touches": 1,
-      "last_date": "2026-08-31",
-      "last_index": 125,
+      "low": 343.23,
+      "high": 347.27,
+      "center": 345.25,
+      "touches": 2,
+      "last_date": "2026-08-14",
+      "last_index": 113,
       "type": "support",
-      "source": "ma",
-      "strength_score": 47,
-      "display_label": "次要支撐",
+      "source": "pivot_cluster",
+      "tests": 11,
+      "held_tests": 8,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 10.56,
+      "strength_score": 90,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 18.49,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 11.8
     },
     {
-      "low": 311.11,
-      "high": 314.87,
-      "center": 312.99,
+      "low": 326.76,
+      "high": 330.24,
+      "center": 328.5,
       "touches": 1,
-      "last_date": "2026-08-31",
-      "last_index": 125,
+      "last_date": "2026-08-20",
+      "last_index": 117,
       "type": "support",
-      "source": "ma",
-      "strength_score": 47,
-      "display_label": "觀察支撐",
+      "source": "pivot_cluster",
+      "tests": 11,
+      "held_tests": 4,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 14.9,
+      "strength_score": 96,
+      "evidence_count": 4,
       "rank": 3,
-      "distance_pct": 23.33,
-      "tested_recently": true
+      "display_label": "觀察支撐",
+      "distance_pct": 17.5
     }
   ],
   "resistance_zones": [
@@ -1814,11 +1831,16 @@
       "last_index": 97,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 20,
-      "display_label": "關鍵壓力",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 28,
+      "ma_overlap": [],
+      "distance_pct_abs": 8.35,
+      "strength_score": 71.3,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 8.35,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 8.35
     }
   ],
   "decision_zones": [
@@ -1828,7 +1850,7 @@
       "low": 321.86,
       "high": 329.68,
       "center": 325.77,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -1836,7 +1858,7 @@
       "low": 419.99,
       "high": 426.71,
       "center": 419.99,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -1881,7 +1903,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 49.3,

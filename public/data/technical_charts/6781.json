@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.337835+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.461722+08:00",
   "code": "6781",
   "name": "AES-KY",
   "market": "TWSE",
@@ -264,30 +264,19 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 45,
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 8.85,
+      "strength_score": 81.3,
+      "evidence_count": 3,
+      "rank": 1,
       "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 9.71,
-      "tested_recently": true
+      "distance_pct": 9.71
     }
   ],
-  "resistance_zones": [
-    {
-      "low": 1224.91,
-      "high": 1235.09,
-      "center": 1230.0,
-      "touches": 1,
-      "last_date": "2026-08-12",
-      "last_index": 4,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 26,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 8.85,
-      "tested_recently": true
-    }
-  ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -295,22 +284,14 @@
       "low": 1017.64,
       "high": 1042.36,
       "center": 1030.0,
-      "source": "decision.trigger/ma20/support"
-    },
-    {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 1235.09,
-      "high": 1254.85,
-      "center": 1235.09,
-      "source": "nearest_resistance/trigger"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 1230.0,
-      "high": 1303.8,
-      "center": 1230.0,
+      "low": 1220.4,
+      "high": 1293.62,
+      "center": 1220.4,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -332,7 +313,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

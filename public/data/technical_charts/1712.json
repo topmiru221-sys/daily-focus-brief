@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.920510+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.570274+08:00",
   "code": "1712",
   "name": "興農",
   "market": "TWSE",
@@ -237,11 +237,16 @@
       "last_index": 5,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 50.0,
-      "display_label": "主要支撐",
+      "tests": 9,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.5,
+      "strength_score": 107.0,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.51,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.51
     },
     {
       "low": 38.52,
@@ -252,11 +257,16 @@
       "last_index": 7,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 42.9,
-      "display_label": "次要支撐",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 9,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.76,
+      "strength_score": 102.5,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 2.84,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 2.84
     }
   ],
   "resistance_zones": [],
@@ -267,7 +277,7 @@
       "low": 39.12,
       "high": 40.08,
       "center": 39.6,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -296,7 +306,13 @@
   "entry_hint": {
     "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "reason": "現價進入回測區，等待價格確認。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

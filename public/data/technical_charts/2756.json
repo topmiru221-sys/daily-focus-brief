@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.271202+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.528739+08:00",
   "code": "2756",
   "name": "聯發國際",
   "market": "TPEx",
@@ -252,21 +252,6 @@
   ],
   "support_zones": [
     {
-      "low": 58.1,
-      "high": 58.3,
-      "center": 58.2,
-      "touches": 1,
-      "last_date": "2026-08-18",
-      "last_index": 7,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 46,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 8.93,
-      "tested_recently": true
-    },
-    {
       "low": 56.5,
       "high": 56.8,
       "center": 56.65,
@@ -275,11 +260,16 @@
       "last_index": 6,
       "type": "support",
       "source": "gap",
-      "strength_score": 45,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 11.92,
-      "tested_recently": true
+      "tests": 7,
+      "held_tests": 7,
+      "last_test_bars_ago": 10,
+      "ma_overlap": [],
+      "distance_pct_abs": 10.65,
+      "strength_score": 84,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 11.92
     },
     {
       "low": 55.51,
@@ -290,29 +280,39 @@
       "last_index": 4,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 27,
-      "display_label": "觀察支撐",
+      "tests": 4,
+      "held_tests": 4,
+      "last_test_bars_ago": 11,
+      "ma_overlap": [],
+      "distance_pct_abs": 11.99,
+      "strength_score": 84,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 13.62
+    },
+    {
+      "low": 58.1,
+      "high": 58.3,
+      "center": 58.2,
+      "touches": 1,
+      "last_date": "2026-08-18",
+      "last_index": 7,
+      "type": "support",
+      "source": "gap",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 9,
+      "ma_overlap": [],
+      "distance_pct_abs": 8.2,
+      "strength_score": 61.6,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 13.62,
-      "tested_recently": true
+      "display_label": "觀察支撐",
+      "distance_pct": 8.93
     }
   ],
   "resistance_zones": [
-    {
-      "low": 64.61,
-      "high": 65.19,
-      "center": 64.9,
-      "touches": 1,
-      "last_date": "2026-08-28",
-      "last_index": 14,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 52.5,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 2.37,
-      "tested_recently": true
-    },
     {
       "low": 63.61,
       "high": 64.19,
@@ -322,21 +322,26 @@
       "last_index": 7,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 51.8,
-      "display_label": "次要壓力",
-      "rank": 2,
-      "distance_pct": 0.79,
-      "tested_recently": true
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.79,
+      "strength_score": 82.4,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.79
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 57.5,
-      "high": 58.9,
-      "center": 58.2,
-      "source": "decision.trigger/ma20/support"
+      "low": 55.97,
+      "high": 57.33,
+      "center": 56.65,
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -344,7 +349,7 @@
       "low": 64.19,
       "high": 65.22,
       "center": 64.19,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -373,7 +378,13 @@
   "entry_hint": {
     "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價距離關鍵壓力很近，容易震盪。"
+    "reason": "現價距有效壓力區低於 3%。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

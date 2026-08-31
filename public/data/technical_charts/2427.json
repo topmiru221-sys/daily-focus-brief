@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.011016+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:58.871831+08:00",
   "code": "2427",
   "name": "三商電",
   "market": "TWSE",
@@ -281,45 +281,19 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 57.6,
+      "tests": 10,
+      "held_tests": 9,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.1,
+      "strength_score": 101.8,
+      "evidence_count": 3,
+      "rank": 1,
       "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 3.2,
-      "tested_recently": true
-    },
-    {
-      "low": 21.3,
-      "high": 21.5,
-      "center": 21.4,
-      "touches": 1,
-      "last_date": "2026-08-12",
-      "last_index": 4,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 29.8,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 5.61,
-      "tested_recently": true
+      "distance_pct": 3.2
     }
   ],
-  "resistance_zones": [
-    {
-      "low": 23.2,
-      "high": 23.4,
-      "center": 23.3,
-      "touches": 1,
-      "last_date": "2026-08-17",
-      "last_index": 7,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 41.6,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 3.1,
-      "tested_recently": true
-    }
-  ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -327,15 +301,7 @@
       "low": 21.64,
       "high": 22.16,
       "center": 21.9,
-      "source": "decision.trigger/ma20/support"
-    },
-    {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 23.4,
-      "high": 23.77,
-      "center": 23.4,
-      "source": "nearest_resistance/trigger"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -364,7 +330,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.940668+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.609007+08:00",
   "code": "3430",
   "name": "奇鈦科",
   "market": "TPEx",
@@ -337,21 +337,6 @@
   ],
   "support_zones": [
     {
-      "low": 114.0,
-      "high": 114.5,
-      "center": 114.25,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 13,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 74.4,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 0.66,
-      "tested_recently": true
-    },
-    {
       "low": 112.48,
       "high": 113.52,
       "center": 113.0,
@@ -360,11 +345,36 @@
       "last_index": 8,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 67.0,
-      "display_label": "次要支撐",
+      "tests": 10,
+      "held_tests": 9,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.74,
+      "strength_score": 104.5,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 1.77
+    },
+    {
+      "low": 114.0,
+      "high": 114.5,
+      "center": 114.25,
+      "touches": 1,
+      "last_date": "2026-08-26",
+      "last_index": 13,
+      "type": "support",
+      "source": "gap",
+      "tests": 12,
+      "held_tests": 8,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.65,
+      "strength_score": 100.7,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 1.77,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 0.66
     },
     {
       "low": 109.48,
@@ -375,11 +385,16 @@
       "last_index": 12,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 42.6,
-      "display_label": "觀察支撐",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.35,
+      "strength_score": 90.3,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 4.55,
-      "tested_recently": true
+      "display_label": "觀察支撐",
+      "distance_pct": 4.55
     }
   ],
   "resistance_zones": [
@@ -392,11 +407,16 @@
       "last_index": 14,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 56.2,
-      "display_label": "關鍵壓力",
+      "tests": 7,
+      "held_tests": 7,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.7,
+      "strength_score": 100.6,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 3.7,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.7
     },
     {
       "low": 122.48,
@@ -407,21 +427,26 @@
       "last_index": 9,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 41,
-      "display_label": "次要壓力",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [],
+      "distance_pct_abs": 6.96,
+      "strength_score": 70.1,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 6.96,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 6.96
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 112.88,
-      "high": 115.62,
-      "center": 114.25,
-      "source": "decision.trigger/ma20/support"
+      "low": 111.64,
+      "high": 114.36,
+      "center": 113.0,
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -429,7 +454,7 @@
       "low": 119.77,
       "high": 121.69,
       "center": 119.77,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -456,9 +481,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
-    "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.156763+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.129562+08:00",
   "code": "9917",
   "name": "中保科",
   "market": "TWSE",
@@ -349,19 +349,44 @@
   ],
   "support_zones": [
     {
-      "low": 106.88,
-      "high": 107.87,
-      "center": 107.38,
-      "touches": 4,
-      "last_date": "2026-08-18",
-      "last_index": 8,
+      "low": 110.5,
+      "high": 111.5,
+      "center": 111.0,
+      "touches": 1,
+      "last_date": "2026-08-24",
+      "last_index": 12,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 67.9,
-      "display_label": "主要支撐",
+      "tests": 4,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.0,
+      "strength_score": 108.0,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 3.37,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.0
+    },
+    {
+      "low": 109.5,
+      "high": 110.5,
+      "center": 110.0,
+      "touches": 1,
+      "last_date": "2026-08-28",
+      "last_index": 15,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.9,
+      "strength_score": 106.2,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 0.91
     },
     {
       "low": 108.0,
@@ -372,26 +397,16 @@
       "last_index": 6,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 62.0,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 2.3,
-      "tested_recently": true
-    },
-    {
-      "low": 110.5,
-      "high": 111.5,
-      "center": 111.0,
-      "touches": 1,
-      "last_date": "2026-08-24",
-      "last_index": 12,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 59.0,
-      "display_label": "觀察支撐",
+      "tests": 12,
+      "held_tests": 7,
+      "last_test_bars_ago": 6,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.25,
+      "strength_score": 103.5,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 0.0,
-      "tested_recently": true
+      "display_label": "觀察支撐",
+      "distance_pct": 2.3
     }
   ],
   "resistance_zones": [],
@@ -402,7 +417,7 @@
       "low": 109.67,
       "high": 112.33,
       "center": 111.0,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -429,9 +444,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
-    "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 4 次、守住 3 次。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

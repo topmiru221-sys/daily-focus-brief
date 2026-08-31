@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.710873+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:58.324719+08:00",
   "code": "6515",
   "name": "穎崴",
   "market": "TWSE",
@@ -281,29 +281,19 @@
       "last_index": 10,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 38.1,
-      "display_label": "主要支撐",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.72,
+      "strength_score": 89.6,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 4.95,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 4.95
     }
   ],
   "resistance_zones": [
-    {
-      "low": 7251.88,
-      "high": 7308.12,
-      "center": 7280.0,
-      "touches": 2,
-      "last_date": "2026-08-14",
-      "last_index": 6,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 37,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 16.48,
-      "tested_recently": true
-    },
     {
       "low": 6671.88,
       "high": 6728.12,
@@ -313,11 +303,16 @@
       "last_index": 12,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 34,
-      "display_label": "次要壓力",
-      "rank": 2,
-      "distance_pct": 7.2,
-      "tested_recently": true
+      "tests": 8,
+      "held_tests": 3,
+      "last_test_bars_ago": 5,
+      "ma_overlap": [],
+      "distance_pct_abs": 7.2,
+      "strength_score": 93.6,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 7.2
     }
   ],
   "decision_zones": [
@@ -327,7 +322,7 @@
       "low": 5883.54,
       "high": 6026.46,
       "center": 5955.0,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -335,7 +330,7 @@
       "low": 6728.12,
       "high": 6835.77,
       "center": 6728.12,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -364,7 +359,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

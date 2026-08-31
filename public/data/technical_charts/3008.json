@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.603127+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.958286+08:00",
   "code": "3008",
   "name": "大立光",
   "market": "TWSE",
@@ -1757,53 +1757,7 @@
       "label": "上升壓力"
     }
   ],
-  "support_zones": [
-    {
-      "low": 6290.0,
-      "high": 6605.0,
-      "center": 6447.5,
-      "touches": 1,
-      "last_date": "2026-08-29",
-      "last_index": 124,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 54,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 9.58,
-      "tested_recently": true
-    },
-    {
-      "low": 5740.0,
-      "high": 5875.0,
-      "center": 5807.5,
-      "touches": 1,
-      "last_date": "2026-08-28",
-      "last_index": 123,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 53,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 21.65,
-      "tested_recently": true
-    },
-    {
-      "low": 4168.37,
-      "high": 4251.63,
-      "center": 4210.0,
-      "touches": 4,
-      "last_date": "2026-08-12",
-      "last_index": 112,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 52,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 67.81,
-      "tested_recently": true
-    }
-  ],
+  "support_zones": [],
   "resistance_zones": [],
   "decision_zones": [
     {
@@ -1812,7 +1766,7 @@
       "low": 5114.63,
       "high": 5238.87,
       "center": 5176.75,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -1820,7 +1774,7 @@
       "low": 5176.75,
       "high": 5259.58,
       "center": 5176.75,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -1873,7 +1827,13 @@
   "entry_hint": {
     "label": "已進入不追價區，避免追高",
     "confidence": "high",
-    "reason": "現價偏離均線／支撐過遠，上方風險報酬比下降。"
+    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 48.2,

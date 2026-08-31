@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.304043+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.398913+08:00",
   "code": "1805",
   "name": "寶徠",
   "market": "TWSE",
@@ -298,21 +298,6 @@
   ],
   "support_zones": [
     {
-      "low": 9.99,
-      "high": 10.13,
-      "center": 10.06,
-      "touches": 4,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 75.9,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 2.88,
-      "tested_recently": true
-    },
-    {
       "low": 10.2,
       "high": 10.3,
       "center": 10.25,
@@ -321,11 +306,36 @@
       "last_index": 11,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 54.1,
-      "display_label": "次要支撐",
+      "tests": 5,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.97,
+      "strength_score": 106.1,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.98
+    },
+    {
+      "low": 9.99,
+      "high": 10.13,
+      "center": 10.06,
+      "touches": 4,
+      "last_date": "2026-08-26",
+      "last_index": 14,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 14,
+      "held_tests": 11,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.8,
+      "strength_score": 102.4,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 0.98,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 2.88
     },
     {
       "low": 9.83,
@@ -336,11 +346,16 @@
       "last_index": 8,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 36.8,
-      "display_label": "觀察支撐",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 8,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.54,
+      "strength_score": 98.9,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 4.76,
-      "tested_recently": true
+      "display_label": "觀察支撐",
+      "distance_pct": 4.76
     }
   ],
   "resistance_zones": [],
@@ -351,7 +366,7 @@
       "low": 10.13,
       "high": 10.37,
       "center": 10.25,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -380,7 +395,13 @@
   "entry_hint": {
     "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "reason": "現價進入回測區，等待價格確認。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

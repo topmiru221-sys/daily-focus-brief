@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:31.799671+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:56.659984+08:00",
   "code": "2408",
   "name": "南亞科",
   "market": "TWSE",
@@ -1759,6 +1759,28 @@
   ],
   "support_zones": [
     {
+      "low": 495.57,
+      "high": 500.43,
+      "center": 498.0,
+      "touches": 1,
+      "last_date": "2026-06-26",
+      "last_index": 80,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 10,
+      "held_tests": 6,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 7.78,
+      "strength_score": 98.4,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 8.43
+    },
+    {
       "low": 522.0,
       "high": 528.0,
       "center": 525.0,
@@ -1767,60 +1789,39 @@
       "last_index": 124,
       "type": "support",
       "source": "gap",
-      "strength_score": 67.9,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 2.86,
-      "tested_recently": true
-    },
-    {
-      "low": 535.57,
-      "high": 540.43,
-      "center": 538.0,
-      "touches": 1,
-      "last_date": "2026-08-25",
-      "last_index": 121,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 58.5,
-      "display_label": "次要支撐",
+      "tests": 8,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.78,
+      "strength_score": 90.4,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 0.37,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 2.86
     },
     {
-      "low": 492.8,
-      "high": 498.74,
-      "center": 495.77,
+      "low": 502.57,
+      "high": 507.43,
+      "center": 505.0,
       "touches": 1,
-      "last_date": "2026-08-31",
-      "last_index": 125,
+      "last_date": "2026-06-22",
+      "last_index": 76,
       "type": "support",
-      "source": "ma",
-      "strength_score": 47,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 8.92,
-      "tested_recently": true
-    }
-  ],
-  "resistance_zones": [
-    {
-      "low": 550.57,
-      "high": 555.43,
-      "center": 553.0,
-      "touches": 1,
-      "last_date": "2026-08-19",
-      "last_index": 117,
-      "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 46.4,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 2.41,
-      "tested_recently": true
+      "tests": 8,
+      "held_tests": 6,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 6.48,
+      "strength_score": 95.0,
+      "evidence_count": 3,
+      "rank": 3,
+      "display_label": "觀察支撐",
+      "distance_pct": 6.93
     }
   ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -1828,22 +1829,22 @@
       "low": 489.82,
       "high": 501.72,
       "center": 495.77,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 555.43,
-      "high": 564.32,
-      "center": 555.43,
-      "source": "nearest_resistance/trigger"
+      "low": 495.77,
+      "high": 503.7,
+      "center": 495.77,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 553.0,
-      "high": 586.18,
-      "center": 553.0,
+      "low": 535.43,
+      "high": 567.56,
+      "center": 535.43,
       "source": "ma20_extension/resistance"
     },
     {
@@ -1887,9 +1888,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距離關鍵壓力很近，容易震盪。"
+    "label": "已進入不追價區，避免追高",
+    "confidence": "high",
+    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.2,

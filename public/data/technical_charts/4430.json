@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.386478+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.736797+08:00",
   "code": "4430",
   "name": "耀億",
   "market": "TPEx",
@@ -286,11 +286,16 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 64.3,
-      "display_label": "主要支撐",
+      "tests": 12,
+      "held_tests": 9,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.67,
+      "strength_score": 104.7,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 1.7,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 1.7
     },
     {
       "low": 17.27,
@@ -301,11 +306,16 @@
       "last_index": 8,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 42.6,
-      "display_label": "次要支撐",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 8,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.34,
+      "strength_score": 101.3,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 3.46,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 3.46
     }
   ],
   "resistance_zones": [
@@ -318,26 +328,16 @@
       "last_index": 10,
       "type": "resistance",
       "source": "gap",
-      "strength_score": 60.6,
-      "display_label": "關鍵壓力",
+      "tests": 4,
+      "held_tests": 2,
+      "last_test_bars_ago": 6,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.34,
+      "strength_score": 89.3,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 3.34,
-      "tested_recently": true
-    },
-    {
-      "low": 19.27,
-      "high": 19.43,
-      "center": 19.35,
-      "touches": 1,
-      "last_date": "2026-08-20",
-      "last_index": 9,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 32,
-      "display_label": "次要壓力",
-      "rank": 2,
-      "distance_pct": 7.8,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.34
     },
     {
       "low": 18.82,
@@ -348,11 +348,36 @@
       "last_index": 3,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 29.8,
-      "display_label": "觀察壓力",
+      "tests": 3,
+      "held_tests": 2,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.29,
+      "strength_score": 82.4,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 5.29
+    },
+    {
+      "low": 19.27,
+      "high": 19.43,
+      "center": 19.35,
+      "touches": 1,
+      "last_date": "2026-08-20",
+      "last_index": 9,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [],
+      "distance_pct_abs": 7.8,
+      "strength_score": 68.4,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 5.29,
-      "tested_recently": true
+      "display_label": "觀察壓力",
+      "distance_pct": 7.8
     }
   ],
   "decision_zones": [
@@ -362,7 +387,7 @@
       "low": 17.44,
       "high": 17.86,
       "center": 17.65,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -370,7 +395,7 @@
       "low": 18.65,
       "high": 18.95,
       "center": 18.65,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -399,7 +424,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

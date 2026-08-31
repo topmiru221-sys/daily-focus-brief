@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.139526+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.301065+08:00",
   "code": "3004",
   "name": "豐達科",
   "market": "TWSE",
@@ -271,23 +271,7 @@
       "label": "下降支撐"
     }
   ],
-  "support_zones": [
-    {
-      "low": 116.46,
-      "high": 117.54,
-      "center": 117.0,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 54.3,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 1.71,
-      "tested_recently": true
-    }
-  ],
+  "support_zones": [],
   "resistance_zones": [
     {
       "low": 123.46,
@@ -298,11 +282,16 @@
       "last_index": 4,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 43.2,
-      "display_label": "關鍵壓力",
+      "tests": 7,
+      "held_tests": 3,
+      "last_test_bars_ago": 6,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.2,
+      "strength_score": 99.6,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 4.2,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 4.2
     },
     {
       "low": 129.46,
@@ -313,29 +302,26 @@
       "last_index": 6,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 28,
-      "display_label": "次要壓力",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 11,
+      "ma_overlap": [],
+      "distance_pct_abs": 9.24,
+      "strength_score": 75,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 9.24,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 9.24
     }
   ],
   "decision_zones": [
-    {
-      "kind": "retest",
-      "label": "回測區",
-      "low": 115.6,
-      "high": 118.4,
-      "center": 117.0,
-      "source": "decision.trigger/ma20/support"
-    },
     {
       "kind": "breakout",
       "label": "突破確認區",
       "low": 124.54,
       "high": 126.53,
       "center": 124.54,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -362,9 +348,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "label": "近期無有效支撐，不宜硬找進場點",
+    "confidence": "medium",
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

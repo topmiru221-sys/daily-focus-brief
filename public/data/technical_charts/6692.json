@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.791870+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.321809+08:00",
   "code": "6692",
   "name": "進能服",
   "market": "TPEx",
@@ -260,11 +260,16 @@
       "last_index": 11,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 49.9,
-      "display_label": "主要支撐",
+      "tests": 8,
+      "held_tests": 7,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.26,
+      "strength_score": 103.5,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 2.32,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 2.32
     }
   ],
   "resistance_zones": [
@@ -277,11 +282,16 @@
       "last_index": 14,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 66.9,
-      "display_label": "關鍵壓力",
+      "tests": 8,
+      "held_tests": 8,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.03,
+      "strength_score": 105.9,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 1.03,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.03
     },
     {
       "low": 25.09,
@@ -292,11 +302,16 @@
       "last_index": 8,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 41.2,
-      "display_label": "次要壓力",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 6,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.7,
+      "strength_score": 76.6,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 3.7,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 3.7
     }
   ],
   "decision_zones": [
@@ -306,7 +321,7 @@
       "low": 23.46,
       "high": 24.04,
       "center": 23.75,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -314,7 +329,7 @@
       "low": 24.66,
       "high": 25.05,
       "center": 24.66,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -343,7 +358,13 @@
   "entry_hint": {
     "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價距離關鍵壓力很近，容易震盪。"
+    "reason": "現價距有效壓力區低於 3%。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

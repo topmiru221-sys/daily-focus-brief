@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:31.777802+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:56.617308+08:00",
   "code": "6269",
   "name": "台郡",
   "market": "TWSE",
@@ -290,36 +290,6 @@
   ],
   "support_zones": [
     {
-      "low": 61.9,
-      "high": 62.4,
-      "center": 62.15,
-      "touches": 1,
-      "last_date": "2026-08-28",
-      "last_index": 15,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 53,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 20.68,
-      "tested_recently": true
-    },
-    {
-      "low": 58.66,
-      "high": 59.34,
-      "center": 59.0,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 36,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 27.12,
-      "tested_recently": true
-    },
-    {
       "low": 67.26,
       "high": 67.94,
       "center": 67.6,
@@ -328,11 +298,36 @@
       "last_index": 8,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 30,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 10.95,
-      "tested_recently": true
+      "tests": 6,
+      "held_tests": 1,
+      "last_test_bars_ago": 9,
+      "ma_overlap": [],
+      "distance_pct_abs": 9.87,
+      "strength_score": 78,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 10.95
+    },
+    {
+      "low": 69.36,
+      "high": 70.04,
+      "center": 69.7,
+      "touches": 1,
+      "last_date": "2026-08-13",
+      "last_index": 5,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 0,
+      "last_test_bars_ago": 12,
+      "ma_overlap": [],
+      "distance_pct_abs": 7.07,
+      "strength_score": 51.9,
+      "evidence_count": 2,
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 7.6
     }
   ],
   "resistance_zones": [],
@@ -343,7 +338,7 @@
       "low": 66.79,
       "high": 68.41,
       "center": 67.6,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -372,7 +367,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

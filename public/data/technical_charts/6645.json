@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.919370+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.568058+08:00",
   "code": "6645",
   "name": "金萬林-創",
   "market": "TWSE",
@@ -349,36 +349,6 @@
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 12.75,
-      "high": 12.85,
-      "center": 12.8,
-      "touches": 1,
-      "last_date": "2026-08-31",
-      "last_index": 17,
-      "type": "resistance",
-      "source": "gap",
-      "strength_score": 67.1,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 3.23,
-      "tested_recently": true
-    },
-    {
-      "low": 12.64,
-      "high": 12.76,
-      "center": 12.7,
-      "touches": 1,
-      "last_date": "2026-08-20",
-      "last_index": 10,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 47.3,
-      "display_label": "次要壓力",
-      "rank": 2,
-      "distance_pct": 2.42,
-      "tested_recently": true
-    },
-    {
       "low": 12.79,
       "high": 12.91,
       "center": 12.85,
@@ -387,21 +357,66 @@
       "last_index": 14,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 46.5,
-      "display_label": "觀察壓力",
+      "tests": 7,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.63,
+      "strength_score": 100.7,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.63
+    },
+    {
+      "low": 13.04,
+      "high": 13.16,
+      "center": 13.1,
+      "touches": 1,
+      "last_date": "2026-08-13",
+      "last_index": 5,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 10,
+      "held_tests": 8,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.65,
+      "strength_score": 96.7,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 5.65
+    },
+    {
+      "low": 12.75,
+      "high": 12.85,
+      "center": 12.8,
+      "touches": 1,
+      "last_date": "2026-08-31",
+      "last_index": 17,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 4,
+      "held_tests": 2,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.23,
+      "strength_score": 89.5,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 3.63,
-      "tested_recently": true
+      "display_label": "觀察壓力",
+      "distance_pct": 3.23
     }
   ],
   "decision_zones": [
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 12.76,
-      "high": 12.96,
-      "center": 12.76,
-      "source": "nearest_resistance/trigger"
+      "low": 12.91,
+      "high": 13.12,
+      "center": 12.91,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -428,9 +443,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "label": "近期無有效支撐，不宜硬找進場點",
+    "confidence": "medium",
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

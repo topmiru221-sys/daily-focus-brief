@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.055365+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:58.947927+08:00",
   "code": "5905",
   "name": "南仁湖",
   "market": "TPEx",
@@ -262,21 +262,6 @@
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 7.8,
-      "high": 7.87,
-      "center": 7.83,
-      "touches": 2,
-      "last_date": "2026-08-19",
-      "last_index": 8,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 62.7,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 0.51,
-      "tested_recently": true
-    },
-    {
       "low": 8.01,
       "high": 8.09,
       "center": 8.05,
@@ -285,36 +270,46 @@
       "last_index": 10,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 44.6,
-      "display_label": "次要壓力",
-      "rank": 2,
-      "distance_pct": 3.34,
-      "tested_recently": true
+      "tests": 6,
+      "held_tests": 4,
+      "last_test_bars_ago": 5,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.34,
+      "strength_score": 101.3,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.34
     },
     {
-      "low": 8.32,
-      "high": 8.4,
-      "center": 8.36,
-      "touches": 1,
-      "last_date": "2026-08-10",
-      "last_index": 2,
+      "low": 7.8,
+      "high": 7.87,
+      "center": 7.83,
+      "touches": 2,
+      "last_date": "2026-08-19",
+      "last_index": 8,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 25,
-      "display_label": "觀察壓力",
-      "rank": 3,
-      "distance_pct": 7.32,
-      "tested_recently": true
+      "tests": 6,
+      "held_tests": 1,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.51,
+      "strength_score": 95.0,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 0.51
     }
   ],
   "decision_zones": [
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 7.87,
-      "high": 8.0,
-      "center": 7.87,
-      "source": "nearest_resistance/trigger"
+      "low": 8.09,
+      "high": 8.22,
+      "center": 8.09,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -341,9 +336,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "近期無有效支撐，不宜硬找進場點",
     "confidence": "medium",
-    "reason": "現價距離關鍵壓力很近，容易震盪。"
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.576121+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:58.077656+08:00",
   "code": "1815",
   "name": "富喬",
   "market": "TPEx",
@@ -1759,68 +1759,67 @@
   ],
   "support_zones": [
     {
-      "low": 101.75,
-      "high": 103.25,
-      "center": 102.5,
-      "touches": 4,
-      "last_date": "2026-08-25",
-      "last_index": 121,
+      "low": 117.94,
+      "high": 119.06,
+      "center": 118.5,
+      "touches": 1,
+      "last_date": "2026-07-01",
+      "last_index": 83,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 61,
+      "tests": 14,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.58,
+      "strength_score": 96.8,
+      "evidence_count": 3,
+      "rank": 1,
       "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 22.44,
-      "tested_recently": true
+      "distance_pct": 5.91
     },
     {
-      "low": 93.78,
-      "high": 95.78,
-      "center": 94.78,
-      "touches": 5,
-      "last_date": "2026-08-10",
-      "last_index": 110,
+      "low": 116.44,
+      "high": 117.56,
+      "center": 117.0,
+      "touches": 1,
+      "last_date": "2026-03-20",
+      "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 50,
-      "display_label": "次要支撐",
+      "tests": 18,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 6.77,
+      "strength_score": 94.5,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 32.41,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 7.26
     },
     {
-      "low": 98.8,
-      "high": 101.5,
-      "center": 100.15,
+      "low": 113.44,
+      "high": 114.56,
+      "center": 114.0,
       "touches": 1,
-      "last_date": "2026-08-20",
-      "last_index": 118,
+      "last_date": "2026-05-26",
+      "last_index": 58,
       "type": "support",
-      "source": "gap",
-      "strength_score": 48,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 25.31,
-      "tested_recently": true
-    }
-  ],
-  "resistance_zones": [
-    {
-      "low": 128.94,
-      "high": 130.06,
-      "center": 129.5,
-      "touches": 1,
-      "last_date": "2026-04-20",
-      "last_index": 33,
-      "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 21.3,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 3.19,
-      "tested_recently": true
+      "tests": 22,
+      "held_tests": 9,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 9.16,
+      "strength_score": 90,
+      "evidence_count": 3,
+      "rank": 3,
+      "display_label": "觀察支撐",
+      "distance_pct": 10.09
     }
   ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -1828,22 +1827,22 @@
       "low": 98.63,
       "high": 101.03,
       "center": 99.83,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 130.06,
-      "high": 132.14,
-      "center": 130.06,
-      "source": "nearest_resistance/trigger"
+      "low": 99.83,
+      "high": 101.43,
+      "center": 99.83,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 129.5,
-      "high": 137.27,
-      "center": 129.5,
+      "low": 107.83,
+      "high": 130.52,
+      "center": 107.83,
       "source": "ma20_extension/resistance"
     },
     {
@@ -1887,9 +1886,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "label": "已進入不追價區，避免追高",
+    "confidence": "high",
+    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 48.2,

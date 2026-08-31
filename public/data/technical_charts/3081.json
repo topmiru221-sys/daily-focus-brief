@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.871060+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.474677+08:00",
   "code": "3081",
   "name": "聯亞",
   "market": "TPEx",
@@ -1759,6 +1759,26 @@
   ],
   "support_zones": [
     {
+      "low": 3200.13,
+      "high": 3229.87,
+      "center": 3215.0,
+      "touches": 1,
+      "last_date": "2026-05-27",
+      "last_index": 59,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 4,
+      "held_tests": 1,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.72,
+      "strength_score": 90.6,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 2.8
+    },
+    {
       "low": 3255.0,
       "high": 3265.0,
       "center": 3260.0,
@@ -1767,60 +1787,39 @@
       "last_index": 123,
       "type": "support",
       "source": "gap",
-      "strength_score": 72.6,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 1.38,
-      "tested_recently": true
-    },
-    {
-      "low": 2452.39,
-      "high": 2485.61,
-      "center": 2469.0,
-      "touches": 5,
-      "last_date": "2026-08-14",
-      "last_index": 114,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 54,
-      "display_label": "次要支撐",
+      "tests": 3,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.36,
+      "strength_score": 84.3,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 33.86,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 1.38
     },
     {
-      "low": 2723.81,
-      "high": 2756.69,
-      "center": 2740.25,
-      "touches": 1,
-      "last_date": "2026-08-31",
-      "last_index": 125,
+      "low": 3045.13,
+      "high": 3074.87,
+      "center": 3060.0,
+      "touches": 2,
+      "last_date": "2026-08-18",
+      "last_index": 116,
       "type": "support",
-      "source": "ma",
-      "strength_score": 47,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 20.61,
-      "tested_recently": true
-    }
-  ],
-  "resistance_zones": [
-    {
-      "low": 3495.13,
-      "high": 3524.87,
-      "center": 3510.0,
-      "touches": 1,
-      "last_date": "2026-08-28",
-      "last_index": 123,
-      "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 37.2,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 6.2,
-      "tested_recently": true
+      "tests": 9,
+      "held_tests": 3,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 7.41,
+      "strength_score": 93.2,
+      "evidence_count": 3,
+      "rank": 3,
+      "display_label": "觀察支撐",
+      "distance_pct": 8.01
     }
   ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -1828,22 +1827,22 @@
       "low": 2707.37,
       "high": 2773.13,
       "center": 2740.25,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 3524.87,
-      "high": 3581.27,
-      "center": 3524.87,
-      "source": "nearest_resistance/trigger"
+      "low": 2740.25,
+      "high": 2784.09,
+      "center": 2740.25,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 3510.0,
-      "high": 3720.6,
-      "center": 3510.0,
+      "low": 2959.47,
+      "high": 3437.2,
+      "center": 2959.47,
       "source": "ma20_extension/resistance"
     },
     {
@@ -1887,9 +1886,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "label": "已進入不追價區，避免追高",
+    "confidence": "high",
+    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 59.6,

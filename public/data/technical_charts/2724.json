@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.952913+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:58.765866+08:00",
   "code": "2724",
   "name": "藝舍-KY",
   "market": "TPEx",
@@ -274,44 +274,19 @@
       "last_index": 7,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 51.9,
-      "display_label": "主要支撐",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.29,
+      "strength_score": 101.4,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 3.4,
-      "tested_recently": true
-    },
-    {
-      "low": 9.77,
-      "high": 9.87,
-      "center": 9.82,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 12,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 36,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 8.45,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 3.4
     }
   ],
   "resistance_zones": [
-    {
-      "low": 10.95,
-      "high": 11.05,
-      "center": 11.0,
-      "touches": 1,
-      "last_date": "2026-08-24",
-      "last_index": 10,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 45.9,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 3.29,
-      "tested_recently": true
-    },
     {
       "low": 10.85,
       "high": 10.95,
@@ -321,11 +296,36 @@
       "last_index": 3,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 42.6,
-      "display_label": "次要壓力",
+      "tests": 6,
+      "held_tests": 4,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.35,
+      "strength_score": 103.3,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.35
+    },
+    {
+      "low": 10.95,
+      "high": 11.05,
+      "center": 11.0,
+      "touches": 1,
+      "last_date": "2026-08-24",
+      "last_index": 10,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.29,
+      "strength_score": 92.4,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 2.35,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 3.29
     }
   ],
   "decision_zones": [
@@ -335,7 +335,7 @@
       "low": 10.18,
       "high": 10.42,
       "center": 10.3,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -343,7 +343,7 @@
       "low": 10.95,
       "high": 11.13,
       "center": 10.95,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -370,9 +370,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

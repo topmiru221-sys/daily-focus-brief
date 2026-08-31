@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.044076+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.121530+08:00",
   "code": "7788",
   "name": "松川精密",
   "market": "TWSE",
@@ -273,21 +273,6 @@
   ],
   "support_zones": [
     {
-      "low": 300.0,
-      "high": 305.0,
-      "center": 302.5,
-      "touches": 1,
-      "last_date": "2026-08-31",
-      "last_index": 17,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 55,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 8.26,
-      "tested_recently": true
-    },
-    {
       "low": 282.03,
       "high": 284.97,
       "center": 283.5,
@@ -296,26 +281,16 @@
       "last_index": 10,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 50,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 15.52,
-      "tested_recently": true
-    },
-    {
-      "low": 243.53,
-      "high": 246.47,
-      "center": 245.0,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 36,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 33.67,
-      "tested_recently": true
+      "tests": 3,
+      "held_tests": 0,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [],
+      "distance_pct_abs": 13.44,
+      "strength_score": 63,
+      "evidence_count": 2,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 15.52
     }
   ],
   "resistance_zones": [],
@@ -323,10 +298,10 @@
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 298.87,
-      "high": 306.13,
-      "center": 302.5,
-      "source": "decision.trigger/ma20/support"
+      "low": 280.1,
+      "high": 286.9,
+      "center": 283.5,
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -355,7 +330,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.657183+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.062602+08:00",
   "code": "4536",
   "name": "拓凱",
   "market": "TWSE",
@@ -374,11 +374,16 @@
       "last_index": 10,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 80.4,
-      "display_label": "主要支撐",
+      "tests": 8,
+      "held_tests": 8,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.66,
+      "strength_score": 106.7,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.66,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.66
     }
   ],
   "resistance_zones": [
@@ -391,11 +396,16 @@
       "last_index": 13,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 74.5,
-      "display_label": "關鍵壓力",
+      "tests": 8,
+      "held_tests": 8,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.87,
+      "strength_score": 102.3,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 2.87,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.87
     }
   ],
   "decision_zones": [
@@ -405,7 +415,7 @@
       "low": 164.4,
       "high": 168.4,
       "center": 166.4,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -413,7 +423,7 @@
       "low": 173.14,
       "high": 175.91,
       "center": 173.14,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -442,7 +452,13 @@
   "entry_hint": {
     "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "reason": "現價進入回測區，等待價格確認。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

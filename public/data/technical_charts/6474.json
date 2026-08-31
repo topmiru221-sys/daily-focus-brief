@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.968986+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.664716+08:00",
   "code": "6474",
   "name": "華豫寧",
   "market": "TPEx",
@@ -320,11 +320,16 @@
       "last_index": 15,
       "type": "resistance",
       "source": "gap",
-      "strength_score": 64.5,
-      "display_label": "關鍵壓力",
+      "tests": 12,
+      "held_tests": 11,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.63,
+      "strength_score": 94.7,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 3.63,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.63
     },
     {
       "low": 38.48,
@@ -335,11 +340,16 @@
       "last_index": 12,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 53.4,
-      "display_label": "次要壓力",
+      "tests": 6,
+      "held_tests": 2,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.9,
+      "strength_score": 94.2,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 3.9,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 3.9
     },
     {
       "low": 39.78,
@@ -350,11 +360,16 @@
       "last_index": 9,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 50,
-      "display_label": "觀察壓力",
+      "tests": 6,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 7.39,
+      "strength_score": 93.2,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 7.39,
-      "tested_recently": true
+      "display_label": "觀察壓力",
+      "distance_pct": 7.39
     }
   ],
   "decision_zones": [
@@ -364,7 +379,7 @@
       "low": 39.4,
       "high": 40.03,
       "center": 39.4,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -391,9 +406,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "label": "近期無有效支撐，不宜硬找進場點",
+    "confidence": "medium",
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

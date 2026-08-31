@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.806056+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.349377+08:00",
   "code": "6117",
   "name": "迎廣",
   "market": "TWSE",
@@ -289,44 +289,19 @@
       "last_index": 10,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 42.4,
-      "display_label": "主要支撐",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.65,
+      "strength_score": 100.7,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 3.79,
-      "tested_recently": true
-    },
-    {
-      "low": 59.52,
-      "high": 60.08,
-      "center": 59.8,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 40.7,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 5.35,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 3.79
     }
   ],
   "resistance_zones": [
-    {
-      "low": 63.9,
-      "high": 64.6,
-      "center": 64.25,
-      "touches": 1,
-      "last_date": "2026-08-17",
-      "last_index": 7,
-      "type": "resistance",
-      "source": "gap",
-      "strength_score": 62.1,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 1.98,
-      "tested_recently": true
-    },
     {
       "low": 65.8,
       "high": 66.6,
@@ -336,11 +311,36 @@
       "last_index": 6,
       "type": "resistance",
       "source": "gap",
-      "strength_score": 48.7,
-      "display_label": "次要壓力",
+      "tests": 6,
+      "held_tests": 5,
+      "last_test_bars_ago": 11,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.08,
+      "strength_score": 85.8,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 5.08
+    },
+    {
+      "low": 63.9,
+      "high": 64.6,
+      "center": 64.25,
+      "touches": 1,
+      "last_date": "2026-08-17",
+      "last_index": 7,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 3,
+      "held_tests": 1,
+      "last_test_bars_ago": 10,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.98,
+      "strength_score": 77.0,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 5.08,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 1.98
     },
     {
       "low": 66.67,
@@ -351,11 +351,16 @@
       "last_index": 5,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 36,
-      "display_label": "觀察壓力",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 12,
+      "ma_overlap": [],
+      "distance_pct_abs": 6.27,
+      "strength_score": 65.5,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 6.27,
-      "tested_recently": true
+      "display_label": "觀察壓力",
+      "distance_pct": 6.27
     }
   ],
   "decision_zones": [
@@ -365,15 +370,15 @@
       "low": 59.97,
       "high": 61.43,
       "center": 60.7,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 64.6,
-      "high": 65.63,
-      "center": 64.6,
-      "source": "nearest_resistance/trigger"
+      "low": 66.6,
+      "high": 67.67,
+      "center": 66.6,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -400,9 +405,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距離關鍵壓力很近，容易震盪。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

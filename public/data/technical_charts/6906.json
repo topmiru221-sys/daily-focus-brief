@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.758667+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.257453+08:00",
   "code": "6906",
   "name": "現觀科",
   "market": "TWSE",
@@ -264,26 +264,16 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 45,
-      "display_label": "主要支撐",
+      "tests": 6,
+      "held_tests": 6,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 13.24,
+      "strength_score": 90,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 15.26,
-      "tested_recently": true
-    },
-    {
-      "low": 76.23,
-      "high": 76.97,
-      "center": 76.6,
-      "touches": 1,
-      "last_date": "2026-08-14",
-      "last_index": 6,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 30.3,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 6.01,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 15.26
     }
   ],
   "resistance_zones": [],
@@ -291,10 +281,10 @@
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 75.68,
-      "high": 77.52,
-      "center": 76.6,
-      "source": "decision.trigger/ma20/support"
+      "low": 69.6,
+      "high": 71.3,
+      "center": 70.45,
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -323,7 +313,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.497752+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.937534+08:00",
   "code": "6606",
   "name": "建德工業",
   "market": "TWSE",
@@ -237,30 +237,19 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 50.3,
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.68,
+      "strength_score": 93.6,
+      "evidence_count": 3,
+      "rank": 1,
       "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 2.76,
-      "tested_recently": true
+      "distance_pct": 2.76
     }
   ],
-  "resistance_zones": [
-    {
-      "low": 28.33,
-      "high": 28.57,
-      "center": 28.45,
-      "touches": 1,
-      "last_date": "2026-08-17",
-      "last_index": 7,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 29,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 9.0,
-      "tested_recently": true
-    }
-  ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -268,22 +257,14 @@
       "low": 25.1,
       "high": 25.7,
       "center": 25.4,
-      "source": "decision.trigger/ma20/support"
-    },
-    {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 28.57,
-      "high": 29.03,
-      "center": 28.57,
-      "source": "nearest_resistance/trigger"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 28.45,
-      "high": 30.16,
-      "center": 28.45,
+      "low": 28.19,
+      "high": 29.88,
+      "center": 28.19,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -305,7 +286,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

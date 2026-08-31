@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.969549+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.665850+08:00",
   "code": "7689",
   "name": "大鵬科CLMX",
   "market": "TWSE",
@@ -289,11 +289,16 @@
       "last_index": 6,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 58.6,
-      "display_label": "主要支撐",
+      "tests": 7,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.85,
+      "strength_score": 106.3,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.86,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.86
     },
     {
       "low": 169.65,
@@ -304,11 +309,16 @@
       "last_index": 13,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 56.0,
-      "display_label": "次要支撐",
+      "tests": 12,
+      "held_tests": 11,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.26,
+      "strength_score": 101.5,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 3.37,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 3.37
     }
   ],
   "resistance_zones": [
@@ -321,11 +331,16 @@
       "last_index": 13,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 48.7,
-      "display_label": "關鍵壓力",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.83,
+      "strength_score": 78.3,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 2.83,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.83
     }
   ],
   "decision_zones": [
@@ -335,7 +350,7 @@
       "low": 172.9,
       "high": 177.1,
       "center": 175.0,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -343,7 +358,7 @@
       "low": 182.29,
       "high": 185.21,
       "center": 182.29,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -372,7 +387,13 @@
   "entry_hint": {
     "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "reason": "現價進入回測區，等待價格確認。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

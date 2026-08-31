@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:31.790314+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:56.641705+08:00",
   "code": "1736",
   "name": "喬山",
   "market": "TWSE",
@@ -307,11 +307,16 @@
       "last_index": 14,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 76.9,
-      "display_label": "關鍵壓力",
+      "tests": 5,
+      "held_tests": 1,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.53,
+      "strength_score": 94.9,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.53,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.53
     },
     {
       "low": 133.19,
@@ -322,26 +327,16 @@
       "last_index": 11,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 42,
-      "display_label": "次要壓力",
+      "tests": 5,
+      "held_tests": 2,
+      "last_test_bars_ago": 6,
+      "ma_overlap": [],
+      "distance_pct_abs": 6.57,
+      "strength_score": 88.9,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 6.57,
-      "tested_recently": true
-    },
-    {
-      "low": 147.44,
-      "high": 148.56,
-      "center": 148.0,
-      "touches": 1,
-      "last_date": "2026-08-13",
-      "last_index": 5,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 27,
-      "display_label": "觀察壓力",
-      "rank": 3,
-      "distance_pct": 17.93,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 6.57
     }
   ],
   "decision_zones": [
@@ -351,7 +346,7 @@
       "low": 126.92,
       "high": 128.95,
       "center": 126.92,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -380,7 +375,13 @@
   "entry_hint": {
     "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價距離關鍵壓力很近，容易震盪。"
+    "reason": "現價距有效壓力區低於 3%。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

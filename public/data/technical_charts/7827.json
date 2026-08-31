@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.430909+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.815712+08:00",
   "code": "7827",
   "name": "漢康-KY創",
   "market": "TWSE",
@@ -289,11 +289,16 @@
       "last_index": 9,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 44.3,
-      "display_label": "主要支撐",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 8,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.17,
+      "strength_score": 88.7,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 5.45,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 5.45
     }
   ],
   "resistance_zones": [
@@ -306,11 +311,16 @@
       "last_index": 15,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 66.6,
-      "display_label": "關鍵壓力",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.34,
+      "strength_score": 92.3,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 3.34,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.34
     }
   ],
   "decision_zones": [
@@ -320,7 +330,7 @@
       "low": 149.44,
       "high": 153.06,
       "center": 151.25,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -328,7 +338,7 @@
       "low": 165.65,
       "high": 168.3,
       "center": 165.65,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -357,7 +367,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

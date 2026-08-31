@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:31.725852+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:56.513126+08:00",
   "code": "8131",
   "name": "福懋科",
   "market": "TWSE",
@@ -340,26 +340,16 @@
       "last_index": 4,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 55.5,
-      "display_label": "主要支撐",
+      "tests": 9,
+      "held_tests": 8,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.12,
+      "strength_score": 105.8,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 1.13,
-      "tested_recently": true
-    },
-    {
-      "low": 59.12,
-      "high": 59.68,
-      "center": 59.4,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 39.9,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 5.56,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 1.13
     },
     {
       "low": 59.72,
@@ -370,11 +360,16 @@
       "last_index": 10,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 39.8,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 4.5,
-      "tested_recently": true
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.31,
+      "strength_score": 75.4,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 4.5
     }
   ],
   "resistance_zones": [
@@ -387,11 +382,16 @@
       "last_index": 13,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 53.0,
-      "display_label": "關鍵壓力",
+      "tests": 9,
+      "held_tests": 6,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.75,
+      "strength_score": 104.5,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 1.75,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.75
     },
     {
       "low": 65.22,
@@ -402,11 +402,16 @@
       "last_index": 3,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 32.1,
-      "display_label": "次要壓力",
+      "tests": 6,
+      "held_tests": 5,
+      "last_test_bars_ago": 8,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.47,
+      "strength_score": 99.1,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 4.47,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 4.47
     },
     {
       "low": 67.12,
@@ -417,11 +422,16 @@
       "last_index": 7,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 29,
-      "display_label": "觀察壓力",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 10,
+      "ma_overlap": [],
+      "distance_pct_abs": 7.5,
+      "strength_score": 69.0,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 7.5,
-      "tested_recently": true
+      "display_label": "觀察壓力",
+      "distance_pct": 7.5
     }
   ],
   "decision_zones": [
@@ -431,7 +441,7 @@
       "low": 61.26,
       "high": 62.74,
       "center": 62.0,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -439,7 +449,7 @@
       "low": 64.08,
       "high": 65.11,
       "center": 64.08,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -468,7 +478,13 @@
   "entry_hint": {
     "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "reason": "現價進入回測區，等待價格確認。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

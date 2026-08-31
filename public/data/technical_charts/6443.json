@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.878307+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.488661+08:00",
   "code": "6443",
   "name": "元晶",
   "market": "TWSE",
@@ -255,45 +255,19 @@
       "last_index": 10,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 45.0,
+      "tests": 7,
+      "held_tests": 7,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.0,
+      "strength_score": 102.0,
+      "evidence_count": 3,
+      "rank": 1,
       "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 3.09,
-      "tested_recently": true
-    },
-    {
-      "low": 24.78,
-      "high": 25.02,
-      "center": 24.9,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 36,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 7.03,
-      "tested_recently": true
+      "distance_pct": 3.09
     }
   ],
-  "resistance_zones": [
-    {
-      "low": 28.68,
-      "high": 28.92,
-      "center": 28.8,
-      "touches": 1,
-      "last_date": "2026-08-18",
-      "last_index": 8,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 30,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 8.07,
-      "tested_recently": true
-    }
-  ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -301,22 +275,14 @@
       "low": 25.54,
       "high": 26.16,
       "center": 25.85,
-      "source": "decision.trigger/ma20/support"
-    },
-    {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 28.92,
-      "high": 29.38,
-      "center": 28.92,
-      "source": "nearest_resistance/trigger"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 28.8,
-      "high": 30.53,
-      "center": 28.8,
+      "low": 28.78,
+      "high": 30.51,
+      "center": 28.78,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -338,7 +304,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

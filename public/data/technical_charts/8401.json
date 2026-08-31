@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.098293+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.022321+08:00",
   "code": "8401",
   "name": "白紗科",
   "market": "TPEx",
@@ -294,11 +294,16 @@
       "last_index": 7,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 54.1,
-      "display_label": "主要支撐",
+      "tests": 7,
+      "held_tests": 7,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.22,
+      "strength_score": 107.6,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.22,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.22
     }
   ],
   "resistance_zones": [
@@ -311,11 +316,16 @@
       "last_index": 11,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 77.3,
-      "display_label": "關鍵壓力",
+      "tests": 8,
+      "held_tests": 8,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.93,
+      "strength_score": 104.1,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 1.93,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.93
     }
   ],
   "decision_zones": [
@@ -325,7 +335,7 @@
       "low": 22.48,
       "high": 23.02,
       "center": 22.75,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -333,7 +343,7 @@
       "low": 23.34,
       "high": 23.71,
       "center": 23.34,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -362,7 +372,13 @@
   "entry_hint": {
     "label": "接近主要支撐，可等回測反應",
     "confidence": "high",
-    "reason": "現價位於主要支撐區內，近期測試 1 次。"
+    "reason": "主要支撐已測試 7 次、守住 7 次。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.863415+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:58.603560+08:00",
   "code": "3017",
   "name": "奇鋐",
   "market": "TWSE",
@@ -1759,41 +1759,58 @@
       "last_index": 124,
       "type": "support",
       "source": "gap",
-      "strength_score": 61.1,
-      "display_label": "主要支撐",
+      "tests": 7,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.46,
+      "strength_score": 93.1,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 4.67,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 4.67
     },
     {
-      "low": 3304.88,
-      "high": 3335.12,
-      "center": 3320.0,
-      "touches": 1,
-      "last_date": "2026-08-17",
-      "last_index": 115,
+      "low": 2953.21,
+      "high": 2983.45,
+      "center": 2968.33,
+      "touches": 3,
+      "last_date": "2026-08-07",
+      "last_index": 109,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 49.2,
-      "display_label": "次要支撐",
+      "tests": 10,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 11.66,
+      "strength_score": 96,
+      "evidence_count": 4,
       "rank": 2,
-      "distance_pct": 1.2,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 13.19
     },
     {
-      "low": 2954.42,
-      "high": 2990.08,
-      "center": 2972.25,
+      "low": 2994.88,
+      "high": 3025.12,
+      "center": 3010.0,
       "touches": 1,
-      "last_date": "2026-08-31",
-      "last_index": 125,
+      "last_date": "2026-04-27",
+      "last_index": 38,
       "type": "support",
-      "source": "ma",
-      "strength_score": 47,
-      "display_label": "觀察支撐",
+      "source": "pivot_cluster",
+      "tests": 7,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 10.42,
+      "strength_score": 90,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 13.05,
-      "tested_recently": true
+      "display_label": "觀察支撐",
+      "distance_pct": 11.63
     }
   ],
   "resistance_zones": [],
@@ -1804,7 +1821,7 @@
       "low": 2936.58,
       "high": 3007.92,
       "center": 2972.25,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -1812,7 +1829,7 @@
       "low": 2972.25,
       "high": 3019.81,
       "center": 2972.25,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -1865,7 +1882,13 @@
   "entry_hint": {
     "label": "已進入不追價區，避免追高",
     "confidence": "high",
-    "reason": "現價偏離均線／支撐過遠，上方風險報酬比下降。"
+    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 53.6,

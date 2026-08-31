@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.216139+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.438705+08:00",
   "code": "1324",
   "name": "地球",
   "market": "TWSE",
@@ -306,11 +306,16 @@
       "last_index": 13,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 82.6,
-      "display_label": "主要支撐",
+      "tests": 9,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.88,
+      "strength_score": 106.2,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.89,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.89
     },
     {
       "low": 9.93,
@@ -321,11 +326,16 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 59.3,
-      "display_label": "次要支撐",
+      "tests": 9,
+      "held_tests": 9,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.63,
+      "strength_score": 102.7,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 2.71,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 2.71
     }
   ],
   "resistance_zones": [],
@@ -336,7 +346,7 @@
       "low": 10.04,
       "high": 10.28,
       "center": 10.16,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -365,7 +375,13 @@
   "entry_hint": {
     "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "reason": "現價進入回測區，等待價格確認。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

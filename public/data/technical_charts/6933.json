@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.080075+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:58.993621+08:00",
   "code": "6933",
   "name": "AMAX-KY",
   "market": "TWSE",
@@ -303,63 +303,9 @@
       "label": "水平支撐"
     }
   ],
-  "support_zones": [
-    {
-      "low": 236.5,
-      "high": 256.0,
-      "center": 246.25,
-      "touches": 1,
-      "last_date": "2026-08-31",
-      "last_index": 17,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 58.8,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 5.58,
-      "tested_recently": true
-    },
-    {
-      "low": 215.0,
-      "high": 236.5,
-      "center": 225.75,
-      "touches": 1,
-      "last_date": "2026-08-29",
-      "last_index": 16,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 54,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 15.17,
-      "tested_recently": true
-    },
-    {
-      "low": 195.5,
-      "high": 197.5,
-      "center": 196.5,
-      "touches": 1,
-      "last_date": "2026-08-28",
-      "last_index": 15,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 53,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 32.32,
-      "tested_recently": true
-    }
-  ],
+  "support_zones": [],
   "resistance_zones": [],
   "decision_zones": [
-    {
-      "kind": "retest",
-      "label": "回測區",
-      "low": 243.29,
-      "high": 249.21,
-      "center": 246.25,
-      "source": "decision.trigger/ma20/support"
-    },
     {
       "kind": "no_chase",
       "label": "不追價區",
@@ -385,9 +331,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "label": "近期無有效支撐，不宜硬找進場點",
+    "confidence": "medium",
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

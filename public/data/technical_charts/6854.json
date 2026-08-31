@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.331493+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.450091+08:00",
   "code": "6854",
   "name": "錼創科技-KY創",
   "market": "TWSE",
@@ -315,11 +315,16 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 58.3,
-      "display_label": "主要支撐",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.92,
+      "strength_score": 78.2,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 3.01,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 3.01
     }
   ],
   "resistance_zones": [
@@ -332,11 +337,16 @@
       "last_index": 4,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 45.3,
-      "display_label": "關鍵壓力",
+      "tests": 8,
+      "held_tests": 6,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.43,
+      "strength_score": 105.1,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 1.43,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.43
     },
     {
       "low": 94.39,
@@ -347,11 +357,16 @@
       "last_index": 12,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 40.9,
-      "display_label": "次要壓力",
+      "tests": 8,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.52,
+      "strength_score": 99.0,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 4.52,
-      "tested_recently": true
+      "display_label": "次要壓力",
+      "distance_pct": 4.52
     },
     {
       "low": 95.79,
@@ -362,11 +377,16 @@
       "last_index": 6,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 28.7,
-      "display_label": "觀察壓力",
+      "tests": 6,
+      "held_tests": 4,
+      "last_test_bars_ago": 11,
+      "ma_overlap": [],
+      "distance_pct_abs": 6.06,
+      "strength_score": 89.9,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 6.06,
-      "tested_recently": true
+      "display_label": "觀察壓力",
+      "distance_pct": 6.06
     }
   ],
   "decision_zones": [
@@ -376,7 +396,7 @@
       "low": 86.99,
       "high": 89.11,
       "center": 88.05,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -384,7 +404,7 @@
       "low": 92.41,
       "high": 93.89,
       "center": 92.41,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -413,7 +433,13 @@
   "entry_hint": {
     "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價距離關鍵壓力很近，容易震盪。"
+    "reason": "現價距有效壓力區低於 3%。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

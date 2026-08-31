@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:32.009002+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:57.055428+08:00",
   "code": "5876",
   "name": "上海商銀",
   "market": "TWSE",
@@ -227,23 +227,7 @@
   ],
   "gaps": [],
   "trendlines": [],
-  "support_zones": [
-    {
-      "low": 41.46,
-      "high": 41.84,
-      "center": 41.65,
-      "touches": 1,
-      "last_date": "2026-08-17",
-      "last_index": 7,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 40.1,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 3.6,
-      "tested_recently": true
-    }
-  ],
+  "support_zones": [],
   "resistance_zones": [
     {
       "low": 44.16,
@@ -254,29 +238,26 @@
       "last_index": 13,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 48.9,
-      "display_label": "關鍵壓力",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.78,
+      "strength_score": 93.4,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 2.78,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.78
     }
   ],
   "decision_zones": [
-    {
-      "kind": "retest",
-      "label": "回測區",
-      "low": 41.15,
-      "high": 42.15,
-      "center": 41.65,
-      "source": "decision.trigger/ma20/support"
-    },
     {
       "kind": "breakout",
       "label": "突破確認區",
       "low": 44.54,
       "high": 45.25,
       "center": 44.54,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -305,7 +286,13 @@
   "entry_hint": {
     "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價距離關鍵壓力很近，容易震盪。"
+    "reason": "現價距有效壓力區低於 3%。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

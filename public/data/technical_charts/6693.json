@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.131446+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.083461+08:00",
   "code": "6693",
   "name": "廣閎科",
   "market": "TPEx",
@@ -215,63 +215,15 @@
   ],
   "gaps": [],
   "trendlines": [],
-  "support_zones": [
-    {
-      "low": 158.7,
-      "high": 160.3,
-      "center": 159.5,
-      "touches": 1,
-      "last_date": "2026-08-25",
-      "last_index": 12,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 35,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 11.91,
-      "tested_recently": true
-    }
-  ],
-  "resistance_zones": [
-    {
-      "low": 199.7,
-      "high": 201.3,
-      "center": 200.5,
-      "touches": 1,
-      "last_date": "2026-08-10",
-      "last_index": 2,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 25,
-      "display_label": "關鍵壓力",
-      "rank": 1,
-      "distance_pct": 12.32,
-      "tested_recently": true
-    }
-  ],
+  "support_zones": [],
+  "resistance_zones": [],
   "decision_zones": [
-    {
-      "kind": "retest",
-      "label": "回測區",
-      "low": 157.59,
-      "high": 161.41,
-      "center": 159.5,
-      "source": "decision.trigger/ma20/support"
-    },
-    {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 201.3,
-      "high": 204.52,
-      "center": 201.3,
-      "source": "nearest_resistance/trigger"
-    },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 200.5,
-      "high": 212.53,
-      "center": 200.5,
+      "low": 192.78,
+      "high": 204.35,
+      "center": 192.78,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -291,9 +243,15 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "label": "近期無有效支撐，不宜硬找進場點",
+    "confidence": "medium",
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

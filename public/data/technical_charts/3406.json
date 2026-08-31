@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.375650+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:59.531771+08:00",
   "code": "3406",
   "name": "玉晶光",
   "market": "TWSE",
@@ -1759,49 +1759,24 @@
   ],
   "support_zones": [
     {
-      "low": 623.37,
-      "high": 631.63,
-      "center": 627.5,
-      "touches": 4,
-      "last_date": "2026-08-24",
-      "last_index": 120,
+      "low": 791.87,
+      "high": 800.13,
+      "center": 796.0,
+      "touches": 1,
+      "last_date": "2026-06-22",
+      "last_index": 76,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 60,
-      "display_label": "主要支撐",
+      "tests": 2,
+      "held_tests": 0,
+      "last_test_bars_ago": 48,
+      "ma_overlap": [],
+      "distance_pct_abs": 13.2,
+      "strength_score": 38,
+      "evidence_count": 2,
       "rank": 1,
-      "distance_pct": 46.14,
-      "tested_recently": true
-    },
-    {
-      "low": 759.0,
-      "high": 792.0,
-      "center": 775.5,
-      "touches": 1,
-      "last_date": "2026-08-29",
-      "last_index": 124,
-      "type": "support",
-      "source": "gap",
-      "strength_score": 54,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 18.25,
-      "tested_recently": true
-    },
-    {
-      "low": 633.38,
-      "high": 641.02,
-      "center": 637.2,
-      "touches": 1,
-      "last_date": "2026-08-31",
-      "last_index": 125,
-      "type": "support",
-      "source": "ma",
-      "strength_score": 47,
-      "display_label": "觀察支撐",
-      "rank": 3,
-      "distance_pct": 43.91,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 15.2
     }
   ],
   "resistance_zones": [],
@@ -1812,7 +1787,7 @@
       "low": 629.55,
       "high": 644.85,
       "center": 637.2,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -1820,7 +1795,7 @@
       "low": 637.2,
       "high": 647.4,
       "center": 637.2,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -1857,7 +1832,13 @@
   "entry_hint": {
     "label": "已進入不追價區，避免追高",
     "confidence": "high",
-    "reason": "現價偏離均線／支撐過遠，上方風險報酬比下降。"
+    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 48.7,

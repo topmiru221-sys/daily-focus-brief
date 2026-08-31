@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.749114+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.238943+08:00",
   "code": "9931",
   "name": "欣高",
   "market": "TWSE",
@@ -306,11 +306,16 @@
       "last_index": 9,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 71.0,
-      "display_label": "主要支撐",
+      "tests": 13,
+      "held_tests": 13,
+      "last_test_bars_ago": 5,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.74,
+      "strength_score": 106.5,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.74,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.74
     }
   ],
   "resistance_zones": [
@@ -323,26 +328,16 @@
       "last_index": 12,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 66.2,
-      "display_label": "關鍵壓力",
+      "tests": 14,
+      "held_tests": 13,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.44,
+      "strength_score": 107.1,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.44,
-      "tested_recently": true
-    },
-    {
-      "low": 34.35,
-      "high": 34.65,
-      "center": 34.5,
-      "touches": 1,
-      "last_date": "2026-08-28",
-      "last_index": 15,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "strength_score": 54.3,
-      "display_label": "次要壓力",
-      "rank": 2,
-      "distance_pct": 1.92,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.44
     }
   ],
   "decision_zones": [
@@ -352,7 +347,7 @@
       "low": 33.2,
       "high": 34.0,
       "center": 33.6,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -360,7 +355,7 @@
       "low": 34.15,
       "high": 34.7,
       "center": 34.15,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -389,7 +384,13 @@
   "entry_hint": {
     "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價進入預設回測區，適合等確認。"
+    "reason": "現價進入回測區，等待價格確認。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

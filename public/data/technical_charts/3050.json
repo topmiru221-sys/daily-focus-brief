@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:33.805510+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:11:00.348324+08:00",
   "code": "3050",
   "name": "鈺德",
   "market": "TWSE",
@@ -272,11 +272,16 @@
       "last_index": 7,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 52.3,
-      "display_label": "主要支撐",
+      "tests": 5,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.42,
+      "strength_score": 101.2,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 0.43,
-      "tested_recently": true
+      "display_label": "主要支撐",
+      "distance_pct": 0.43
     },
     {
       "low": 11.4,
@@ -287,11 +292,16 @@
       "last_index": 14,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 49.1,
-      "display_label": "次要支撐",
+      "tests": 12,
+      "held_tests": 11,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.97,
+      "strength_score": 102.1,
+      "evidence_count": 3,
       "rank": 2,
-      "distance_pct": 3.06,
-      "tested_recently": true
+      "display_label": "次要支撐",
+      "distance_pct": 3.06
     },
     {
       "low": 11.08,
@@ -302,11 +312,16 @@
       "last_index": 10,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 44.0,
-      "display_label": "觀察支撐",
+      "tests": 6,
+      "held_tests": 6,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.51,
+      "strength_score": 97.0,
+      "evidence_count": 3,
       "rank": 3,
-      "distance_pct": 5.83,
-      "tested_recently": true
+      "display_label": "觀察支撐",
+      "distance_pct": 5.83
     }
   ],
   "resistance_zones": [],
@@ -317,7 +332,7 @@
       "low": 11.61,
       "high": 11.89,
       "center": 11.75,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
@@ -346,7 +361,13 @@
   "entry_hint": {
     "label": "接近主要支撐，可等回測反應",
     "confidence": "high",
-    "reason": "現價位於主要支撐區內，近期測試 1 次。"
+    "reason": "主要支撐已測試 5 次、守住 2 次。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,

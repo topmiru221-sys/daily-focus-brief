@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.44-smart-zones",
-  "generated_at": "2026-08-31T14:55:31.678943+08:00",
+  "schema_version": "5.4.44.1-validated-zones",
+  "generated_at": "2026-08-31T15:10:56.419576+08:00",
   "code": "6451",
   "name": "訊芯-KY",
   "market": "TWSE",
@@ -264,21 +264,6 @@
   ],
   "support_zones": [
     {
-      "low": 382.46,
-      "high": 386.54,
-      "center": 384.5,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "strength_score": 36,
-      "display_label": "主要支撐",
-      "rank": 1,
-      "distance_pct": 17.95,
-      "tested_recently": true
-    },
-    {
       "low": 389.46,
       "high": 393.54,
       "center": 391.5,
@@ -287,11 +272,16 @@
       "last_index": 10,
       "type": "support",
       "source": "pivot_cluster",
-      "strength_score": 32,
-      "display_label": "次要支撐",
-      "rank": 2,
-      "distance_pct": 15.84,
-      "tested_recently": true
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 13.67,
+      "strength_score": 66,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 15.84
     }
   ],
   "resistance_zones": [
@@ -304,11 +294,16 @@
       "last_index": 9,
       "type": "resistance",
       "source": "pivot_cluster",
-      "strength_score": 46.3,
-      "display_label": "關鍵壓力",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 8,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.69,
+      "strength_score": 74.6,
+      "evidence_count": 3,
       "rank": 1,
-      "distance_pct": 4.69,
-      "tested_recently": true
+      "display_label": "關鍵壓力",
+      "distance_pct": 4.69
     }
   ],
   "decision_zones": [
@@ -318,7 +313,7 @@
       "low": 386.8,
       "high": 396.2,
       "center": 391.5,
-      "source": "decision.trigger/ma20/support"
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
@@ -326,7 +321,7 @@
       "low": 476.79,
       "high": 484.42,
       "center": 476.79,
-      "source": "nearest_resistance/trigger"
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -355,7 +350,13 @@
   "entry_hint": {
     "label": "位置中性，等待更明確訊號",
     "confidence": "low",
-    "reason": "目前不在最佳支撐／回測區，也未明確突破。"
+    "reason": "目前不在高品質回測區或突破確認區。"
+  },
+  "zone_methodology": {
+    "max_distance_pct": 15,
+    "requires_structure": true,
+    "requires_retest_or_multiple_touches": true,
+    "ma_only_disallowed": true
   },
   "decision_snapshot": {
     "score": 44.5,
