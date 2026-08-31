@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hant"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Trading Plan｜Daily Focus Brief</title><link rel="stylesheet" href="./assets/styles.css"><link rel="stylesheet" href="./assets/technical-chart-v5444.css">
+<title>Trading Plan｜Daily Focus Brief</title><link rel="stylesheet" href="./assets/styles.css"><link rel="stylesheet" href="./assets/technical-chart-v54441.css">
 <style>
 .search-row{display:flex;gap:10px;max-width:650px}.search-row input{flex:1;padding:13px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:var(--text)}
 .component-row{display:grid;grid-template-columns:140px 1fr 60px;gap:12px;align-items:center;padding:9px 0}.bar{height:9px;background:var(--panel2);border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:var(--accent)}
@@ -12,7 +12,7 @@
 </style></head><body>
 <header class="hero"><div><p class="eyebrow">DECISION → TRADING PLAN</p><h1>個股交易計畫</h1><p class="muted">先看失效與風險，再看報酬。</p></div><a class="chip link-chip" href="./">返回首頁</a></header>
 <main class="container"><section class="panel"><div class="search-row"><input id="stockCode" inputmode="numeric" placeholder="輸入股票代號，例如 2383"><button id="searchBtn" class="tab active">查看</button></div><p id="statusText" class="muted">載入資料中…</p><p id="syncText" class="sync-note muted"></p></section><section id="root" class="section-block"></section></main>
-<script src="./assets/technical-chart-v5444.js"></script>
+<script src="./assets/technical-chart-v54441.js"></script>
 <script>
 const nf=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:2});let db;const q=new URLSearchParams(location.search).get('code');if(q)stockCode.value=q;
 const val=(v,u='')=>v==null?'—':nf.format(v)+u,box=(a,b,u='')=>`<div class="level"><span class="muted">${a}</span><strong>${val(b,u)}</strong></div>`,info=(a,b)=>`<div class="level"><span class="muted">${a}</span><strong>${b??'—'}</strong></div>`,indi=(a,b,u='',note='')=>`<div class="indicator"><span class="muted">${a}</span><strong>${b==null?(note||'—'):val(b,u)}</strong></div>`;
