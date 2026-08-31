@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.42-technical-chart",
-  "generated_at": "2026-08-31T14:10:54.070544+08:00",
+  "schema_version": "5.4.43-chart-decision-overlay",
+  "generated_at": "2026-08-31T14:38:47.502264+08:00",
   "code": "2035",
   "name": "唐榮",
   "market": "TPEx",
@@ -17,7 +17,8 @@
       "volume": 1000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-13",
@@ -28,7 +29,8 @@
       "volume": 17000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-17",
@@ -39,7 +41,8 @@
       "volume": 17000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-19",
@@ -50,7 +53,8 @@
       "volume": 17000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-21",
@@ -61,7 +65,8 @@
       "volume": 15000.0,
       "ma5": 27.18,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-29",
@@ -72,7 +77,8 @@
       "volume": 1000.0,
       "ma5": 27.18,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-31",
@@ -83,12 +89,14 @@
       "volume": 1000.0,
       "ma5": 27.16,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
     {
       "date": "2026-08-21",
+      "index": 4,
       "type": "up",
       "low": 27.15,
       "high": 27.25,
@@ -96,31 +104,79 @@
     },
     {
       "date": "2026-08-29",
+      "index": 5,
       "type": "down",
       "low": 27.0,
       "high": 27.25,
       "status": "unfilled"
     }
   ],
-  "trendlines": {},
-  "technical_summary": {
-    "close": 27.0,
-    "ma20": null,
-    "distance_to_ma20_pct": null,
-    "ma20_5d_slope": null,
-    "volume_ratio20": null,
-    "nearest_open_gap": {
-      "date": "2026-08-29",
-      "type": "down",
+  "trendlines": [],
+  "support_resistance_zones": [
+    {
       "low": 27.0,
       "high": 27.25,
-      "status": "unfilled",
-      "distance_pct": 0.0
+      "center": 27.12,
+      "touches": 1,
+      "last_date": "2026-08-29",
+      "type": "resistance",
+      "source": "gap"
     },
-    "support_trend_price": null,
-    "support_distance_pct": null,
-    "resistance_trend_price": null,
-    "resistance_distance_pct": null,
-    "technical_posture": "⚪ 中性觀察"
+    {
+      "low": 26.58,
+      "high": 26.82,
+      "center": 26.7,
+      "touches": 1,
+      "last_date": "2026-08-19",
+      "type": "support",
+      "source": "pivot_cluster"
+    },
+    {
+      "low": 27.63,
+      "high": 27.87,
+      "center": 27.75,
+      "touches": 1,
+      "last_date": "2026-08-21",
+      "type": "resistance",
+      "source": "pivot_cluster"
+    }
+  ],
+  "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 26.38,
+      "high": 27.02,
+      "center": 26.7,
+      "source": "decision.trigger/ma20/support"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 27.25,
+      "high": 27.69,
+      "center": 27.25,
+      "source": "nearest_resistance/trigger"
+    },
+    {
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 29.16,
+      "high": 30.91,
+      "center": 29.16,
+      "source": "ma20_extension/resistance"
+    }
+  ],
+  "decision_snapshot": {
+    "score": 44.5,
+    "grade": "D",
+    "card_label": "即時基礎卡",
+    "action": "歷史資料累積中，暫不建立交易計畫",
+    "trigger": null,
+    "invalidation": null,
+    "target1": null,
+    "target2": null,
+    "risk_pct": null,
+    "rr1": null
   }
 }

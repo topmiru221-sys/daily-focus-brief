@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.42-technical-chart",
-  "generated_at": "2026-08-31T14:10:53.472259+08:00",
+  "schema_version": "5.4.43-chart-decision-overlay",
+  "generated_at": "2026-08-31T14:38:46.214775+08:00",
   "code": "4198",
   "name": "欣大健康",
   "market": "TPEx",
@@ -17,7 +17,8 @@
       "volume": 1000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-10",
@@ -28,7 +29,8 @@
       "volume": 1000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-12",
@@ -39,7 +41,8 @@
       "volume": 9000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-13",
@@ -50,7 +53,8 @@
       "volume": 7000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-14",
@@ -61,7 +65,8 @@
       "volume": 19000.0,
       "ma5": 41.66,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-17",
@@ -72,7 +77,8 @@
       "volume": 4000.0,
       "ma5": 41.88,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-18",
@@ -83,7 +89,8 @@
       "volume": 6000.0,
       "ma5": 42.0,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-20",
@@ -94,7 +101,8 @@
       "volume": 1000.0,
       "ma5": 42.19,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-21",
@@ -105,7 +113,8 @@
       "volume": 10000.0,
       "ma5": 42.08,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-24",
@@ -116,7 +125,8 @@
       "volume": 8000.0,
       "ma5": 41.97,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-25",
@@ -127,7 +137,8 @@
       "volume": 4000.0,
       "ma5": 41.59,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-26",
@@ -138,7 +149,8 @@
       "volume": 4000.0,
       "ma5": 41.43,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-28",
@@ -149,7 +161,8 @@
       "volume": 4000.0,
       "ma5": 40.85,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-29",
@@ -160,7 +173,8 @@
       "volume": 38000.0,
       "ma5": 41.46,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-31",
@@ -171,12 +185,14 @@
       "volume": 38000.0,
       "ma5": 42.02,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
     {
       "date": "2026-08-10",
+      "index": 1,
       "type": "down",
       "low": 41.4,
       "high": 41.7,
@@ -184,6 +200,7 @@
     },
     {
       "date": "2026-08-20",
+      "index": 7,
       "type": "up",
       "low": 42.6,
       "high": 42.9,
@@ -191,14 +208,34 @@
     },
     {
       "date": "2026-08-28",
+      "index": 12,
       "type": "down",
       "low": 40.0,
       "high": 40.15,
       "status": "filled"
     }
   ],
-  "trendlines": {
-    "support": {
+  "trendlines": [
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 3,
+        "date": "2026-08-13",
+        "price": 40.15
+      },
+      "to": {
+        "index": 8,
+        "date": "2026-08-21",
+        "price": 39.65
+      },
+      "slope": -0.1,
+      "strength": 2,
+      "label": "下降支撐"
+    },
+    {
+      "role": "support",
+      "direction": "ascending",
       "from": {
         "index": 8,
         "date": "2026-08-21",
@@ -210,9 +247,12 @@
         "price": 40.0
       },
       "slope": 0.0875,
-      "structure": "ascending"
+      "strength": 2,
+      "label": "上升支撐"
     },
-    "resistance": {
+    {
+      "role": "resistance",
+      "direction": "descending",
       "from": {
         "index": 5,
         "date": "2026-08-17",
@@ -224,20 +264,67 @@
         "price": 42.9
       },
       "slope": -0.15,
-      "structure": "descending"
+      "strength": 2,
+      "label": "下降壓力"
     }
-  },
-  "technical_summary": {
-    "close": 44.0,
-    "ma20": null,
-    "distance_to_ma20_pct": null,
-    "ma20_5d_slope": null,
-    "volume_ratio20": null,
-    "nearest_open_gap": null,
-    "support_trend_price": 40.17,
-    "support_distance_pct": 9.53,
-    "resistance_trend_price": 42.0,
-    "resistance_distance_pct": -4.55,
-    "technical_posture": "⚪ 中性觀察"
+  ],
+  "support_resistance_zones": [
+    {
+      "low": 43.15,
+      "high": 43.55,
+      "center": 43.35,
+      "touches": 1,
+      "last_date": "2026-08-17",
+      "type": "support",
+      "source": "pivot_cluster"
+    },
+    {
+      "low": 42.7,
+      "high": 43.1,
+      "center": 42.9,
+      "touches": 1,
+      "last_date": "2026-08-21",
+      "type": "support",
+      "source": "pivot_cluster"
+    },
+    {
+      "low": 39.6,
+      "high": 40.27,
+      "center": 39.93,
+      "touches": 3,
+      "last_date": "2026-08-28",
+      "type": "support",
+      "source": "pivot_cluster"
+    }
+  ],
+  "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 42.83,
+      "high": 43.87,
+      "center": 43.35,
+      "source": "decision.trigger/ma20/support"
+    },
+    {
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 47.52,
+      "high": 50.37,
+      "center": 47.52,
+      "source": "ma20_extension/resistance"
+    }
+  ],
+  "decision_snapshot": {
+    "score": 44.5,
+    "grade": "D",
+    "card_label": "即時基礎卡",
+    "action": "歷史資料累積中，暫不建立交易計畫",
+    "trigger": null,
+    "invalidation": null,
+    "target1": null,
+    "target2": null,
+    "risk_pct": null,
+    "rr1": null
   }
 }

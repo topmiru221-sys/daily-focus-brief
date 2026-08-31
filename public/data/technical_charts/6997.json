@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.4.42-technical-chart",
-  "generated_at": "2026-08-31T14:10:52.731101+08:00",
+  "schema_version": "5.4.43-chart-decision-overlay",
+  "generated_at": "2026-08-31T14:38:44.615728+08:00",
   "code": "6997",
   "name": "博弘",
   "market": "TPEx",
@@ -17,7 +17,8 @@
       "volume": 19000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-07",
@@ -28,7 +29,8 @@
       "volume": 3000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-14",
@@ -39,7 +41,8 @@
       "volume": 1000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-18",
@@ -50,7 +53,8 @@
       "volume": 7000.0,
       "ma5": null,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-19",
@@ -61,7 +65,8 @@
       "volume": 1000.0,
       "ma5": 69.7,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-20",
@@ -72,7 +77,8 @@
       "volume": 2000.0,
       "ma5": 69.14,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-21",
@@ -83,7 +89,8 @@
       "volume": 1000.0,
       "ma5": 68.6,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-24",
@@ -94,7 +101,8 @@
       "volume": 1000.0,
       "ma5": 68.44,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-25",
@@ -105,7 +113,8 @@
       "volume": 9000.0,
       "ma5": 68.44,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-26",
@@ -116,7 +125,8 @@
       "volume": 1000.0,
       "ma5": 68.38,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-28",
@@ -127,7 +137,8 @@
       "volume": 3000.0,
       "ma5": 68.36,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-29",
@@ -138,7 +149,8 @@
       "volume": 1000.0,
       "ma5": 68.32,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     },
     {
       "date": "2026-08-31",
@@ -149,12 +161,14 @@
       "volume": 1000.0,
       "ma5": 68.22,
       "ma20": null,
-      "ma60": null
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
     {
       "date": "2026-08-18",
+      "index": 3,
       "type": "down",
       "low": 68.7,
       "high": 69.3,
@@ -162,6 +176,7 @@
     },
     {
       "date": "2026-08-19",
+      "index": 4,
       "type": "up",
       "low": 68.7,
       "high": 68.9,
@@ -169,6 +184,7 @@
     },
     {
       "date": "2026-08-20",
+      "index": 5,
       "type": "down",
       "low": 68.1,
       "high": 68.9,
@@ -176,6 +192,7 @@
     },
     {
       "date": "2026-08-21",
+      "index": 6,
       "type": "up",
       "low": 68.1,
       "high": 68.2,
@@ -183,6 +200,7 @@
     },
     {
       "date": "2026-08-24",
+      "index": 7,
       "type": "up",
       "low": 68.2,
       "high": 68.5,
@@ -190,6 +208,7 @@
     },
     {
       "date": "2026-08-26",
+      "index": 9,
       "type": "up",
       "low": 68.5,
       "high": 68.6,
@@ -197,14 +216,34 @@
     },
     {
       "date": "2026-08-28",
+      "index": 10,
       "type": "down",
       "low": 68.0,
       "high": 68.6,
       "status": "unfilled"
     }
   ],
-  "trendlines": {
-    "support": {
+  "trendlines": [
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 5,
+        "date": "2026-08-20",
+        "price": 68.1
+      },
+      "to": {
+        "index": 8,
+        "date": "2026-08-25",
+        "price": 68.0
+      },
+      "slope": -0.0333,
+      "strength": 2,
+      "label": "下降支撐"
+    },
+    {
+      "role": "support",
+      "direction": "flat",
       "from": {
         "index": 8,
         "date": "2026-08-25",
@@ -216,27 +255,76 @@
         "price": 68.0
       },
       "slope": 0.0,
-      "structure": "ascending"
+      "strength": 2,
+      "label": "水平支撐"
     }
-  },
-  "technical_summary": {
-    "close": 68.0,
-    "ma20": null,
-    "distance_to_ma20_pct": null,
-    "ma20_5d_slope": null,
-    "volume_ratio20": null,
-    "nearest_open_gap": {
-      "date": "2026-08-28",
-      "type": "down",
+  ],
+  "support_resistance_zones": [
+    {
+      "low": 67.74,
+      "high": 68.61,
+      "center": 68.17,
+      "touches": 4,
+      "last_date": "2026-08-28",
+      "type": "resistance",
+      "source": "pivot_cluster"
+    },
+    {
       "low": 68.0,
       "high": 68.6,
-      "status": "unfilled",
-      "distance_pct": 0.0
+      "center": 68.3,
+      "touches": 1,
+      "last_date": "2026-08-28",
+      "type": "resistance",
+      "source": "gap"
     },
-    "support_trend_price": 68.0,
-    "support_distance_pct": 0.0,
-    "resistance_trend_price": null,
-    "resistance_distance_pct": null,
-    "technical_posture": "⚪ 中性觀察"
+    {
+      "low": 68.1,
+      "high": 68.9,
+      "center": 68.5,
+      "touches": 1,
+      "last_date": "2026-08-20",
+      "type": "resistance",
+      "source": "gap"
+    },
+    {
+      "low": 68.7,
+      "high": 69.3,
+      "center": 69.0,
+      "touches": 1,
+      "last_date": "2026-08-18",
+      "type": "resistance",
+      "source": "gap"
+    }
+  ],
+  "decision_zones": [
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 68.61,
+      "high": 69.71,
+      "center": 68.61,
+      "source": "nearest_resistance/trigger"
+    },
+    {
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 73.44,
+      "high": 77.85,
+      "center": 73.44,
+      "source": "ma20_extension/resistance"
+    }
+  ],
+  "decision_snapshot": {
+    "score": 44.5,
+    "grade": "D",
+    "card_label": "即時基礎卡",
+    "action": "歷史資料累積中，暫不建立交易計畫",
+    "trigger": null,
+    "invalidation": null,
+    "target1": null,
+    "target2": null,
+    "risk_pct": null,
+    "rr1": null
   }
 }
