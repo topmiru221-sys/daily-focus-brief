@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:07.063603+08:00",
+  "generated_at": "2026-09-01T22:14:08.281154+08:00",
   "code": "4545",
   "name": "銘鈺",
   "market": "TWSE",
@@ -226,18 +226,27 @@
     },
     {
       "date": "2026-09-01",
-      "open": 32.1,
-      "high": 32.1,
-      "low": 31.7,
-      "close": 31.9,
-      "volume": 40490.0,
-      "ma5": 32.03,
+      "open": 31.55,
+      "high": 31.65,
+      "low": 31.2,
+      "close": 31.65,
+      "volume": 93218.0,
+      "ma5": 31.98,
       "ma20": null,
       "ma60": null,
       "ma120": null
     }
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "date": "2026-09-01",
+      "index": 18,
+      "type": "down",
+      "low": 31.65,
+      "high": 31.7,
+      "status": "unfilled"
+    }
+  ],
   "trendlines": [
     {
       "role": "support",
@@ -325,28 +334,7 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [
-    {
-      "low": 31.56,
-      "high": 31.84,
-      "center": 31.7,
-      "touches": 1,
-      "last_date": "2026-08-26",
-      "last_index": 14,
-      "type": "support",
-      "source": "pivot_cluster",
-      "tests": 5,
-      "held_tests": 4,
-      "last_test_bars_ago": 4,
-      "ma_overlap": [],
-      "distance_pct_abs": 0.63,
-      "strength_score": 106.7,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.63
-    }
-  ],
+  "support_zones": [],
   "resistance_zones": [
     {
       "low": 32.31,
@@ -361,12 +349,32 @@
       "held_tests": 6,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 1.72,
-      "strength_score": 104.6,
+      "distance_pct_abs": 2.53,
+      "strength_score": 102.9,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 1.72
+      "distance_pct": 2.53
+    },
+    {
+      "low": 31.56,
+      "high": 31.84,
+      "center": 31.7,
+      "touches": 1,
+      "last_date": "2026-08-26",
+      "last_index": 14,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 5,
+      "held_tests": 1,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.16,
+      "strength_score": 95.7,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 0.16
     },
     {
       "low": 32.68,
@@ -381,43 +389,15 @@
       "held_tests": 6,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 2.92,
-      "strength_score": 102.2,
-      "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 2.92
-    },
-    {
-      "low": 33.81,
-      "high": 34.09,
-      "center": 33.95,
-      "touches": 1,
-      "last_date": "2026-08-14",
-      "last_index": 6,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 3,
-      "held_tests": 3,
-      "last_test_bars_ago": 12,
-      "ma_overlap": [],
-      "distance_pct_abs": 6.43,
-      "strength_score": 80.1,
+      "distance_pct_abs": 3.73,
+      "strength_score": 100.5,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 6.43
+      "distance_pct": 3.73
     }
   ],
   "decision_zones": [
-    {
-      "kind": "retest",
-      "label": "回測區",
-      "low": 31.32,
-      "high": 32.08,
-      "center": 31.7,
-      "source": "decision.trigger/validated_support/ma20"
-    },
     {
       "kind": "breakout",
       "label": "突破確認區",
@@ -429,9 +409,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 34.45,
-      "high": 36.52,
-      "center": 34.45,
+      "low": 34.18,
+      "high": 36.23,
+      "center": 34.18,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -451,9 +431,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

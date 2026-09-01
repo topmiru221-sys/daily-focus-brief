@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:06.622388+08:00",
+  "generated_at": "2026-09-01T22:14:07.427643+08:00",
   "code": "6585",
   "name": "鼎基",
   "market": "TWSE",
@@ -226,12 +226,12 @@
     },
     {
       "date": "2026-09-01",
-      "open": 116.0,
-      "high": 116.0,
-      "low": 114.0,
-      "close": 114.5,
-      "volume": 116021.0,
-      "ma5": 114.6,
+      "open": 113.5,
+      "high": 114.5,
+      "low": 112.5,
+      "close": 112.5,
+      "volume": 84410.0,
+      "ma5": 114.2,
       "ma20": null,
       "ma60": null,
       "ma120": null
@@ -308,32 +308,31 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [
+  "support_zones": [],
+  "resistance_zones": [
     {
-      "low": 113.98,
-      "high": 115.02,
+      "low": 113.99,
+      "high": 115.01,
       "center": 114.5,
       "touches": 1,
       "last_date": "2026-08-10",
       "last_index": 2,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
       "tests": 8,
-      "held_tests": 7,
+      "held_tests": 3,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.0,
-      "strength_score": 108.0,
+      "distance_pct_abs": 1.78,
+      "strength_score": 104.4,
       "evidence_count": 3,
       "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.0
-    }
-  ],
-  "resistance_zones": [
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.78
+    },
     {
-      "low": 115.73,
-      "high": 116.77,
+      "low": 115.74,
+      "high": 116.76,
       "center": 116.25,
       "touches": 2,
       "last_date": "2026-08-29",
@@ -344,16 +343,16 @@
       "held_tests": 6,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 1.53,
-      "strength_score": 104.9,
+      "distance_pct_abs": 3.33,
+      "strength_score": 101.3,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.53
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 3.33
     },
     {
-      "low": 119.73,
-      "high": 120.77,
+      "low": 119.74,
+      "high": 120.76,
       "center": 120.25,
       "touches": 2,
       "last_date": "2026-08-19",
@@ -364,37 +363,29 @@
       "held_tests": 5,
       "last_test_bars_ago": 9,
       "ma_overlap": [],
-      "distance_pct_abs": 5.02,
-      "strength_score": 98.0,
+      "distance_pct_abs": 6.89,
+      "strength_score": 94.2,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 5.02
+      "rank": 3,
+      "display_label": "觀察壓力",
+      "distance_pct": 6.89
     }
   ],
   "decision_zones": [
     {
-      "kind": "retest",
-      "label": "回測區",
-      "low": 113.13,
-      "high": 115.87,
-      "center": 114.5,
-      "source": "decision.trigger/validated_support/ma20"
-    },
-    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 116.77,
-      "high": 118.64,
-      "center": 116.77,
+      "low": 115.01,
+      "high": 116.85,
+      "center": 115.01,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 123.66,
-      "high": 131.08,
-      "center": 123.66,
+      "low": 121.5,
+      "high": 128.79,
+      "center": 121.5,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -414,9 +405,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 8 次、守住 7 次。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

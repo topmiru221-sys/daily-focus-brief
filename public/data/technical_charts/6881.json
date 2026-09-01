@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:06.125197+08:00",
+  "generated_at": "2026-09-01T22:14:06.530071+08:00",
   "code": "6881",
   "name": "潤德",
   "market": "TPEx",
@@ -142,11 +142,11 @@
     },
     {
       "date": "2026-09-01",
-      "open": 220.0,
-      "high": 220.0,
+      "open": 216.5,
+      "high": 216.5,
       "low": 216.0,
       "close": 216.0,
-      "volume": 4000.0,
+      "volume": 7000.0,
       "ma5": 215.6,
       "ma20": null,
       "ma60": null,
@@ -160,6 +160,14 @@
       "type": "up",
       "low": 206.0,
       "high": 207.0,
+      "status": "unfilled"
+    },
+    {
+      "date": "2026-09-01",
+      "index": 11,
+      "type": "down",
+      "low": 216.5,
+      "high": 218.0,
       "status": "unfilled"
     }
   ],
@@ -261,7 +269,28 @@
       "distance_pct": 4.6
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 216.5,
+      "high": 218.0,
+      "center": 217.25,
+      "touches": 1,
+      "last_date": "2026-09-01",
+      "last_index": 11,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 2,
+      "held_tests": 1,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.58,
+      "strength_score": 70.8,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.58
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -270,6 +299,14 @@
       "high": 201.64,
       "center": 199.25,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 218.0,
+      "high": 221.49,
+      "center": 218.0,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -296,9 +333,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:08.081880+08:00",
+  "generated_at": "2026-09-01T22:14:10.090456+08:00",
   "code": "3402",
   "name": "漢科",
   "market": "TPEx",
@@ -214,12 +214,12 @@
     },
     {
       "date": "2026-09-01",
-      "open": 122.0,
-      "high": 122.5,
-      "low": 120.0,
-      "close": 121.0,
-      "volume": 193000.0,
-      "ma5": 122.1,
+      "open": 121.0,
+      "high": 123.0,
+      "low": 121.0,
+      "close": 123.0,
+      "volume": 171000.0,
+      "ma5": 122.5,
       "ma20": null,
       "ma60": null,
       "ma120": null
@@ -232,10 +232,27 @@
       "type": "up",
       "low": 120.5,
       "high": 121.0,
-      "status": "filled"
+      "status": "unfilled"
     }
   ],
   "trendlines": [
+    {
+      "role": "support",
+      "direction": "ascending",
+      "from": {
+        "index": 12,
+        "date": "2026-08-25",
+        "price": 118.5
+      },
+      "to": {
+        "index": 15,
+        "date": "2026-08-29",
+        "price": 121.0
+      },
+      "slope": 0.8333,
+      "strength": 2,
+      "label": "上升支撐"
+    },
     {
       "role": "resistance",
       "direction": "descending",
@@ -271,11 +288,52 @@
       "label": "水平壓力"
     }
   ],
-  "support_zones": [],
+  "support_zones": [
+    {
+      "low": 120.45,
+      "high": 121.55,
+      "center": 121.0,
+      "touches": 1,
+      "last_date": "2026-08-29",
+      "last_index": 15,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 8,
+      "held_tests": 6,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.63,
+      "strength_score": 104.7,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 1.65
+    },
+    {
+      "low": 120.5,
+      "high": 121.0,
+      "center": 120.75,
+      "touches": 1,
+      "last_date": "2026-08-26",
+      "last_index": 13,
+      "type": "support",
+      "source": "gap",
+      "tests": 7,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.83,
+      "strength_score": 98.3,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 1.86
+    }
+  ],
   "resistance_zones": [
     {
-      "low": 122.96,
-      "high": 124.04,
+      "low": 122.95,
+      "high": 124.05,
       "center": 123.5,
       "touches": 2,
       "last_date": "2026-08-29",
@@ -286,16 +344,16 @@
       "held_tests": 4,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 2.07,
-      "strength_score": 103.9,
+      "distance_pct_abs": 0.41,
+      "strength_score": 107.2,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 2.07
+      "distance_pct": 0.41
     },
     {
-      "low": 129.96,
-      "high": 131.04,
+      "low": 129.95,
+      "high": 131.05,
       "center": 130.5,
       "touches": 1,
       "last_date": "2026-08-13",
@@ -306,29 +364,37 @@
       "held_tests": 4,
       "last_test_bars_ago": 13,
       "ma_overlap": [],
-      "distance_pct_abs": 7.85,
-      "strength_score": 86.3,
+      "distance_pct_abs": 6.1,
+      "strength_score": 89.8,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 7.85
+      "distance_pct": 6.1
     }
   ],
   "decision_zones": [
     {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 119.55,
+      "high": 122.45,
+      "center": 121.0,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 124.04,
-      "high": 126.02,
-      "center": 124.04,
+      "low": 124.05,
+      "high": 126.03,
+      "center": 124.05,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 130.68,
-      "high": 138.52,
-      "center": 130.68,
+      "low": 132.84,
+      "high": 140.81,
+      "center": 132.84,
       "source": "ma20_extension/resistance"
     }
   ],

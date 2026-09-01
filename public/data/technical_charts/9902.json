@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:07.145148+08:00",
+  "generated_at": "2026-09-01T22:14:08.423952+08:00",
   "code": "9902",
   "name": "台火",
   "market": "TWSE",
@@ -226,12 +226,12 @@
     },
     {
       "date": "2026-09-01",
-      "open": 13.85,
-      "high": 13.85,
+      "open": 13.7,
+      "high": 13.75,
       "low": 13.6,
-      "close": 13.6,
-      "volume": 94743.0,
-      "ma5": 13.72,
+      "close": 13.7,
+      "volume": 63405.0,
+      "ma5": 13.74,
       "ma20": null,
       "ma60": null,
       "ma120": null
@@ -342,8 +342,7 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [],
-  "resistance_zones": [
+  "support_zones": [
     {
       "low": 13.59,
       "high": 13.71,
@@ -351,19 +350,21 @@
       "touches": 3,
       "last_date": "2026-08-21",
       "last_index": 11,
-      "type": "resistance",
+      "type": "support",
       "source": "pivot_cluster",
       "tests": 8,
-      "held_tests": 6,
+      "held_tests": 8,
       "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 0.37,
+      "distance_pct_abs": 0.36,
       "strength_score": 107.3,
       "evidence_count": 3,
       "rank": 1,
-      "display_label": "關鍵壓力",
+      "display_label": "主要支撐",
       "distance_pct": 0.37
-    },
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 13.91,
       "high": 14.11,
@@ -377,29 +378,37 @@
       "held_tests": 7,
       "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 3.01,
-      "strength_score": 102.0,
+      "distance_pct_abs": 2.26,
+      "strength_score": 103.5,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 3.01
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.26
     }
   ],
   "decision_zones": [
     {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 13.49,
+      "high": 13.81,
+      "center": 13.65,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 13.71,
-      "high": 13.93,
-      "center": 13.71,
+      "low": 14.11,
+      "high": 14.34,
+      "center": 14.11,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 14.69,
-      "high": 15.57,
-      "center": 14.69,
+      "low": 14.8,
+      "high": 15.68,
+      "center": 14.8,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -419,9 +428,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 8 次、守住 8 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

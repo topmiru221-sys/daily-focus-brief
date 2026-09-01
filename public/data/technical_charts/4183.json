@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:08.106720+08:00",
+  "generated_at": "2026-09-01T22:14:10.149216+08:00",
   "code": "4183",
   "name": "福永生技",
   "market": "TPEx",
-  "record_count": 10,
+  "record_count": 11,
   "first_date": "2026-08-12",
-  "last_date": "2026-08-31",
+  "last_date": "2026-09-01",
   "candles": [
     {
       "date": "2026-08-12",
@@ -127,11 +127,61 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-01",
+      "open": 14.0,
+      "high": 14.0,
+      "low": 14.0,
+      "close": 14.0,
+      "volume": 1000.0,
+      "ma5": 13.94,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
-  "trendlines": [],
+  "trendlines": [
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 4,
+        "date": "2026-08-20",
+        "price": 14.6
+      },
+      "to": {
+        "index": 8,
+        "date": "2026-08-29",
+        "price": 14.0
+      },
+      "slope": -0.15,
+      "strength": 2,
+      "label": "下降壓力"
+    }
+  ],
   "support_zones": [
+    {
+      "low": 13.94,
+      "high": 14.06,
+      "center": 14.0,
+      "touches": 1,
+      "last_date": "2026-08-29",
+      "last_index": 8,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.0,
+      "strength_score": 108.0,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.0
+    },
     {
       "low": 13.44,
       "high": 13.56,
@@ -143,13 +193,13 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
       "distance_pct_abs": 3.57,
       "strength_score": 76.9,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
+      "rank": 2,
+      "display_label": "次要支撐",
       "distance_pct": 3.7
     }
   ],
@@ -165,7 +215,7 @@
       "source": "pivot_cluster",
       "tests": 5,
       "held_tests": 5,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
       "distance_pct_abs": 4.29,
       "strength_score": 99.4,
@@ -175,7 +225,32 @@
       "distance_pct": 4.29
     }
   ],
-  "decision_zones": [],
+  "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 13.83,
+      "high": 14.17,
+      "center": 14.0,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 14.66,
+      "high": 14.89,
+      "center": 14.66,
+      "source": "validated_resistance/trigger"
+    },
+    {
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 15.12,
+      "high": 16.03,
+      "center": 15.12,
+      "source": "ma20_extension/resistance"
+    }
+  ],
   "layer_defaults": {
     "candles": true,
     "volume": true,
@@ -192,9 +267,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 5 次、守住 5 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -203,10 +278,10 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": null,
-    "grade": null,
-    "card_label": null,
-    "action": null,
+    "score": 44.5,
+    "grade": "D",
+    "card_label": "即時基礎卡",
+    "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,
     "target1": null,

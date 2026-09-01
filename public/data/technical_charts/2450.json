@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:07.052696+08:00",
+  "generated_at": "2026-09-01T22:14:08.262616+08:00",
   "code": "2450",
   "name": "神腦",
   "market": "TWSE",
@@ -228,10 +228,10 @@
       "date": "2026-09-01",
       "open": 28.3,
       "high": 28.3,
-      "low": 28.1,
-      "close": 28.3,
-      "volume": 65894.0,
-      "ma5": 28.26,
+      "low": 28.05,
+      "close": 28.1,
+      "volume": 90314.0,
+      "ma5": 28.22,
       "ma20": null,
       "ma60": null,
       "ma120": null
@@ -342,7 +342,8 @@
       "label": "水平壓力"
     }
   ],
-  "support_zones": [
+  "support_zones": [],
+  "resistance_zones": [
     {
       "low": 27.95,
       "high": 28.52,
@@ -350,21 +351,19 @@
       "touches": 7,
       "last_date": "2026-08-29",
       "last_index": 16,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
       "tests": 17,
       "held_tests": 17,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.21,
-      "strength_score": 107.6,
+      "distance_pct_abs": 0.5,
+      "strength_score": 107.0,
       "evidence_count": 3,
       "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.21
-    }
-  ],
-  "resistance_zones": [
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.5
+    },
     {
       "low": 28.37,
       "high": 28.63,
@@ -378,37 +377,29 @@
       "held_tests": 7,
       "last_test_bars_ago": 10,
       "ma_overlap": [],
-      "distance_pct_abs": 0.71,
-      "strength_score": 106.6,
+      "distance_pct_abs": 1.42,
+      "strength_score": 105.2,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 0.71
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 1.42
     }
   ],
   "decision_zones": [
     {
-      "kind": "retest",
-      "label": "回測區",
-      "low": 27.9,
-      "high": 28.58,
-      "center": 28.24,
-      "source": "decision.trigger/validated_support/ma20"
-    },
-    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 28.63,
-      "high": 29.09,
-      "center": 28.63,
+      "low": 28.52,
+      "high": 28.98,
+      "center": 28.52,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 30.56,
-      "high": 32.4,
-      "center": 30.56,
+      "low": 30.35,
+      "high": 32.17,
+      "center": 30.35,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -428,9 +419,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 17 次、守住 17 次。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:07.629986+08:00",
+  "generated_at": "2026-09-01T22:14:09.301185+08:00",
   "code": "8121",
   "name": "越峰",
   "market": "TPEx",
@@ -214,11 +214,11 @@
     },
     {
       "date": "2026-09-01",
-      "open": 28.55,
-      "high": 29.5,
-      "low": 27.6,
+      "open": 27.8,
+      "high": 28.35,
+      "low": 27.8,
       "close": 27.9,
-      "volume": 687000.0,
+      "volume": 374000.0,
       "ma5": 28.16,
       "ma20": null,
       "ma60": null,
@@ -252,6 +252,23 @@
       "slope": -0.1875,
       "strength": 2,
       "label": "下降支撐"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 4,
+        "date": "2026-08-13",
+        "price": 32.6
+      },
+      "to": {
+        "index": 15,
+        "date": "2026-08-29",
+        "price": 29.2
+      },
+      "slope": -0.3091,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [
@@ -276,7 +293,28 @@
       "distance_pct": 3.14
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 29.07,
+      "high": 29.33,
+      "center": 29.2,
+      "touches": 1,
+      "last_date": "2026-08-29",
+      "last_index": 15,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 6,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.66,
+      "strength_score": 98.7,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 4.66
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -285,6 +323,14 @@
       "high": 27.37,
       "center": 27.05,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 29.33,
+      "high": 29.8,
+      "center": 29.33,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",

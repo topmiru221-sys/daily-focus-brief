@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:06.664152+08:00",
+  "generated_at": "2026-09-01T22:14:07.507234+08:00",
   "code": "5206",
   "name": "坤悅",
   "market": "TPEx",
@@ -214,12 +214,12 @@
     },
     {
       "date": "2026-09-01",
-      "open": 23.6,
-      "high": 23.65,
-      "low": 23.0,
-      "close": 23.2,
-      "volume": 411000.0,
-      "ma5": 23.67,
+      "open": 23.25,
+      "high": 23.45,
+      "low": 23.2,
+      "close": 23.35,
+      "volume": 195000.0,
+      "ma5": 23.7,
       "ma20": null,
       "ma60": null,
       "ma120": null
@@ -257,6 +257,14 @@
       "low": 23.2,
       "high": 23.25,
       "status": "filled"
+    },
+    {
+      "date": "2026-09-01",
+      "index": 17,
+      "type": "down",
+      "low": 23.45,
+      "high": 23.5,
+      "status": "unfilled"
     }
   ],
   "trendlines": [
@@ -314,8 +322,8 @@
   ],
   "support_zones": [
     {
-      "low": 22.95,
-      "high": 23.15,
+      "low": 22.94,
+      "high": 23.16,
       "center": 23.05,
       "touches": 2,
       "last_date": "2026-08-18",
@@ -326,12 +334,12 @@
       "held_tests": 2,
       "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 0.65,
-      "strength_score": 100.7,
+      "distance_pct_abs": 1.28,
+      "strength_score": 99.4,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 0.65
+      "distance_pct": 1.3
     },
     {
       "low": 22.4,
@@ -346,12 +354,12 @@
       "held_tests": 5,
       "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 3.23,
-      "strength_score": 95.5,
+      "distance_pct_abs": 3.85,
+      "strength_score": 94.3,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 3.34
+      "distance_pct": 4.01
     },
     {
       "low": 21.9,
@@ -366,15 +374,36 @@
       "held_tests": 6,
       "last_test_bars_ago": 7,
       "ma_overlap": [],
-      "distance_pct_abs": 5.09,
-      "strength_score": 97.8,
+      "distance_pct_abs": 5.7,
+      "strength_score": 96.6,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察支撐",
-      "distance_pct": 5.36
+      "distance_pct": 6.04
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 23.45,
+      "high": 23.5,
+      "center": 23.48,
+      "touches": 1,
+      "last_date": "2026-09-01",
+      "last_index": 17,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 2,
+      "held_tests": 0,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.56,
+      "strength_score": 64.9,
+      "evidence_count": 2,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.56
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -385,11 +414,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 23.5,
+      "high": 23.88,
+      "center": 23.5,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 25.06,
-      "high": 26.56,
-      "center": 25.06,
+      "low": 25.22,
+      "high": 26.73,
+      "center": 25.22,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -409,9 +446,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

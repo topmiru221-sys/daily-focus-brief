@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T01:09:07.336964+08:00",
+  "generated_at": "2026-09-01T22:14:08.771934+08:00",
   "code": "1709",
   "name": "和益",
   "market": "TWSE",
@@ -1510,15 +1510,15 @@
     },
     {
       "date": "2026-09-01",
-      "open": 34.5,
-      "high": 36.45,
-      "low": 34.15,
-      "close": 36.15,
-      "volume": 22958086.0,
-      "ma5": 35.46,
-      "ma20": 31.26,
-      "ma60": 26.17,
-      "ma120": 22.38
+      "open": 35.85,
+      "high": 36.25,
+      "low": 33.35,
+      "close": 33.45,
+      "volume": 12716527.0,
+      "ma5": 34.92,
+      "ma20": 31.12,
+      "ma60": 26.12,
+      "ma120": 22.36
     }
   ],
   "gaps": [
@@ -1727,58 +1727,99 @@
   ],
   "support_zones": [
     {
-      "low": 33.69,
-      "high": 34.01,
+      "low": 29.95,
+      "high": 30.25,
+      "center": 30.1,
+      "touches": 1,
+      "last_date": "2026-08-21",
+      "last_index": 118,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [],
+      "distance_pct_abs": 10.01,
+      "strength_score": 81,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 11.13
+    },
+    {
+      "low": 28.27,
+      "high": 28.7,
+      "center": 28.48,
+      "touches": 3,
+      "last_date": "2026-08-11",
+      "last_index": 110,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 10,
+      "held_tests": 1,
+      "last_test_bars_ago": 12,
+      "ma_overlap": [],
+      "distance_pct_abs": 14.86,
+      "strength_score": 72,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 17.45
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 33.7,
+      "high": 34.0,
       "center": 33.85,
       "touches": 1,
       "last_date": "2026-08-20",
       "last_index": 117,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
       "tests": 5,
-      "held_tests": 4,
+      "held_tests": 2,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 6.36,
-      "strength_score": 95.3,
+      "distance_pct_abs": 1.2,
+      "strength_score": 99.6,
       "evidence_count": 3,
       "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 6.79
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.2
     }
   ],
-  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 30.88,
-      "high": 31.62,
-      "center": 31.25,
+      "low": 30.75,
+      "high": 31.49,
+      "center": 31.12,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 31.25,
-      "high": 31.75,
-      "center": 31.25,
+      "low": 34.0,
+      "high": 34.54,
+      "center": 34.0,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 33.76,
-      "high": 37.6,
-      "center": 33.76,
+      "low": 33.85,
+      "high": 35.88,
+      "center": 33.85,
       "source": "ma20_extension/resistance"
     },
     {
       "kind": "invalidation",
       "label": "失效區",
-      "low": 28.87,
-      "high": 30.07,
-      "center": 29.92,
+      "low": 28.73,
+      "high": 29.92,
+      "center": 29.77,
       "source": "decision.invalidation"
     },
     {
@@ -1814,9 +1855,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "已進入不追價區，避免追高",
-    "confidence": "high",
-    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1825,15 +1866,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 49.3,
+    "score": 52.9,
     "grade": "D",
     "card_label": "完整 Decision Card",
-    "action": "等待拉回，不追價",
-    "trigger": 31.25,
-    "invalidation": 29.92,
+    "action": "等待回測支撐",
+    "trigger": 31.12,
+    "invalidation": 29.77,
     "target1": 37.7,
     "target2": 37.7,
-    "risk_pct": 17.23,
-    "rr1": 0.25
+    "risk_pct": 11.0,
+    "rr1": 1.15
   }
 }
