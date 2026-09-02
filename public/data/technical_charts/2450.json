@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:08.262616+08:00",
+  "generated_at": "2026-09-02T21:46:11.439910+08:00",
   "code": "2450",
   "name": "神腦",
   "market": "TWSE",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 28.1,
+      "high": 28.25,
+      "low": 28.1,
+      "close": 28.15,
+      "volume": 53542.0,
+      "ma5": 28.21,
+      "ma20": 28.24,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -272,23 +284,6 @@
       "slope": -0.03,
       "strength": 2,
       "label": "下降支撐"
-    },
-    {
-      "role": "resistance",
-      "direction": "ascending",
-      "from": {
-        "index": 3,
-        "date": "2026-08-11",
-        "price": 28.45
-      },
-      "to": {
-        "index": 7,
-        "date": "2026-08-17",
-        "price": 28.5
-      },
-      "slope": 0.0125,
-      "strength": 2,
-      "label": "上升壓力"
     },
     {
       "role": "resistance",
@@ -340,29 +335,48 @@
       "slope": 0.0,
       "strength": 2,
       "label": "水平壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "flat",
+      "from": {
+        "index": 16,
+        "date": "2026-08-29",
+        "price": 28.3
+      },
+      "to": {
+        "index": 17,
+        "date": "2026-08-31",
+        "price": 28.3
+      },
+      "slope": 0.0,
+      "strength": 2,
+      "label": "水平壓力"
     }
   ],
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 27.95,
-      "high": 28.52,
+      "low": 27.96,
+      "high": 28.53,
       "center": 28.24,
-      "touches": 7,
-      "last_date": "2026-08-29",
-      "last_index": 16,
+      "touches": 8,
+      "last_date": "2026-08-31",
+      "last_index": 17,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 17,
-      "held_tests": 17,
+      "tests": 18,
+      "held_tests": 18,
       "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 0.5,
-      "strength_score": 107.0,
-      "evidence_count": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 0.32,
+      "strength_score": 113.4,
+      "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 0.5
+      "distance_pct": 0.32
     },
     {
       "low": 28.37,
@@ -375,31 +389,39 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 7,
-      "last_test_bars_ago": 10,
+      "last_test_bars_ago": 11,
       "ma_overlap": [],
-      "distance_pct_abs": 1.42,
-      "strength_score": 105.2,
+      "distance_pct_abs": 1.24,
+      "strength_score": 99.5,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 1.42
+      "distance_pct": 1.24
     }
   ],
   "decision_zones": [
     {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 27.9,
+      "high": 28.58,
+      "center": 28.24,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 28.52,
-      "high": 28.98,
-      "center": 28.52,
+      "low": 28.53,
+      "high": 28.99,
+      "center": 28.53,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 30.35,
-      "high": 32.17,
-      "center": 30.35,
+      "low": 30.5,
+      "high": 32.33,
+      "center": 30.5,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -419,9 +441,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -430,9 +452,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 47.3,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

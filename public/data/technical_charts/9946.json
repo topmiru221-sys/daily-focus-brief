@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:10.822871+08:00",
+  "generated_at": "2026-09-02T21:46:16.022789+08:00",
   "code": "9946",
   "name": "三發地產",
   "market": "TWSE",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 17.3,
+      "high": 17.35,
+      "low": 17.2,
+      "close": 17.3,
+      "volume": 256569.0,
+      "ma5": 17.82,
+      "ma20": 18.46,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -327,16 +339,16 @@
       "last_index": 2,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 4,
-      "held_tests": 3,
+      "tests": 5,
+      "held_tests": 4,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 3.19,
-      "strength_score": 101.6,
+      "distance_pct_abs": 2.89,
+      "strength_score": 102.2,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 3.19
+      "distance_pct": 2.89
     },
     {
       "low": 17.9,
@@ -349,14 +361,16 @@
       "source": "gap",
       "tests": 11,
       "held_tests": 6,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 6.38,
-      "strength_score": 89.2,
-      "evidence_count": 3,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 6.07,
+      "strength_score": 95.9,
+      "evidence_count": 4,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 6.38
+      "distance_pct": 6.07
     },
     {
       "low": 19.22,
@@ -369,17 +383,25 @@
       "source": "pivot_cluster",
       "tests": 5,
       "held_tests": 5,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 11.88,
+      "distance_pct_abs": 11.56,
       "strength_score": 90,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 11.88
+      "distance_pct": 11.56
     }
   ],
   "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 18.24,
+      "high": 18.68,
+      "center": 18.46,
+      "source": "decision.trigger/validated_support/ma20"
+    },
     {
       "kind": "breakout",
       "label": "突破確認區",
@@ -391,9 +413,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 18.63,
-      "high": 19.75,
-      "center": 18.63,
+      "low": 19.94,
+      "high": 21.13,
+      "center": 19.94,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -413,9 +435,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -424,9 +446,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 50.0,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

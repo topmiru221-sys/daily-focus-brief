@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:09.856993+08:00",
+  "generated_at": "2026-09-02T21:46:15.928822+08:00",
   "code": "7610",
   "name": "聯友金屬-創",
   "market": "TWSE",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 1525.0,
+      "high": 1630.0,
+      "low": 1485.0,
+      "close": 1605.0,
+      "volume": 609180.0,
+      "ma5": 1562.0,
+      "ma20": 1702.0,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -248,6 +260,23 @@
     }
   ],
   "trendlines": [
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 12,
+        "date": "2026-08-24",
+        "price": 1490.0
+      },
+      "to": {
+        "index": 17,
+        "date": "2026-08-31",
+        "price": 1445.0
+      },
+      "slope": -9.0,
+      "strength": 2,
+      "label": "下降支撐"
+    },
     {
       "role": "resistance",
       "direction": "descending",
@@ -283,15 +312,73 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [],
-  "resistance_zones": [],
+  "support_zones": [
+    {
+      "low": 1482.78,
+      "high": 1497.22,
+      "center": 1490.0,
+      "touches": 1,
+      "last_date": "2026-08-24",
+      "last_index": 12,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 7.17,
+      "strength_score": 69.7,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 7.72
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 1812.78,
+      "high": 1827.22,
+      "center": 1820.0,
+      "touches": 1,
+      "last_date": "2026-08-25",
+      "last_index": 13,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 8,
+      "held_tests": 4,
+      "last_test_bars_ago": 6,
+      "ma_overlap": [],
+      "distance_pct_abs": 13.4,
+      "strength_score": 90,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 13.4
+    }
+  ],
   "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 1472.12,
+      "high": 1507.88,
+      "center": 1490.0,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 1827.22,
+      "high": 1856.46,
+      "center": 1827.22,
+      "source": "validated_resistance/trigger"
+    },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 1625.4,
-      "high": 1722.92,
-      "center": 1625.4,
+      "low": 1838.16,
+      "high": 1948.45,
+      "center": 1838.16,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -311,9 +398,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
-    "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -322,9 +409,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 40.8,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

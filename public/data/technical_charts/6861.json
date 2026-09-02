@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:10.254982+08:00",
+  "generated_at": "2026-09-02T21:46:15.472536+08:00",
   "code": "6861",
   "name": "睿生光電",
   "market": "TWSE",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 186.5,
+      "high": 198.0,
+      "low": 186.5,
+      "close": 193.5,
+      "volume": 202737.0,
+      "ma5": 192.5,
+      "ma20": 201.75,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -244,7 +256,7 @@
       "type": "down",
       "low": 191.5,
       "high": 192.0,
-      "status": "unfilled"
+      "status": "filled"
     }
   ],
   "trendlines": [
@@ -264,46 +276,73 @@
       "slope": -0.25,
       "strength": 2,
       "label": "下降壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 7,
+        "date": "2026-08-17",
+        "price": 226.5
+      },
+      "to": {
+        "index": 17,
+        "date": "2026-08-31",
+        "price": 201.0
+      },
+      "slope": -2.55,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 191.5,
-      "high": 192.0,
-      "center": 191.75,
+      "low": 200.13,
+      "high": 201.87,
+      "center": 201.0,
       "touches": 1,
-      "last_date": "2026-09-01",
-      "last_index": 18,
+      "last_date": "2026-08-31",
+      "last_index": 17,
       "type": "resistance",
-      "source": "gap",
-      "tests": 5,
-      "held_tests": 2,
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 3,
       "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 1.99,
-      "strength_score": 92.0,
-      "evidence_count": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 3.88,
+      "strength_score": 97.2,
+      "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 1.99
+      "distance_pct": 3.88
     }
   ],
   "decision_zones": [
     {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 199.33,
+      "high": 204.17,
+      "center": 201.75,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 192.0,
-      "high": 195.07,
-      "center": 192.0,
+      "low": 201.87,
+      "high": 205.1,
+      "center": 201.87,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 203.04,
-      "high": 215.22,
-      "center": 203.04,
+      "low": 217.89,
+      "high": 230.96,
+      "center": 217.89,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -323,9 +362,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "近期無有效支撐，不宜硬找進場點",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -334,9 +373,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 44.0,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

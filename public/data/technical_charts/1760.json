@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:06.499713+08:00",
+  "generated_at": "2026-09-02T21:46:13.430898+08:00",
   "code": "1760",
   "name": "寶齡富錦",
   "market": "TWSE",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 58.0,
+      "high": 58.1,
+      "low": 57.6,
+      "close": 58.0,
+      "volume": 129263.0,
+      "ma5": 58.26,
+      "ma20": 58.64,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -336,13 +348,15 @@
       "last_index": 14,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 11,
-      "held_tests": 6,
+      "tests": 12,
+      "held_tests": 7,
       "last_test_bars_ago": 2,
-      "ma_overlap": [],
+      "ma_overlap": [
+        "MA20"
+      ],
       "distance_pct_abs": 0.29,
-      "strength_score": 107.4,
-      "evidence_count": 3,
+      "strength_score": 113.4,
+      "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
       "distance_pct": 0.29
@@ -356,19 +370,29 @@
       "last_index": 16,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 12,
-      "held_tests": 11,
+      "tests": 13,
+      "held_tests": 12,
       "last_test_bars_ago": 2,
-      "ma_overlap": [],
+      "ma_overlap": [
+        "MA20"
+      ],
       "distance_pct_abs": 1.9,
-      "strength_score": 104.2,
-      "evidence_count": 3,
+      "strength_score": 110.2,
+      "evidence_count": 4,
       "rank": 2,
       "display_label": "次要壓力",
       "distance_pct": 1.9
     }
   ],
   "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 57.94,
+      "high": 59.34,
+      "center": 58.64,
+      "source": "decision.trigger/validated_support/ma20"
+    },
     {
       "kind": "breakout",
       "label": "突破確認區",
@@ -380,9 +404,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 62.64,
-      "high": 66.4,
-      "center": 62.64,
+      "low": 63.33,
+      "high": 67.13,
+      "center": 63.33,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -402,9 +426,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -413,9 +437,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 47.6,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

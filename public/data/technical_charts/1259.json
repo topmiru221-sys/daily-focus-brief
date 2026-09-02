@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:06.653915+08:00",
+  "generated_at": "2026-09-02T21:46:12.488746+08:00",
   "code": "1259",
   "name": "安心",
   "market": "TPEx",
-  "record_count": 13,
+  "record_count": 14,
   "first_date": "2026-08-07",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-07",
@@ -163,6 +163,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 62.1,
+      "high": 62.1,
+      "low": 62.1,
+      "close": 62.1,
+      "volume": 1000.0,
+      "ma5": 62.76,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -188,53 +200,80 @@
       "type": "up",
       "low": 62.7,
       "high": 63.4,
+      "status": "filled"
+    },
+    {
+      "date": "2026-09-02",
+      "index": 13,
+      "type": "down",
+      "low": 62.1,
+      "high": 63.4,
       "status": "unfilled"
     }
   ],
-  "trendlines": [],
+  "trendlines": [
+    {
+      "role": "support",
+      "direction": "flat",
+      "from": {
+        "index": 10,
+        "date": "2026-08-29",
+        "price": 61.2
+      },
+      "to": {
+        "index": 11,
+        "date": "2026-08-31",
+        "price": 61.2
+      },
+      "slope": 0.0,
+      "strength": 2,
+      "label": "水平支撐"
+    }
+  ],
   "support_zones": [
     {
-      "low": 60.91,
-      "high": 61.49,
+      "low": 60.92,
+      "high": 61.48,
       "center": 61.2,
-      "touches": 1,
-      "last_date": "2026-08-29",
-      "last_index": 10,
+      "touches": 2,
+      "last_date": "2026-08-31",
+      "last_index": 11,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 4,
-      "held_tests": 3,
+      "tests": 5,
+      "held_tests": 4,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 4.08,
-      "strength_score": 99.8,
+      "distance_pct_abs": 1.45,
+      "strength_score": 105.1,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 4.25
-    },
-    {
-      "low": 62.7,
-      "high": 63.4,
-      "center": 63.05,
-      "touches": 1,
-      "last_date": "2026-09-01",
-      "last_index": 12,
-      "type": "support",
-      "source": "gap",
-      "tests": 3,
-      "held_tests": 2,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 1.18,
-      "strength_score": 84.6,
-      "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要支撐",
-      "distance_pct": 1.19
+      "distance_pct": 1.47
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 62.1,
+      "high": 63.4,
+      "center": 62.75,
+      "touches": 1,
+      "last_date": "2026-09-02",
+      "last_index": 13,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 6,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.05,
+      "strength_score": 99.9,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.05
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -245,11 +284,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 63.4,
+      "high": 64.41,
+      "center": 63.4,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 68.9,
-      "high": 73.04,
-      "center": 68.9,
+      "low": 67.07,
+      "high": 71.09,
+      "center": 67.07,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -269,9 +316,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

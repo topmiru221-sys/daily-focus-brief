@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:06.729660+08:00",
+  "generated_at": "2026-09-02T21:46:14.370170+08:00",
   "code": "4538",
   "name": "大詠城",
   "market": "TPEx",
-  "record_count": 18,
+  "record_count": 19,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-06",
@@ -223,6 +223,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 18.05,
+      "high": 18.05,
+      "low": 17.75,
+      "close": 17.85,
+      "volume": 15000.0,
+      "ma5": 17.77,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -277,9 +289,46 @@
       "slope": 0.0455,
       "strength": 2,
       "label": "上升壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "flat",
+      "from": {
+        "index": 15,
+        "date": "2026-08-29",
+        "price": 18.25
+      },
+      "to": {
+        "index": 16,
+        "date": "2026-08-31",
+        "price": 18.25
+      },
+      "slope": 0.0,
+      "strength": 2,
+      "label": "水平壓力"
     }
   ],
   "support_zones": [
+    {
+      "low": 17.67,
+      "high": 17.83,
+      "center": 17.75,
+      "touches": 1,
+      "last_date": "2026-08-13",
+      "last_index": 4,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.56,
+      "strength_score": 106.9,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.56
+    },
     {
       "low": 17.21,
       "high": 17.39,
@@ -291,61 +340,61 @@
       "source": "pivot_cluster",
       "tests": 10,
       "held_tests": 10,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 2.26,
-      "strength_score": 103.5,
+      "distance_pct_abs": 3.08,
+      "strength_score": 101.8,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 2.31
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 3.18
     }
   ],
   "resistance_zones": [
     {
-      "low": 17.67,
-      "high": 17.83,
-      "center": 17.75,
-      "touches": 1,
-      "last_date": "2026-08-13",
-      "last_index": 4,
+      "low": 18.17,
+      "high": 18.33,
+      "center": 18.25,
+      "touches": 2,
+      "last_date": "2026-08-31",
+      "last_index": 16,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 4,
-      "held_tests": 4,
+      "tests": 2,
+      "held_tests": 2,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.28,
-      "strength_score": 107.4,
+      "distance_pct_abs": 2.24,
+      "strength_score": 79.5,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 0.28
+      "distance_pct": 2.24
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 17.09,
-      "high": 17.51,
-      "center": 17.3,
+      "low": 17.54,
+      "high": 17.96,
+      "center": 17.75,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 17.83,
-      "high": 18.12,
-      "center": 17.83,
+      "low": 18.33,
+      "high": 18.62,
+      "center": 18.33,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 19.12,
-      "high": 20.26,
-      "center": 19.12,
+      "low": 19.28,
+      "high": 20.43,
+      "center": 19.28,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -365,9 +414,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

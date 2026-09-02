@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:08.260491+08:00",
+  "generated_at": "2026-09-02T21:46:12.077645+08:00",
   "code": "1737",
   "name": "臺鹽",
   "market": "TWSE",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 30.65,
+      "high": 30.75,
+      "low": 30.65,
+      "close": 30.7,
+      "volume": 208062.0,
+      "ma5": 30.78,
+      "ma20": 31.64,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -332,29 +344,46 @@
       "slope": 0.0,
       "strength": 2,
       "label": "水平壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 12,
+        "date": "2026-08-24",
+        "price": 32.5
+      },
+      "to": {
+        "index": 17,
+        "date": "2026-08-31",
+        "price": 31.05
+      },
+      "slope": -0.29,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 30.66,
-      "high": 30.94,
-      "center": 30.8,
-      "touches": 1,
-      "last_date": "2026-08-28",
-      "last_index": 15,
+      "low": 30.74,
+      "high": 31.11,
+      "center": 30.93,
+      "touches": 2,
+      "last_date": "2026-08-31",
+      "last_index": 17,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 4,
-      "held_tests": 3,
+      "tests": 5,
+      "held_tests": 5,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.33,
-      "strength_score": 107.3,
+      "distance_pct_abs": 0.75,
+      "strength_score": 106.5,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 0.33
+      "distance_pct": 0.75
     },
     {
       "low": 31.71,
@@ -367,11 +396,13 @@
       "source": "pivot_cluster",
       "tests": 13,
       "held_tests": 10,
-      "last_test_bars_ago": 6,
-      "ma_overlap": [],
+      "last_test_bars_ago": 7,
+      "ma_overlap": [
+        "MA20"
+      ],
       "distance_pct_abs": 4.07,
-      "strength_score": 99.9,
-      "evidence_count": 3,
+      "strength_score": 105.9,
+      "evidence_count": 4,
       "rank": 2,
       "display_label": "次要壓力",
       "distance_pct": 4.07
@@ -385,13 +416,15 @@
       "last_index": 13,
       "type": "resistance",
       "source": "gap",
-      "tests": 8,
-      "held_tests": 4,
-      "last_test_bars_ago": 5,
-      "ma_overlap": [],
+      "tests": 9,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
       "distance_pct_abs": 2.54,
-      "strength_score": 96.9,
-      "evidence_count": 3,
+      "strength_score": 102.9,
+      "evidence_count": 4,
       "rank": 3,
       "display_label": "觀察壓力",
       "distance_pct": 2.54
@@ -399,19 +432,27 @@
   ],
   "decision_zones": [
     {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 31.26,
+      "high": 32.02,
+      "center": 31.64,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 30.94,
-      "high": 31.44,
-      "center": 30.94,
+      "low": 31.11,
+      "high": 31.61,
+      "center": 31.11,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 33.16,
-      "high": 35.15,
-      "center": 33.16,
+      "low": 34.17,
+      "high": 36.22,
+      "center": 34.17,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -442,9 +483,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 51.5,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

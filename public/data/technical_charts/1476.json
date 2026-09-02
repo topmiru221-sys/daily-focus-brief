@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:08.839600+08:00",
+  "generated_at": "2026-09-02T21:46:15.676014+08:00",
   "code": "1476",
   "name": "儒鴻",
   "market": "TWSE",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 309.0,
+      "high": 317.0,
+      "low": 309.0,
+      "close": 314.5,
+      "volume": 821591.0,
+      "ma5": 313.0,
+      "ma20": 324.05,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -242,8 +254,8 @@
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 320.11,
-      "high": 322.89,
+      "low": 320.08,
+      "high": 322.92,
       "center": 321.5,
       "touches": 1,
       "last_date": "2026-08-24",
@@ -252,31 +264,41 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 3,
-      "last_test_bars_ago": 6,
-      "ma_overlap": [],
-      "distance_pct_abs": 4.05,
-      "strength_score": 99.9,
-      "evidence_count": 3,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 2.23,
+      "strength_score": 109.5,
+      "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 4.05
+      "distance_pct": 2.23
     }
   ],
   "decision_zones": [
     {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 320.16,
+      "high": 327.94,
+      "center": 324.05,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 322.89,
-      "high": 328.06,
-      "center": 322.89,
+      "low": 322.92,
+      "high": 328.09,
+      "center": 322.92,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 333.72,
-      "high": 353.74,
-      "center": 333.72,
+      "low": 349.97,
+      "high": 370.97,
+      "center": 349.97,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -296,9 +318,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -307,9 +329,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 45.2,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

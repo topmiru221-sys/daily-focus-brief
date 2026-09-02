@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-01T22:14:06.852130+08:00",
+  "generated_at": "2026-09-02T21:46:12.586344+08:00",
   "code": "8085",
   "name": "福華",
   "market": "TPEx",
-  "record_count": 18,
+  "record_count": 19,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-02",
   "candles": [
     {
       "date": "2026-08-06",
@@ -223,6 +223,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-02",
+      "open": 16.0,
+      "high": 16.15,
+      "low": 15.8,
+      "close": 15.8,
+      "volume": 475000.0,
+      "ma5": 15.88,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -286,6 +298,23 @@
       "slope": 0.4591,
       "strength": 2,
       "label": "上升壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "flat",
+      "from": {
+        "index": 15,
+        "date": "2026-08-29",
+        "price": 16.6
+      },
+      "to": {
+        "index": 16,
+        "date": "2026-08-31",
+        "price": 16.6
+      },
+      "slope": 0.0,
+      "strength": 2,
+      "label": "水平壓力"
     }
   ],
   "support_zones": [
@@ -298,19 +327,40 @@
       "last_index": 13,
       "type": "support",
       "source": "gap",
-      "tests": 4,
-      "held_tests": 4,
+      "tests": 5,
+      "held_tests": 5,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 9.5,
-      "strength_score": 84,
+      "distance_pct_abs": 7.78,
+      "strength_score": 86.4,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 10.5
+      "distance_pct": 8.44
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 16.53,
+      "high": 16.67,
+      "center": 16.6,
+      "touches": 2,
+      "last_date": "2026-08-31",
+      "last_index": 16,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.06,
+      "strength_score": 73.9,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 5.06
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -321,11 +371,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 16.67,
+      "high": 16.94,
+      "center": 16.67,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 17.39,
-      "high": 18.43,
-      "center": 17.39,
+      "low": 17.06,
+      "high": 18.09,
+      "center": 17.06,
       "source": "ma20_extension/resistance"
     }
   ],
