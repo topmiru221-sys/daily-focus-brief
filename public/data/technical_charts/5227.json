@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-02T21:46:13.499796+08:00",
+  "generated_at": "2026-09-03T21:42:19.124174+08:00",
   "code": "5227",
   "name": "立凱-KY",
   "market": "TPEx",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-02",
+  "last_date": "2026-09-03",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-03",
+      "open": 30.9,
+      "high": 31.3,
+      "low": 30.2,
+      "close": 30.2,
+      "volume": 188000.0,
+      "ma5": 30.79,
+      "ma20": 32.24,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -325,28 +337,7 @@
       "label": "水平壓力"
     }
   ],
-  "support_zones": [
-    {
-      "low": 30.36,
-      "high": 30.64,
-      "center": 30.5,
-      "touches": 1,
-      "last_date": "2026-08-25",
-      "last_index": 12,
-      "type": "support",
-      "source": "pivot_cluster",
-      "tests": 4,
-      "held_tests": 4,
-      "last_test_bars_ago": 6,
-      "ma_overlap": [],
-      "distance_pct_abs": 1.29,
-      "strength_score": 105.4,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 1.31
-    }
-  ],
+  "support_zones": [],
   "resistance_zones": [
     {
       "low": 32.21,
@@ -359,14 +350,36 @@
       "source": "pivot_cluster",
       "tests": 5,
       "held_tests": 4,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 4.69,
-      "strength_score": 98.6,
-      "evidence_count": 3,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 7.12,
+      "strength_score": 99.8,
+      "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 4.69
+      "distance_pct": 7.12
+    },
+    {
+      "low": 30.36,
+      "high": 30.64,
+      "center": 30.5,
+      "touches": 1,
+      "last_date": "2026-08-25",
+      "last_index": 12,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 5,
+      "held_tests": 0,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.99,
+      "strength_score": 88.0,
+      "evidence_count": 2,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 0.99
     },
     {
       "low": 33.06,
@@ -379,23 +392,23 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 2,
-      "last_test_bars_ago": 10,
+      "last_test_bars_ago": 11,
       "ma_overlap": [],
-      "distance_pct_abs": 7.44,
-      "strength_score": 87.1,
+      "distance_pct_abs": 9.93,
+      "strength_score": 78,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 7.44
+      "rank": 3,
+      "display_label": "觀察壓力",
+      "distance_pct": 9.93
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 30.13,
-      "high": 30.87,
-      "center": 30.5,
+      "low": 31.85,
+      "high": 32.63,
+      "center": 32.24,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -409,9 +422,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 33.37,
-      "high": 35.37,
-      "center": 33.37,
+      "low": 34.82,
+      "high": 36.91,
+      "center": 34.82,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -431,9 +444,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "近期無有效支撐，不宜硬找進場點",
+    "confidence": "medium",
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -442,9 +455,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 50.0,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

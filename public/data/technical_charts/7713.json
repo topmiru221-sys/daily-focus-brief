@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-02T21:46:14.471820+08:00",
+  "generated_at": "2026-09-03T21:42:20.227432+08:00",
   "code": "7713",
   "name": "威力德生醫",
   "market": "TPEx",
-  "record_count": 18,
+  "record_count": 19,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-02",
+  "last_date": "2026-09-03",
   "candles": [
     {
       "date": "2026-08-06",
@@ -223,6 +223,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-03",
+      "open": 73.8,
+      "high": 74.0,
+      "low": 73.8,
+      "close": 74.0,
+      "volume": 20000.0,
+      "ma5": 73.76,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -285,6 +297,23 @@
       "slope": 0.55,
       "strength": 2,
       "label": "上升壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 12,
+        "date": "2026-08-26",
+        "price": 74.4
+      },
+      "to": {
+        "index": 16,
+        "date": "2026-09-01",
+        "price": 74.0
+      },
+      "slope": -0.1,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [
@@ -299,7 +328,7 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 6,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
       "distance_pct_abs": 3.69,
       "strength_score": 100.6,
@@ -319,7 +348,7 @@
       "source": "gap",
       "tests": 6,
       "held_tests": 5,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
       "distance_pct_abs": 3.31,
       "strength_score": 95.4,
@@ -339,7 +368,7 @@
       "source": "gap",
       "tests": 4,
       "held_tests": 3,
-      "last_test_bars_ago": 13,
+      "last_test_bars_ago": 14,
       "ma_overlap": [],
       "distance_pct_abs": 5.34,
       "strength_score": 85.3,
@@ -349,7 +378,28 @@
       "distance_pct": 5.64
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 73.85,
+      "high": 74.55,
+      "center": 74.2,
+      "touches": 2,
+      "last_date": "2026-09-01",
+      "last_index": 16,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 4,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.27,
+      "strength_score": 107.5,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.27
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -358,6 +408,14 @@
       "high": 72.13,
       "center": 71.27,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 74.55,
+      "high": 75.74,
+      "center": 74.55,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
@@ -384,9 +442,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

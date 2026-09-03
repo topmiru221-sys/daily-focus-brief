@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-02T21:46:14.239021+08:00",
+  "generated_at": "2026-09-03T21:42:19.970921+08:00",
   "code": "2911",
   "name": "麗嬰房",
   "market": "TWSE",
-  "record_count": 20,
+  "record_count": 21,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-02",
+  "last_date": "2026-09-03",
   "candles": [
     {
       "date": "2026-08-06",
@@ -247,6 +247,18 @@
       "ma20": 6.74,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-03",
+      "open": 6.42,
+      "high": 6.42,
+      "low": 6.3,
+      "close": 6.32,
+      "volume": 105567.0,
+      "ma5": 6.44,
+      "ma20": 6.71,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -261,22 +273,51 @@
   ],
   "trendlines": [],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 6.33,
+      "high": 6.39,
+      "center": 6.36,
+      "touches": 1,
+      "last_date": "2026-08-26",
+      "last_index": 14,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 0,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.63,
+      "strength_score": 70.7,
+      "evidence_count": 2,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.63
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 6.66,
-      "high": 6.82,
-      "center": 6.74,
+      "low": 6.63,
+      "high": 6.79,
+      "center": 6.71,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 6.39,
+      "high": 6.49,
+      "center": 6.39,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 7.28,
-      "high": 7.72,
-      "center": 7.28,
+      "low": 7.25,
+      "high": 7.68,
+      "center": 7.25,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -296,9 +337,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

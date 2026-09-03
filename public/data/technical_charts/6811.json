@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-02T21:46:13.495456+08:00",
+  "generated_at": "2026-09-03T21:42:19.119401+08:00",
   "code": "6811",
   "name": "宏碁資訊",
   "market": "TPEx",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-02",
+  "last_date": "2026-09-03",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-03",
+      "open": 224.5,
+      "high": 225.0,
+      "low": 219.5,
+      "close": 220.0,
+      "volume": 59000.0,
+      "ma5": 224.4,
+      "ma20": 227.57,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -303,28 +315,30 @@
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 225.88,
-      "high": 228.78,
+      "low": 225.89,
+      "high": 228.77,
       "center": 227.33,
       "touches": 3,
       "last_date": "2026-08-26",
       "last_index": 13,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 11,
-      "held_tests": 10,
+      "tests": 12,
+      "held_tests": 11,
       "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 1.26,
-      "strength_score": 105.5,
-      "evidence_count": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 3.33,
+      "strength_score": 107.3,
+      "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 1.26
+      "distance_pct": 3.33
     },
     {
-      "low": 240.49,
-      "high": 242.51,
+      "low": 240.51,
+      "high": 242.49,
       "center": 241.5,
       "touches": 1,
       "last_date": "2026-08-17",
@@ -333,31 +347,39 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 12,
+      "last_test_bars_ago": 13,
       "ma_overlap": [],
-      "distance_pct_abs": 7.57,
-      "strength_score": 62.9,
+      "distance_pct_abs": 9.77,
+      "strength_score": 60,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 7.57
+      "distance_pct": 9.77
     }
   ],
   "decision_zones": [
     {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 224.84,
+      "high": 230.3,
+      "center": 227.57,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 228.78,
-      "high": 232.44,
-      "center": 228.78,
+      "low": 228.77,
+      "high": 232.43,
+      "center": 228.77,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 242.46,
-      "high": 257.01,
-      "center": 242.46,
+      "low": 245.78,
+      "high": 260.52,
+      "center": 245.78,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -377,9 +399,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "近期無有效支撐，不宜硬找進場點",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -388,9 +410,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 51.5,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

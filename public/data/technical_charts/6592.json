@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-02T21:46:16.269805+08:00",
+  "generated_at": "2026-09-03T21:42:22.168085+08:00",
   "code": "6592",
   "name": "和潤企業",
   "market": "TWSE",
-  "record_count": 20,
+  "record_count": 21,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-02",
+  "last_date": "2026-09-03",
   "candles": [
     {
       "date": "2026-08-06",
@@ -247,6 +247,18 @@
       "ma20": 60.89,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-03",
+      "open": 60.1,
+      "high": 61.4,
+      "low": 60.0,
+      "close": 61.2,
+      "volume": 432403.0,
+      "ma5": 60.74,
+      "ma20": 60.95,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -267,6 +279,23 @@
       "slope": 0.0625,
       "strength": 2,
       "label": "上升支撐"
+    },
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 10,
+        "date": "2026-08-20",
+        "price": 60.0
+      },
+      "to": {
+        "index": 18,
+        "date": "2026-09-01",
+        "price": 59.8
+      },
+      "slope": -0.025,
+      "strength": 2,
+      "label": "下降支撐"
     },
     {
       "role": "resistance",
@@ -305,30 +334,30 @@
   ],
   "support_zones": [
     {
-      "low": 59.38,
-      "high": 60.12,
-      "center": 59.75,
-      "touches": 2,
-      "last_date": "2026-08-20",
-      "last_index": 10,
+      "low": 59.39,
+      "high": 60.14,
+      "center": 59.77,
+      "touches": 3,
+      "last_date": "2026-09-01",
+      "last_index": 18,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 6,
-      "held_tests": 6,
-      "last_test_bars_ago": 8,
+      "tests": 7,
+      "held_tests": 7,
+      "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.75,
-      "strength_score": 106.5,
+      "distance_pct_abs": 2.34,
+      "strength_score": 103.3,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 0.75
+      "distance_pct": 2.39
     }
   ],
   "resistance_zones": [
     {
-      "low": 61.48,
-      "high": 62.02,
+      "low": 61.47,
+      "high": 62.03,
       "center": 61.75,
       "touches": 2,
       "last_date": "2026-08-24",
@@ -337,39 +366,39 @@
       "source": "pivot_cluster",
       "tests": 9,
       "held_tests": 8,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 2.57,
-      "strength_score": 102.9,
+      "distance_pct_abs": 0.9,
+      "strength_score": 106.2,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 2.57
+      "distance_pct": 0.9
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 59.03,
-      "high": 60.47,
-      "center": 59.75,
+      "low": 59.05,
+      "high": 60.49,
+      "center": 59.77,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 62.02,
-      "high": 63.01,
-      "center": 62.02,
+      "low": 62.03,
+      "high": 63.02,
+      "center": 62.03,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 65.76,
-      "high": 69.71,
-      "center": 65.76,
+      "low": 65.83,
+      "high": 69.78,
+      "center": 65.83,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -389,9 +418,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -400,7 +429,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 47.6,
+    "score": 57.5,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

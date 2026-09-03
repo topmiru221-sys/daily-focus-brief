@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-02T21:46:14.884703+08:00",
+  "generated_at": "2026-09-03T21:42:20.687478+08:00",
   "code": "8182",
   "name": "加高",
   "market": "TPEx",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-02",
+  "last_date": "2026-09-03",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-03",
+      "open": 40.4,
+      "high": 40.75,
+      "low": 38.0,
+      "close": 38.0,
+      "volume": 683000.0,
+      "ma5": 39.98,
+      "ma20": 40.3,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -308,7 +320,8 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [
+  "support_zones": [],
+  "resistance_zones": [
     {
       "low": 38.62,
       "high": 39.08,
@@ -316,21 +329,19 @@
       "touches": 2,
       "last_date": "2026-08-25",
       "last_index": 12,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
       "tests": 4,
-      "held_tests": 3,
-      "last_test_bars_ago": 6,
+      "held_tests": 1,
+      "last_test_bars_ago": 7,
       "ma_overlap": [],
-      "distance_pct_abs": 2.26,
-      "strength_score": 103.5,
+      "distance_pct_abs": 2.24,
+      "strength_score": 91.5,
       "evidence_count": 3,
       "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 2.32
-    }
-  ],
-  "resistance_zones": [
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.24
+    },
     {
       "low": 41.67,
       "high": 42.08,
@@ -342,18 +353,18 @@
       "source": "pivot_cluster",
       "tests": 11,
       "held_tests": 10,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 5.36,
-      "strength_score": 97.3,
+      "distance_pct_abs": 10.21,
+      "strength_score": 90,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 5.36
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 10.21
     },
     {
-      "low": 42.27,
-      "high": 42.63,
+      "low": 42.28,
+      "high": 42.62,
       "center": 42.45,
       "touches": 1,
       "last_date": "2026-08-21",
@@ -362,39 +373,39 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 4,
-      "last_test_bars_ago": 8,
+      "last_test_bars_ago": 9,
       "ma_overlap": [],
-      "distance_pct_abs": 6.79,
-      "strength_score": 94.4,
+      "distance_pct_abs": 11.71,
+      "strength_score": 90,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 6.79
+      "rank": 3,
+      "display_label": "觀察壓力",
+      "distance_pct": 11.71
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 38.38,
-      "high": 39.32,
-      "center": 38.85,
+      "low": 39.82,
+      "high": 40.78,
+      "center": 40.3,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 42.08,
-      "high": 42.75,
-      "center": 42.08,
+      "low": 39.08,
+      "high": 39.71,
+      "center": 39.08,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 42.93,
-      "high": 45.51,
-      "center": 42.93,
+      "low": 43.52,
+      "high": 46.14,
+      "center": 43.52,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -414,9 +425,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -425,9 +436,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 44.0,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,
