@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-03T21:42:17.403332+08:00",
+  "generated_at": "2026-09-04T21:39:39.127902+08:00",
   "code": "5278",
   "name": "尚凡*",
   "market": "TPEx",
-  "record_count": 20,
+  "record_count": 21,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-03",
+  "last_date": "2026-09-04",
   "candles": [
     {
       "date": "2026-08-06",
@@ -247,6 +247,18 @@
       "ma20": 24.49,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-04",
+      "open": 24.3,
+      "high": 24.3,
+      "low": 24.0,
+      "close": 24.2,
+      "volume": 69000.0,
+      "ma5": 24.37,
+      "ma20": 24.47,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -331,26 +343,6 @@
   ],
   "support_zones": [
     {
-      "low": 24.14,
-      "high": 24.36,
-      "center": 24.25,
-      "touches": 1,
-      "last_date": "2026-08-10",
-      "last_index": 2,
-      "type": "support",
-      "source": "pivot_cluster",
-      "tests": 16,
-      "held_tests": 16,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 0.21,
-      "strength_score": 107.6,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.21
-    },
-    {
       "low": 23.89,
       "high": 24.11,
       "center": 24.0,
@@ -361,17 +353,39 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 11,
+      "last_test_bars_ago": 12,
       "ma_overlap": [],
-      "distance_pct_abs": 1.23,
-      "strength_score": 75.5,
+      "distance_pct_abs": 0.83,
+      "strength_score": 76.3,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要支撐",
-      "distance_pct": 1.25
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.83
     }
   ],
   "resistance_zones": [
+    {
+      "low": 24.14,
+      "high": 24.36,
+      "center": 24.25,
+      "touches": 1,
+      "last_date": "2026-08-10",
+      "last_index": 2,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 17,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 0.21,
+      "strength_score": 113.6,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.21
+    },
     {
       "low": 24.7,
       "high": 25.05,
@@ -383,39 +397,39 @@
       "source": "pivot_cluster",
       "tests": 10,
       "held_tests": 10,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 2.39,
-      "strength_score": 103.2,
+      "distance_pct_abs": 2.81,
+      "strength_score": 102.4,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 2.39
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 2.81
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 23.96,
-      "high": 24.54,
-      "center": 24.25,
+      "low": 23.71,
+      "high": 24.29,
+      "center": 24.0,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 25.05,
-      "high": 25.45,
-      "center": 25.05,
+      "low": 24.36,
+      "high": 24.75,
+      "center": 24.36,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 26.45,
-      "high": 28.04,
-      "center": 26.45,
+      "low": 26.43,
+      "high": 28.01,
+      "center": 26.43,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -435,9 +449,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 16 次、守住 16 次。"
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

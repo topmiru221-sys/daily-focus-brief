@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-03T21:42:19.050085+08:00",
+  "generated_at": "2026-09-04T21:39:36.326154+08:00",
   "code": "4977",
   "name": "眾達-KY",
   "market": "TWSE",
-  "record_count": 21,
+  "record_count": 22,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-03",
+  "last_date": "2026-09-04",
   "candles": [
     {
       "date": "2026-08-06",
@@ -259,6 +259,18 @@
       "ma20": 155.88,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-04",
+      "open": 179.5,
+      "high": 186.0,
+      "low": 171.5,
+      "close": 172.5,
+      "volume": 6148309.0,
+      "ma5": 174.9,
+      "ma20": 157.57,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -402,8 +414,8 @@
   ],
   "support_zones": [
     {
-      "low": 167.21,
-      "high": 168.79,
+      "low": 167.22,
+      "high": 168.78,
       "center": 168.0,
       "touches": 1,
       "last_date": "2026-09-01",
@@ -412,18 +424,18 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 4.82,
-      "strength_score": 74.4,
+      "distance_pct_abs": 2.61,
+      "strength_score": 78.8,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 5.06
+      "distance_pct": 2.68
     },
     {
-      "low": 159.48,
-      "high": 161.19,
+      "low": 159.49,
+      "high": 161.18,
       "center": 160.33,
       "touches": 3,
       "last_date": "2026-08-24",
@@ -432,17 +444,38 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 1,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 9.16,
-      "strength_score": 78,
+      "distance_pct_abs": 7.06,
+      "strength_score": 81.9,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 10.09
+      "distance_pct": 7.59
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 180.72,
+      "high": 182.28,
+      "center": 181.5,
+      "touches": 1,
+      "last_date": "2026-08-29",
+      "last_index": 16,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 5.22,
+      "strength_score": 73.6,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 5.22
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -453,11 +486,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 182.28,
+      "high": 185.2,
+      "center": 182.28,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 168.35,
-      "high": 183.56,
-      "center": 168.35,
+      "low": 181.5,
+      "high": 192.39,
+      "center": 181.5,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -477,9 +518,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "已進入不追價區，避免追高",
-    "confidence": "high",
-    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -488,7 +529,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 48.6,
+    "score": 50.4,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-03T21:42:21.491065+08:00",
+  "generated_at": "2026-09-04T21:39:36.077753+08:00",
   "code": "6661",
   "name": "威健生技",
   "market": "TPEx",
-  "record_count": 15,
+  "record_count": 16,
   "first_date": "2026-08-07",
-  "last_date": "2026-09-02",
+  "last_date": "2026-09-04",
   "candles": [
     {
       "date": "2026-08-07",
@@ -187,6 +187,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-04",
+      "open": 17.3,
+      "high": 17.3,
+      "low": 16.3,
+      "close": 16.3,
+      "volume": 11000.0,
+      "ma5": 16.69,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -228,7 +240,7 @@
       "type": "down",
       "low": 17.1,
       "high": 17.25,
-      "status": "partial"
+      "status": "filled"
     }
   ],
   "trendlines": [
@@ -301,27 +313,8 @@
       "label": "水平壓力"
     }
   ],
-  "support_zones": [
-    {
-      "low": 17.1,
-      "high": 17.25,
-      "center": 17.18,
-      "touches": 1,
-      "last_date": "2026-08-29",
-      "last_index": 11,
-      "type": "support",
-      "source": "gap",
-      "tests": 9,
-      "held_tests": 4,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 0.12,
-      "strength_score": 101.8,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.12
-    },
+  "support_zones": [],
+  "resistance_zones": [
     {
       "low": 16.31,
       "high": 16.46,
@@ -329,24 +322,22 @@
       "touches": 3,
       "last_date": "2026-08-31",
       "last_index": 12,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
       "tests": 4,
-      "held_tests": 4,
-      "last_test_bars_ago": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 4.77,
-      "strength_score": 98.5,
+      "distance_pct_abs": 0.49,
+      "strength_score": 101.0,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要支撐",
-      "distance_pct": 5.01
-    }
-  ],
-  "resistance_zones": [
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.49
+    },
     {
-      "low": 17.37,
-      "high": 17.53,
+      "low": 17.38,
+      "high": 17.52,
       "center": 17.45,
       "touches": 2,
       "last_date": "2026-08-24",
@@ -355,17 +346,34 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 3,
-      "last_test_bars_ago": 6,
+      "last_test_bars_ago": 7,
       "ma_overlap": [],
-      "distance_pct_abs": 1.45,
-      "strength_score": 105.1,
+      "distance_pct_abs": 7.06,
+      "strength_score": 93.9,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.45
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 7.06
     }
   ],
-  "decision_zones": [],
+  "decision_zones": [
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 16.46,
+      "high": 16.72,
+      "center": 16.46,
+      "source": "validated_resistance/trigger"
+    },
+    {
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 17.6,
+      "high": 18.66,
+      "center": 17.6,
+      "source": "ma20_extension/resistance"
+    }
+  ],
   "layer_defaults": {
     "candles": true,
     "volume": true,
@@ -382,9 +390,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 9 次、守住 4 次。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -393,10 +401,10 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": null,
-    "grade": null,
-    "card_label": null,
-    "action": null,
+    "score": 44.5,
+    "grade": "D",
+    "card_label": "即時基礎卡",
+    "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,
     "target1": null,
