@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-04T21:39:36.032166+08:00",
+  "generated_at": "2026-09-07T23:08:35.041075+08:00",
   "code": "9103",
   "name": "美德醫療-DR",
   "market": "TWSE",
-  "record_count": 22,
+  "record_count": 23,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-04",
+  "last_date": "2026-09-07",
   "candles": [
     {
       "date": "2026-08-06",
@@ -271,6 +271,18 @@
       "ma20": 5.16,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-07",
+      "open": 5.04,
+      "high": 5.14,
+      "low": 5.02,
+      "close": 5.14,
+      "volume": 451388.0,
+      "ma5": 5.09,
+      "ma20": 5.15,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -336,8 +348,7 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [],
-  "resistance_zones": [
+  "support_zones": [
     {
       "low": 5.03,
       "high": 5.08,
@@ -345,19 +356,21 @@
       "touches": 3,
       "last_date": "2026-09-01",
       "last_index": 18,
-      "type": "resistance",
+      "type": "support",
       "source": "pivot_cluster",
-      "tests": 7,
-      "held_tests": 1,
+      "tests": 8,
+      "held_tests": 8,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.6,
-      "strength_score": 94.8,
+      "distance_pct_abs": 1.56,
+      "strength_score": 104.9,
       "evidence_count": 3,
       "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 0.6
-    },
+      "display_label": "主要支撐",
+      "distance_pct": 1.58
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 5.29,
       "high": 5.34,
@@ -369,39 +382,39 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 7,
-      "last_test_bars_ago": 10,
+      "last_test_bars_ago": 11,
       "ma_overlap": [],
-      "distance_pct_abs": 5.57,
-      "strength_score": 96.9,
+      "distance_pct_abs": 3.31,
+      "strength_score": 95.4,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 5.57
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.31
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 5.1,
-      "high": 5.22,
-      "center": 5.16,
+      "low": 5.0,
+      "high": 5.12,
+      "center": 5.06,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 5.08,
-      "high": 5.16,
-      "center": 5.08,
+      "low": 5.34,
+      "high": 5.43,
+      "center": 5.34,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 5.57,
-      "high": 5.91,
-      "center": 5.57,
+      "low": 5.56,
+      "high": 5.9,
+      "center": 5.56,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -421,9 +434,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -432,7 +445,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 45.5,
+    "score": 47.3,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

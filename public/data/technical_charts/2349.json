@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-04T21:39:37.698754+08:00",
+  "generated_at": "2026-09-07T23:08:35.337196+08:00",
   "code": "2349",
   "name": "錸德",
   "market": "TWSE",
-  "record_count": 22,
+  "record_count": 23,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-04",
+  "last_date": "2026-09-07",
   "candles": [
     {
       "date": "2026-08-06",
@@ -271,6 +271,18 @@
       "ma20": 11.11,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-07",
+      "open": 11.05,
+      "high": 11.05,
+      "low": 10.8,
+      "close": 10.95,
+      "volume": 1141475.0,
+      "ma5": 11.02,
+      "ma20": 11.11,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -370,8 +382,7 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [],
-  "resistance_zones": [
+  "support_zones": [
     {
       "low": 10.83,
       "high": 10.97,
@@ -379,19 +390,21 @@
       "touches": 3,
       "last_date": "2026-09-01",
       "last_index": 18,
-      "type": "resistance",
+      "type": "support",
       "source": "pivot_cluster",
       "tests": 10,
-      "held_tests": 5,
-      "last_test_bars_ago": 3,
+      "held_tests": 10,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
       "distance_pct_abs": 0.46,
       "strength_score": 107.1,
       "evidence_count": 3,
       "rank": 1,
-      "display_label": "關鍵壓力",
+      "display_label": "主要支撐",
       "distance_pct": 0.46
-    },
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 11.25,
       "high": 11.35,
@@ -403,14 +416,14 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 4,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 4.15,
-      "strength_score": 99.7,
+      "distance_pct_abs": 3.2,
+      "strength_score": 101.6,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 4.15
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.2
     },
     {
       "low": 11.35,
@@ -423,31 +436,31 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 2,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 5.07,
-      "strength_score": 91.9,
+      "distance_pct_abs": 4.11,
+      "strength_score": 93.8,
       "evidence_count": 3,
-      "rank": 3,
-      "display_label": "觀察壓力",
-      "distance_pct": 5.07
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 4.11
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 10.98,
-      "high": 11.24,
-      "center": 11.11,
+      "low": 10.77,
+      "high": 11.03,
+      "center": 10.9,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 10.97,
-      "high": 11.15,
-      "center": 10.97,
+      "low": 11.35,
+      "high": 11.53,
+      "center": 11.35,
       "source": "validated_resistance/trigger"
     },
     {
@@ -475,9 +488,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 10 次、守住 10 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -486,7 +499,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 47.6,
+    "score": 46.5,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

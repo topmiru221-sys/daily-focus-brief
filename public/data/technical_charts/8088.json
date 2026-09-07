@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-04T21:39:35.978037+08:00",
+  "generated_at": "2026-09-07T23:08:36.766718+08:00",
   "code": "8088",
   "name": "品安",
   "market": "TPEx",
-  "record_count": 21,
+  "record_count": 22,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-04",
+  "last_date": "2026-09-07",
   "candles": [
     {
       "date": "2026-08-06",
@@ -259,6 +259,18 @@
       "ma20": 46.1,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-07",
+      "open": 43.85,
+      "high": 44.4,
+      "low": 43.35,
+      "close": 43.7,
+      "volume": 423000.0,
+      "ma5": 43.64,
+      "ma20": 45.93,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -352,6 +364,26 @@
   "support_zones": [],
   "resistance_zones": [
     {
+      "low": 44.4,
+      "high": 44.8,
+      "center": 44.6,
+      "touches": 2,
+      "last_date": "2026-08-25",
+      "last_index": 12,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 5,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.06,
+      "strength_score": 97.9,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.06
+    },
+    {
       "low": 45.4,
       "high": 45.7,
       "center": 45.55,
@@ -362,18 +394,18 @@
       "source": "gap",
       "tests": 7,
       "held_tests": 3,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 5.56,
-      "strength_score": 90.9,
+      "distance_pct_abs": 4.23,
+      "strength_score": 93.5,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 5.56
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 4.23
     },
     {
-      "low": 46.66,
-      "high": 47.04,
+      "low": 46.65,
+      "high": 47.05,
       "center": 46.85,
       "touches": 2,
       "last_date": "2026-08-31",
@@ -382,59 +414,39 @@
       "source": "pivot_cluster",
       "tests": 9,
       "held_tests": 7,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 8.57,
-      "strength_score": 90.9,
-      "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 8.57
-    },
-    {
-      "low": 44.41,
-      "high": 44.79,
-      "center": 44.6,
-      "touches": 2,
-      "last_date": "2026-08-25",
-      "last_index": 12,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 3,
-      "held_tests": 1,
-      "last_test_bars_ago": 3,
-      "ma_overlap": [],
-      "distance_pct_abs": 3.36,
-      "strength_score": 80.3,
+      "distance_pct_abs": 7.21,
+      "strength_score": 93.6,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 3.36
+      "distance_pct": 7.21
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 45.55,
-      "high": 46.65,
-      "center": 46.1,
+      "low": 45.38,
+      "high": 46.48,
+      "center": 45.93,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 45.7,
-      "high": 46.43,
-      "center": 45.7,
+      "low": 44.8,
+      "high": 45.52,
+      "center": 44.8,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 49.79,
-      "high": 52.78,
-      "center": 49.79,
+      "low": 49.6,
+      "high": 52.58,
+      "center": 49.6,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -454,9 +466,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
