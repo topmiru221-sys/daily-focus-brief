@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-07T23:08:34.387751+08:00",
+  "generated_at": "2026-09-08T21:44:49.431181+08:00",
   "code": "5212",
   "name": "凌網",
   "market": "TPEx",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-07",
+  "last_date": "2026-09-08",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-08",
+      "open": 46.5,
+      "high": 46.5,
+      "low": 46.2,
+      "close": 46.2,
+      "volume": 8000.0,
+      "ma5": 46.52,
+      "ma20": 46.76,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -289,6 +301,23 @@
       "slope": 0.0,
       "strength": 2,
       "label": "水平支撐"
+    },
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 11,
+        "date": "2026-08-28",
+        "price": 46.6
+      },
+      "to": {
+        "index": 17,
+        "date": "2026-09-04",
+        "price": 46.2
+      },
+      "slope": -0.0667,
+      "strength": 2,
+      "label": "下降支撐"
     },
     {
       "role": "resistance",
@@ -359,31 +388,32 @@
       "label": "水平壓力"
     }
   ],
-  "support_zones": [
-    {
-      "low": 46.21,
-      "high": 46.75,
-      "center": 46.48,
-      "touches": 3,
-      "last_date": "2026-08-28",
-      "last_index": 11,
-      "type": "support",
-      "source": "pivot_cluster",
-      "tests": 10,
-      "held_tests": 10,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 1.11,
-      "strength_score": 105.8,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 1.12
-    }
-  ],
+  "support_zones": [],
   "resistance_zones": [
     {
-      "low": 46.82,
+      "low": 46.12,
+      "high": 46.7,
+      "center": 46.41,
+      "touches": 4,
+      "last_date": "2026-09-04",
+      "last_index": 17,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 11,
+      "held_tests": 11,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 0.45,
+      "strength_score": 113.1,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.45
+    },
+    {
+      "low": 46.83,
       "high": 47.24,
       "center": 47.03,
       "touches": 6,
@@ -393,39 +423,41 @@
       "source": "pivot_cluster",
       "tests": 12,
       "held_tests": 10,
-      "last_test_bars_ago": 4,
-      "ma_overlap": [],
-      "distance_pct_abs": 0.06,
-      "strength_score": 107.9,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 0.06
+      "last_test_bars_ago": 5,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 1.8,
+      "strength_score": 110.4,
+      "evidence_count": 4,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 1.8
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 45.92,
-      "high": 47.04,
-      "center": 46.48,
+      "low": 46.2,
+      "high": 47.32,
+      "center": 46.76,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 47.24,
-      "high": 48.0,
-      "center": 47.24,
+      "low": 46.7,
+      "high": 47.45,
+      "center": 46.7,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 50.76,
-      "high": 53.81,
-      "center": 50.76,
+      "low": 50.5,
+      "high": 53.53,
+      "center": 50.5,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -456,9 +488,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 46.3,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

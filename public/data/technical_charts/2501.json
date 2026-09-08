@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-07T23:08:37.804334+08:00",
+  "generated_at": "2026-09-08T21:44:51.538020+08:00",
   "code": "2501",
   "name": "國建",
   "market": "TWSE",
-  "record_count": 23,
+  "record_count": 24,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-07",
+  "last_date": "2026-09-08",
   "candles": [
     {
       "date": "2026-08-06",
@@ -283,6 +283,18 @@
       "ma20": 22.76,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-08",
+      "open": 22.65,
+      "high": 22.65,
+      "low": 22.05,
+      "close": 22.3,
+      "volume": 2776136.0,
+      "ma5": 22.47,
+      "ma20": 22.77,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -405,6 +417,23 @@
       "slope": -0.15,
       "strength": 2,
       "label": "下降壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "flat",
+      "from": {
+        "index": 20,
+        "date": "2026-09-03",
+        "price": 22.65
+      },
+      "to": {
+        "index": 21,
+        "date": "2026-09-04",
+        "price": 22.65
+      },
+      "slope": 0.0,
+      "strength": 2,
+      "label": "水平壓力"
     }
   ],
   "support_zones": [
@@ -417,40 +446,40 @@
       "last_index": 20,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 7,
-      "held_tests": 6,
+      "tests": 8,
+      "held_tests": 7,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 1.11,
-      "strength_score": 105.8,
+      "distance_pct_abs": 0.0,
+      "strength_score": 108.0,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 1.12
+      "distance_pct": 0.0
     }
   ],
   "resistance_zones": [
     {
-      "low": 22.48,
-      "high": 22.68,
-      "center": 22.58,
-      "touches": 3,
-      "last_date": "2026-09-03",
-      "last_index": 20,
+      "low": 22.5,
+      "high": 22.7,
+      "center": 22.6,
+      "touches": 4,
+      "last_date": "2026-09-04",
+      "last_index": 21,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 10,
-      "held_tests": 5,
+      "tests": 12,
+      "held_tests": 6,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 0.13,
-      "strength_score": 113.7,
+      "distance_pct_abs": 1.35,
+      "strength_score": 111.3,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 0.13
+      "distance_pct": 1.35
     },
     {
       "low": 23.21,
@@ -463,14 +492,14 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 4,
-      "last_test_bars_ago": 6,
+      "last_test_bars_ago": 7,
       "ma_overlap": [],
-      "distance_pct_abs": 3.68,
-      "strength_score": 100.6,
+      "distance_pct_abs": 4.84,
+      "strength_score": 98.3,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 3.68
+      "distance_pct": 4.84
     }
   ],
   "decision_zones": [
@@ -485,17 +514,17 @@
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 22.68,
-      "high": 23.04,
-      "center": 22.68,
+      "low": 22.7,
+      "high": 23.06,
+      "center": 22.7,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 24.58,
-      "high": 26.06,
-      "center": 24.58,
+      "low": 24.59,
+      "high": 26.07,
+      "center": 24.59,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -515,9 +544,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
-    "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 8 次、守住 7 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -526,7 +555,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 46.5,
+    "score": 47.6,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

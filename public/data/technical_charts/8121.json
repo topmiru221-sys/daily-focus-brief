@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-07T23:08:39.280472+08:00",
+  "generated_at": "2026-09-08T21:44:52.460910+08:00",
   "code": "8121",
   "name": "越峰",
   "market": "TPEx",
-  "record_count": 22,
+  "record_count": 23,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-07",
+  "last_date": "2026-09-08",
   "candles": [
     {
       "date": "2026-08-06",
@@ -271,6 +271,18 @@
       "ma20": 28.21,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-08",
+      "open": 27.65,
+      "high": 27.65,
+      "low": 27.0,
+      "close": 27.0,
+      "volume": 335000.0,
+      "ma5": 27.37,
+      "ma20": 28.08,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -351,31 +363,70 @@
       "slope": 0.0,
       "strength": 2,
       "label": "水平壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 16,
+        "date": "2026-08-31",
+        "price": 29.2
+      },
+      "to": {
+        "index": 20,
+        "date": "2026-09-04",
+        "price": 27.95
+      },
+      "slope": -0.3125,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [
     {
-      "low": 26.79,
-      "high": 27.11,
+      "low": 26.8,
+      "high": 27.1,
       "center": 26.95,
       "touches": 2,
       "last_date": "2026-09-03",
       "last_index": 19,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 5,
-      "held_tests": 5,
+      "tests": 6,
+      "held_tests": 6,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 2.36,
-      "strength_score": 103.3,
+      "distance_pct_abs": 0.19,
+      "strength_score": 107.6,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 2.41
+      "distance_pct": 0.19
     }
   ],
   "resistance_zones": [
+    {
+      "low": 27.83,
+      "high": 28.07,
+      "center": 27.95,
+      "touches": 1,
+      "last_date": "2026-09-04",
+      "last_index": 20,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 9,
+      "held_tests": 8,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 3.52,
+      "strength_score": 107.0,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.52
+    },
     {
       "low": 29.08,
       "high": 29.32,
@@ -387,14 +438,14 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 5,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 5.8,
-      "strength_score": 96.4,
+      "distance_pct_abs": 8.15,
+      "strength_score": 91.7,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 5.8
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 8.15
     }
   ],
   "decision_zones": [
@@ -409,17 +460,17 @@
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 29.32,
-      "high": 29.79,
-      "center": 29.32,
+      "low": 28.07,
+      "high": 28.52,
+      "center": 28.07,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 30.47,
-      "high": 32.29,
-      "center": 30.47,
+      "low": 30.33,
+      "high": 32.15,
+      "center": 30.33,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -439,9 +490,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 6 次、守住 6 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -450,7 +501,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 46.0,
+    "score": 47.3,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

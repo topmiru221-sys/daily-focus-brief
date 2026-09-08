@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-07T23:08:34.797422+08:00",
+  "generated_at": "2026-09-08T21:44:49.683044+08:00",
   "code": "4755",
   "name": "三福化",
   "market": "TWSE",
-  "record_count": 23,
+  "record_count": 24,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-07",
+  "last_date": "2026-09-08",
   "candles": [
     {
       "date": "2026-08-06",
@@ -283,6 +283,18 @@
       "ma20": 117.45,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-08",
+      "open": 119.0,
+      "high": 119.0,
+      "low": 115.5,
+      "close": 116.0,
+      "volume": 123778.0,
+      "ma5": 117.7,
+      "ma20": 117.33,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -426,30 +438,8 @@
   ],
   "support_zones": [
     {
-      "low": 116.47,
-      "high": 117.53,
-      "center": 117.0,
-      "touches": 1,
-      "last_date": "2026-09-01",
-      "last_index": 18,
-      "type": "support",
-      "source": "pivot_cluster",
-      "tests": 12,
-      "held_tests": 7,
-      "last_test_bars_ago": 3,
-      "ma_overlap": [
-        "MA20"
-      ],
-      "distance_pct_abs": 0.85,
-      "strength_score": 112.3,
-      "evidence_count": 4,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.85
-    },
-    {
-      "low": 112.97,
-      "high": 114.03,
+      "low": 112.98,
+      "high": 114.02,
       "center": 113.5,
       "touches": 2,
       "last_date": "2026-08-26",
@@ -458,17 +448,39 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 7,
-      "last_test_bars_ago": 7,
+      "last_test_bars_ago": 8,
       "ma_overlap": [],
-      "distance_pct_abs": 3.81,
-      "strength_score": 100.4,
+      "distance_pct_abs": 2.16,
+      "strength_score": 103.7,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要支撐",
-      "distance_pct": 3.96
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 2.2
     }
   ],
   "resistance_zones": [
+    {
+      "low": 116.48,
+      "high": 117.52,
+      "center": 117.0,
+      "touches": 1,
+      "last_date": "2026-09-01",
+      "last_index": 18,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 13,
+      "held_tests": 8,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 0.86,
+      "strength_score": 112.3,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.86
+    },
     {
       "low": 120.39,
       "high": 122.36,
@@ -478,41 +490,41 @@
       "last_index": 20,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 8,
-      "held_tests": 8,
+      "tests": 9,
+      "held_tests": 9,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 2.86,
-      "strength_score": 102.3,
+      "distance_pct_abs": 4.64,
+      "strength_score": 98.7,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 2.86
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 4.64
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 115.6,
-      "high": 118.4,
-      "center": 117.0,
+      "low": 112.14,
+      "high": 114.86,
+      "center": 113.5,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 122.36,
-      "high": 124.32,
-      "center": 122.36,
+      "low": 117.52,
+      "high": 119.4,
+      "center": 117.52,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 126.85,
-      "high": 134.46,
-      "center": 126.85,
+      "low": 126.72,
+      "high": 134.32,
+      "center": 126.72,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -532,9 +544,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -543,7 +555,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 58.3,
+    "score": 46.8,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

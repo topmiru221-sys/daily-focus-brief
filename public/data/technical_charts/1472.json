@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-07T23:08:37.537813+08:00",
+  "generated_at": "2026-09-08T21:44:51.372408+08:00",
   "code": "1472",
   "name": "三洋實業",
   "market": "TWSE",
-  "record_count": 22,
+  "record_count": 23,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-07",
+  "last_date": "2026-09-08",
   "candles": [
     {
       "date": "2026-08-06",
@@ -271,6 +271,18 @@
       "ma20": 88.68,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-08",
+      "open": 90.6,
+      "high": 90.6,
+      "low": 90.4,
+      "close": 90.5,
+      "volume": 11544.0,
+      "ma5": 89.14,
+      "ma20": 88.77,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -327,6 +339,23 @@
       "label": "上升支撐"
     },
     {
+      "role": "support",
+      "direction": "ascending",
+      "from": {
+        "index": 16,
+        "date": "2026-08-29",
+        "price": 87.3
+      },
+      "to": {
+        "index": 20,
+        "date": "2026-09-04",
+        "price": 88.2
+      },
+      "slope": 0.225,
+      "strength": 2,
+      "label": "上升支撐"
+    },
+    {
       "role": "resistance",
       "direction": "ascending",
       "from": {
@@ -363,6 +392,28 @@
   ],
   "support_zones": [
     {
+      "low": 87.79,
+      "high": 88.61,
+      "center": 88.2,
+      "touches": 1,
+      "last_date": "2026-09-04",
+      "last_index": 20,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 17,
+      "held_tests": 14,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 2.54,
+      "strength_score": 108.9,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 2.61
+    },
+    {
       "low": 86.77,
       "high": 87.63,
       "center": 87.2,
@@ -373,17 +424,15 @@
       "source": "pivot_cluster",
       "tests": 8,
       "held_tests": 8,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 3.0,
-      "strength_score": 102.0,
+      "distance_pct_abs": 3.65,
+      "strength_score": 100.7,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 3.1
-    }
-  ],
-  "resistance_zones": [
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 3.78
+    },
     {
       "low": 89.56,
       "high": 90.37,
@@ -391,43 +440,36 @@
       "touches": 3,
       "last_date": "2026-09-02",
       "last_index": 18,
-      "type": "resistance",
+      "type": "support",
       "source": "pivot_cluster",
       "tests": 5,
-      "held_tests": 5,
-      "last_test_bars_ago": 3,
+      "held_tests": 1,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 0.08,
-      "strength_score": 107.8,
+      "distance_pct_abs": 0.59,
+      "strength_score": 94.8,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 0.08
+      "rank": 3,
+      "display_label": "觀察支撐",
+      "distance_pct": 0.59
     }
   ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 86.15,
-      "high": 88.25,
-      "center": 87.2,
+      "low": 87.14,
+      "high": 89.26,
+      "center": 88.2,
       "source": "decision.trigger/validated_support/ma20"
-    },
-    {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 90.37,
-      "high": 91.82,
-      "center": 90.37,
-      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 95.77,
-      "high": 101.52,
-      "center": 95.77,
+      "low": 95.87,
+      "high": 101.62,
+      "center": 95.87,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -447,9 +489,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
