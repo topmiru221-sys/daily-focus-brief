@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-08T21:44:49.670067+08:00",
+  "generated_at": "2026-09-09T21:48:51.553550+08:00",
   "code": "3550",
   "name": "聯穎",
   "market": "TWSE",
-  "record_count": 24,
+  "record_count": 25,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-08",
+  "last_date": "2026-09-09",
   "candles": [
     {
       "date": "2026-08-06",
@@ -295,10 +295,39 @@
       "ma20": 23.34,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-09",
+      "open": 22.7,
+      "high": 23.05,
+      "low": 22.5,
+      "close": 22.65,
+      "volume": 689530.0,
+      "ma5": 23.05,
+      "ma20": 23.32,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
   "trendlines": [
+    {
+      "role": "support",
+      "direction": "ascending",
+      "from": {
+        "index": 10,
+        "date": "2026-08-20",
+        "price": 21.85
+      },
+      "to": {
+        "index": 22,
+        "date": "2026-09-07",
+        "price": 22.45
+      },
+      "slope": 0.05,
+      "strength": 2,
+      "label": "上升支撐"
+    },
     {
       "role": "resistance",
       "direction": "flat",
@@ -353,6 +382,26 @@
   ],
   "support_zones": [
     {
+      "low": 22.35,
+      "high": 22.55,
+      "center": 22.45,
+      "touches": 1,
+      "last_date": "2026-09-07",
+      "last_index": 22,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 6,
+      "held_tests": 6,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.88,
+      "strength_score": 106.2,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.89
+    },
+    {
       "low": 21.75,
       "high": 21.95,
       "center": 21.85,
@@ -363,14 +412,14 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 13,
+      "last_test_bars_ago": 14,
       "ma_overlap": [],
-      "distance_pct_abs": 4.79,
-      "strength_score": 68.4,
+      "distance_pct_abs": 3.53,
+      "strength_score": 70.9,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 5.03
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 3.66
     }
   ],
   "resistance_zones": [
@@ -385,14 +434,14 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 4,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 8.93,
-      "strength_score": 90.1,
+      "distance_pct_abs": 10.38,
+      "strength_score": 90,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 8.93
+      "distance_pct": 10.38
     },
     {
       "low": 25.17,
@@ -405,23 +454,23 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 10.11,
+      "distance_pct_abs": 11.57,
       "strength_score": 66,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 10.11
+      "distance_pct": 11.57
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 21.59,
-      "high": 22.11,
-      "center": 21.85,
+      "low": 22.18,
+      "high": 22.72,
+      "center": 22.45,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -435,9 +484,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 25.21,
-      "high": 26.72,
-      "center": 25.21,
+      "low": 25.19,
+      "high": 26.7,
+      "center": 25.19,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -457,9 +506,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

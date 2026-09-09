@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-08T21:44:50.361289+08:00",
+  "generated_at": "2026-09-09T21:48:52.794460+08:00",
   "code": "6693",
   "name": "廣閎科",
   "market": "TPEx",
-  "record_count": 23,
+  "record_count": 24,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-08",
+  "last_date": "2026-09-09",
   "candles": [
     {
       "date": "2026-08-06",
@@ -283,27 +283,86 @@
       "ma20": 176.2,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-09",
+      "open": 185.5,
+      "high": 187.5,
+      "low": 181.0,
+      "close": 182.0,
+      "volume": 959000.0,
+      "ma5": 182.8,
+      "ma20": 176.07,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
-  "trendlines": [],
+  "trendlines": [
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 2,
+        "date": "2026-08-10",
+        "price": 200.5
+      },
+      "to": {
+        "index": 21,
+        "date": "2026-09-07",
+        "price": 196.5
+      },
+      "slope": -0.2105,
+      "strength": 2,
+      "label": "下降壓力"
+    }
+  ],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 195.68,
+      "high": 197.32,
+      "center": 196.5,
+      "touches": 1,
+      "last_date": "2026-09-07",
+      "last_index": 21,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 7.97,
+      "strength_score": 83.1,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 7.97
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 174.09,
-      "high": 178.31,
-      "center": 176.2,
+      "low": 173.96,
+      "high": 178.18,
+      "center": 176.07,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 197.32,
+      "high": 200.48,
+      "center": 197.32,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 190.3,
-      "high": 201.71,
-      "center": 190.3,
+      "low": 196.5,
+      "high": 208.29,
+      "center": 196.5,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -334,7 +393,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 50.4,
+    "score": 55.5,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
