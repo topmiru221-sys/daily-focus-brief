@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-09T21:48:52.542560+08:00",
+  "generated_at": "2026-09-10T21:44:03.536946+08:00",
   "code": "2726",
   "name": "雅茗-KY",
   "market": "TPEx",
-  "record_count": 24,
+  "record_count": 25,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-09",
+  "last_date": "2026-09-10",
   "candles": [
     {
       "date": "2026-08-06",
@@ -295,10 +295,39 @@
       "ma20": 8.34,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-10",
+      "open": 8.06,
+      "high": 8.26,
+      "low": 7.98,
+      "close": 8.05,
+      "volume": 18000.0,
+      "ma5": 8.09,
+      "ma20": 8.31,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
   "trendlines": [
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 7,
+        "date": "2026-08-18",
+        "price": 8.39
+      },
+      "to": {
+        "index": 22,
+        "date": "2026-09-08",
+        "price": 7.91
+      },
+      "slope": -0.032,
+      "strength": 2,
+      "label": "下降支撐"
+    },
     {
       "role": "resistance",
       "direction": "descending",
@@ -317,7 +346,28 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [],
+  "support_zones": [
+    {
+      "low": 7.87,
+      "high": 7.95,
+      "center": 7.91,
+      "touches": 1,
+      "last_date": "2026-09-08",
+      "last_index": 22,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.74,
+      "strength_score": 80.5,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 1.77
+    }
+  ],
   "resistance_zones": [
     {
       "low": 8.35,
@@ -330,16 +380,16 @@
       "source": "pivot_cluster",
       "tests": 12,
       "held_tests": 9,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 2.82,
-      "strength_score": 108.4,
+      "distance_pct_abs": 4.22,
+      "strength_score": 105.6,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 2.82
+      "distance_pct": 4.22
     },
     {
       "low": 8.66,
@@ -352,23 +402,23 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 5,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 6.62,
-      "strength_score": 94.8,
+      "distance_pct_abs": 8.07,
+      "strength_score": 91.9,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 6.62
+      "distance_pct": 8.07
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 8.24,
-      "high": 8.44,
-      "center": 8.34,
+      "low": 7.82,
+      "high": 8.0,
+      "center": 7.91,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -382,9 +432,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 9.01,
-      "high": 9.55,
-      "center": 9.01,
+      "low": 8.97,
+      "high": 9.51,
+      "center": 8.97,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -404,9 +454,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

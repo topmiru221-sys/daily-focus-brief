@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-09T21:48:57.089099+08:00",
+  "generated_at": "2026-09-10T21:44:08.357120+08:00",
   "code": "7855",
   "name": "和運租車",
   "market": "TWSE",
-  "record_count": 21,
+  "record_count": 22,
   "first_date": "2026-08-12",
-  "last_date": "2026-09-09",
+  "last_date": "2026-09-10",
   "candles": [
     {
       "date": "2026-08-12",
@@ -259,6 +259,18 @@
       "ma20": 43.32,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-10",
+      "open": 42.1,
+      "high": 42.25,
+      "low": 42.05,
+      "close": 42.15,
+      "volume": 557349.0,
+      "ma5": 42.4,
+      "ma20": 43.21,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -272,6 +284,23 @@
     }
   ],
   "trendlines": [
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 6,
+        "date": "2026-08-20",
+        "price": 43.15
+      },
+      "to": {
+        "index": 19,
+        "date": "2026-09-08",
+        "price": 42.05
+      },
+      "slope": -0.0846,
+      "strength": 2,
+      "label": "下降支撐"
+    },
     {
       "role": "resistance",
       "direction": "descending",
@@ -290,7 +319,28 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [],
+  "support_zones": [
+    {
+      "low": 41.86,
+      "high": 42.24,
+      "center": 42.05,
+      "touches": 1,
+      "last_date": "2026-09-08",
+      "last_index": 19,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.24,
+      "strength_score": 83.5,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.24
+    }
+  ],
   "resistance_zones": [
     {
       "low": 42.86,
@@ -303,16 +353,16 @@
       "source": "pivot_cluster",
       "tests": 8,
       "held_tests": 5,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 2.26,
-      "strength_score": 109.5,
+      "distance_pct_abs": 2.14,
+      "strength_score": 109.7,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 2.26
+      "distance_pct": 2.14
     },
     {
       "low": 43.61,
@@ -325,23 +375,23 @@
       "source": "pivot_cluster",
       "tests": 9,
       "held_tests": 7,
-      "last_test_bars_ago": 9,
+      "last_test_bars_ago": 10,
       "ma_overlap": [],
-      "distance_pct_abs": 4.04,
-      "strength_score": 99.9,
+      "distance_pct_abs": 3.91,
+      "strength_score": 100.2,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 4.04
+      "distance_pct": 3.91
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 42.8,
-      "high": 43.84,
-      "center": 43.32,
+      "low": 41.55,
+      "high": 42.55,
+      "center": 42.05,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -355,9 +405,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 46.79,
-      "high": 49.59,
-      "center": 46.79,
+      "low": 46.67,
+      "high": 49.47,
+      "center": 46.67,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -377,9 +427,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 2 次、守住 2 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

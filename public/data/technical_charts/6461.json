@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-09T21:48:56.767411+08:00",
+  "generated_at": "2026-09-10T21:44:08.029533+08:00",
   "code": "6461",
   "name": "益得",
   "market": "TPEx",
-  "record_count": 19,
+  "record_count": 20,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-09",
+  "last_date": "2026-09-10",
   "candles": [
     {
       "date": "2026-08-06",
@@ -235,6 +235,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-10",
+      "open": 25.05,
+      "high": 25.35,
+      "low": 24.3,
+      "close": 24.3,
+      "volume": 268000.0,
+      "ma5": 19.8,
+      "ma20": 16.93,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -252,7 +264,7 @@
       "type": "up",
       "low": 17.2,
       "high": 24.85,
-      "status": "unfilled"
+      "status": "partial"
     }
   ],
   "trendlines": [
@@ -312,11 +324,19 @@
   "resistance_zones": [],
   "decision_zones": [
     {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 16.73,
+      "high": 17.13,
+      "center": 16.93,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 27.81,
-      "high": 29.48,
-      "center": 27.81,
+      "low": 18.28,
+      "high": 25.27,
+      "center": 18.28,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -336,9 +356,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
-    "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "label": "已進入不追價區，避免追高",
+    "confidence": "high",
+    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -347,9 +367,9 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.5,
+    "score": 44.7,
     "grade": "D",
-    "card_label": "即時基礎卡",
+    "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,

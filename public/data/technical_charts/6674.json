@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-09T21:48:53.754057+08:00",
+  "generated_at": "2026-09-10T21:44:04.852114+08:00",
   "code": "6674",
   "name": "鋐寶科技",
   "market": "TWSE",
-  "record_count": 25,
+  "record_count": 26,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-09",
+  "last_date": "2026-09-10",
   "candles": [
     {
       "date": "2026-08-06",
@@ -307,6 +307,18 @@
       "ma20": 15.73,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-10",
+      "open": 16.15,
+      "high": 16.45,
+      "low": 16.1,
+      "close": 16.1,
+      "volume": 16000.0,
+      "ma5": 16.04,
+      "ma20": 15.77,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -378,6 +390,23 @@
       "slope": -0.0375,
       "strength": 2,
       "label": "下降支撐"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 13,
+        "date": "2026-08-25",
+        "price": 17.7
+      },
+      "to": {
+        "index": 23,
+        "date": "2026-09-08",
+        "price": 17.2
+      },
+      "slope": -0.05,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [
@@ -392,16 +421,16 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 5,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 3.1,
-      "strength_score": 107.8,
+      "distance_pct_abs": 2.8,
+      "strength_score": 108.4,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 3.19
+      "distance_pct": 2.88
     },
     {
       "low": 15.43,
@@ -414,14 +443,14 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 3,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 4.02,
-      "strength_score": 100.0,
+      "distance_pct_abs": 3.73,
+      "strength_score": 100.5,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 4.19
+      "distance_pct": 3.87
     },
     {
       "low": 14.85,
@@ -434,17 +463,38 @@
       "source": "gap",
       "tests": 8,
       "held_tests": 5,
-      "last_test_bars_ago": 13,
+      "last_test_bars_ago": 14,
       "ma_overlap": [],
-      "distance_pct_abs": 7.55,
-      "strength_score": 80.9,
+      "distance_pct_abs": 7.27,
+      "strength_score": 81.5,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察支撐",
-      "distance_pct": 8.17
+      "distance_pct": 7.84
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 17.13,
+      "high": 17.27,
+      "center": 17.2,
+      "touches": 1,
+      "last_date": "2026-09-08",
+      "last_index": 23,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 4,
+      "held_tests": 4,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 6.83,
+      "strength_score": 94.3,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 6.83
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -455,11 +505,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 17.27,
+      "high": 17.55,
+      "center": 17.27,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 16.99,
-      "high": 18.01,
-      "center": 16.99,
+      "low": 17.2,
+      "high": 18.23,
+      "center": 17.2,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -490,7 +548,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 56.8,
+    "score": 59.0,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
