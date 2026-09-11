@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-10T21:44:06.590556+08:00",
+  "generated_at": "2026-09-11T21:42:48.289842+08:00",
   "code": "1614",
   "name": "三洋電",
   "market": "TWSE",
-  "record_count": 26,
+  "record_count": 27,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-10",
+  "last_date": "2026-09-11",
   "candles": [
     {
       "date": "2026-08-06",
@@ -319,6 +319,18 @@
       "ma20": 30.71,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-11",
+      "open": 30.5,
+      "high": 31.45,
+      "low": 30.45,
+      "close": 31.1,
+      "volume": 181316.0,
+      "ma5": 30.76,
+      "ma20": 30.73,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -445,75 +457,66 @@
   ],
   "support_zones": [
     {
-      "low": 30.38,
-      "high": 30.65,
-      "center": 30.52,
-      "touches": 6,
-      "last_date": "2026-09-04",
-      "last_index": 21,
-      "type": "support",
-      "source": "pivot_cluster",
-      "tests": 19,
-      "held_tests": 19,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [
-        "MA20"
-      ],
-      "distance_pct_abs": 0.26,
-      "strength_score": 113.5,
-      "evidence_count": 4,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.26
-    }
-  ],
-  "resistance_zones": [
-    {
       "low": 30.81,
       "high": 31.09,
       "center": 30.95,
       "touches": 3,
       "last_date": "2026-09-08",
       "last_index": 23,
-      "type": "resistance",
+      "type": "support",
       "source": "pivot_cluster",
       "tests": 15,
-      "held_tests": 14,
+      "held_tests": 7,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 0.48,
+      "strength_score": 113.0,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.48
+    },
+    {
+      "low": 30.38,
+      "high": 30.66,
+      "center": 30.52,
+      "touches": 6,
+      "last_date": "2026-09-04",
+      "last_index": 21,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 20,
+      "held_tests": 20,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.14,
-      "strength_score": 111.7,
+      "distance_pct_abs": 1.86,
+      "strength_score": 110.3,
       "evidence_count": 4,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.14
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 1.9
     }
   ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 30.15,
-      "high": 30.89,
-      "center": 30.52,
+      "low": 30.58,
+      "high": 31.32,
+      "center": 30.95,
       "source": "decision.trigger/validated_support/ma20"
-    },
-    {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 31.09,
-      "high": 31.59,
-      "center": 31.09,
-      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 33.17,
-      "high": 35.16,
-      "center": 33.17,
+      "low": 33.19,
+      "high": 35.18,
+      "center": 33.19,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -533,9 +536,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 19 次、守住 19 次。"
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -544,7 +547,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 49.1,
+    "score": 54.0,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
