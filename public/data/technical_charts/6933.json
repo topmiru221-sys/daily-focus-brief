@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-11T21:42:49.309793+08:00",
+  "generated_at": "2026-09-14T23:58:15.214821+08:00",
   "code": "6933",
   "name": "AMAX-KY",
   "market": "TWSE",
-  "record_count": 27,
+  "record_count": 28,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-11",
+  "last_date": "2026-09-14",
   "candles": [
     {
       "date": "2026-08-06",
@@ -331,6 +331,18 @@
       "ma20": 254.88,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-14",
+      "open": 333.0,
+      "high": 333.0,
+      "low": 315.0,
+      "close": 320.0,
+      "volume": 493403.0,
+      "ma5": 324.9,
+      "ma20": 261.45,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -463,8 +475,8 @@
   ],
   "support_zones": [
     {
-      "low": 297.49,
-      "high": 300.51,
+      "low": 297.56,
+      "high": 300.44,
       "center": 299.0,
       "touches": 1,
       "last_date": "2026-09-07",
@@ -473,14 +485,14 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 11.01,
-      "strength_score": 66,
+      "distance_pct_abs": 6.56,
+      "strength_score": 70.9,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 12.37
+      "distance_pct": 7.02
     },
     {
       "low": 286.0,
@@ -493,17 +505,38 @@
       "source": "gap",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 7,
+      "last_test_bars_ago": 8,
       "ma_overlap": [],
-      "distance_pct_abs": 13.39,
+      "distance_pct_abs": 9.06,
       "strength_score": 60,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 15.46
+      "distance_pct": 9.97
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 329.56,
+      "high": 332.44,
+      "center": 331.0,
+      "touches": 1,
+      "last_date": "2026-09-03",
+      "last_index": 20,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 1,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.44,
+      "strength_score": 71.1,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.44
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -514,11 +547,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 332.44,
+      "high": 337.76,
+      "center": 332.44,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 275.27,
-      "high": 349.44,
-      "center": 275.27,
+      "low": 331.0,
+      "high": 350.86,
+      "center": 331.0,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -538,9 +579,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "已進入不追價區，避免追高",
-    "confidence": "high",
-    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

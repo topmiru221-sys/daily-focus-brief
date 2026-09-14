@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-11T21:42:43.442876+08:00",
+  "generated_at": "2026-09-14T23:58:09.540784+08:00",
   "code": "4561",
   "name": "健椿",
   "market": "TPEx",
-  "record_count": 26,
+  "record_count": 27,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-11",
+  "last_date": "2026-09-14",
   "candles": [
     {
       "date": "2026-08-06",
@@ -319,6 +319,18 @@
       "ma20": 44.27,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-14",
+      "open": 40.4,
+      "high": 40.5,
+      "low": 39.0,
+      "close": 40.0,
+      "volume": 97000.0,
+      "ma5": 40.79,
+      "ma20": 43.76,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -328,7 +340,7 @@
       "type": "up",
       "low": 39.9,
       "high": 42.65,
-      "status": "partial"
+      "status": "filled"
     },
     {
       "date": "2026-08-12",
@@ -419,26 +431,6 @@
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 39.9,
-      "high": 42.65,
-      "center": 41.27,
-      "touches": 1,
-      "last_date": "2026-08-07",
-      "last_index": 1,
-      "type": "resistance",
-      "source": "gap",
-      "tests": 7,
-      "held_tests": 4,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 2.15,
-      "strength_score": 97.7,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 2.15
-    },
-    {
       "low": 42.62,
       "high": 42.98,
       "center": 42.8,
@@ -449,14 +441,14 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 3,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 5.94,
-      "strength_score": 96.1,
+      "distance_pct_abs": 7.0,
+      "strength_score": 94.0,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 5.94
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 7.0
     },
     {
       "low": 44.42,
@@ -469,41 +461,59 @@
       "source": "pivot_cluster",
       "tests": 10,
       "held_tests": 8,
-      "last_test_bars_ago": 5,
-      "ma_overlap": [
-        "MA20"
-      ],
-      "distance_pct_abs": 10.4,
-      "strength_score": 96,
-      "evidence_count": 4,
+      "last_test_bars_ago": 6,
+      "ma_overlap": [],
+      "distance_pct_abs": 11.5,
+      "strength_score": 90,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 11.5
+    },
+    {
+      "low": 44.82,
+      "high": 45.18,
+      "center": 45.0,
+      "touches": 1,
+      "last_date": "2026-08-14",
+      "last_index": 5,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 7,
+      "held_tests": 5,
+      "last_test_bars_ago": 10,
+      "ma_overlap": [],
+      "distance_pct_abs": 12.5,
+      "strength_score": 90,
+      "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 10.4
+      "distance_pct": 12.5
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 43.74,
-      "high": 44.8,
-      "center": 44.27,
+      "low": 43.23,
+      "high": 44.29,
+      "center": 43.76,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 42.65,
-      "high": 43.33,
-      "center": 42.65,
+      "low": 42.98,
+      "high": 43.67,
+      "center": 42.98,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 47.81,
-      "high": 50.68,
-      "center": 47.81,
+      "low": 47.26,
+      "high": 50.1,
+      "center": 47.26,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -523,9 +533,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "近期無有效支撐，不宜硬找進場點",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
