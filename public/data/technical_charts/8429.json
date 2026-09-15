@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-14T23:58:11.162404+08:00",
+  "generated_at": "2026-09-15T22:24:02.747000+08:00",
   "code": "8429",
   "name": "金麗-KY",
   "market": "TWSE",
-  "record_count": 28,
+  "record_count": 29,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-14",
+  "last_date": "2026-09-15",
   "candles": [
     {
       "date": "2026-08-06",
@@ -343,6 +343,18 @@
       "ma20": 6.01,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-15",
+      "open": 5.95,
+      "high": 5.98,
+      "low": 5.92,
+      "close": 5.92,
+      "volume": 78613.0,
+      "ma5": 5.96,
+      "ma20": 6.0,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -417,23 +429,6 @@
     },
     {
       "role": "resistance",
-      "direction": "ascending",
-      "from": {
-        "index": 8,
-        "date": "2026-08-18",
-        "price": 6.06
-      },
-      "to": {
-        "index": 13,
-        "date": "2026-08-25",
-        "price": 6.1
-      },
-      "slope": 0.008,
-      "strength": 2,
-      "label": "上升壓力"
-    },
-    {
-      "role": "resistance",
       "direction": "flat",
       "from": {
         "index": 13,
@@ -482,6 +477,23 @@
       "slope": 0.0,
       "strength": 2,
       "label": "水平壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 23,
+        "date": "2026-09-08",
+        "price": 6.1
+      },
+      "to": {
+        "index": 26,
+        "date": "2026-09-11",
+        "price": 6.05
+      },
+      "slope": -0.0167,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [],
@@ -495,47 +507,49 @@
       "last_index": 23,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 16,
-      "held_tests": 7,
+      "tests": 17,
+      "held_tests": 8,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 0.5,
-      "strength_score": 113.0,
+      "distance_pct_abs": 1.01,
+      "strength_score": 112.0,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 0.5
+      "distance_pct": 1.01
     },
     {
-      "low": 6.05,
+      "low": 6.04,
       "high": 6.12,
-      "center": 6.09,
-      "touches": 6,
-      "last_date": "2026-09-08",
-      "last_index": 23,
+      "center": 6.08,
+      "touches": 7,
+      "last_date": "2026-09-11",
+      "last_index": 26,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 20,
-      "held_tests": 19,
-      "last_test_bars_ago": 4,
-      "ma_overlap": [],
-      "distance_pct_abs": 2.35,
-      "strength_score": 103.3,
-      "evidence_count": 3,
+      "tests": 21,
+      "held_tests": 20,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 2.7,
+      "strength_score": 108.6,
+      "evidence_count": 4,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 2.35
+      "distance_pct": 2.7
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 5.94,
-      "high": 6.08,
-      "center": 6.01,
+      "low": 5.93,
+      "high": 6.07,
+      "center": 6.0,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -549,9 +563,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 6.49,
-      "high": 6.88,
-      "center": 6.49,
+      "low": 6.48,
+      "high": 6.87,
+      "center": 6.48,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -571,9 +585,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -582,7 +596,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 47.1,
+    "score": 45.1,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

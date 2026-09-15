@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-14T23:58:11.347104+08:00",
+  "generated_at": "2026-09-15T22:24:02.951449+08:00",
   "code": "6863",
   "name": "永道-KY",
   "market": "TWSE",
-  "record_count": 28,
+  "record_count": 29,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-14",
+  "last_date": "2026-09-15",
   "candles": [
     {
       "date": "2026-08-06",
@@ -343,6 +343,18 @@
       "ma20": 106.72,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-15",
+      "open": 91.6,
+      "high": 93.4,
+      "low": 91.0,
+      "close": 92.9,
+      "volume": 127991.0,
+      "ma5": 96.84,
+      "ma20": 105.93,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -417,22 +429,53 @@
     }
   ],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 106.08,
+      "high": 106.92,
+      "center": 106.5,
+      "touches": 1,
+      "last_date": "2026-08-18",
+      "last_index": 8,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 1,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 14.64,
+      "strength_score": 75,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 14.64
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 105.44,
-      "high": 108.0,
-      "center": 106.72,
+      "low": 104.66,
+      "high": 107.2,
+      "center": 105.93,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 106.92,
+      "high": 108.63,
+      "center": 106.92,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 115.26,
-      "high": 122.17,
-      "center": 115.26,
+      "low": 114.4,
+      "high": 121.27,
+      "center": 114.4,
       "source": "ma20_extension/resistance"
     }
   ],
