@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-15T22:24:06.954289+08:00",
+  "generated_at": "2026-09-16T22:16:58.654610+08:00",
   "code": "6872",
   "name": "浩宇生醫",
   "market": "TPEx",
-  "record_count": 28,
+  "record_count": 29,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-15",
+  "last_date": "2026-09-16",
   "candles": [
     {
       "date": "2026-08-06",
@@ -343,6 +343,18 @@
       "ma20": 18.23,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-16",
+      "open": 22.9,
+      "high": 23.65,
+      "low": 22.5,
+      "close": 23.1,
+      "volume": 267000.0,
+      "ma5": 24.02,
+      "ma20": 18.63,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -424,7 +436,7 @@
       "type": "down",
       "low": 23.5,
       "high": 24.5,
-      "status": "unfilled"
+      "status": "partial"
     }
   ],
   "trendlines": [
@@ -507,41 +519,40 @@
       "last_index": 22,
       "type": "support",
       "source": "gap",
-      "tests": 2,
-      "held_tests": 2,
-      "last_test_bars_ago": 5,
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 6.55,
-      "strength_score": 64.9,
+      "distance_pct_abs": 7.36,
+      "strength_score": 78.3,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 7.01
-    },
-    {
-      "low": 18.55,
-      "high": 20.4,
-      "center": 19.48,
-      "touches": 1,
-      "last_date": "2026-09-07",
-      "last_index": 21,
-      "type": "support",
-      "source": "gap",
-      "tests": 2,
-      "held_tests": 2,
-      "last_test_bars_ago": 6,
-      "ma_overlap": [
-        "MA20"
-      ],
-      "distance_pct_abs": 14.93,
-      "strength_score": 66,
-      "evidence_count": 4,
-      "rank": 2,
-      "display_label": "次要支撐",
-      "distance_pct": 17.56
+      "distance_pct": 7.94
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 23.5,
+      "high": 24.5,
+      "center": 24.0,
+      "touches": 1,
+      "last_date": "2026-09-14",
+      "last_index": 26,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 2,
+      "held_tests": 1,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 3.9,
+      "strength_score": 64.2,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 3.9
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -552,11 +563,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 24.5,
+      "high": 24.89,
+      "center": 24.5,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 19.69,
-      "high": 23.82,
-      "center": 19.69,
+      "low": 24.0,
+      "high": 25.44,
+      "center": 24.0,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -576,9 +595,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "已進入不追價區，避免追高",
-    "confidence": "high",
-    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
