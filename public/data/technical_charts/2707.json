@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-16T22:16:53.162555+08:00",
+  "generated_at": "2026-09-17T22:22:52.867137+08:00",
   "code": "2707",
   "name": "晶華",
   "market": "TWSE",
-  "record_count": 30,
+  "record_count": 31,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-16",
+  "last_date": "2026-09-17",
   "candles": [
     {
       "date": "2026-08-06",
@@ -367,6 +367,18 @@
       "ma20": 179.07,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-17",
+      "open": 178.0,
+      "high": 178.0,
+      "low": 176.5,
+      "close": 177.0,
+      "volume": 89082.0,
+      "ma5": 177.4,
+      "ma20": 179.0,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -517,7 +529,8 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [
+  "support_zones": [],
+  "resistance_zones": [
     {
       "low": 176.09,
       "high": 178.8,
@@ -525,23 +538,21 @@
       "touches": 9,
       "last_date": "2026-09-14",
       "last_index": 27,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 19,
-      "held_tests": 18,
+      "tests": 20,
+      "held_tests": 14,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 0.03,
-      "strength_score": 113.9,
+      "distance_pct_abs": 0.25,
+      "strength_score": 113.5,
       "evidence_count": 4,
       "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.03
-    }
-  ],
-  "resistance_zones": [
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.25
+    },
     {
       "low": 179.48,
       "high": 181.19,
@@ -553,16 +564,16 @@
       "source": "pivot_cluster",
       "tests": 17,
       "held_tests": 16,
-      "last_test_bars_ago": 6,
+      "last_test_bars_ago": 7,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.59,
-      "strength_score": 110.8,
+      "distance_pct_abs": 1.88,
+      "strength_score": 110.2,
       "evidence_count": 4,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.59
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 1.88
     },
     {
       "low": 181.65,
@@ -575,39 +586,39 @@
       "source": "pivot_cluster",
       "tests": 3,
       "held_tests": 3,
-      "last_test_bars_ago": 16,
+      "last_test_bars_ago": 17,
       "ma_overlap": [],
-      "distance_pct_abs": 2.96,
-      "strength_score": 87.1,
+      "distance_pct_abs": 3.25,
+      "strength_score": 86.5,
       "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 2.96
+      "rank": 3,
+      "display_label": "觀察壓力",
+      "distance_pct": 3.25
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 175.31,
-      "high": 179.57,
-      "center": 177.44,
+      "low": 176.85,
+      "high": 181.15,
+      "center": 179.0,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 181.19,
-      "high": 184.09,
-      "center": 181.19,
+      "low": 178.8,
+      "high": 181.66,
+      "center": 178.8,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 193.4,
-      "high": 205.0,
-      "center": 193.4,
+      "low": 193.32,
+      "high": 204.92,
+      "center": 193.32,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -627,9 +638,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 19 次、守住 18 次。"
+    "label": "位於回測區，可觀察止跌或量縮",
+    "confidence": "medium",
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -638,7 +649,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 46.1,
+    "score": 49.6,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
