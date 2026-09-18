@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-17T22:23:00.437826+08:00",
+  "generated_at": "2026-09-18T21:43:02.016425+08:00",
   "code": "6236",
   "name": "中湛",
   "market": "TPEx",
-  "record_count": 7,
+  "record_count": 8,
   "first_date": "2026-08-12",
-  "last_date": "2026-09-01",
+  "last_date": "2026-09-18",
   "candles": [
     {
       "date": "2026-08-12",
@@ -91,6 +91,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-18",
+      "open": 16.0,
+      "high": 16.0,
+      "low": 16.0,
+      "close": 16.0,
+      "volume": 7000.0,
+      "ma5": 16.7,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -108,7 +120,7 @@
       "type": "up",
       "low": 15.9,
       "high": 16.4,
-      "status": "unfilled"
+      "status": "partial"
     },
     {
       "date": "2026-09-01",
@@ -116,13 +128,108 @@
       "type": "up",
       "low": 17.45,
       "high": 19.05,
+      "status": "filled"
+    },
+    {
+      "date": "2026-09-18",
+      "index": 7,
+      "type": "down",
+      "low": 16.0,
+      "high": 19.05,
       "status": "unfilled"
     }
   ],
   "trendlines": [],
-  "support_zones": [],
-  "resistance_zones": [],
-  "decision_zones": [],
+  "support_zones": [
+    {
+      "low": 13.78,
+      "high": 13.92,
+      "center": 13.85,
+      "touches": 1,
+      "last_date": "2026-08-18",
+      "last_index": 2,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 5,
+      "ma_overlap": [],
+      "distance_pct_abs": 13.44,
+      "strength_score": 66,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 15.52
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 15.9,
+      "high": 16.4,
+      "center": 16.15,
+      "touches": 1,
+      "last_date": "2026-08-28",
+      "last_index": 5,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 3,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.94,
+      "strength_score": 85.1,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.94
+    },
+    {
+      "low": 16.0,
+      "high": 19.05,
+      "center": 17.52,
+      "touches": 1,
+      "last_date": "2026-09-18",
+      "last_index": 7,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 9.5,
+      "strength_score": 60,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 9.5
+    }
+  ],
+  "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 13.68,
+      "high": 14.02,
+      "center": 13.85,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 16.4,
+      "high": 16.66,
+      "center": 16.4,
+      "source": "validated_resistance/trigger"
+    },
+    {
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 17.28,
+      "high": 18.32,
+      "center": 17.28,
+      "source": "ma20_extension/resistance"
+    }
+  ],
   "layer_defaults": {
     "candles": true,
     "volume": true,
@@ -139,9 +246,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -150,10 +257,10 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": null,
-    "grade": null,
-    "card_label": null,
-    "action": null,
+    "score": 44.5,
+    "grade": "D",
+    "card_label": "即時基礎卡",
+    "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,
     "target1": null,

@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-17T22:22:52.802508+08:00",
+  "generated_at": "2026-09-18T21:42:55.398738+08:00",
   "code": "1217",
   "name": "愛之味",
   "market": "TWSE",
-  "record_count": 31,
+  "record_count": 32,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-17",
+  "last_date": "2026-09-18",
   "candles": [
     {
       "date": "2026-08-06",
@@ -379,6 +379,18 @@
       "ma20": 9.98,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-18",
+      "open": 9.98,
+      "high": 10.0,
+      "low": 9.94,
+      "close": 10.0,
+      "volume": 410853.0,
+      "ma5": 9.96,
+      "ma20": 9.98,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -520,8 +532,7 @@
       "label": "水平壓力"
     }
   ],
-  "support_zones": [],
-  "resistance_zones": [
+  "support_zones": [
     {
       "low": 9.89,
       "high": 10.02,
@@ -529,24 +540,26 @@
       "touches": 11,
       "last_date": "2026-09-14",
       "last_index": 27,
-      "type": "resistance",
+      "type": "support",
       "source": "pivot_cluster",
-      "tests": 27,
+      "tests": 28,
       "held_tests": 25,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 0.2,
-      "strength_score": 113.6,
+      "distance_pct_abs": 0.5,
+      "strength_score": 113.0,
       "evidence_count": 4,
       "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 0.2
-    },
+      "display_label": "主要支撐",
+      "distance_pct": 0.5
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 10.01,
-      "high": 10.09,
+      "high": 10.1,
       "center": 10.05,
       "touches": 7,
       "last_date": "2026-09-01",
@@ -555,33 +568,33 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 7,
-      "last_test_bars_ago": 12,
+      "last_test_bars_ago": 13,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.21,
-      "strength_score": 105.6,
+      "distance_pct_abs": 0.5,
+      "strength_score": 107.0,
       "evidence_count": 4,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 1.21
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.5
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 9.86,
-      "high": 10.1,
-      "center": 9.98,
+      "low": 9.83,
+      "high": 10.07,
+      "center": 9.95,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 10.02,
-      "high": 10.18,
-      "center": 10.02,
+      "low": 10.1,
+      "high": 10.26,
+      "center": 10.1,
       "source": "validated_resistance/trigger"
     },
     {
@@ -609,9 +622,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
-    "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 28 次、守住 25 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -620,7 +633,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 46.1,
+    "score": 52.9,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-17T22:22:53.752605+08:00",
+  "generated_at": "2026-09-18T21:42:56.228273+08:00",
   "code": "9103",
   "name": "美德醫療-DR",
   "market": "TWSE",
-  "record_count": 31,
+  "record_count": 32,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-17",
+  "last_date": "2026-09-18",
   "candles": [
     {
       "date": "2026-08-06",
@@ -379,6 +379,18 @@
       "ma20": 5.09,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-18",
+      "open": 4.98,
+      "high": 5.0,
+      "low": 4.95,
+      "close": 4.96,
+      "volume": 329692.0,
+      "ma5": 4.97,
+      "ma20": 5.07,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -493,21 +505,59 @@
       "slope": -0.0133,
       "strength": 2,
       "label": "下降壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 23,
+        "date": "2026-09-08",
+        "price": 5.15
+      },
+      "to": {
+        "index": 29,
+        "date": "2026-09-16",
+        "price": 5.04
+      },
+      "slope": -0.0183,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
-  "support_zones": [],
+  "support_zones": [
+    {
+      "low": 4.93,
+      "high": 4.97,
+      "center": 4.95,
+      "touches": 1,
+      "last_date": "2026-09-15",
+      "last_index": 28,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.2,
+      "strength_score": 83.6,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.2
+    }
+  ],
   "resistance_zones": [
     {
       "low": 5.01,
       "high": 5.08,
       "center": 5.05,
-      "touches": 4,
-      "last_date": "2026-09-07",
-      "last_index": 22,
+      "touches": 5,
+      "last_date": "2026-09-16",
+      "last_index": 29,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 15,
-      "held_tests": 7,
+      "tests": 16,
+      "held_tests": 8,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
@@ -530,7 +580,7 @@
       "source": "pivot_cluster",
       "tests": 15,
       "held_tests": 12,
-      "last_test_bars_ago": 6,
+      "last_test_bars_ago": 7,
       "ma_overlap": [],
       "distance_pct_abs": 3.83,
       "strength_score": 100.3,
@@ -550,7 +600,7 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 7,
-      "last_test_bars_ago": 19,
+      "last_test_bars_ago": 20,
       "ma_overlap": [],
       "distance_pct_abs": 7.06,
       "strength_score": 87.9,
@@ -564,9 +614,9 @@
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 5.03,
-      "high": 5.15,
-      "center": 5.09,
+      "low": 4.89,
+      "high": 5.01,
+      "center": 4.95,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -580,9 +630,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 5.5,
-      "high": 5.83,
-      "center": 5.5,
+      "low": 5.48,
+      "high": 5.8,
+      "center": 5.48,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -602,9 +652,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 2 次、守住 2 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

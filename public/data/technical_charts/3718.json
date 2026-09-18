@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-17T22:22:59.128563+08:00",
+  "generated_at": "2026-09-18T21:43:00.862424+08:00",
   "code": "3718",
   "name": "中光電投控",
   "market": "TPEx",
-  "record_count": 11,
+  "record_count": 12,
   "first_date": "2026-09-03",
-  "last_date": "2026-09-17",
+  "last_date": "2026-09-18",
   "candles": [
     {
       "date": "2026-09-03",
@@ -139,6 +139,18 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-18",
+      "open": 64.6,
+      "high": 67.1,
+      "low": 64.6,
+      "close": 67.1,
+      "volume": 3383000.0,
+      "ma5": 63.32,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -152,15 +164,73 @@
     }
   ],
   "trendlines": [],
-  "support_zones": [],
-  "resistance_zones": [],
+  "support_zones": [
+    {
+      "low": 59.0,
+      "high": 59.6,
+      "center": 59.3,
+      "touches": 1,
+      "last_date": "2026-09-15",
+      "last_index": 8,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 11.62,
+      "strength_score": 66,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 13.15
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 75.1,
+      "high": 75.2,
+      "center": 75.15,
+      "touches": 1,
+      "last_date": "2026-09-07",
+      "last_index": 2,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 2,
+      "held_tests": 1,
+      "last_test_bars_ago": 9,
+      "ma_overlap": [],
+      "distance_pct_abs": 12.0,
+      "strength_score": 54,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 12.0
+    }
+  ],
   "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 58.59,
+      "high": 60.01,
+      "center": 59.3,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 75.2,
+      "high": 76.4,
+      "center": 75.2,
+      "source": "validated_resistance/trigger"
+    },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 69.23,
-      "high": 73.38,
-      "center": 69.23,
+      "low": 75.15,
+      "high": 79.66,
+      "center": 75.15,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -180,9 +250,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
-    "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,

@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-17T22:22:52.447724+08:00",
+  "generated_at": "2026-09-18T21:42:55.089093+08:00",
   "code": "1752",
   "name": "南光",
   "market": "TWSE",
-  "record_count": 31,
+  "record_count": 32,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-17",
+  "last_date": "2026-09-18",
   "candles": [
     {
       "date": "2026-08-06",
@@ -379,6 +379,18 @@
       "ma20": 31.61,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-18",
+      "open": 31.5,
+      "high": 31.5,
+      "low": 31.2,
+      "close": 31.3,
+      "volume": 46342.0,
+      "ma5": 31.27,
+      "ma20": 31.59,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -392,23 +404,6 @@
     }
   ],
   "trendlines": [
-    {
-      "role": "support",
-      "direction": "descending",
-      "from": {
-        "index": 7,
-        "date": "2026-08-17",
-        "price": 31.65
-      },
-      "to": {
-        "index": 10,
-        "date": "2026-08-20",
-        "price": 31.5
-      },
-      "slope": -0.05,
-      "strength": 2,
-      "label": "下降支撐"
-    },
     {
       "role": "support",
       "direction": "descending",
@@ -457,6 +452,23 @@
         "price": 31.45
       },
       "slope": -0.0125,
+      "strength": 2,
+      "label": "下降支撐"
+    },
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 21,
+        "date": "2026-09-04",
+        "price": 31.45
+      },
+      "to": {
+        "index": 29,
+        "date": "2026-09-16",
+        "price": 31.1
+      },
+      "slope": -0.0437,
       "strength": 2,
       "label": "下降支撐"
     },
@@ -532,26 +544,26 @@
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 31.3,
-      "high": 31.72,
-      "center": 31.51,
-      "touches": 6,
-      "last_date": "2026-09-04",
-      "last_index": 21,
+      "low": 31.11,
+      "high": 31.79,
+      "center": 31.45,
+      "touches": 7,
+      "last_date": "2026-09-16",
+      "last_index": 29,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 24,
-      "held_tests": 12,
+      "tests": 26,
+      "held_tests": 15,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 0.99,
-      "strength_score": 112.0,
+      "distance_pct_abs": 0.48,
+      "strength_score": 113.0,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 0.99
+      "distance_pct": 0.48
     },
     {
       "low": 31.89,
@@ -564,39 +576,39 @@
       "source": "pivot_cluster",
       "tests": 17,
       "held_tests": 17,
-      "last_test_bars_ago": 7,
+      "last_test_bars_ago": 8,
       "ma_overlap": [],
-      "distance_pct_abs": 2.88,
-      "strength_score": 102.2,
+      "distance_pct_abs": 2.56,
+      "strength_score": 102.9,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 2.88
+      "distance_pct": 2.56
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 31.23,
-      "high": 31.99,
-      "center": 31.61,
+      "low": 31.21,
+      "high": 31.97,
+      "center": 31.59,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 31.72,
-      "high": 32.23,
-      "center": 31.72,
+      "low": 31.79,
+      "high": 32.3,
+      "center": 31.79,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 34.14,
-      "high": 36.19,
-      "center": 34.14,
+      "low": 34.12,
+      "high": 36.16,
+      "center": 34.12,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -616,9 +628,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -627,7 +639,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 49.6,
+    "score": 46.1,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

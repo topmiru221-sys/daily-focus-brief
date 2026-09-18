@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-17T22:22:53.754241+08:00",
+  "generated_at": "2026-09-18T21:42:56.229747+08:00",
   "code": "4137",
   "name": "麗豐-KY",
   "market": "TWSE",
-  "record_count": 31,
+  "record_count": 32,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-17",
+  "last_date": "2026-09-18",
   "candles": [
     {
       "date": "2026-08-06",
@@ -379,6 +379,18 @@
       "ma20": 81.95,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-18",
+      "open": 77.1,
+      "high": 77.3,
+      "low": 76.7,
+      "close": 77.0,
+      "volume": 95396.0,
+      "ma5": 76.38,
+      "ma20": 81.28,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -464,17 +476,38 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 2.86,
-      "strength_score": 78.3,
+      "distance_pct_abs": 3.12,
+      "strength_score": 77.8,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 2.95
+      "distance_pct": 3.22
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 88.05,
+      "high": 88.75,
+      "center": 88.4,
+      "touches": 1,
+      "last_date": "2026-08-29",
+      "last_index": 16,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 15,
+      "ma_overlap": [],
+      "distance_pct_abs": 14.81,
+      "strength_score": 75,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 14.81
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -485,11 +518,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 88.75,
+      "high": 90.17,
+      "center": 88.75,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 88.51,
-      "high": 93.82,
-      "center": 88.51,
+      "low": 88.4,
+      "high": 93.7,
+      "center": 88.4,
       "source": "ma20_extension/resistance"
     }
   ],
