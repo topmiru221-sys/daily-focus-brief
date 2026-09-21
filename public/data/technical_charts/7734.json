@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-18T21:42:55.873702+08:00",
+  "generated_at": "2026-09-21T20:54:10.908111+08:00",
   "code": "7734",
   "name": "印能科技",
   "market": "TPEx",
-  "record_count": 31,
+  "record_count": 32,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-18",
+  "last_date": "2026-09-21",
   "candles": [
     {
       "date": "2026-08-06",
@@ -379,6 +379,18 @@
       "ma20": 2794.0,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-21",
+      "open": 2700.0,
+      "high": 2710.0,
+      "low": 2555.0,
+      "close": 2585.0,
+      "volume": 218000.0,
+      "ma5": 2576.0,
+      "ma20": 2784.25,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -476,74 +488,91 @@
       "slope": -5.0,
       "strength": 2,
       "label": "下降壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 21,
+        "date": "2026-09-07",
+        "price": 3130.0
+      },
+      "to": {
+        "index": 29,
+        "date": "2026-09-17",
+        "price": 2735.0
+      },
+      "slope": -49.375,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [],
   "resistance_zones": [
     {
-      "low": 2732.99,
-      "high": 2757.01,
-      "center": 2745.0,
-      "touches": 1,
-      "last_date": "2026-08-20",
-      "last_index": 9,
+      "low": 2728.37,
+      "high": 2751.63,
+      "center": 2740.0,
+      "touches": 2,
+      "last_date": "2026-09-17",
+      "last_index": 29,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 4,
-      "held_tests": 1,
-      "last_test_bars_ago": 6,
+      "tests": 5,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 2.81,
-      "strength_score": 90.4,
+      "distance_pct_abs": 6.0,
+      "strength_score": 90.0,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 2.81
+      "distance_pct": 6.0
     },
     {
-      "low": 2697.99,
-      "high": 2722.01,
+      "low": 2698.37,
+      "high": 2721.63,
       "center": 2710.0,
       "touches": 2,
       "last_date": "2026-09-03",
       "last_index": 19,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 2,
-      "held_tests": 1,
-      "last_test_bars_ago": 11,
+      "tests": 3,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 1.5,
-      "strength_score": 69.0,
+      "distance_pct_abs": 4.84,
+      "strength_score": 83.3,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 1.5
+      "distance_pct": 4.84
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 2760.47,
-      "high": 2827.53,
-      "center": 2794.0,
+      "low": 2750.84,
+      "high": 2817.66,
+      "center": 2784.25,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 2757.01,
-      "high": 2801.12,
-      "center": 2757.01,
+      "low": 2751.63,
+      "high": 2795.66,
+      "center": 2751.63,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 3017.52,
-      "high": 3198.57,
-      "center": 3017.52,
+      "low": 3006.99,
+      "high": 3187.41,
+      "center": 3006.99,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -563,9 +592,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "近期無有效支撐，不宜硬找進場點",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -574,7 +603,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 42.9,
+    "score": 42.1,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

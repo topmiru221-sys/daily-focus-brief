@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-18T21:43:00.283751+08:00",
+  "generated_at": "2026-09-21T20:54:16.210044+08:00",
   "code": "6512",
   "name": "啟發電",
   "market": "TPEx",
-  "record_count": 25,
+  "record_count": 26,
   "first_date": "2026-08-10",
-  "last_date": "2026-09-17",
+  "last_date": "2026-09-21",
   "candles": [
     {
       "date": "2026-08-10",
@@ -307,6 +307,18 @@
       "ma20": 20.42,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-21",
+      "open": 20.05,
+      "high": 20.2,
+      "low": 20.05,
+      "close": 20.2,
+      "volume": 4000.0,
+      "ma5": 20.36,
+      "ma20": 20.41,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -325,6 +337,14 @@
       "low": 20.5,
       "high": 20.6,
       "status": "filled"
+    },
+    {
+      "date": "2026-09-21",
+      "index": 25,
+      "type": "down",
+      "low": 20.2,
+      "high": 20.25,
+      "status": "unfilled"
     }
   ],
   "trendlines": [
@@ -398,23 +418,6 @@
     },
     {
       "role": "resistance",
-      "direction": "ascending",
-      "from": {
-        "index": 8,
-        "date": "2026-08-21",
-        "price": 20.5
-      },
-      "to": {
-        "index": 11,
-        "date": "2026-08-29",
-        "price": 20.6
-      },
-      "slope": 0.0333,
-      "strength": 2,
-      "label": "上升壓力"
-    },
-    {
-      "role": "resistance",
       "direction": "flat",
       "from": {
         "index": 11,
@@ -463,31 +466,26 @@
       "slope": 0.1125,
       "strength": 2,
       "label": "上升壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 17,
+        "date": "2026-09-08",
+        "price": 21.05
+      },
+      "to": {
+        "index": 23,
+        "date": "2026-09-16",
+        "price": 20.6
+      },
+      "slope": -0.075,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [
-    {
-      "low": 20.4,
-      "high": 20.68,
-      "center": 20.54,
-      "touches": 5,
-      "last_date": "2026-09-01",
-      "last_index": 13,
-      "type": "support",
-      "source": "pivot_cluster",
-      "tests": 13,
-      "held_tests": 11,
-      "last_test_bars_ago": 5,
-      "ma_overlap": [
-        "MA20"
-      ],
-      "distance_pct_abs": 0.05,
-      "strength_score": 113.9,
-      "evidence_count": 4,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.05
-    },
     {
       "low": 19.93,
       "high": 20.27,
@@ -497,22 +495,90 @@
       "last_index": 22,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 17,
-      "held_tests": 17,
+      "tests": 18,
+      "held_tests": 18,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 2.19,
-      "strength_score": 109.6,
+      "distance_pct_abs": 0.5,
+      "strength_score": 113.0,
       "evidence_count": 4,
-      "rank": 2,
-      "display_label": "次要支撐",
-      "distance_pct": 2.24
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.5
     }
   ],
-  "resistance_zones": [],
-  "decision_zones": [],
+  "resistance_zones": [
+    {
+      "low": 20.41,
+      "high": 20.69,
+      "center": 20.55,
+      "touches": 6,
+      "last_date": "2026-09-16",
+      "last_index": 23,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 10,
+      "held_tests": 9,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 1.73,
+      "strength_score": 110.5,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.73
+    },
+    {
+      "low": 20.2,
+      "high": 20.25,
+      "center": 20.23,
+      "touches": 1,
+      "last_date": "2026-09-21",
+      "last_index": 25,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 17,
+      "held_tests": 7,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.15,
+      "strength_score": 101.7,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 0.15
+    }
+  ],
+  "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 19.86,
+      "high": 20.34,
+      "center": 20.1,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 20.69,
+      "high": 21.02,
+      "center": 20.69,
+      "source": "validated_resistance/trigger"
+    },
+    {
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 22.04,
+      "high": 23.37,
+      "center": 22.04,
+      "source": "ma20_extension/resistance"
+    }
+  ],
   "layer_defaults": {
     "candles": true,
     "volume": true,
@@ -531,7 +597,7 @@
   "entry_hint": {
     "label": "接近主要支撐，可等回測反應",
     "confidence": "high",
-    "reason": "主要支撐已測試 13 次、守住 11 次。"
+    "reason": "主要支撐已測試 18 次、守住 18 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -540,10 +606,10 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": null,
-    "grade": null,
-    "card_label": null,
-    "action": null,
+    "score": 46.9,
+    "grade": "D",
+    "card_label": "技術觀察卡",
+    "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,
     "target1": null,
