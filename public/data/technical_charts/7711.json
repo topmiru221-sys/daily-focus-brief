@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-22T22:07:33.278337+08:00",
+  "generated_at": "2026-09-23T22:19:13.551867+08:00",
   "code": "7711",
   "name": "永擎",
   "market": "TWSE",
-  "record_count": 34,
+  "record_count": 35,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-22",
+  "last_date": "2026-09-23",
   "candles": [
     {
       "date": "2026-08-06",
@@ -415,6 +415,18 @@
       "ma20": 551.95,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-23",
+      "open": 552.0,
+      "high": 555.0,
+      "low": 534.0,
+      "close": 537.0,
+      "volume": 1174530.0,
+      "ma5": 546.0,
+      "ma20": 553.05,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -543,6 +555,23 @@
       "slope": 17.6667,
       "strength": 2,
       "label": "上升壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 23,
+        "date": "2026-09-08",
+        "price": 675.0
+      },
+      "to": {
+        "index": 32,
+        "date": "2026-09-21",
+        "price": 584.0
+      },
+      "slope": -10.1111,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [
@@ -557,20 +586,20 @@
       "source": "gap",
       "tests": 6,
       "held_tests": 6,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.65,
-      "strength_score": 104.7,
+      "distance_pct_abs": 0.37,
+      "strength_score": 107.3,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 1.68
+      "distance_pct": 0.37
     },
     {
-      "low": 513.55,
-      "high": 518.45,
+      "low": 513.58,
+      "high": 518.42,
       "center": 516.0,
       "touches": 1,
       "last_date": "2026-08-26",
@@ -579,18 +608,18 @@
       "source": "pivot_cluster",
       "tests": 3,
       "held_tests": 3,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 5.15,
-      "strength_score": 88.7,
+      "distance_pct_abs": 3.91,
+      "strength_score": 91.2,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 5.43
+      "distance_pct": 4.07
     },
     {
-      "low": 496.55,
-      "high": 501.45,
+      "low": 496.58,
+      "high": 501.42,
       "center": 499.0,
       "touches": 1,
       "last_date": "2026-08-17",
@@ -599,17 +628,38 @@
       "source": "pivot_cluster",
       "tests": 8,
       "held_tests": 4,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 8.27,
-      "strength_score": 91.5,
+      "distance_pct_abs": 7.08,
+      "strength_score": 93.8,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察支撐",
-      "distance_pct": 9.02
+      "distance_pct": 7.62
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 581.58,
+      "high": 586.42,
+      "center": 584.0,
+      "touches": 1,
+      "last_date": "2026-09-21",
+      "last_index": 32,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 6,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 8.75,
+      "strength_score": 84.5,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 8.75
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -620,11 +670,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 586.42,
+      "high": 595.8,
+      "center": 586.42,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 596.11,
-      "high": 631.87,
-      "center": 596.11,
+      "low": 597.29,
+      "high": 633.13,
+      "center": 597.29,
       "source": "ma20_extension/resistance"
     }
   ],

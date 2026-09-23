@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-22T22:07:36.436674+08:00",
+  "generated_at": "2026-09-23T22:19:12.282189+08:00",
   "code": "7717",
   "name": "萊德光電-KY",
   "market": "TPEx",
-  "record_count": 33,
+  "record_count": 34,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-22",
+  "last_date": "2026-09-23",
   "candles": [
     {
       "date": "2026-08-06",
@@ -403,6 +403,18 @@
       "ma20": 488.73,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-23",
+      "open": 601.0,
+      "high": 631.0,
+      "low": 596.0,
+      "close": 608.0,
+      "volume": 1524000.0,
+      "ma5": 594.8,
+      "ma20": 498.25,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -564,18 +576,18 @@
       "source": "gap",
       "tests": 4,
       "held_tests": 2,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 11.18,
+      "distance_pct_abs": 13.08,
       "strength_score": 78,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 12.58
+      "distance_pct": 15.04
     },
     {
-      "low": 537.32,
-      "high": 542.68,
+      "low": 537.26,
+      "high": 542.74,
       "center": 540.0,
       "touches": 1,
       "last_date": "2026-09-14",
@@ -584,17 +596,38 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 1,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 9.24,
+      "distance_pct_abs": 11.18,
       "strength_score": 60,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 10.19
+      "distance_pct": 12.59
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 621.26,
+      "high": 626.74,
+      "center": 624.0,
+      "touches": 1,
+      "last_date": "2026-09-18",
+      "last_index": 30,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.63,
+      "strength_score": 78.7,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 2.63
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -605,11 +638,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 626.74,
+      "high": 636.77,
+      "center": 626.74,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 527.83,
-      "high": 618.8,
-      "center": 527.83,
+      "low": 624.0,
+      "high": 661.44,
+      "center": 624.0,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -629,9 +670,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "已進入不追價區，避免追高",
-    "confidence": "high",
-    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
