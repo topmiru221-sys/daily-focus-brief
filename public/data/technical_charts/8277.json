@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-23T22:19:05.874623+08:00",
+  "generated_at": "2026-09-24T22:17:39.432375+08:00",
   "code": "8277",
   "name": "商丞",
   "market": "TPEx",
-  "record_count": 27,
+  "record_count": 28,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-23",
+  "last_date": "2026-09-24",
   "candles": [
     {
       "date": "2026-08-06",
@@ -331,6 +331,18 @@
       "ma20": 9.27,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-24",
+      "open": 15.75,
+      "high": 15.95,
+      "low": 15.75,
+      "close": 15.75,
+      "volume": 45000.0,
+      "ma5": 14.48,
+      "ma20": 9.66,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -473,22 +485,51 @@
     }
   ],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 16.1,
+      "high": 16.85,
+      "center": 16.48,
+      "touches": 1,
+      "last_date": "2026-09-22",
+      "last_index": 25,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.63,
+      "strength_score": 68.7,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 4.63
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 9.16,
-      "high": 9.38,
-      "center": 9.27,
+      "low": 9.54,
+      "high": 9.78,
+      "center": 9.66,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 16.85,
+      "high": 17.12,
+      "center": 16.85,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 10.01,
-      "high": 16.38,
-      "center": 10.01,
+      "low": 16.48,
+      "high": 17.47,
+      "center": 16.48,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -508,9 +549,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "已進入不追價區，避免追高",
-    "confidence": "high",
-    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+    "label": "近期無有效支撐，不宜硬找進場點",
+    "confidence": "medium",
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
