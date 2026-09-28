@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-25T22:41:46.129751+08:00",
+  "generated_at": "2026-09-29T01:45:59.648599+08:00",
   "code": "0057",
   "name": "富邦摩台",
   "market": "TWSE",
-  "record_count": 37,
+  "record_count": 38,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-25",
+  "last_date": "2026-09-29",
   "candles": [
     {
       "date": "2026-08-06",
@@ -451,6 +451,18 @@
       "ma20": 324.25,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-09-29",
+      "open": 333.4,
+      "high": 334.3,
+      "low": 332.4,
+      "close": 333.5,
+      "volume": 33417.0,
+      "ma5": 333.44,
+      "ma20": 324.95,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -684,7 +696,7 @@
       "source": "pivot_cluster",
       "tests": 10,
       "held_tests": 4,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [
         "MA20"
       ],
@@ -706,7 +718,7 @@
       "source": "gap",
       "tests": 5,
       "held_tests": 3,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
       "distance_pct_abs": 1.48,
       "strength_score": 99.0,
@@ -726,7 +738,7 @@
       "source": "gap",
       "tests": 9,
       "held_tests": 6,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [
         "MA20"
       ],
@@ -738,7 +750,48 @@
       "distance_pct": 3.43
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 335.5,
+      "high": 338.5,
+      "center": 337.0,
+      "touches": 1,
+      "last_date": "2026-09-23",
+      "last_index": 34,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.05,
+      "strength_score": 81.9,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.05
+    },
+    {
+      "low": 334.3,
+      "high": 334.4,
+      "center": 334.35,
+      "touches": 1,
+      "last_date": "2026-09-25",
+      "last_index": 36,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 2,
+      "held_tests": 1,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.25,
+      "strength_score": 71.5,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 0.25
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -749,11 +802,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 338.5,
+      "high": 343.92,
+      "center": 338.5,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 350.19,
-      "high": 371.2,
-      "center": 350.19,
+      "low": 350.95,
+      "high": 372.0,
+      "center": 350.95,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -773,9 +834,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
