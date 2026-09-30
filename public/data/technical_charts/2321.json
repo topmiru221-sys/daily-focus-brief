@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-30T00:02:38.897370+08:00",
+  "generated_at": "2026-10-01T00:02:00.780972+08:00",
   "code": "2321",
   "name": "東訊",
   "market": "TWSE",
-  "record_count": 121,
+  "record_count": 122,
   "first_date": "2026-02-02",
-  "last_date": "2026-09-24",
+  "last_date": "2026-10-01",
   "candles": [
     {
       "date": "2026-02-02",
@@ -1459,6 +1459,18 @@
       "ma20": 16.26,
       "ma60": 15.2,
       "ma120": 14.78
+    },
+    {
+      "date": "2026-10-01",
+      "open": 25.0,
+      "high": 25.0,
+      "low": 25.0,
+      "close": 25.0,
+      "volume": 2537.0,
+      "ma5": 23.0,
+      "ma20": 16.76,
+      "ma60": 15.4,
+      "ma120": 14.86
     }
   ],
   "gaps": [
@@ -1699,7 +1711,56 @@
   ],
   "support_zones": [],
   "resistance_zones": [],
-  "decision_zones": [],
+  "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 16.56,
+      "high": 16.96,
+      "center": 16.76,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 16.76,
+      "high": 17.03,
+      "center": 16.76,
+      "source": "validated_resistance/trigger"
+    },
+    {
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 18.1,
+      "high": 26.0,
+      "center": 18.1,
+      "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 15.29,
+      "high": 15.92,
+      "center": 15.84,
+      "source": "decision.invalidation"
+    },
+    {
+      "kind": "target",
+      "label": "目標一",
+      "low": 27.6,
+      "high": 27.6,
+      "center": 27.6,
+      "source": "decision.target"
+    },
+    {
+      "kind": "target",
+      "label": "目標二",
+      "low": 27.6,
+      "high": 27.6,
+      "center": 27.6,
+      "source": "decision.target"
+    }
+  ],
   "layer_defaults": {
     "candles": true,
     "volume": true,
@@ -1716,9 +1777,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
-    "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "label": "已進入不追價區，避免追高",
+    "confidence": "high",
+    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1727,15 +1788,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": null,
-    "grade": null,
-    "card_label": null,
-    "action": null,
-    "trigger": null,
-    "invalidation": null,
-    "target1": null,
-    "target2": null,
-    "risk_pct": null,
-    "rr1": null
+    "score": 48.2,
+    "grade": "D",
+    "card_label": "完整 Decision Card",
+    "action": "等待拉回，不追價",
+    "trigger": 16.76,
+    "invalidation": 15.84,
+    "target1": 27.6,
+    "target2": 27.6,
+    "risk_pct": 36.65,
+    "rr1": 0.28
   }
 }

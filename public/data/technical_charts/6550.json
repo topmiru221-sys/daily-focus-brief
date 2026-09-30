@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-09-30T00:02:37.669390+08:00",
+  "generated_at": "2026-10-01T00:01:59.152595+08:00",
   "code": "6550",
   "name": "北極星藥業-KY",
   "market": "TWSE",
-  "record_count": 31,
+  "record_count": 32,
   "first_date": "2026-08-06",
-  "last_date": "2026-09-17",
+  "last_date": "2026-10-01",
   "candles": [
     {
       "date": "2026-08-06",
@@ -379,6 +379,18 @@
       "ma20": 10.67,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-10-01",
+      "open": 18.25,
+      "high": 18.35,
+      "low": 17.2,
+      "close": 17.4,
+      "volume": 1596103.0,
+      "ma5": 11.42,
+      "ma20": 10.98,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -389,6 +401,14 @@
       "low": 11.15,
       "high": 12.0,
       "status": "filled"
+    },
+    {
+      "date": "2026-10-01",
+      "index": 31,
+      "type": "up",
+      "low": 10.05,
+      "high": 17.2,
+      "status": "unfilled"
     }
   ],
   "trendlines": [
@@ -496,69 +516,25 @@
     }
   ],
   "support_zones": [],
-  "resistance_zones": [
+  "resistance_zones": [],
+  "decision_zones": [
     {
-      "low": 9.95,
-      "high": 10.03,
-      "center": 9.99,
-      "touches": 1,
-      "last_date": "2026-09-09",
-      "last_index": 24,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 4,
-      "held_tests": 2,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 0.71,
-      "strength_score": 100.6,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 0.71
+      "kind": "retest",
+      "label": "回測區",
+      "low": 10.85,
+      "high": 11.11,
+      "center": 10.98,
+      "source": "decision.trigger/validated_support/ma20"
     },
     {
-      "low": 10.26,
-      "high": 10.34,
-      "center": 10.3,
-      "touches": 1,
-      "last_date": "2026-09-02",
-      "last_index": 19,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 10,
-      "held_tests": 7,
-      "last_test_bars_ago": 4,
-      "ma_overlap": [],
-      "distance_pct_abs": 3.83,
-      "strength_score": 100.3,
-      "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 3.83
-    },
-    {
-      "low": 10.06,
-      "high": 10.14,
-      "center": 10.1,
-      "touches": 1,
-      "last_date": "2026-08-20",
-      "last_index": 10,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 5,
-      "held_tests": 1,
-      "last_test_bars_ago": 3,
-      "ma_overlap": [],
-      "distance_pct_abs": 1.81,
-      "strength_score": 92.4,
-      "evidence_count": 3,
-      "rank": 3,
-      "display_label": "觀察壓力",
-      "distance_pct": 1.81
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 11.86,
+      "high": 18.1,
+      "center": 11.86,
+      "source": "ma20_extension/resistance"
     }
   ],
-  "decision_zones": [],
   "layer_defaults": {
     "candles": true,
     "volume": true,
@@ -575,9 +551,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "已進入不追價區，避免追高",
+    "confidence": "high",
+    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -586,10 +562,10 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": null,
-    "grade": null,
-    "card_label": null,
-    "action": null,
+    "score": 44.4,
+    "grade": "D",
+    "card_label": "技術觀察卡",
+    "action": "歷史資料累積中，暫不建立交易計畫",
     "trigger": null,
     "invalidation": null,
     "target1": null,
