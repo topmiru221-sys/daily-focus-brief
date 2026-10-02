@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-02T00:36:14.153937+08:00",
+  "generated_at": "2026-10-02T23:55:39.287476+08:00",
   "code": "1723",
   "name": "中碳",
   "market": "TWSE",
@@ -490,13 +490,13 @@
     },
     {
       "date": "2026-10-02",
-      "open": 80.4,
-      "high": 81.3,
-      "low": 80.4,
-      "close": 80.7,
-      "volume": 381879.0,
-      "ma5": 80.44,
-      "ma20": 81.88,
+      "open": 80.6,
+      "high": 81.0,
+      "low": 79.5,
+      "close": 79.7,
+      "volume": 767219.0,
+      "ma5": 80.24,
+      "ma20": 81.83,
       "ma60": null,
       "ma120": null
     }
@@ -623,7 +623,8 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [
+  "support_zones": [],
+  "resistance_zones": [
     {
       "low": 79.94,
       "high": 80.66,
@@ -631,21 +632,19 @@
       "touches": 2,
       "last_date": "2026-09-25",
       "last_index": 36,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
       "tests": 10,
-      "held_tests": 10,
+      "held_tests": 5,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.5,
-      "strength_score": 107.0,
+      "distance_pct_abs": 0.75,
+      "strength_score": 106.5,
       "evidence_count": 3,
       "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.5
-    }
-  ],
-  "resistance_zones": [
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.75
+    },
     {
       "low": 81.21,
       "high": 82.33,
@@ -661,12 +660,12 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.33,
-      "strength_score": 111.3,
+      "distance_pct_abs": 2.6,
+      "strength_score": 108.8,
       "evidence_count": 4,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.33
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 2.6
     },
     {
       "low": 83.94,
@@ -681,57 +680,37 @@
       "held_tests": 6,
       "last_test_bars_ago": 15,
       "ma_overlap": [],
-      "distance_pct_abs": 4.46,
-      "strength_score": 93.1,
-      "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 4.46
-    },
-    {
-      "low": 87.59,
-      "high": 88.61,
-      "center": 88.1,
-      "touches": 3,
-      "last_date": "2026-08-29",
-      "last_index": 16,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 9,
-      "held_tests": 9,
-      "last_test_bars_ago": 19,
-      "ma_overlap": [],
-      "distance_pct_abs": 9.17,
-      "strength_score": 84,
+      "distance_pct_abs": 5.77,
+      "strength_score": 90.5,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 9.17
+      "distance_pct": 5.77
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 79.34,
-      "high": 81.26,
-      "center": 80.3,
+      "low": 80.85,
+      "high": 82.81,
+      "center": 81.83,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 82.33,
-      "high": 83.65,
-      "center": 82.33,
+      "low": 80.66,
+      "high": 81.95,
+      "center": 80.66,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 88.43,
-      "high": 93.74,
-      "center": 88.43,
+      "low": 88.38,
+      "high": 93.68,
+      "center": 88.38,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -751,9 +730,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -762,7 +741,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 46.1,
+    "score": 52.1,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-02T00:36:11.361589+08:00",
+  "generated_at": "2026-10-02T23:55:36.448232+08:00",
   "code": "7747",
   "name": "昕奇雲端",
   "market": "TPEx",
@@ -418,13 +418,13 @@
     },
     {
       "date": "2026-10-02",
-      "open": 111.5,
-      "high": 111.5,
-      "low": 111.5,
-      "close": 111.5,
-      "volume": 301000.0,
-      "ma5": 111.6,
-      "ma20": 112.8,
+      "open": 112.0,
+      "high": 112.0,
+      "low": 112.0,
+      "close": 112.0,
+      "volume": 300000.0,
+      "ma5": 111.7,
+      "ma20": 112.83,
       "ma60": null,
       "ma120": null
     }
@@ -469,6 +469,14 @@
       "low": 113.0,
       "high": 114.0,
       "status": "filled"
+    },
+    {
+      "date": "2026-10-02",
+      "index": 34,
+      "type": "up",
+      "low": 111.5,
+      "high": 112.0,
+      "status": "unfilled"
     }
   ],
   "trendlines": [
@@ -609,30 +617,51 @@
       "label": "水平壓力"
     }
   ],
-  "support_zones": [],
-  "resistance_zones": [
+  "support_zones": [
     {
       "low": 110.85,
-      "high": 112.29,
+      "high": 112.3,
       "center": 111.57,
       "touches": 7,
       "last_date": "2026-09-30",
       "last_index": 32,
-      "type": "resistance",
+      "type": "support",
       "source": "pivot_cluster",
       "tests": 11,
-      "held_tests": 5,
+      "held_tests": 11,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 0.06,
-      "strength_score": 113.9,
+      "distance_pct_abs": 0.38,
+      "strength_score": 113.2,
       "evidence_count": 4,
       "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 0.06
+      "display_label": "主要支撐",
+      "distance_pct": 0.39
     },
+    {
+      "low": 111.5,
+      "high": 112.0,
+      "center": 111.75,
+      "touches": 1,
+      "last_date": "2026-10-02",
+      "last_index": 34,
+      "type": "support",
+      "source": "gap",
+      "tests": 11,
+      "held_tests": 10,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.22,
+      "strength_score": 101.6,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要支撐",
+      "distance_pct": 0.22
+    }
+  ],
+  "resistance_zones": [
     {
       "low": 112.64,
       "high": 114.09,
@@ -648,12 +677,12 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.67,
-      "strength_score": 110.7,
+      "distance_pct_abs": 1.21,
+      "strength_score": 111.6,
       "evidence_count": 4,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 1.67
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.21
     },
     {
       "low": 114.36,
@@ -668,37 +697,37 @@
       "held_tests": 10,
       "last_test_bars_ago": 11,
       "ma_overlap": [],
-      "distance_pct_abs": 3.43,
-      "strength_score": 95.1,
+      "distance_pct_abs": 2.97,
+      "strength_score": 96.1,
       "evidence_count": 3,
-      "rank": 3,
-      "display_label": "觀察壓力",
-      "distance_pct": 3.43
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 2.97
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 111.45,
-      "high": 114.15,
-      "center": 112.8,
+      "low": 110.23,
+      "high": 112.91,
+      "center": 111.57,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 112.29,
-      "high": 114.09,
-      "center": 112.29,
+      "low": 114.09,
+      "high": 115.92,
+      "center": 114.09,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 121.82,
-      "high": 129.13,
-      "center": 121.82,
+      "low": 121.86,
+      "high": 129.17,
+      "center": 121.86,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -718,9 +747,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
-    "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 11 次、守住 11 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
