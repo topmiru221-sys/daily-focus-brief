@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-02T23:55:41.371251+08:00",
+  "generated_at": "2026-10-06T02:40:24.315100+08:00",
   "code": "7827",
   "name": "漢康-KY創",
   "market": "TWSE",
-  "record_count": 41,
+  "record_count": 42,
   "first_date": "2026-08-06",
-  "last_date": "2026-10-02",
+  "last_date": "2026-10-06",
   "candles": [
     {
       "date": "2026-08-06",
@@ -499,6 +499,18 @@
       "ma20": 156.53,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-10-06",
+      "open": 166.0,
+      "high": 167.0,
+      "low": 159.0,
+      "close": 167.0,
+      "volume": 418961.0,
+      "ma5": 164.1,
+      "ma20": 157.3,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -650,16 +662,16 @@
       "last_index": 16,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 7,
+      "tests": 8,
       "held_tests": 1,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.15,
-      "strength_score": 95.7,
+      "distance_pct_abs": 1.35,
+      "strength_score": 93.3,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 0.15
+      "distance_pct": 1.37
     },
     {
       "low": 153.87,
@@ -672,37 +684,58 @@
       "source": "pivot_cluster",
       "tests": 20,
       "held_tests": 17,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 6.24,
-      "strength_score": 95.5,
+      "distance_pct_abs": 7.37,
+      "strength_score": 93.3,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 6.66
+      "distance_pct": 7.95
     },
     {
-      "low": 150.42,
-      "high": 151.91,
-      "center": 151.17,
-      "touches": 3,
-      "last_date": "2026-09-01",
-      "last_index": 18,
+      "low": 149.42,
+      "high": 152.08,
+      "center": 150.75,
+      "touches": 4,
+      "last_date": "2026-09-10",
+      "last_index": 25,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 16,
-      "held_tests": 14,
-      "last_test_bars_ago": 8,
+      "tests": 19,
+      "held_tests": 18,
+      "last_test_bars_ago": 9,
       "ma_overlap": [],
-      "distance_pct_abs": 8.38,
-      "strength_score": 91.2,
+      "distance_pct_abs": 9.73,
+      "strength_score": 90,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察支撐",
-      "distance_pct": 9.15
+      "distance_pct": 10.78
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 166.75,
+      "high": 168.25,
+      "center": 167.5,
+      "touches": 1,
+      "last_date": "2026-09-23",
+      "last_index": 34,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.3,
+      "strength_score": 83.4,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.3
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -713,11 +746,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 168.25,
+      "high": 170.94,
+      "center": 168.25,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 169.05,
-      "high": 179.2,
-      "center": 169.05,
+      "low": 169.88,
+      "high": 180.08,
+      "center": 169.88,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -737,9 +778,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 7 次、守住 1 次。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -748,7 +789,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 52.0,
+    "score": 50.5,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
