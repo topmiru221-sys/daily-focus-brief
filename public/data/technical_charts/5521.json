@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-08T00:45:31.824032+08:00",
+  "generated_at": "2026-10-09T00:42:10.534092+08:00",
   "code": "5521",
   "name": "工信",
   "market": "TWSE",
-  "record_count": 44,
+  "record_count": 45,
   "first_date": "2026-08-06",
-  "last_date": "2026-10-08",
+  "last_date": "2026-10-09",
   "candles": [
     {
       "date": "2026-08-06",
@@ -535,6 +535,18 @@
       "ma20": 10.59,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-10-09",
+      "open": 10.95,
+      "high": 11.15,
+      "low": 10.9,
+      "close": 11.1,
+      "volume": 2572273.0,
+      "ma5": 10.83,
+      "ma20": 10.61,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -695,16 +707,18 @@
       "last_index": 34,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 25,
-      "held_tests": 18,
+      "tests": 26,
+      "held_tests": 19,
       "last_test_bars_ago": 2,
-      "ma_overlap": [],
-      "distance_pct_abs": 2.28,
-      "strength_score": 103.4,
-      "evidence_count": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 3.6,
+      "strength_score": 106.8,
+      "evidence_count": 4,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 2.34
+      "distance_pct": 3.74
     },
     {
       "low": 10.9,
@@ -717,14 +731,14 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 3,
-      "last_test_bars_ago": 27,
+      "last_test_bars_ago": 28,
       "ma_overlap": [],
-      "distance_pct_abs": 0.0,
-      "strength_score": 97.0,
+      "distance_pct_abs": 1.35,
+      "strength_score": 94.3,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 0.0
+      "distance_pct": 1.37
     },
     {
       "low": 10.35,
@@ -737,38 +751,17 @@
       "source": "pivot_cluster",
       "tests": 18,
       "held_tests": 16,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 4.84,
-      "strength_score": 98.3,
+      "distance_pct_abs": 6.13,
+      "strength_score": 95.7,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察支撐",
-      "distance_pct": 5.09
+      "distance_pct": 6.53
     }
   ],
-  "resistance_zones": [
-    {
-      "low": 11.0,
-      "high": 11.1,
-      "center": 11.05,
-      "touches": 1,
-      "last_date": "2026-08-18",
-      "last_index": 8,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 3,
-      "held_tests": 3,
-      "last_test_bars_ago": 30,
-      "ma_overlap": [],
-      "distance_pct_abs": 0.91,
-      "strength_score": 86.2,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 0.91
-    }
-  ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
@@ -779,19 +772,11 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 11.1,
-      "high": 11.28,
-      "center": 11.1,
-      "source": "validated_resistance/trigger"
-    },
-    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 11.44,
-      "high": 12.12,
-      "center": 11.44,
+      "low": 11.46,
+      "high": 12.15,
+      "center": 11.46,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -811,9 +796,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -822,7 +807,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 52.2,
+    "score": 52.0,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

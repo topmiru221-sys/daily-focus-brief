@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-08T00:45:25.814260+08:00",
+  "generated_at": "2026-10-09T00:42:04.755192+08:00",
   "code": "7856",
   "name": "漢測",
   "market": "TPEx",
-  "record_count": 11,
+  "record_count": 13,
   "first_date": "2026-09-22",
-  "last_date": "2026-10-08",
+  "last_date": "2026-10-09",
   "candles": [
     {
       "date": "2026-09-22",
@@ -105,13 +105,25 @@
       "ma120": null
     },
     {
+      "date": "2026-10-05",
+      "open": 4335.0,
+      "high": 4390.0,
+      "low": 4210.0,
+      "close": 4280.0,
+      "volume": 394.0,
+      "ma5": 4329.0,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
+    },
+    {
       "date": "2026-10-06",
       "open": 4335.0,
       "high": 4390.0,
       "low": 4210.0,
       "close": 4280.0,
       "volume": 363000.0,
-      "ma5": 4329.0,
+      "ma5": 4264.0,
       "ma20": null,
       "ma60": null,
       "ma120": null
@@ -123,7 +135,7 @@
       "low": 4130.0,
       "close": 4190.0,
       "volume": 294000.0,
-      "ma5": 4246.0,
+      "ma5": 4239.0,
       "ma20": null,
       "ma60": null,
       "ma120": null
@@ -135,19 +147,70 @@
       "low": 4150.0,
       "close": 4380.0,
       "volume": 441000.0,
-      "ma5": 4259.0,
+      "ma5": 4265.0,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
+    },
+    {
+      "date": "2026-10-09",
+      "open": 4485.0,
+      "high": 4630.0,
+      "low": 4260.0,
+      "close": 4260.0,
+      "volume": 488000.0,
+      "ma5": 4278.0,
       "ma20": null,
       "ma60": null,
       "ma120": null
     }
   ],
   "gaps": [],
-  "trendlines": [],
-  "support_zones": [],
+  "trendlines": [
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 7,
+        "date": "2026-10-02",
+        "price": 4160.0
+      },
+      "to": {
+        "index": 10,
+        "date": "2026-10-07",
+        "price": 4130.0
+      },
+      "slope": -10.0,
+      "strength": 2,
+      "label": "下降支撐"
+    }
+  ],
+  "support_zones": [
+    {
+      "low": 4121.48,
+      "high": 4168.52,
+      "center": 4145.0,
+      "touches": 2,
+      "last_date": "2026-10-07",
+      "last_index": 10,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 2.7,
+      "strength_score": 78.6,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 2.77
+    }
+  ],
   "resistance_zones": [
     {
-      "low": 4675.29,
-      "high": 4714.71,
+      "low": 4675.83,
+      "high": 4714.17,
       "center": 4695.0,
       "touches": 1,
       "last_date": "2026-09-29",
@@ -156,31 +219,39 @@
       "source": "pivot_cluster",
       "tests": 5,
       "held_tests": 3,
-      "last_test_bars_ago": 6,
+      "last_test_bars_ago": 8,
       "ma_overlap": [],
-      "distance_pct_abs": 7.19,
-      "strength_score": 93.6,
+      "distance_pct_abs": 10.21,
+      "strength_score": 90,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 7.19
+      "distance_pct": 10.21
     }
   ],
   "decision_zones": [
     {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 4095.26,
+      "high": 4194.74,
+      "center": 4145.0,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 4714.71,
-      "high": 4790.15,
-      "center": 4714.71,
+      "low": 4714.17,
+      "high": 4789.6,
+      "center": 4714.17,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 4730.4,
-      "high": 5014.22,
-      "center": 4730.4,
+      "low": 4695.0,
+      "high": 4976.7,
+      "center": 4695.0,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -200,9 +271,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
-    "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
