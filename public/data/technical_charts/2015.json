@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-14T22:36:59.222748+08:00",
+  "generated_at": "2026-10-15T22:17:44.408557+08:00",
   "code": "2015",
   "name": "豐興",
   "market": "TWSE",
-  "record_count": 48,
+  "record_count": 49,
   "first_date": "2026-08-06",
-  "last_date": "2026-10-14",
+  "last_date": "2026-10-15",
   "candles": [
     {
       "date": "2026-08-06",
@@ -583,6 +583,18 @@
       "ma20": 64.39,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-10-15",
+      "open": 64.7,
+      "high": 65.2,
+      "low": 64.5,
+      "close": 64.5,
+      "volume": 196638.0,
+      "ma5": 64.8,
+      "ma20": 64.39,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -726,28 +738,6 @@
   ],
   "support_zones": [
     {
-      "low": 64.52,
-      "high": 65.38,
-      "center": 64.95,
-      "touches": 6,
-      "last_date": "2026-10-09",
-      "last_index": 44,
-      "type": "support",
-      "source": "pivot_cluster",
-      "tests": 27,
-      "held_tests": 18,
-      "last_test_bars_ago": 2,
-      "ma_overlap": [
-        "MA20"
-      ],
-      "distance_pct_abs": 0.08,
-      "strength_score": 113.8,
-      "evidence_count": 4,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.08
-    },
-    {
       "low": 63.17,
       "high": 64.23,
       "center": 63.7,
@@ -758,19 +748,41 @@
       "source": "pivot_cluster",
       "tests": 38,
       "held_tests": 35,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 2.0,
-      "strength_score": 110.0,
+      "distance_pct_abs": 1.24,
+      "strength_score": 111.5,
       "evidence_count": 4,
-      "rank": 2,
-      "display_label": "次要支撐",
-      "distance_pct": 2.04
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 1.26
     }
   ],
   "resistance_zones": [
+    {
+      "low": 64.52,
+      "high": 65.38,
+      "center": 64.95,
+      "touches": 6,
+      "last_date": "2026-10-09",
+      "last_index": 44,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 28,
+      "held_tests": 27,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 0.7,
+      "strength_score": 112.6,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.7
+    },
     {
       "low": 65.41,
       "high": 65.99,
@@ -782,31 +794,31 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 4,
-      "last_test_bars_ago": 31,
+      "last_test_bars_ago": 32,
       "ma_overlap": [],
-      "distance_pct_abs": 1.08,
-      "strength_score": 94.8,
+      "distance_pct_abs": 1.86,
+      "strength_score": 93.3,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.08
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 1.86
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 64.17,
-      "high": 65.73,
-      "center": 64.95,
+      "low": 62.94,
+      "high": 64.46,
+      "center": 63.7,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 65.99,
-      "high": 67.05,
-      "center": 65.99,
+      "low": 65.38,
+      "high": 66.43,
+      "center": 65.38,
       "source": "validated_resistance/trigger"
     },
     {
@@ -834,9 +846,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 27 次、守住 18 次。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -845,7 +857,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 55.1,
+    "score": 58.6,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
