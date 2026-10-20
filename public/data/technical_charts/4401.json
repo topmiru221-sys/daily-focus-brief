@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-20T00:35:03.528171+08:00",
+  "generated_at": "2026-10-20T22:25:29.452511+08:00",
   "code": "4401",
   "name": "東隆興",
   "market": "TPEx",
@@ -1511,14 +1511,14 @@
     {
       "date": "2026-10-20",
       "open": 13.75,
-      "high": 13.75,
-      "low": 13.5,
-      "close": 13.7,
-      "volume": 46000.0,
-      "ma5": 13.69,
-      "ma20": 13.82,
-      "ma60": 13.93,
-      "ma120": 14.1
+      "high": 13.8,
+      "low": 13.55,
+      "close": 13.6,
+      "volume": 54000.0,
+      "ma5": 13.67,
+      "ma20": 13.81,
+      "ma60": 13.92,
+      "ma120": 14.09
     }
   ],
   "gaps": [
@@ -1669,7 +1669,8 @@
       "label": "水平壓力"
     }
   ],
-  "support_zones": [
+  "support_zones": [],
+  "resistance_zones": [
     {
       "low": 13.53,
       "high": 13.79,
@@ -1677,23 +1678,21 @@
       "touches": 13,
       "last_date": "2026-10-07",
       "last_index": 117,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
       "tests": 40,
-      "held_tests": 40,
+      "held_tests": 18,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 0.29,
-      "strength_score": 113.4,
+      "distance_pct_abs": 0.44,
+      "strength_score": 113.1,
       "evidence_count": 4,
       "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.29
-    }
-  ],
-  "resistance_zones": [
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.44
+    },
     {
       "low": 13.79,
       "high": 14.04,
@@ -1711,12 +1710,12 @@
         "MA60",
         "MA120"
       ],
-      "distance_pct_abs": 1.53,
-      "strength_score": 116.9,
+      "distance_pct_abs": 2.28,
+      "strength_score": 115.4,
       "evidence_count": 4,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.53
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 2.28
     },
     {
       "low": 14.1,
@@ -1733,57 +1732,37 @@
       "ma_overlap": [
         "MA120"
       ],
-      "distance_pct_abs": 4.01,
-      "strength_score": 100.0,
+      "distance_pct_abs": 4.78,
+      "strength_score": 98.4,
       "evidence_count": 4,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 4.01
-    },
-    {
-      "low": 14.37,
-      "high": 14.53,
-      "center": 14.45,
-      "touches": 2,
-      "last_date": "2026-08-10",
-      "last_index": 76,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 15,
-      "held_tests": 10,
-      "last_test_bars_ago": 49,
-      "ma_overlap": [],
-      "distance_pct_abs": 5.47,
-      "strength_score": 81.1,
-      "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 5.47
+      "distance_pct": 4.78
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 13.5,
-      "high": 13.82,
-      "center": 13.66,
+      "low": 13.64,
+      "high": 13.98,
+      "center": 13.81,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 14.04,
-      "high": 14.26,
-      "center": 14.04,
+      "low": 13.79,
+      "high": 14.01,
+      "center": 13.79,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 14.93,
-      "high": 15.82,
-      "center": 14.93,
+      "low": 14.91,
+      "high": 15.81,
+      "center": 14.91,
       "source": "ma20_extension/resistance"
     },
     {
@@ -1805,9 +1784,9 @@
     {
       "kind": "target",
       "label": "目標二",
-      "low": 13.93,
-      "high": 13.93,
-      "center": 13.93,
+      "low": 13.92,
+      "high": 13.92,
+      "center": 13.92,
       "source": "decision.target"
     }
   ],
@@ -1827,9 +1806,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 40 次、守住 40 次。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1838,15 +1817,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 47.6,
+    "score": 46.9,
     "grade": "D",
     "card_label": "完整 Decision Card",
     "action": "觀察，暫不建立部位",
     "trigger": null,
     "invalidation": 13.34,
     "target1": 13.81,
-    "target2": 13.93,
-    "risk_pct": 2.65,
-    "rr1": 0.3
+    "target2": 13.92,
+    "risk_pct": 1.93,
+    "rr1": 0.8
   }
 }

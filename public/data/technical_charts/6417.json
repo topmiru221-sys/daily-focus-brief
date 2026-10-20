@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-20T00:35:08.204514+08:00",
+  "generated_at": "2026-10-20T22:25:34.694455+08:00",
   "code": "6417",
   "name": "韋僑",
   "market": "TPEx",
@@ -1510,15 +1510,15 @@
     },
     {
       "date": "2026-10-20",
-      "open": 102.0,
-      "high": 102.0,
-      "low": 99.8,
-      "close": 99.8,
-      "volume": 123000.0,
-      "ma5": 103.56,
-      "ma20": 103.04,
+      "open": 99.5,
+      "high": 100.0,
+      "low": 99.2,
+      "close": 100.0,
+      "volume": 72000.0,
+      "ma5": 103.6,
+      "ma20": 103.05,
       "ma60": 106.7,
-      "ma120": 118.84
+      "ma120": 118.85
     }
   ],
   "gaps": [
@@ -1566,7 +1566,7 @@
       "date": "2026-10-20",
       "index": 125,
       "type": "down",
-      "low": 102.0,
+      "low": 100.0,
       "high": 103.0,
       "status": "unfilled"
     }
@@ -1709,7 +1709,28 @@
       "label": "上升壓力"
     }
   ],
-  "support_zones": [],
+  "support_zones": [
+    {
+      "low": 99.55,
+      "high": 100.45,
+      "center": 100.0,
+      "touches": 4,
+      "last_date": "2026-09-29",
+      "last_index": 112,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 4,
+      "held_tests": 4,
+      "last_test_bars_ago": 13,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.0,
+      "strength_score": 102.0,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.0
+    }
+  ],
   "resistance_zones": [
     {
       "low": 101.88,
@@ -1726,17 +1747,17 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 2.54,
-      "strength_score": 108.9,
+      "distance_pct_abs": 2.33,
+      "strength_score": 109.3,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 2.54
+      "distance_pct": 2.33
     },
     {
-      "low": 102.0,
+      "low": 100.0,
       "high": 103.0,
-      "center": 102.5,
+      "center": 101.5,
       "touches": 1,
       "last_date": "2026-10-20",
       "last_index": 125,
@@ -1748,12 +1769,12 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 2.71,
-      "strength_score": 102.6,
+      "distance_pct_abs": 1.5,
+      "strength_score": 105.0,
       "evidence_count": 4,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 2.71
+      "distance_pct": 1.5
     },
     {
       "low": 103.55,
@@ -1768,21 +1789,21 @@
       "held_tests": 12,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 4.21,
-      "strength_score": 99.6,
+      "distance_pct_abs": 4.0,
+      "strength_score": 100.0,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 4.21
+      "distance_pct": 4.0
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 101.8,
-      "high": 104.28,
-      "center": 103.04,
+      "low": 98.8,
+      "high": 101.2,
+      "center": 100.0,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -1796,17 +1817,25 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 111.28,
-      "high": 117.96,
-      "center": 111.28,
+      "low": 111.29,
+      "high": 117.97,
+      "center": 111.29,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 94.62,
+      "high": 98.54,
+      "center": 98.05,
+      "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 103.04,
-      "high": 103.04,
-      "center": 103.04,
+      "low": 103.05,
+      "high": 103.05,
+      "center": 103.05,
       "source": "decision.target"
     },
     {
@@ -1834,9 +1863,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 4 次、守住 4 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1845,15 +1874,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 48.1,
+    "score": 51.5,
     "grade": "D",
     "card_label": "完整 Decision Card",
-    "action": "等待資料完整",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": 103.04,
+    "invalidation": 98.05,
+    "target1": 103.05,
     "target2": 106.7,
-    "risk_pct": null,
-    "rr1": null
+    "risk_pct": 1.95,
+    "rr1": 1.56
   }
 }

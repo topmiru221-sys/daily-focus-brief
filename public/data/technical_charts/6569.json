@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-20T00:35:05.506879+08:00",
+  "generated_at": "2026-10-20T22:25:31.666792+08:00",
   "code": "6569",
   "name": "醫揚",
   "market": "TPEx",
@@ -598,12 +598,12 @@
     },
     {
       "date": "2026-10-20",
-      "open": 90.2,
-      "high": 90.2,
-      "low": 89.0,
-      "close": 89.6,
-      "volume": 60000.0,
-      "ma5": 90.2,
+      "open": 89.7,
+      "high": 89.7,
+      "low": 89.5,
+      "close": 89.5,
+      "volume": 5000.0,
+      "ma5": 90.18,
       "ma20": 91.38,
       "ma60": null,
       "ma120": null
@@ -649,6 +649,14 @@
       "low": 91.1,
       "high": 91.4,
       "status": "filled"
+    },
+    {
+      "date": "2026-10-20",
+      "index": 49,
+      "type": "down",
+      "low": 89.7,
+      "high": 90.0,
+      "status": "unfilled"
     }
   ],
   "trendlines": [
@@ -789,7 +797,8 @@
       "label": "水平壓力"
     }
   ],
-  "support_zones": [
+  "support_zones": [],
+  "resistance_zones": [
     {
       "low": 88.89,
       "high": 90.25,
@@ -797,21 +806,19 @@
       "touches": 6,
       "last_date": "2026-10-14",
       "last_index": 46,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
       "tests": 12,
-      "held_tests": 12,
+      "held_tests": 3,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.03,
-      "strength_score": 107.9,
+      "distance_pct_abs": 0.08,
+      "strength_score": 107.8,
       "evidence_count": 3,
       "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.03
-    }
-  ],
-  "resistance_zones": [
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.08
+    },
     {
       "low": 90.61,
       "high": 91.76,
@@ -827,12 +834,12 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.77,
-      "strength_score": 110.5,
+      "distance_pct_abs": 1.89,
+      "strength_score": 110.2,
       "evidence_count": 4,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.77
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 1.89
     },
     {
       "low": 91.7,
@@ -849,49 +856,29 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 2.79,
-      "strength_score": 108.4,
+      "distance_pct_abs": 2.91,
+      "strength_score": 108.2,
       "evidence_count": 4,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 2.79
-    },
-    {
-      "low": 92.6,
-      "high": 93.4,
-      "center": 93.0,
-      "touches": 1,
-      "last_date": "2026-09-30",
-      "last_index": 37,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 11,
-      "held_tests": 7,
-      "last_test_bars_ago": 12,
-      "ma_overlap": [],
-      "distance_pct_abs": 3.79,
-      "strength_score": 94.4,
-      "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 3.79
+      "distance_pct": 2.91
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 88.5,
-      "high": 90.64,
-      "center": 89.57,
+      "low": 90.28,
+      "high": 92.48,
+      "center": 91.38,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 91.76,
-      "high": 93.23,
-      "center": 91.76,
+      "low": 90.25,
+      "high": 91.69,
+      "center": 90.25,
       "source": "validated_resistance/trigger"
     },
     {
@@ -919,9 +906,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 12 次、守住 12 次。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -930,7 +917,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 49.6,
+    "score": 51.1,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-20T00:35:05.406472+08:00",
+  "generated_at": "2026-10-20T22:25:31.551522+08:00",
   "code": "2938",
   "name": "床的世界",
   "market": "TPEx",
@@ -262,13 +262,13 @@
     },
     {
       "date": "2026-10-20",
-      "open": 18.0,
-      "high": 18.0,
-      "low": 17.8,
-      "close": 18.0,
-      "volume": 11000.0,
-      "ma5": 18.19,
-      "ma20": 18.44,
+      "open": 17.95,
+      "high": 17.95,
+      "low": 17.9,
+      "close": 17.9,
+      "volume": 31000.0,
+      "ma5": 18.17,
+      "ma20": 18.43,
       "ma60": null,
       "ma120": null
     }
@@ -325,6 +325,23 @@
       "slope": 0.0,
       "strength": 2,
       "label": "水平支撐"
+    },
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 13,
+        "date": "2026-10-07",
+        "price": 18.05
+      },
+      "to": {
+        "index": 19,
+        "date": "2026-10-15",
+        "price": 17.85
+      },
+      "slope": -0.0333,
+      "strength": 2,
+      "label": "下降支撐"
     },
     {
       "role": "resistance",
@@ -395,7 +412,28 @@
       "label": "上升壓力"
     }
   ],
-  "support_zones": [],
+  "support_zones": [
+    {
+      "low": 17.77,
+      "high": 17.93,
+      "center": 17.85,
+      "touches": 1,
+      "last_date": "2026-10-15",
+      "last_index": 19,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.28,
+      "strength_score": 83.4,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.28
+    }
+  ],
   "resistance_zones": [
     {
       "low": 18.15,
@@ -412,12 +450,12 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.67,
-      "strength_score": 104.7,
+      "distance_pct_abs": 2.23,
+      "strength_score": 103.5,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 1.67
+      "distance_pct": 2.23
     },
     {
       "low": 17.97,
@@ -432,12 +470,12 @@
       "held_tests": 2,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 0.28,
-      "strength_score": 101.4,
+      "distance_pct_abs": 0.84,
+      "strength_score": 100.3,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 0.28
+      "distance_pct": 0.84
     },
     {
       "low": 18.93,
@@ -452,21 +490,21 @@
       "held_tests": 5,
       "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 5.67,
-      "strength_score": 96.7,
+      "distance_pct_abs": 6.26,
+      "strength_score": 95.5,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 5.67
+      "distance_pct": 6.26
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 18.22,
-      "high": 18.66,
-      "center": 18.44,
+      "low": 17.64,
+      "high": 18.06,
+      "center": 17.85,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -480,9 +518,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 19.92,
-      "high": 21.11,
-      "center": 19.92,
+      "low": 19.9,
+      "high": 21.1,
+      "center": 19.9,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -502,9 +540,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 2 次、守住 2 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -513,7 +551,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 46.5,
+    "score": 51.5,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",

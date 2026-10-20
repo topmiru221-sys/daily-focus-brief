@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-20T00:35:09.061667+08:00",
+  "generated_at": "2026-10-20T22:25:35.650092+08:00",
   "code": "6221",
   "name": "晉泰",
   "market": "TPEx",
@@ -1510,15 +1510,15 @@
     },
     {
       "date": "2026-10-20",
-      "open": 35.8,
-      "high": 37.05,
-      "low": 34.75,
-      "close": 35.0,
-      "volume": 2227000.0,
-      "ma5": 34.55,
-      "ma20": 31.92,
-      "ma60": 25.51,
-      "ma120": 24.42
+      "open": 34.75,
+      "high": 34.8,
+      "low": 33.55,
+      "close": 33.55,
+      "volume": 1299000.0,
+      "ma5": 34.26,
+      "ma20": 31.84,
+      "ma60": 25.48,
+      "ma120": 24.4
     }
   ],
   "gaps": [
@@ -1746,15 +1746,13 @@
       "tests": 10,
       "held_tests": 4,
       "last_test_bars_ago": 2,
-      "ma_overlap": [
-        "MA20"
-      ],
-      "distance_pct_abs": 4.71,
-      "strength_score": 98.6,
-      "evidence_count": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.6,
+      "strength_score": 100.8,
+      "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 4.95
+      "distance_pct": 0.6
     },
     {
       "low": 32.53,
@@ -1769,16 +1767,16 @@
       "held_tests": 2,
       "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 6.57,
-      "strength_score": 88.9,
+      "distance_pct_abs": 2.53,
+      "strength_score": 96.9,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 7.03
+      "distance_pct": 2.6
     },
     {
-      "low": 31.34,
-      "high": 31.66,
+      "low": 31.35,
+      "high": 31.65,
       "center": 31.5,
       "touches": 1,
       "last_date": "2026-09-18",
@@ -1789,46 +1787,67 @@
       "held_tests": 3,
       "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 10.0,
-      "strength_score": 90,
+      "distance_pct_abs": 6.11,
+      "strength_score": 95.8,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察支撐",
-      "distance_pct": 11.11
+      "distance_pct": 6.51
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 33.75,
+      "high": 34.05,
+      "center": 33.9,
+      "touches": 1,
+      "last_date": "2026-09-30",
+      "last_index": 113,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.04,
+      "strength_score": 81.9,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.04
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 31.54,
-      "high": 32.3,
-      "center": 31.92,
+      "low": 31.46,
+      "high": 32.22,
+      "center": 31.84,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 31.92,
-      "high": 32.43,
-      "center": 31.92,
+      "low": 34.05,
+      "high": 34.59,
+      "center": 34.05,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 34.47,
-      "high": 36.54,
-      "center": 34.47,
+      "low": 34.39,
+      "high": 36.45,
+      "center": 34.39,
       "source": "ma20_extension/resistance"
     },
     {
       "kind": "invalidation",
       "label": "失效區",
-      "low": 29.84,
-      "high": 31.07,
-      "center": 30.92,
+      "low": 29.76,
+      "high": 30.99,
+      "center": 30.84,
       "source": "decision.invalidation"
     },
     {
@@ -1864,9 +1883,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "已進入不追價區，避免追高",
+    "label": "接近主要支撐，可等回測反應",
     "confidence": "high",
-    "reason": "現價偏離有效支撐／MA20 過遠，風險報酬比下降。"
+    "reason": "主要支撐已測試 10 次、守住 4 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1875,15 +1894,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 54.0,
+    "score": 57.9,
     "grade": "D",
     "card_label": "完整 Decision Card",
     "action": "等待回測支撐",
-    "trigger": 31.92,
-    "invalidation": 30.92,
+    "trigger": 31.84,
+    "invalidation": 30.84,
     "target1": 37.8,
     "target2": 37.8,
-    "risk_pct": 11.65,
-    "rr1": 0.69
+    "risk_pct": 8.09,
+    "rr1": 1.57
   }
 }
