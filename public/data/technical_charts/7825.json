@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-21T22:35:13.557853+08:00",
+  "generated_at": "2026-10-22T22:36:56.943758+08:00",
   "code": "7825",
   "name": "和亞智慧",
   "market": "TPEx",
-  "record_count": 29,
+  "record_count": 30,
   "first_date": "2026-09-10",
-  "last_date": "2026-10-21",
+  "last_date": "2026-10-22",
   "candles": [
     {
       "date": "2026-09-10",
@@ -355,6 +355,18 @@
       "ma20": 76.61,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-10-22",
+      "open": 67.0,
+      "high": 68.0,
+      "low": 66.0,
+      "close": 66.7,
+      "volume": 117000.0,
+      "ma5": 67.18,
+      "ma20": 76.2,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -460,6 +472,23 @@
       "label": "下降支撐"
     },
     {
+      "role": "support",
+      "direction": "flat",
+      "from": {
+        "index": 25,
+        "date": "2026-10-15",
+        "price": 66.0
+      },
+      "to": {
+        "index": 27,
+        "date": "2026-10-20",
+        "price": 66.0
+      },
+      "slope": 0.0,
+      "strength": 2,
+      "label": "水平支撐"
+    },
+    {
       "role": "resistance",
       "direction": "descending",
       "from": {
@@ -494,7 +523,28 @@
       "label": "上升壓力"
     }
   ],
-  "support_zones": [],
+  "support_zones": [
+    {
+      "low": 65.7,
+      "high": 66.3,
+      "center": 66.0,
+      "touches": 2,
+      "last_date": "2026-10-20",
+      "last_index": 27,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.05,
+      "strength_score": 81.9,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 1.06
+    }
+  ],
   "resistance_zones": [
     {
       "low": 74.5,
@@ -507,14 +557,14 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 3,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 12.31,
+      "distance_pct_abs": 12.14,
       "strength_score": 90,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 12.31
+      "distance_pct": 12.14
     },
     {
       "low": 75.2,
@@ -527,14 +577,14 @@
       "source": "pivot_cluster",
       "tests": 9,
       "held_tests": 6,
-      "last_test_bars_ago": 5,
+      "last_test_bars_ago": 6,
       "ma_overlap": [],
-      "distance_pct_abs": 13.36,
+      "distance_pct_abs": 13.19,
       "strength_score": 90,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 13.36
+      "distance_pct": 13.19
     },
     {
       "low": 69.5,
@@ -547,23 +597,23 @@
       "source": "gap",
       "tests": 3,
       "held_tests": 2,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 5.11,
-      "strength_score": 76.8,
+      "distance_pct_abs": 4.95,
+      "strength_score": 77.1,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 5.11
+      "distance_pct": 4.95
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 75.69,
-      "high": 77.53,
-      "center": 76.61,
+      "low": 65.21,
+      "high": 66.79,
+      "center": 66.0,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -577,9 +627,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 82.74,
-      "high": 87.7,
-      "center": 82.74,
+      "low": 82.3,
+      "high": 87.23,
+      "center": 82.3,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -599,9 +649,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
