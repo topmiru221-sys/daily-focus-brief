@@ -1,6 +1,6 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-27T00:15:06.046590+08:00",
+  "generated_at": "2026-10-27T23:29:02.167685+08:00",
   "code": "6527",
   "name": "明達醫",
   "market": "TPEx",
@@ -646,13 +646,13 @@
     },
     {
       "date": "2026-10-27",
-      "open": 72.0,
-      "high": 72.1,
-      "low": 71.5,
-      "close": 72.1,
-      "volume": 5000.0,
-      "ma5": 72.18,
-      "ma20": 73.72,
+      "open": 72.5,
+      "high": 72.5,
+      "low": 72.5,
+      "close": 72.5,
+      "volume": 9000.0,
+      "ma5": 72.26,
+      "ma20": 73.75,
       "ma60": null,
       "ma120": null
     }
@@ -702,6 +702,14 @@
       "date": "2026-10-22",
       "index": 51,
       "type": "down",
+      "low": 72.1,
+      "high": 72.5,
+      "status": "filled"
+    },
+    {
+      "date": "2026-10-27",
+      "index": 53,
+      "type": "up",
       "low": 72.1,
       "high": 72.5,
       "status": "unfilled"
@@ -845,7 +853,28 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [],
+  "support_zones": [
+    {
+      "low": 72.1,
+      "high": 72.5,
+      "center": 72.3,
+      "touches": 1,
+      "last_date": "2026-10-27",
+      "last_index": 53,
+      "type": "support",
+      "source": "gap",
+      "tests": 5,
+      "held_tests": 5,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.28,
+      "strength_score": 101.4,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.28
+    }
+  ],
   "resistance_zones": [
     {
       "low": 72.45,
@@ -862,12 +891,12 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.44,
-      "strength_score": 111.1,
+      "distance_pct_abs": 0.88,
+      "strength_score": 112.2,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 1.44
+      "distance_pct": 0.88
     },
     {
       "low": 73.72,
@@ -884,12 +913,12 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 2.93,
-      "strength_score": 108.1,
+      "distance_pct_abs": 2.36,
+      "strength_score": 109.3,
       "evidence_count": 4,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 2.93
+      "distance_pct": 2.36
     },
     {
       "low": 73.0,
@@ -906,21 +935,21 @@
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.6,
-      "strength_score": 104.8,
+      "distance_pct_abs": 1.03,
+      "strength_score": 105.9,
       "evidence_count": 4,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 1.6
+      "distance_pct": 1.03
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 72.84,
-      "high": 74.6,
-      "center": 73.72,
+      "low": 71.43,
+      "high": 73.17,
+      "center": 72.3,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -934,9 +963,9 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 79.62,
-      "high": 84.39,
-      "center": 79.62,
+      "low": 79.65,
+      "high": 84.43,
+      "center": 79.65,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -956,9 +985,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
-    "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "label": "接近主要支撐，可等回測反應",
+    "confidence": "high",
+    "reason": "主要支撐已測試 5 次、守住 5 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -967,7 +996,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 49.6,
+    "score": 46.1,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
