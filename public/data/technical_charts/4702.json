@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-10-31T00:07:07.315606+08:00",
+  "generated_at": "2026-11-03T03:39:56.360295+08:00",
   "code": "4702",
   "name": "中美實",
   "market": "TPEx",
-  "record_count": 57,
+  "record_count": 58,
   "first_date": "2026-08-06",
-  "last_date": "2026-10-31",
+  "last_date": "2026-11-03",
   "candles": [
     {
       "date": "2026-08-06",
@@ -691,6 +691,18 @@
       "ma20": 9.31,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-03",
+      "open": 9.15,
+      "high": 9.28,
+      "low": 9.15,
+      "close": 9.19,
+      "volume": 27000.0,
+      "ma5": 9.25,
+      "ma20": 9.31,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -849,7 +861,8 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [
+  "support_zones": [],
+  "resistance_zones": [
     {
       "low": 9.12,
       "high": 9.27,
@@ -857,23 +870,21 @@
       "touches": 6,
       "last_date": "2026-10-23",
       "last_index": 52,
-      "type": "support",
+      "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 17,
-      "held_tests": 17,
+      "tests": 18,
+      "held_tests": 8,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 0.33,
-      "strength_score": 113.3,
+      "distance_pct_abs": 0.11,
+      "strength_score": 113.8,
       "evidence_count": 4,
       "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 0.33
-    }
-  ],
-  "resistance_zones": [
+      "display_label": "關鍵壓力",
+      "distance_pct": 0.11
+    },
     {
       "low": 9.29,
       "high": 9.39,
@@ -883,18 +894,18 @@
       "last_index": 53,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 34,
-      "held_tests": 34,
+      "tests": 35,
+      "held_tests": 35,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 1.19,
-      "strength_score": 111.6,
+      "distance_pct_abs": 1.63,
+      "strength_score": 110.7,
       "evidence_count": 4,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 1.19
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 1.63
     },
     {
       "low": 9.44,
@@ -907,51 +918,31 @@
       "source": "pivot_cluster",
       "tests": 26,
       "held_tests": 16,
-      "last_test_bars_ago": 6,
-      "ma_overlap": [],
-      "distance_pct_abs": 3.03,
-      "strength_score": 101.9,
-      "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 3.03
-    },
-    {
-      "low": 9.59,
-      "high": 9.67,
-      "center": 9.63,
-      "touches": 4,
-      "last_date": "2026-10-20",
-      "last_index": 49,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 25,
-      "held_tests": 18,
       "last_test_bars_ago": 7,
       "ma_overlap": [],
-      "distance_pct_abs": 4.33,
-      "strength_score": 99.3,
+      "distance_pct_abs": 3.48,
+      "strength_score": 101.0,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 4.33
+      "distance_pct": 3.48
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 9.09,
-      "high": 9.31,
-      "center": 9.2,
+      "low": 9.2,
+      "high": 9.42,
+      "center": 9.31,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 9.39,
-      "high": 9.54,
-      "center": 9.39,
+      "low": 9.27,
+      "high": 9.42,
+      "center": 9.27,
       "source": "validated_resistance/trigger"
     },
     {
@@ -979,9 +970,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近主要支撐，可等回測反應",
-    "confidence": "high",
-    "reason": "主要支撐已測試 17 次、守住 17 次。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
