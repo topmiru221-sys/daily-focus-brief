@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-03T03:39:58.419876+08:00",
+  "generated_at": "2026-11-04T01:16:46.089198+08:00",
   "code": "2450",
   "name": "神腦",
   "market": "TWSE",
-  "record_count": 59,
+  "record_count": 60,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-03",
+  "last_date": "2026-11-04",
   "candles": [
     {
       "date": "2026-08-06",
@@ -715,6 +715,18 @@
       "ma20": 28.14,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-04",
+      "open": 28.45,
+      "high": 28.45,
+      "low": 28.0,
+      "close": 28.15,
+      "volume": 65811.0,
+      "ma5": 28.12,
+      "ma20": 28.14,
+      "ma60": 28.21,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -867,18 +879,19 @@
       "last_index": 55,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 57,
-      "held_tests": 57,
+      "tests": 58,
+      "held_tests": 58,
       "last_test_bars_ago": 2,
       "ma_overlap": [
-        "MA20"
+        "MA20",
+        "MA60"
       ],
-      "distance_pct_abs": 0.32,
-      "strength_score": 113.4,
+      "distance_pct_abs": 0.14,
+      "strength_score": 119.7,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 0.32
+      "distance_pct": 0.14
     },
     {
       "low": 28.34,
@@ -891,14 +904,14 @@
       "source": "pivot_cluster",
       "tests": 18,
       "held_tests": 18,
-      "last_test_bars_ago": 9,
+      "last_test_bars_ago": 10,
       "ma_overlap": [],
-      "distance_pct_abs": 1.32,
-      "strength_score": 105.4,
+      "distance_pct_abs": 1.14,
+      "strength_score": 105.7,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 1.32
+      "distance_pct": 1.14
     }
   ],
   "decision_zones": [
@@ -925,6 +938,30 @@
       "high": 32.21,
       "center": 30.39,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 27.07,
+      "high": 28.19,
+      "center": 28.05,
+      "source": "decision.invalidation"
+    },
+    {
+      "kind": "target",
+      "label": "目標一",
+      "low": 28.21,
+      "high": 28.21,
+      "center": 28.21,
+      "source": "decision.target"
+    },
+    {
+      "kind": "target",
+      "label": "目標二",
+      "low": 28.45,
+      "high": 28.45,
+      "center": 28.45,
+      "source": "decision.target"
     }
   ],
   "layer_defaults": {
@@ -943,9 +980,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
-    "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "label": "接近或跌入失效區，先控風險",
+    "confidence": "high",
+    "reason": "現價接近交易計畫失效區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -954,15 +991,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 49.1,
+    "score": 54.0,
     "grade": "D",
-    "card_label": "技術觀察卡",
-    "action": "歷史資料累積中，暫不建立交易計畫",
-    "trigger": null,
-    "invalidation": null,
-    "target1": null,
-    "target2": null,
-    "risk_pct": null,
-    "rr1": null
+    "card_label": "完整 Decision Card",
+    "action": "等待回測支撐",
+    "trigger": 28.14,
+    "invalidation": 28.05,
+    "target1": 28.21,
+    "target2": 28.45,
+    "risk_pct": 0.37,
+    "rr1": 0.57
   }
 }

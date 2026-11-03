@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-03T03:39:53.362084+08:00",
+  "generated_at": "2026-11-04T01:16:39.563347+08:00",
   "code": "7689",
   "name": "大鵬科CLMX",
   "market": "TWSE",
-  "record_count": 59,
+  "record_count": 60,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-03",
+  "last_date": "2026-11-04",
   "candles": [
     {
       "date": "2026-08-06",
@@ -715,6 +715,18 @@
       "ma20": 144.4,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-04",
+      "open": 120.0,
+      "high": 120.5,
+      "low": 116.0,
+      "close": 116.5,
+      "volume": 234567.0,
+      "ma5": 126.4,
+      "ma20": 142.3,
+      "ma60": 159.07,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -898,72 +910,47 @@
     }
   ],
   "support_zones": [],
-  "resistance_zones": [
-    {
-      "low": 135.44,
-      "high": 136.56,
-      "center": 136.0,
-      "touches": 1,
-      "last_date": "2026-10-27",
-      "last_index": 54,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 5,
-      "held_tests": 5,
-      "last_test_bars_ago": 4,
-      "ma_overlap": [],
-      "distance_pct_abs": 8.37,
-      "strength_score": 91.3,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 8.37
-    },
-    {
-      "low": 142.0,
-      "high": 143.0,
-      "center": 142.5,
-      "touches": 1,
-      "last_date": "2026-10-16",
-      "last_index": 49,
-      "type": "resistance",
-      "source": "gap",
-      "tests": 2,
-      "held_tests": 1,
-      "last_test_bars_ago": 9,
-      "ma_overlap": [],
-      "distance_pct_abs": 13.55,
-      "strength_score": 54,
-      "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 13.55
-    }
-  ],
+  "resistance_zones": [],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 142.67,
-      "high": 146.13,
-      "center": 144.4,
+      "low": 140.59,
+      "high": 144.01,
+      "center": 142.3,
       "source": "decision.trigger/validated_support/ma20"
-    },
-    {
-      "kind": "breakout",
-      "label": "突破確認區",
-      "low": 136.56,
-      "high": 138.74,
-      "center": 136.56,
-      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 155.95,
-      "high": 165.31,
-      "center": 155.95,
+      "low": 153.68,
+      "high": 162.91,
+      "center": 153.68,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 109.31,
+      "high": 113.84,
+      "center": 113.27,
+      "source": "decision.invalidation"
+    },
+    {
+      "kind": "target",
+      "label": "目標一",
+      "low": 142.3,
+      "high": 142.3,
+      "center": 142.3,
+      "source": "decision.target"
+    },
+    {
+      "kind": "target",
+      "label": "目標二",
+      "low": 159.07,
+      "high": 159.07,
+      "center": 159.07,
+      "source": "decision.target"
     }
   ],
   "layer_defaults": {
@@ -993,15 +980,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 48.3,
+    "score": 50.6,
     "grade": "D",
-    "card_label": "技術觀察卡",
-    "action": "歷史資料累積中，暫不建立交易計畫",
+    "card_label": "完整 Decision Card",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": null,
-    "target2": null,
-    "risk_pct": null,
-    "rr1": null
+    "invalidation": 113.27,
+    "target1": 142.3,
+    "target2": 159.07,
+    "risk_pct": 2.77,
+    "rr1": 7.98
   }
 }

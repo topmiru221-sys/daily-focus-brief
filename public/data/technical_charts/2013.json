@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-03T03:39:54.858387+08:00",
+  "generated_at": "2026-11-04T01:16:41.490213+08:00",
   "code": "2013",
   "name": "中鋼構",
   "market": "TWSE",
-  "record_count": 59,
+  "record_count": 60,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-03",
+  "last_date": "2026-11-04",
   "candles": [
     {
       "date": "2026-08-06",
@@ -715,6 +715,18 @@
       "ma20": 41.42,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-04",
+      "open": 41.85,
+      "high": 41.85,
+      "low": 41.1,
+      "close": 41.55,
+      "volume": 71860.0,
+      "ma5": 41.68,
+      "ma20": 41.44,
+      "ma60": 41.43,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -866,18 +878,19 @@
       "last_index": 50,
       "type": "support",
       "source": "pivot_cluster",
-      "tests": 51,
-      "held_tests": 50,
+      "tests": 52,
+      "held_tests": 51,
       "last_test_bars_ago": 2,
       "ma_overlap": [
-        "MA20"
+        "MA20",
+        "MA60"
       ],
-      "distance_pct_abs": 0.43,
-      "strength_score": 113.1,
+      "distance_pct_abs": 0.55,
+      "strength_score": 118.9,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 0.44
+      "distance_pct": 0.56
     },
     {
       "low": 40.41,
@@ -890,14 +903,14 @@
       "source": "pivot_cluster",
       "tests": 7,
       "held_tests": 7,
-      "last_test_bars_ago": 20,
+      "last_test_bars_ago": 21,
       "ma_overlap": [],
-      "distance_pct_abs": 2.17,
-      "strength_score": 97.7,
+      "distance_pct_abs": 2.29,
+      "strength_score": 92.4,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要支撐",
-      "distance_pct": 2.22
+      "distance_pct": 2.34
     }
   ],
   "resistance_zones": [
@@ -910,27 +923,28 @@
       "last_index": 55,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 27,
-      "held_tests": 27,
+      "tests": 28,
+      "held_tests": 28,
       "last_test_bars_ago": 2,
       "ma_overlap": [
-        "MA20"
+        "MA20",
+        "MA60"
       ],
-      "distance_pct_abs": 1.18,
-      "strength_score": 111.6,
+      "distance_pct_abs": 1.06,
+      "strength_score": 117.9,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 1.18
+      "distance_pct": 1.06
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 40.82,
-      "high": 41.82,
-      "center": 41.32,
+      "low": 40.94,
+      "high": 41.94,
+      "center": 41.44,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -944,10 +958,34 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 44.73,
-      "high": 47.42,
-      "center": 44.73,
+      "low": 44.76,
+      "high": 47.44,
+      "center": 44.76,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 39.76,
+      "high": 41.41,
+      "center": 41.2,
+      "source": "decision.invalidation"
+    },
+    {
+      "kind": "target",
+      "label": "目標一",
+      "low": 42.0,
+      "high": 42.0,
+      "center": 42.0,
+      "source": "decision.target"
+    },
+    {
+      "kind": "target",
+      "label": "目標二",
+      "low": 42.6,
+      "high": 42.6,
+      "center": 42.6,
+      "source": "decision.target"
     }
   ],
   "layer_defaults": {
@@ -968,7 +1006,7 @@
   "entry_hint": {
     "label": "接近主要支撐，可等回測反應",
     "confidence": "high",
-    "reason": "主要支撐已測試 51 次、守住 50 次。"
+    "reason": "主要支撐已測試 52 次、守住 51 次。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -977,15 +1015,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 58.6,
+    "score": 57.5,
     "grade": "D",
-    "card_label": "技術觀察卡",
-    "action": "歷史資料累積中，暫不建立交易計畫",
-    "trigger": null,
-    "invalidation": null,
-    "target1": null,
-    "target2": null,
-    "risk_pct": null,
-    "rr1": null
+    "card_label": "完整 Decision Card",
+    "action": "等待回測支撐",
+    "trigger": 41.44,
+    "invalidation": 41.2,
+    "target1": 42.0,
+    "target2": 42.6,
+    "risk_pct": 0.84,
+    "rr1": 1.29
   }
 }

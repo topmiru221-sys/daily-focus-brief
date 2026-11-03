@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-03T03:39:53.485491+08:00",
+  "generated_at": "2026-11-04T01:16:39.721015+08:00",
   "code": "2101",
   "name": "南港",
   "market": "TWSE",
-  "record_count": 59,
+  "record_count": 60,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-03",
+  "last_date": "2026-11-04",
   "candles": [
     {
       "date": "2026-08-06",
@@ -715,6 +715,18 @@
       "ma20": 29.5,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-04",
+      "open": 28.6,
+      "high": 28.85,
+      "low": 28.55,
+      "close": 28.6,
+      "volume": 791968.0,
+      "ma5": 28.84,
+      "ma20": 29.44,
+      "ma60": 30.99,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -886,7 +898,7 @@
       "source": "pivot_cluster",
       "tests": 9,
       "held_tests": 6,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [
         "MA20"
       ],
@@ -908,7 +920,7 @@
       "source": "pivot_cluster",
       "tests": 19,
       "held_tests": 12,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
       "distance_pct_abs": 4.2,
       "strength_score": 99.6,
@@ -928,7 +940,7 @@
       "source": "pivot_cluster",
       "tests": 19,
       "held_tests": 16,
-      "last_test_bars_ago": 6,
+      "last_test_bars_ago": 7,
       "ma_overlap": [],
       "distance_pct_abs": 5.24,
       "strength_score": 97.5,
@@ -942,9 +954,9 @@
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 29.15,
-      "high": 29.85,
-      "center": 29.5,
+      "low": 29.09,
+      "high": 29.79,
+      "center": 29.44,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -958,10 +970,34 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 31.86,
-      "high": 33.77,
-      "center": 31.86,
+      "low": 31.8,
+      "high": 33.7,
+      "center": 31.8,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 27.15,
+      "high": 28.27,
+      "center": 28.13,
+      "source": "decision.invalidation"
+    },
+    {
+      "kind": "target",
+      "label": "目標一",
+      "low": 29.44,
+      "high": 29.44,
+      "center": 29.44,
+      "source": "decision.target"
+    },
+    {
+      "kind": "target",
+      "label": "目標二",
+      "low": 30.5,
+      "high": 30.5,
+      "center": 30.5,
+      "source": "decision.target"
     }
   ],
   "layer_defaults": {
@@ -991,15 +1027,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 50.6,
+    "score": 49.6,
     "grade": "D",
-    "card_label": "技術觀察卡",
-    "action": "歷史資料累積中，暫不建立交易計畫",
+    "card_label": "完整 Decision Card",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": null,
-    "target2": null,
-    "risk_pct": null,
-    "rr1": null
+    "invalidation": 28.13,
+    "target1": 29.44,
+    "target2": 30.5,
+    "risk_pct": 1.65,
+    "rr1": 1.78
   }
 }
