@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-04T01:16:42.762282+08:00",
+  "generated_at": "2026-11-05T01:24:54.222148+08:00",
   "code": "6219",
   "name": "富旺",
   "market": "TPEx",
-  "record_count": 59,
+  "record_count": 60,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-04",
+  "last_date": "2026-11-05",
   "candles": [
     {
       "date": "2026-08-06",
@@ -715,6 +715,18 @@
       "ma20": 11.51,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-05",
+      "open": 10.3,
+      "high": 10.3,
+      "low": 9.96,
+      "close": 10.2,
+      "volume": 329000.0,
+      "ma5": 10.36,
+      "ma20": 11.41,
+      "ma60": 11.94,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -879,18 +891,42 @@
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 11.37,
-      "high": 11.65,
-      "center": 11.51,
+      "low": 11.27,
+      "high": 11.55,
+      "center": 11.41,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 12.43,
-      "high": 13.18,
-      "center": 12.43,
+      "low": 12.32,
+      "high": 13.06,
+      "center": 12.32,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 9.45,
+      "high": 9.84,
+      "center": 9.79,
+      "source": "decision.invalidation"
+    },
+    {
+      "kind": "target",
+      "label": "目標一",
+      "low": 11.41,
+      "high": 11.41,
+      "center": 11.41,
+      "source": "decision.target"
+    },
+    {
+      "kind": "target",
+      "label": "目標二",
+      "low": 11.94,
+      "high": 11.94,
+      "center": 11.94,
+      "source": "decision.target"
     }
   ],
   "layer_defaults": {
@@ -920,15 +956,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 50.6,
+    "score": 49.6,
     "grade": "D",
-    "card_label": "技術觀察卡",
-    "action": "歷史資料累積中，暫不建立交易計畫",
+    "card_label": "完整 Decision Card",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": null,
-    "target2": null,
-    "risk_pct": null,
-    "rr1": null
+    "invalidation": 9.79,
+    "target1": 11.41,
+    "target2": 11.94,
+    "risk_pct": 4.0,
+    "rr1": 2.97
   }
 }

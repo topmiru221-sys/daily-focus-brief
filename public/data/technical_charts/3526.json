@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-04T01:16:49.235419+08:00",
+  "generated_at": "2026-11-05T01:24:52.957331+08:00",
   "code": "3526",
   "name": "凡甲",
   "market": "TPEx",
-  "record_count": 59,
+  "record_count": 60,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-04",
+  "last_date": "2026-11-05",
   "candles": [
     {
       "date": "2026-08-06",
@@ -715,6 +715,18 @@
       "ma20": 260.52,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-05",
+      "open": 226.0,
+      "high": 228.5,
+      "low": 216.5,
+      "close": 223.0,
+      "volume": 332000.0,
+      "ma5": 230.1,
+      "ma20": 257.95,
+      "ma60": 271.27,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -894,23 +906,23 @@
       "source": "gap",
       "tests": 2,
       "held_tests": 1,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 6.58,
-      "strength_score": 58.8,
+      "distance_pct_abs": 7.06,
+      "strength_score": 57.9,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 6.58
+      "distance_pct": 7.06
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 257.39,
-      "high": 263.65,
-      "center": 260.52,
+      "low": 254.85,
+      "high": 261.05,
+      "center": 257.95,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -924,10 +936,34 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 281.36,
-      "high": 298.24,
-      "center": 281.36,
+      "low": 278.59,
+      "high": 295.3,
+      "center": 278.59,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 205.02,
+      "high": 213.52,
+      "center": 212.46,
+      "source": "decision.invalidation"
+    },
+    {
+      "kind": "target",
+      "label": "目標一",
+      "low": 257.95,
+      "high": 257.95,
+      "center": 257.95,
+      "source": "decision.target"
+    },
+    {
+      "kind": "target",
+      "label": "目標二",
+      "low": 271.27,
+      "high": 271.27,
+      "center": 271.27,
+      "source": "decision.target"
     }
   ],
   "layer_defaults": {
@@ -959,13 +995,13 @@
   "decision_snapshot": {
     "score": 50.6,
     "grade": "D",
-    "card_label": "技術觀察卡",
-    "action": "歷史資料累積中，暫不建立交易計畫",
+    "card_label": "完整 Decision Card",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": null,
-    "target2": null,
-    "risk_pct": null,
-    "rr1": null
+    "invalidation": 212.46,
+    "target1": 257.95,
+    "target2": 271.27,
+    "risk_pct": 4.72,
+    "rr1": 3.32
   }
 }

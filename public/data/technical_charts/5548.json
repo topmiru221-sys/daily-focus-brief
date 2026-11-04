@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-04T01:16:48.780769+08:00",
+  "generated_at": "2026-11-05T01:24:57.753001+08:00",
   "code": "5548",
   "name": "安倉",
   "market": "TPEx",
-  "record_count": 59,
+  "record_count": 60,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-04",
+  "last_date": "2026-11-05",
   "candles": [
     {
       "date": "2026-08-06",
@@ -715,6 +715,18 @@
       "ma20": 19.91,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-05",
+      "open": 19.3,
+      "high": 19.5,
+      "low": 19.3,
+      "close": 19.45,
+      "volume": 24000.0,
+      "ma5": 19.42,
+      "ma20": 19.88,
+      "ma60": 20.23,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -760,23 +772,6 @@
     }
   ],
   "trendlines": [
-    {
-      "role": "support",
-      "direction": "ascending",
-      "from": {
-        "index": 28,
-        "date": "2026-09-16",
-        "price": 20.0
-      },
-      "to": {
-        "index": 35,
-        "date": "2026-09-25",
-        "price": 20.2
-      },
-      "slope": 0.0286,
-      "strength": 2,
-      "label": "上升支撐"
-    },
     {
       "role": "support",
       "direction": "descending",
@@ -825,6 +820,23 @@
         "price": 19.8
       },
       "slope": -0.04,
+      "strength": 2,
+      "label": "下降支撐"
+    },
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 49,
+        "date": "2026-10-20",
+        "price": 19.8
+      },
+      "to": {
+        "index": 57,
+        "date": "2026-11-03",
+        "price": 19.0
+      },
+      "slope": -0.1,
       "strength": 2,
       "label": "下降支撐"
     },
@@ -910,16 +922,17 @@
       "source": "pivot_cluster",
       "tests": 41,
       "held_tests": 33,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [
-        "MA20"
+        "MA20",
+        "MA60"
       ],
-      "distance_pct_abs": 4.09,
-      "strength_score": 105.8,
+      "distance_pct_abs": 3.29,
+      "strength_score": 113.4,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 4.09
+      "distance_pct": 3.29
     },
     {
       "low": 20.0,
@@ -932,14 +945,14 @@
       "source": "gap",
       "tests": 18,
       "held_tests": 10,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [],
-      "distance_pct_abs": 3.73,
-      "strength_score": 94.5,
+      "distance_pct_abs": 2.93,
+      "strength_score": 96.1,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 3.73
+      "distance_pct": 2.93
     },
     {
       "low": 20.26,
@@ -952,23 +965,25 @@
       "source": "pivot_cluster",
       "tests": 35,
       "held_tests": 31,
-      "last_test_bars_ago": 21,
-      "ma_overlap": [],
-      "distance_pct_abs": 5.85,
-      "strength_score": 85.3,
-      "evidence_count": 3,
+      "last_test_bars_ago": 22,
+      "ma_overlap": [
+        "MA60"
+      ],
+      "distance_pct_abs": 5.04,
+      "strength_score": 92.9,
+      "evidence_count": 4,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 5.85
+      "distance_pct": 5.04
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 19.67,
-      "high": 20.15,
-      "center": 19.91,
+      "low": 19.64,
+      "high": 20.12,
+      "center": 19.88,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -982,10 +997,34 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 21.5,
-      "high": 22.79,
-      "center": 21.5,
+      "low": 21.47,
+      "high": 22.76,
+      "center": 21.47,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 18.23,
+      "high": 18.98,
+      "center": 18.89,
+      "source": "decision.invalidation"
+    },
+    {
+      "kind": "target",
+      "label": "目標一",
+      "low": 19.88,
+      "high": 19.88,
+      "center": 19.88,
+      "source": "decision.target"
+    },
+    {
+      "kind": "target",
+      "label": "目標二",
+      "low": 20.1,
+      "high": 20.1,
+      "center": 20.1,
+      "source": "decision.target"
     }
   ],
   "layer_defaults": {
@@ -1015,15 +1054,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 49.6,
+    "score": 46.1,
     "grade": "D",
-    "card_label": "技術觀察卡",
-    "action": "歷史資料累積中，暫不建立交易計畫",
+    "card_label": "完整 Decision Card",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": null,
-    "target2": null,
-    "risk_pct": null,
-    "rr1": null
+    "invalidation": 18.89,
+    "target1": 19.88,
+    "target2": 20.1,
+    "risk_pct": 2.9,
+    "rr1": 0.76
   }
 }
