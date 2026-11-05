@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-05T01:24:51.739837+08:00",
+  "generated_at": "2026-11-06T01:31:49.836223+08:00",
   "code": "6923",
   "name": "中台",
   "market": "TWSE",
-  "record_count": 61,
+  "record_count": 62,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-05",
+  "last_date": "2026-11-06",
   "candles": [
     {
       "date": "2026-08-06",
@@ -739,6 +739,18 @@
       "ma20": 72.26,
       "ma60": 74.86,
       "ma120": null
+    },
+    {
+      "date": "2026-11-06",
+      "open": 70.0,
+      "high": 70.8,
+      "low": 68.5,
+      "close": 69.4,
+      "volume": 108105.0,
+      "ma5": 70.5,
+      "ma20": 72.0,
+      "ma60": 74.78,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -902,39 +914,39 @@
       "source": "pivot_cluster",
       "tests": 10,
       "held_tests": 6,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 2.57,
-      "strength_score": 108.9,
+      "distance_pct_abs": 3.46,
+      "strength_score": 107.1,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 2.57
+      "distance_pct": 3.46
     },
     {
       "low": 70.39,
-      "high": 71.02,
+      "high": 71.01,
       "center": 70.7,
       "touches": 1,
       "last_date": "2026-10-22",
       "last_index": 52,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 7,
-      "held_tests": 1,
+      "tests": 8,
+      "held_tests": 2,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
-      "distance_pct_abs": 1.0,
-      "strength_score": 94.0,
+      "distance_pct_abs": 1.87,
+      "strength_score": 98.3,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 1.0
+      "distance_pct": 1.87
     },
     {
-      "low": 72.78,
+      "low": 72.79,
       "high": 73.41,
       "center": 73.1,
       "touches": 2,
@@ -944,23 +956,23 @@
       "source": "pivot_cluster",
       "tests": 12,
       "held_tests": 8,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 4.43,
-      "strength_score": 99.1,
+      "distance_pct_abs": 5.33,
+      "strength_score": 97.3,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 4.43
+      "distance_pct": 5.33
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 71.39,
-      "high": 73.13,
-      "center": 72.26,
+      "low": 71.14,
+      "high": 72.86,
+      "center": 72.0,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -974,33 +986,33 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 78.04,
-      "high": 82.72,
-      "center": 78.04,
+      "low": 77.76,
+      "high": 82.43,
+      "center": 77.76,
       "source": "ma20_extension/resistance"
     },
     {
       "kind": "invalidation",
       "label": "失效區",
-      "low": 66.38,
-      "high": 69.13,
-      "center": 68.79,
+      "low": 65.4,
+      "high": 68.11,
+      "center": 67.77,
       "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 72.26,
-      "high": 72.26,
-      "center": 72.26,
+      "low": 72.0,
+      "high": 72.0,
+      "center": 72.0,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 74.86,
-      "high": 74.86,
-      "center": 74.86,
+      "low": 74.78,
+      "high": 74.78,
+      "center": 74.78,
       "source": "decision.target"
     }
   ],
@@ -1020,9 +1032,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "label": "近期無有效支撐，不宜硬找進場點",
     "confidence": "medium",
-    "reason": "現價距有效壓力區低於 3%。"
+    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1036,10 +1048,10 @@
     "card_label": "完整 Decision Card",
     "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": 68.79,
-    "target1": 72.26,
-    "target2": 74.86,
-    "risk_pct": 1.73,
-    "rr1": 1.86
+    "invalidation": 67.77,
+    "target1": 72.0,
+    "target2": 74.78,
+    "risk_pct": 2.35,
+    "rr1": 1.6
   }
 }
