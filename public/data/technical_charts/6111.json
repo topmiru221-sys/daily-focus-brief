@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-06T01:31:45.735127+08:00",
+  "generated_at": "2026-11-07T00:52:45.490376+08:00",
   "code": "6111",
   "name": "光聚晶電",
   "market": "TPEx",
-  "record_count": 61,
+  "record_count": 62,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-06",
+  "last_date": "2026-11-07",
   "candles": [
     {
       "date": "2026-08-06",
@@ -739,6 +739,18 @@
       "ma20": 34.7,
       "ma60": 35.93,
       "ma120": null
+    },
+    {
+      "date": "2026-11-07",
+      "open": 25.75,
+      "high": 30.45,
+      "low": 25.75,
+      "close": 30.0,
+      "volume": 602000.0,
+      "ma5": 31.34,
+      "ma20": 34.39,
+      "ma60": 35.81,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -898,38 +910,117 @@
     }
   ],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 34.37,
+      "high": 34.63,
+      "center": 34.5,
+      "touches": 1,
+      "last_date": "2026-10-27",
+      "last_index": 53,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 10,
+      "held_tests": 5,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 15.0,
+      "strength_score": 96,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 15.0
+    },
+    {
+      "low": 33.72,
+      "high": 33.98,
+      "center": 33.85,
+      "touches": 1,
+      "last_date": "2026-10-15",
+      "last_index": 47,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 7,
+      "held_tests": 3,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 12.83,
+      "strength_score": 90,
+      "evidence_count": 3,
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 12.83
+    },
+    {
+      "low": 32.97,
+      "high": 33.23,
+      "center": 33.1,
+      "touches": 1,
+      "last_date": "2026-09-16",
+      "last_index": 28,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 1,
+      "last_test_bars_ago": 3,
+      "ma_overlap": [],
+      "distance_pct_abs": 10.33,
+      "strength_score": 69,
+      "evidence_count": 3,
+      "rank": 3,
+      "display_label": "觀察壓力",
+      "distance_pct": 10.33
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 34.28,
-      "high": 35.12,
-      "center": 34.7,
+      "low": 33.98,
+      "high": 34.8,
+      "center": 34.39,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 34.63,
+      "high": 35.18,
+      "center": 34.63,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 37.48,
-      "high": 39.72,
-      "center": 37.48,
+      "low": 37.14,
+      "high": 39.37,
+      "center": 37.14,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 24.16,
+      "high": 25.17,
+      "center": 25.04,
+      "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 34.7,
-      "high": 34.7,
-      "center": 34.7,
+      "low": 34.38,
+      "high": 34.38,
+      "center": 34.38,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 35.93,
-      "high": 35.93,
-      "center": 35.93,
+      "low": 35.81,
+      "high": 35.81,
+      "center": 35.81,
       "source": "decision.target"
     }
   ],
@@ -960,15 +1051,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 43.6,
+    "score": 40.3,
     "grade": "D",
     "card_label": "完整 Decision Card",
-    "action": "等待資料完整",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": 34.7,
-    "target2": 35.93,
-    "risk_pct": null,
-    "rr1": null
+    "invalidation": 25.04,
+    "target1": 34.38,
+    "target2": 35.81,
+    "risk_pct": 16.52,
+    "rr1": 0.88
   }
 }

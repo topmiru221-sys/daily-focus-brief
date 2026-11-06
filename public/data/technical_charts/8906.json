@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-06T01:31:49.232659+08:00",
+  "generated_at": "2026-11-07T00:52:44.921170+08:00",
   "code": "8906",
   "name": "花王",
   "market": "TPEx",
-  "record_count": 61,
+  "record_count": 62,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-06",
+  "last_date": "2026-11-07",
   "candles": [
     {
       "date": "2026-08-06",
@@ -739,6 +739,18 @@
       "ma20": 27.11,
       "ma60": 28.07,
       "ma120": null
+    },
+    {
+      "date": "2026-11-07",
+      "open": 23.8,
+      "high": 24.3,
+      "low": 23.05,
+      "close": 24.3,
+      "volume": 40000.0,
+      "ma5": 25.04,
+      "ma20": 26.89,
+      "ma60": 28.04,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -772,6 +784,14 @@
       "type": "down",
       "low": 26.4,
       "high": 26.5,
+      "status": "unfilled"
+    },
+    {
+      "date": "2026-11-07",
+      "index": 61,
+      "type": "down",
+      "low": 24.3,
+      "high": 24.4,
       "status": "unfilled"
     }
   ],
@@ -926,16 +946,16 @@
       "source": "pivot_cluster",
       "tests": 10,
       "held_tests": 4,
-      "last_test_bars_ago": 6,
+      "last_test_bars_ago": 7,
       "ma_overlap": [
         "MA20"
       ],
-      "distance_pct_abs": 10.57,
+      "distance_pct_abs": 11.03,
       "strength_score": 96,
       "evidence_count": 4,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 10.57
+      "distance_pct": 11.03
     },
     {
       "low": 27.39,
@@ -948,14 +968,14 @@
       "source": "pivot_cluster",
       "tests": 14,
       "held_tests": 8,
-      "last_test_bars_ago": 6,
+      "last_test_bars_ago": 7,
       "ma_overlap": [],
-      "distance_pct_abs": 12.7,
+      "distance_pct_abs": 13.17,
       "strength_score": 90,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 12.7
+      "distance_pct": 13.17
     },
     {
       "low": 26.49,
@@ -968,23 +988,23 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 2,
-      "last_test_bars_ago": 6,
+      "last_test_bars_ago": 7,
       "ma_overlap": [],
-      "distance_pct_abs": 9.02,
+      "distance_pct_abs": 9.47,
       "strength_score": 84,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 9.02
+      "distance_pct": 9.47
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 26.78,
-      "high": 27.44,
-      "center": 27.11,
+      "low": 26.57,
+      "high": 27.21,
+      "center": 26.89,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -998,25 +1018,33 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 29.28,
-      "high": 31.04,
-      "center": 29.28,
+      "low": 29.04,
+      "high": 30.78,
+      "center": 29.04,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 21.78,
+      "high": 22.68,
+      "center": 22.57,
+      "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 27.11,
-      "high": 27.11,
-      "center": 27.11,
+      "low": 26.89,
+      "high": 26.89,
+      "center": 26.89,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 28.07,
-      "high": 28.07,
-      "center": 28.07,
+      "low": 28.04,
+      "high": 28.04,
+      "center": 28.04,
       "source": "decision.target"
     }
   ],
@@ -1047,15 +1075,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 43.6,
+    "score": 47.9,
     "grade": "D",
     "card_label": "完整 Decision Card",
-    "action": "等待資料完整",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": 27.11,
-    "target2": 28.07,
-    "risk_pct": null,
-    "rr1": null
+    "invalidation": 22.57,
+    "target1": 26.89,
+    "target2": 28.04,
+    "risk_pct": 7.13,
+    "rr1": 1.5
   }
 }
