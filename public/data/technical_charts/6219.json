@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-07T00:52:45.115802+08:00",
+  "generated_at": "2026-11-10T03:58:00.615469+08:00",
   "code": "6219",
   "name": "富旺",
   "market": "TPEx",
-  "record_count": 62,
+  "record_count": 63,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-07",
+  "last_date": "2026-11-10",
   "candles": [
     {
       "date": "2026-08-06",
@@ -751,6 +751,18 @@
       "ma20": 11.19,
       "ma60": 11.85,
       "ma120": null
+    },
+    {
+      "date": "2026-11-10",
+      "open": 9.9,
+      "high": 10.5,
+      "low": 9.9,
+      "close": 10.4,
+      "volume": 102000.0,
+      "ma5": 10.13,
+      "ma20": 11.11,
+      "ma60": 11.82,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -910,46 +922,77 @@
     }
   ],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 11.7,
+      "high": 11.85,
+      "center": 11.77,
+      "touches": 1,
+      "last_date": "2026-10-20",
+      "last_index": 49,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 5,
+      "held_tests": 2,
+      "last_test_bars_ago": 12,
+      "ma_overlap": [
+        "MA60"
+      ],
+      "distance_pct_abs": 13.17,
+      "strength_score": 78,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 13.17
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 11.06,
-      "high": 11.32,
-      "center": 11.19,
+      "low": 10.98,
+      "high": 11.24,
+      "center": 11.11,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 11.85,
+      "high": 12.04,
+      "center": 11.85,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 12.09,
-      "high": 12.81,
-      "center": 12.09,
+      "low": 12.0,
+      "high": 12.72,
+      "center": 12.0,
       "source": "ma20_extension/resistance"
     },
     {
       "kind": "invalidation",
       "label": "失效區",
-      "low": 8.8,
-      "high": 9.17,
-      "center": 9.12,
+      "low": 8.78,
+      "high": 9.15,
+      "center": 9.1,
       "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 11.19,
-      "high": 11.19,
-      "center": 11.19,
+      "low": 11.11,
+      "high": 11.11,
+      "center": 11.11,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 11.85,
-      "high": 11.85,
-      "center": 11.85,
+      "low": 11.82,
+      "high": 11.82,
+      "center": 11.82,
       "source": "decision.target"
     }
   ],
@@ -980,15 +1023,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 46.6,
+    "score": 40.3,
     "grade": "D",
     "card_label": "完整 Decision Card",
     "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": 9.12,
-    "target1": 11.19,
-    "target2": 11.85,
-    "risk_pct": 8.25,
-    "rr1": 1.52
+    "invalidation": 9.1,
+    "target1": 11.11,
+    "target2": 11.82,
+    "risk_pct": 12.46,
+    "rr1": 0.55
   }
 }

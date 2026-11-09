@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-07T00:52:42.811363+08:00",
+  "generated_at": "2026-11-10T03:57:58.768505+08:00",
   "code": "7867",
   "name": "特力屋",
   "market": "TWSE",
-  "record_count": 5,
+  "record_count": 6,
   "first_date": "2026-11-03",
-  "last_date": "2026-11-07",
+  "last_date": "2026-11-10",
   "candles": [
     {
       "date": "2026-11-03",
@@ -67,19 +67,69 @@
       "ma20": null,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-10",
+      "open": 43.0,
+      "high": 43.0,
+      "low": 41.3,
+      "close": 42.5,
+      "volume": 367212.0,
+      "ma5": 43.72,
+      "ma20": null,
+      "ma60": null,
+      "ma120": null
     }
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "date": "2026-11-10",
+      "index": 5,
+      "type": "down",
+      "low": 43.0,
+      "high": 43.6,
+      "status": "unfilled"
+    }
+  ],
   "trendlines": [],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 43.0,
+      "high": 43.6,
+      "center": 43.3,
+      "touches": 1,
+      "last_date": "2026-11-10",
+      "last_index": 5,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 4,
+      "held_tests": 0,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.88,
+      "strength_score": 80.2,
+      "evidence_count": 2,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.88
+    }
+  ],
   "decision_zones": [
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 43.6,
+      "high": 44.3,
+      "center": 43.6,
+      "source": "validated_resistance/trigger"
+    },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 47.52,
-      "high": 50.37,
-      "center": 47.52,
+      "low": 45.9,
+      "high": 48.65,
+      "center": 45.9,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -99,9 +149,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
