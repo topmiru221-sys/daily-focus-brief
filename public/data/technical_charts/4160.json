@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-13T01:41:56.765704+08:00",
+  "generated_at": "2026-11-14T01:19:02.281739+08:00",
   "code": "4160",
   "name": "訊聯基因",
   "market": "TPEx",
-  "record_count": 65,
+  "record_count": 66,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-12",
+  "last_date": "2026-11-14",
   "candles": [
     {
       "date": "2026-08-06",
@@ -787,6 +787,18 @@
       "ma20": 36.62,
       "ma60": 38.47,
       "ma120": null
+    },
+    {
+      "date": "2026-11-14",
+      "open": 36.9,
+      "high": 37.3,
+      "low": 34.75,
+      "close": 36.5,
+      "volume": 13000.0,
+      "ma5": 35.17,
+      "ma20": 36.49,
+      "ma60": 38.41,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -966,14 +978,14 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 3,
-      "last_test_bars_ago": 9,
+      "last_test_bars_ago": 10,
       "ma_overlap": [],
-      "distance_pct_abs": 4.08,
-      "strength_score": 99.8,
+      "distance_pct_abs": 1.37,
+      "strength_score": 105.3,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 4.08
+      "distance_pct": 1.37
     },
     {
       "low": 38.3,
@@ -986,16 +998,16 @@
       "source": "pivot_cluster",
       "tests": 9,
       "held_tests": 3,
-      "last_test_bars_ago": 15,
+      "last_test_bars_ago": 16,
       "ma_overlap": [
         "MA60"
       ],
-      "distance_pct_abs": 8.21,
-      "strength_score": 91.6,
+      "distance_pct_abs": 5.4,
+      "strength_score": 97.2,
       "evidence_count": 4,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 8.21
+      "distance_pct": 5.4
     },
     {
       "low": 37.64,
@@ -1008,17 +1020,66 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 2,
-      "last_test_bars_ago": 11,
+      "last_test_bars_ago": 12,
       "ma_overlap": [],
-      "distance_pct_abs": 6.33,
-      "strength_score": 83.3,
+      "distance_pct_abs": 3.56,
+      "strength_score": 88.9,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 6.33
+      "distance_pct": 3.56
     }
   ],
-  "decision_zones": [],
+  "decision_zones": [
+    {
+      "kind": "retest",
+      "label": "回測區",
+      "low": 36.06,
+      "high": 36.94,
+      "center": 36.5,
+      "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 37.16,
+      "high": 37.75,
+      "center": 37.16,
+      "source": "validated_resistance/trigger"
+    },
+    {
+      "kind": "no_chase",
+      "label": "不追價區",
+      "low": 39.41,
+      "high": 41.77,
+      "center": 39.41,
+      "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 34.62,
+      "high": 36.06,
+      "center": 35.88,
+      "source": "decision.invalidation"
+    },
+    {
+      "kind": "target",
+      "label": "目標一",
+      "low": 38.41,
+      "high": 38.41,
+      "center": 38.41,
+      "source": "decision.target"
+    },
+    {
+      "kind": "target",
+      "label": "目標二",
+      "low": 40.2,
+      "high": 40.2,
+      "center": 40.2,
+      "source": "decision.target"
+    }
+  ],
   "layer_defaults": {
     "candles": true,
     "volume": true,
@@ -1035,9 +1096,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1046,15 +1107,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": null,
-    "grade": null,
-    "card_label": null,
-    "action": null,
-    "trigger": null,
-    "invalidation": null,
-    "target1": null,
-    "target2": null,
-    "risk_pct": null,
-    "rr1": null
+    "score": 58.3,
+    "grade": "D",
+    "card_label": "完整 Decision Card",
+    "action": "可建立交易計畫",
+    "trigger": 36.5,
+    "invalidation": 35.88,
+    "target1": 38.41,
+    "target2": 40.2,
+    "risk_pct": 1.71,
+    "rr1": 3.06
   }
 }

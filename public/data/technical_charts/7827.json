@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-13T01:41:53.748841+08:00",
+  "generated_at": "2026-11-14T01:18:59.983450+08:00",
   "code": "7827",
   "name": "漢康-KY創",
   "market": "TWSE",
-  "record_count": 67,
+  "record_count": 68,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-13",
+  "last_date": "2026-11-14",
   "candles": [
     {
       "date": "2026-08-06",
@@ -811,6 +811,18 @@
       "ma20": 139.97,
       "ma60": 152.44,
       "ma120": null
+    },
+    {
+      "date": "2026-11-14",
+      "open": 117.5,
+      "high": 119.5,
+      "low": 117.5,
+      "close": 118.5,
+      "volume": 133872.0,
+      "ma5": 119.5,
+      "ma20": 137.72,
+      "ma60": 151.73,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -912,23 +924,6 @@
       "role": "resistance",
       "direction": "ascending",
       "from": {
-        "index": 26,
-        "date": "2026-09-11",
-        "price": 154.0
-      },
-      "to": {
-        "index": 34,
-        "date": "2026-09-23",
-        "price": 167.5
-      },
-      "slope": 1.6875,
-      "strength": 2,
-      "label": "上升壓力"
-    },
-    {
-      "role": "resistance",
-      "direction": "ascending",
-      "from": {
         "index": 34,
         "date": "2026-09-23",
         "price": 167.5
@@ -975,49 +970,95 @@
       "slope": 0.0,
       "strength": 2,
       "label": "水平壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 46,
+        "date": "2026-10-13",
+        "price": 170.5
+      },
+      "to": {
+        "index": 65,
+        "date": "2026-11-12",
+        "price": 128.5
+      },
+      "slope": -2.2105,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 127.97,
+      "high": 129.03,
+      "center": 128.5,
+      "touches": 1,
+      "last_date": "2026-11-12",
+      "last_index": 65,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 4,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 8.44,
+      "strength_score": 85.1,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 8.44
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 138.29,
-      "high": 141.65,
-      "center": 139.97,
+      "low": 136.07,
+      "high": 139.37,
+      "center": 137.72,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 129.03,
+      "high": 131.09,
+      "center": 129.03,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 151.17,
-      "high": 160.24,
-      "center": 151.17,
+      "low": 148.74,
+      "high": 157.66,
+      "center": 148.74,
       "source": "ma20_extension/resistance"
     },
     {
       "kind": "invalidation",
       "label": "失效區",
-      "low": 101.48,
-      "high": 105.69,
-      "center": 105.16,
+      "low": 101.69,
+      "high": 105.91,
+      "center": 105.38,
       "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 139.97,
-      "high": 139.97,
-      "center": 139.97,
+      "low": 137.72,
+      "high": 137.72,
+      "center": 137.72,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 152.44,
-      "high": 152.44,
-      "center": 152.44,
+      "low": 151.73,
+      "high": 151.73,
+      "center": 151.73,
       "source": "decision.target"
     }
   ],
@@ -1053,10 +1094,10 @@
     "card_label": "完整 Decision Card",
     "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": 105.16,
-    "target1": 139.97,
-    "target2": 152.44,
-    "risk_pct": 11.63,
-    "rr1": 1.52
+    "invalidation": 105.38,
+    "target1": 137.72,
+    "target2": 151.73,
+    "risk_pct": 11.08,
+    "rr1": 1.46
   }
 }

@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-13T01:41:55.494243+08:00",
+  "generated_at": "2026-11-14T01:19:01.321361+08:00",
   "code": "2250",
   "name": "IKKA-KY",
   "market": "TWSE",
-  "record_count": 67,
+  "record_count": 68,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-13",
+  "last_date": "2026-11-14",
   "candles": [
     {
       "date": "2026-08-06",
@@ -811,6 +811,18 @@
       "ma20": 49.99,
       "ma60": 55.07,
       "ma120": null
+    },
+    {
+      "date": "2026-11-14",
+      "open": 47.65,
+      "high": 47.8,
+      "low": 45.2,
+      "close": 45.75,
+      "volume": 62324.0,
+      "ma5": 46.47,
+      "ma20": 49.67,
+      "ma60": 54.82,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -920,23 +932,6 @@
       "role": "resistance",
       "direction": "descending",
       "from": {
-        "index": 38,
-        "date": "2026-09-30",
-        "price": 57.6
-      },
-      "to": {
-        "index": 43,
-        "date": "2026-10-08",
-        "price": 56.6
-      },
-      "slope": -0.2,
-      "strength": 2,
-      "label": "下降壓力"
-    },
-    {
-      "role": "resistance",
-      "direction": "descending",
-      "from": {
         "index": 43,
         "date": "2026-10-08",
         "price": 56.6
@@ -983,10 +978,49 @@
       "slope": -0.4833,
       "strength": 2,
       "label": "下降壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 62,
+        "date": "2026-11-07",
+        "price": 51.6
+      },
+      "to": {
+        "index": 65,
+        "date": "2026-11-12",
+        "price": 49.9
+      },
+      "slope": -0.5667,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [],
   "resistance_zones": [
+    {
+      "low": 49.69,
+      "high": 50.11,
+      "center": 49.9,
+      "touches": 1,
+      "last_date": "2026-11-12",
+      "last_index": 65,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 5,
+      "held_tests": 3,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 9.07,
+      "strength_score": 96,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 9.07
+    },
     {
       "low": 50.39,
       "high": 50.81,
@@ -998,14 +1032,14 @@
       "source": "pivot_cluster",
       "tests": 6,
       "held_tests": 5,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 8.47,
-      "strength_score": 91.1,
+      "distance_pct_abs": 10.6,
+      "strength_score": 90,
       "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 8.47
+      "rank": 2,
+      "display_label": "次要壓力",
+      "distance_pct": 10.6
     },
     {
       "low": 51.39,
@@ -1018,75 +1052,55 @@
       "source": "pivot_cluster",
       "tests": 12,
       "held_tests": 9,
-      "last_test_bars_ago": 4,
+      "last_test_bars_ago": 5,
       "ma_overlap": [],
-      "distance_pct_abs": 10.61,
-      "strength_score": 90,
-      "evidence_count": 3,
-      "rank": 2,
-      "display_label": "次要壓力",
-      "distance_pct": 10.61
-    },
-    {
-      "low": 52.29,
-      "high": 52.71,
-      "center": 52.5,
-      "touches": 1,
-      "last_date": "2026-10-22",
-      "last_index": 52,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 6,
-      "held_tests": 5,
-      "last_test_bars_ago": 9,
-      "ma_overlap": [],
-      "distance_pct_abs": 12.54,
+      "distance_pct_abs": 12.79,
       "strength_score": 90,
       "evidence_count": 3,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 12.54
+      "distance_pct": 12.79
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 49.39,
-      "high": 50.59,
-      "center": 49.99,
+      "low": 49.07,
+      "high": 50.27,
+      "center": 49.67,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 50.81,
-      "high": 51.62,
-      "center": 50.81,
+      "low": 50.11,
+      "high": 50.91,
+      "center": 50.11,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 53.99,
-      "high": 57.23,
-      "center": 53.99,
+      "low": 53.64,
+      "high": 56.86,
+      "center": 53.64,
       "source": "ma20_extension/resistance"
     },
     {
       "kind": "invalidation",
       "label": "失效區",
-      "low": 40.03,
-      "high": 41.69,
-      "center": 41.48,
+      "low": 39.96,
+      "high": 41.62,
+      "center": 41.41,
       "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 49.99,
-      "high": 49.99,
-      "center": 49.99,
+      "low": 49.67,
+      "high": 49.67,
+      "center": 49.67,
       "source": "decision.target"
     },
     {
@@ -1130,10 +1144,10 @@
     "card_label": "完整 Decision Card",
     "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": 41.48,
-    "target1": 49.99,
+    "invalidation": 41.41,
+    "target1": 49.67,
     "target2": 54.5,
-    "risk_pct": 11.09,
-    "rr1": 0.65
+    "risk_pct": 9.48,
+    "rr1": 0.9
   }
 }

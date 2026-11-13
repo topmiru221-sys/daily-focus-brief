@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-13T01:41:56.861876+08:00",
+  "generated_at": "2026-11-14T01:19:02.352057+08:00",
   "code": "1109",
   "name": "信大",
   "market": "TWSE",
-  "record_count": 67,
+  "record_count": 68,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-13",
+  "last_date": "2026-11-14",
   "candles": [
     {
       "date": "2026-08-06",
@@ -811,6 +811,18 @@
       "ma20": 12.98,
       "ma60": 13.28,
       "ma120": null
+    },
+    {
+      "date": "2026-11-14",
+      "open": 12.7,
+      "high": 12.7,
+      "low": 12.65,
+      "close": 12.7,
+      "volume": 116092.0,
+      "ma5": 12.82,
+      "ma20": 12.96,
+      "ma60": 13.26,
+      "ma120": null
     }
   ],
   "gaps": [],
@@ -963,8 +975,8 @@
       "last_index": 59,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 20,
-      "held_tests": 19,
+      "tests": 21,
+      "held_tests": 20,
       "last_test_bars_ago": 2,
       "ma_overlap": [
         "MA20",
@@ -988,7 +1000,7 @@
       "source": "pivot_cluster",
       "tests": 33,
       "held_tests": 27,
-      "last_test_bars_ago": 3,
+      "last_test_bars_ago": 4,
       "ma_overlap": [
         "MA60"
       ],
@@ -1008,7 +1020,7 @@
       "last_index": 64,
       "type": "resistance",
       "source": "pivot_cluster",
-      "tests": 5,
+      "tests": 6,
       "held_tests": 1,
       "last_test_bars_ago": 2,
       "ma_overlap": [],
@@ -1024,9 +1036,9 @@
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 12.82,
-      "high": 13.14,
-      "center": 12.98,
+      "low": 12.8,
+      "high": 13.12,
+      "center": 12.96,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -1040,25 +1052,33 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 14.02,
-      "high": 14.86,
-      "center": 14.02,
+      "low": 14.0,
+      "high": 14.84,
+      "center": 14.0,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 12.12,
+      "high": 12.62,
+      "center": 12.56,
+      "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 12.98,
-      "high": 12.98,
-      "center": 12.98,
+      "low": 12.96,
+      "high": 12.96,
+      "center": 12.96,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 13.28,
-      "high": 13.28,
-      "center": 13.28,
+      "low": 13.26,
+      "high": 13.26,
+      "center": 13.26,
       "source": "decision.target"
     }
   ],
@@ -1089,15 +1109,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 45.1,
+    "score": 49.6,
     "grade": "D",
     "card_label": "完整 Decision Card",
-    "action": "等待資料完整",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": 12.98,
-    "target2": 13.28,
-    "risk_pct": null,
-    "rr1": null
+    "invalidation": 12.56,
+    "target1": 12.96,
+    "target2": 13.26,
+    "risk_pct": 1.12,
+    "rr1": 1.82
   }
 }
