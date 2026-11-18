@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-18T02:43:48.178339+08:00",
+  "generated_at": "2026-11-19T02:17:24.542247+08:00",
   "code": "9951",
   "name": "皇田",
   "market": "TPEx",
-  "record_count": 69,
+  "record_count": 70,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-18",
+  "last_date": "2026-11-19",
   "candles": [
     {
       "date": "2026-08-06",
@@ -835,6 +835,18 @@
       "ma20": 45.37,
       "ma60": 48.17,
       "ma120": null
+    },
+    {
+      "date": "2026-11-19",
+      "open": 44.2,
+      "high": 44.3,
+      "low": 43.25,
+      "close": 43.3,
+      "volume": 40000.0,
+      "ma5": 43.82,
+      "ma20": 45.19,
+      "ma60": 48.0,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -900,7 +912,7 @@
       "type": "down",
       "low": 43.5,
       "high": 43.85,
-      "status": "unfilled"
+      "status": "filled"
     }
   ],
   "trendlines": [
@@ -1054,14 +1066,14 @@
       "source": "pivot_cluster",
       "tests": 5,
       "held_tests": 5,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 3.47,
-      "strength_score": 101.1,
+      "distance_pct_abs": 3.23,
+      "strength_score": 101.5,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "關鍵壓力",
-      "distance_pct": 3.47
+      "distance_pct": 3.23
     },
     {
       "low": 46.01,
@@ -1074,43 +1086,45 @@
       "source": "pivot_cluster",
       "tests": 11,
       "held_tests": 9,
-      "last_test_bars_ago": 8,
+      "last_test_bars_ago": 9,
       "ma_overlap": [],
-      "distance_pct_abs": 7.01,
-      "strength_score": 94.0,
+      "distance_pct_abs": 6.77,
+      "strength_score": 94.5,
       "evidence_count": 3,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 7.01
+      "distance_pct": 6.77
     },
     {
-      "low": 43.5,
-      "high": 43.85,
-      "center": 43.67,
+      "low": 44.85,
+      "high": 45.1,
+      "center": 44.98,
       "touches": 1,
-      "last_date": "2026-11-18",
-      "last_index": 68,
+      "last_date": "2026-11-07",
+      "last_index": 61,
       "type": "resistance",
       "source": "gap",
       "tests": 3,
-      "held_tests": 1,
-      "last_test_bars_ago": 4,
-      "ma_overlap": [],
-      "distance_pct_abs": 1.09,
-      "strength_score": 78.8,
-      "evidence_count": 3,
+      "held_tests": 2,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 3.88,
+      "strength_score": 85.2,
+      "evidence_count": 4,
       "rank": 3,
       "display_label": "觀察壓力",
-      "distance_pct": 1.09
+      "distance_pct": 3.88
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 44.83,
-      "high": 45.91,
-      "center": 45.37,
+      "low": 44.65,
+      "high": 45.73,
+      "center": 45.19,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
@@ -1124,17 +1138,25 @@
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 49.0,
-      "high": 51.94,
-      "center": 49.0,
+      "low": 48.81,
+      "high": 51.73,
+      "center": 48.81,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 41.28,
+      "high": 42.99,
+      "center": 42.78,
+      "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 45.37,
-      "high": 45.37,
-      "center": 45.37,
+      "low": 45.19,
+      "high": 45.19,
+      "center": 45.19,
       "source": "decision.target"
     },
     {
@@ -1173,15 +1195,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 46.1,
+    "score": 51.1,
     "grade": "D",
     "card_label": "完整 Decision Card",
-    "action": "等待資料完整",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": 45.37,
+    "invalidation": 42.78,
+    "target1": 45.19,
     "target2": 47.1,
-    "risk_pct": null,
-    "rr1": null
+    "risk_pct": 1.19,
+    "rr1": 3.66
   }
 }
