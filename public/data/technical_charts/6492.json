@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-20T02:27:45.226137+08:00",
+  "generated_at": "2026-11-21T01:57:15.726620+08:00",
   "code": "6492",
   "name": "生華科",
   "market": "TPEx",
-  "record_count": 71,
+  "record_count": 72,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-20",
+  "last_date": "2026-11-21",
   "candles": [
     {
       "date": "2026-08-06",
@@ -859,6 +859,18 @@
       "ma20": 30.13,
       "ma60": 32.77,
       "ma120": null
+    },
+    {
+      "date": "2026-11-21",
+      "open": 26.0,
+      "high": 26.0,
+      "low": 24.5,
+      "close": 25.0,
+      "volume": 346000.0,
+      "ma5": 27.27,
+      "ma20": 29.76,
+      "ma60": 32.61,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -1047,33 +1059,41 @@
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 29.77,
-      "high": 30.49,
-      "center": 30.13,
+      "low": 29.4,
+      "high": 30.12,
+      "center": 29.76,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 32.54,
-      "high": 34.49,
-      "center": 32.54,
+      "low": 32.14,
+      "high": 34.07,
+      "center": 32.14,
       "source": "ma20_extension/resistance"
+    },
+    {
+      "kind": "invalidation",
+      "label": "失效區",
+      "low": 23.04,
+      "high": 24.0,
+      "center": 23.88,
+      "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 30.13,
-      "high": 30.13,
-      "center": 30.13,
+      "low": 29.76,
+      "high": 29.76,
+      "center": 29.76,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 32.77,
-      "high": 32.77,
-      "center": 32.77,
+      "low": 32.61,
+      "high": 32.61,
+      "center": 32.61,
       "source": "decision.target"
     }
   ],
@@ -1104,15 +1124,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 44.6,
+    "score": 50.6,
     "grade": "D",
     "card_label": "完整 Decision Card",
-    "action": "等待資料完整",
+    "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": null,
-    "target1": 30.13,
-    "target2": 32.77,
-    "risk_pct": null,
-    "rr1": null
+    "invalidation": 23.88,
+    "target1": 29.76,
+    "target2": 32.61,
+    "risk_pct": 4.5,
+    "rr1": 4.23
   }
 }
