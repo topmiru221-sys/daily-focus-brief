@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-21T01:57:22.096434+08:00",
+  "generated_at": "2026-11-24T05:37:34.129227+08:00",
   "code": "7689",
   "name": "大鵬科CLMX",
   "market": "TWSE",
-  "record_count": 88,
+  "record_count": 89,
   "first_date": "2026-07-28",
-  "last_date": "2026-11-21",
+  "last_date": "2026-11-24",
   "candles": [
     {
       "date": "2026-07-28",
@@ -1063,6 +1063,18 @@
       "ma20": 106.02,
       "ma60": 138.02,
       "ma120": null
+    },
+    {
+      "date": "2026-11-24",
+      "open": 92.1,
+      "high": 96.0,
+      "low": 90.4,
+      "close": 94.4,
+      "volume": 125601.0,
+      "ma5": 98.78,
+      "ma20": 104.23,
+      "ma60": 136.71,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -1129,6 +1141,14 @@
       "low": 100.0,
       "high": 101.0,
       "status": "filled"
+    },
+    {
+      "date": "2026-11-24",
+      "index": 88,
+      "type": "down",
+      "low": 96.0,
+      "high": 96.1,
+      "status": "unfilled"
     }
   ],
   "trendlines": [
@@ -1269,32 +1289,31 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [
-    {
-      "low": 94.15,
-      "high": 95.05,
-      "center": 94.6,
-      "touches": 3,
-      "last_date": "2026-11-14",
-      "last_index": 81,
-      "type": "support",
-      "source": "pivot_cluster",
-      "tests": 3,
-      "held_tests": 3,
-      "last_test_bars_ago": 6,
-      "ma_overlap": [],
-      "distance_pct_abs": 4.83,
-      "strength_score": 89.3,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "主要支撐",
-      "distance_pct": 5.07
-    }
-  ],
+  "support_zones": [],
   "resistance_zones": [
     {
-      "low": 103.55,
-      "high": 104.45,
+      "low": 96.0,
+      "high": 96.1,
+      "center": 96.05,
+      "touches": 1,
+      "last_date": "2026-11-24",
+      "last_index": 88,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 5,
+      "held_tests": 2,
+      "last_test_bars_ago": 5,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.75,
+      "strength_score": 92.5,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.75
+    },
+    {
+      "low": 103.58,
+      "high": 104.42,
       "center": 104.0,
       "touches": 1,
       "last_date": "2026-11-18",
@@ -1303,83 +1322,85 @@
       "source": "pivot_cluster",
       "tests": 4,
       "held_tests": 4,
-      "last_test_bars_ago": 3,
-      "ma_overlap": [],
-      "distance_pct_abs": 4.63,
-      "strength_score": 98.7,
-      "evidence_count": 3,
-      "rank": 1,
-      "display_label": "關鍵壓力",
-      "distance_pct": 4.63
-    },
-    {
-      "low": 104.55,
-      "high": 105.45,
-      "center": 105.0,
-      "touches": 1,
-      "last_date": "2026-11-13",
-      "last_index": 80,
-      "type": "resistance",
-      "source": "pivot_cluster",
-      "tests": 2,
-      "held_tests": 2,
-      "last_test_bars_ago": 7,
-      "ma_overlap": [],
-      "distance_pct_abs": 5.63,
-      "strength_score": 72.7,
-      "evidence_count": 3,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 10.17,
+      "strength_score": 96,
+      "evidence_count": 4,
       "rank": 2,
       "display_label": "次要壓力",
-      "distance_pct": 5.63
+      "distance_pct": 10.17
+    },
+    {
+      "low": 94.18,
+      "high": 95.02,
+      "center": 94.6,
+      "touches": 3,
+      "last_date": "2026-11-14",
+      "last_index": 81,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 3,
+      "held_tests": 0,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.21,
+      "strength_score": 80.6,
+      "evidence_count": 2,
+      "rank": 3,
+      "display_label": "觀察壓力",
+      "distance_pct": 0.21
     }
   ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 93.46,
-      "high": 95.74,
-      "center": 94.6,
+      "low": 102.98,
+      "high": 105.48,
+      "center": 104.23,
       "source": "decision.trigger/validated_support/ma20"
     },
     {
       "kind": "breakout",
       "label": "突破確認區",
-      "low": 104.45,
-      "high": 106.12,
-      "center": 104.45,
+      "low": 96.1,
+      "high": 97.64,
+      "center": 96.1,
       "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 114.5,
-      "high": 121.37,
-      "center": 114.5,
+      "low": 112.57,
+      "high": 119.32,
+      "center": 112.57,
       "source": "ma20_extension/resistance"
     },
     {
       "kind": "invalidation",
       "label": "失效區",
-      "low": 88.11,
-      "high": 91.77,
-      "center": 91.31,
+      "low": 83.95,
+      "high": 87.42,
+      "center": 86.99,
       "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 106.02,
-      "high": 106.02,
-      "center": 106.02,
+      "low": 104.23,
+      "high": 104.23,
+      "center": 104.23,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 132.0,
-      "high": 132.0,
-      "center": 132.0,
+      "low": 131.0,
+      "high": 131.0,
+      "center": 131.0,
       "source": "decision.target"
     }
   ],
@@ -1399,9 +1420,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位置中性，等待更明確訊號",
-    "confidence": "low",
-    "reason": "目前不在高品質回測區或突破確認區。"
+    "label": "接近關鍵壓力，突破前不宜積極追價",
+    "confidence": "medium",
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1410,15 +1431,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 43.3,
+    "score": 48.0,
     "grade": "D",
     "card_label": "完整 Decision Card",
     "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": 91.31,
-    "target1": 106.02,
-    "target2": 132.0,
-    "risk_pct": 8.14,
-    "rr1": 0.82
+    "invalidation": 86.99,
+    "target1": 104.23,
+    "target2": 131.0,
+    "risk_pct": 7.85,
+    "rr1": 1.33
   }
 }
