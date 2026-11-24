@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-24T05:37:33.609931+08:00",
+  "generated_at": "2026-11-25T04:17:02.006173+08:00",
   "code": "5302",
   "name": "太欣",
   "market": "TPEx",
-  "record_count": 73,
+  "record_count": 74,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-24",
+  "last_date": "2026-11-25",
   "candles": [
     {
       "date": "2026-08-06",
@@ -883,6 +883,18 @@
       "ma20": 8.58,
       "ma60": 9.45,
       "ma120": null
+    },
+    {
+      "date": "2026-11-25",
+      "open": 7.52,
+      "high": 7.84,
+      "low": 7.5,
+      "close": 7.7,
+      "volume": 347000.0,
+      "ma5": 7.58,
+      "ma20": 8.49,
+      "ma60": 9.4,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -933,6 +945,14 @@
       "low": 8.48,
       "high": 8.5,
       "status": "filled"
+    },
+    {
+      "date": "2026-11-25",
+      "index": 73,
+      "type": "up",
+      "low": 7.19,
+      "high": 7.5,
+      "status": "unfilled"
     }
   ],
   "trendlines": [
@@ -1073,23 +1093,73 @@
       "label": "下降壓力"
     }
   ],
-  "support_zones": [],
-  "resistance_zones": [],
+  "support_zones": [
+    {
+      "low": 7.63,
+      "high": 7.69,
+      "center": 7.66,
+      "touches": 1,
+      "last_date": "2026-11-07",
+      "last_index": 61,
+      "type": "support",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 1,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 0.52,
+      "strength_score": 77.0,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "主要支撐",
+      "distance_pct": 0.52
+    }
+  ],
+  "resistance_zones": [
+    {
+      "low": 8.82,
+      "high": 8.88,
+      "center": 8.85,
+      "touches": 1,
+      "last_date": "2026-11-14",
+      "last_index": 66,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 7,
+      "held_tests": 5,
+      "last_test_bars_ago": 7,
+      "ma_overlap": [],
+      "distance_pct_abs": 14.94,
+      "strength_score": 90,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 14.94
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 8.48,
-      "high": 8.68,
-      "center": 8.58,
+      "low": 7.57,
+      "high": 7.75,
+      "center": 7.66,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 8.88,
+      "high": 9.02,
+      "center": 8.88,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 9.27,
-      "high": 9.82,
-      "center": 9.27,
+      "low": 9.17,
+      "high": 9.72,
+      "center": 9.17,
       "source": "ma20_extension/resistance"
     },
     {
@@ -1103,17 +1173,17 @@
     {
       "kind": "target",
       "label": "目標一",
-      "low": 8.58,
-      "high": 8.58,
-      "center": 8.58,
+      "low": 8.49,
+      "high": 8.49,
+      "center": 8.49,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 9.45,
-      "high": 9.45,
-      "center": 9.45,
+      "low": 9.4,
+      "high": 9.4,
+      "center": 9.4,
       "source": "decision.target"
     }
   ],
@@ -1133,9 +1203,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "位於回測區，可觀察止跌或量縮",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價進入回測區，等待價格確認。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1144,15 +1214,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 47.1,
+    "score": 41.4,
     "grade": "D",
     "card_label": "完整 Decision Card",
     "action": "觀察，暫不建立部位",
     "trigger": null,
     "invalidation": 6.5,
-    "target1": 8.58,
-    "target2": 9.45,
-    "risk_pct": 8.86,
-    "rr1": 2.3
+    "target1": 8.49,
+    "target2": 9.4,
+    "risk_pct": 15.62,
+    "rr1": 0.66
   }
 }

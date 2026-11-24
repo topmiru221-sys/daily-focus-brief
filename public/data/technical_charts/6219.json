@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-24T05:37:28.173129+08:00",
+  "generated_at": "2026-11-25T04:16:57.787888+08:00",
   "code": "6219",
   "name": "富旺",
   "market": "TPEx",
-  "record_count": 73,
+  "record_count": 74,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-24",
+  "last_date": "2026-11-25",
   "candles": [
     {
       "date": "2026-08-06",
@@ -883,6 +883,18 @@
       "ma20": 10.14,
       "ma60": 11.42,
       "ma120": null
+    },
+    {
+      "date": "2026-11-25",
+      "open": 8.78,
+      "high": 9.23,
+      "low": 8.78,
+      "close": 9.16,
+      "volume": 121000.0,
+      "ma5": 9.21,
+      "ma20": 10.05,
+      "ma60": 11.37,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -908,6 +920,14 @@
       "type": "down",
       "low": 8.67,
       "high": 8.81,
+      "status": "filled"
+    },
+    {
+      "date": "2026-11-25",
+      "index": 73,
+      "type": "up",
+      "low": 8.67,
+      "high": 8.78,
       "status": "unfilled"
     }
   ],
@@ -1050,46 +1070,75 @@
     }
   ],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 9.27,
+      "high": 9.35,
+      "center": 9.31,
+      "touches": 1,
+      "last_date": "2026-11-07",
+      "last_index": 61,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 1,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 1.64,
+      "strength_score": 74.7,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 1.64
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 10.02,
-      "high": 10.26,
-      "center": 10.14,
+      "low": 9.93,
+      "high": 10.17,
+      "center": 10.05,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 9.35,
+      "high": 9.5,
+      "center": 9.35,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 10.95,
-      "high": 11.61,
-      "center": 10.95,
+      "low": 10.85,
+      "high": 11.51,
+      "center": 10.85,
       "source": "ma20_extension/resistance"
     },
     {
       "kind": "invalidation",
       "label": "失效區",
-      "low": 7.44,
-      "high": 7.75,
-      "center": 7.71,
+      "low": 7.43,
+      "high": 7.74,
+      "center": 7.7,
       "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 10.14,
-      "high": 10.14,
-      "center": 10.14,
+      "low": 10.05,
+      "high": 10.05,
+      "center": 10.05,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 11.4,
-      "high": 11.4,
-      "center": 11.4,
+      "low": 11.2,
+      "high": 11.2,
+      "center": 11.2,
       "source": "decision.target"
     }
   ],
@@ -1109,9 +1158,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "近期無有效支撐，不宜硬找進場點",
+    "label": "接近關鍵壓力，突破前不宜積極追價",
     "confidence": "medium",
-    "reason": "15% 範圍內沒有通過回測／結構驗證的支撐區。"
+    "reason": "現價距有效壓力區低於 3%。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -1120,15 +1169,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 46.6,
+    "score": 40.3,
     "grade": "D",
     "card_label": "完整 Decision Card",
     "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": 7.71,
-    "target1": 10.14,
-    "target2": 11.4,
-    "risk_pct": 10.68,
-    "rr1": 1.64
+    "invalidation": 7.7,
+    "target1": 10.05,
+    "target2": 11.2,
+    "risk_pct": 15.95,
+    "rr1": 0.61
   }
 }
