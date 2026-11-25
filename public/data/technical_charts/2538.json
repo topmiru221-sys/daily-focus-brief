@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-25T04:17:04.807011+08:00",
+  "generated_at": "2026-11-26T03:30:52.500098+08:00",
   "code": "2538",
   "name": "基泰",
   "market": "TWSE",
-  "record_count": 75,
+  "record_count": 76,
   "first_date": "2026-08-06",
-  "last_date": "2026-11-25",
+  "last_date": "2026-11-26",
   "candles": [
     {
       "date": "2026-08-06",
@@ -907,6 +907,18 @@
       "ma20": 8.01,
       "ma60": 8.51,
       "ma120": null
+    },
+    {
+      "date": "2026-11-26",
+      "open": 6.9,
+      "high": 7.35,
+      "low": 6.89,
+      "close": 7.11,
+      "volume": 550546.0,
+      "ma5": 7.02,
+      "ma20": 7.94,
+      "ma60": 8.48,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -932,27 +944,18 @@
       "type": "down",
       "low": 6.85,
       "high": 7.2,
+      "status": "filled"
+    },
+    {
+      "date": "2026-11-26",
+      "index": 75,
+      "type": "up",
+      "low": 6.85,
+      "high": 6.89,
       "status": "unfilled"
     }
   ],
   "trendlines": [
-    {
-      "role": "support",
-      "direction": "ascending",
-      "from": {
-        "index": 39,
-        "date": "2026-10-01",
-        "price": 8.58
-      },
-      "to": {
-        "index": 43,
-        "date": "2026-10-08",
-        "price": 8.62
-      },
-      "slope": 0.01,
-      "strength": 2,
-      "label": "上升支撐"
-    },
     {
       "role": "support",
       "direction": "descending",
@@ -1001,6 +1004,23 @@
         "price": 7.93
       },
       "slope": -0.0567,
+      "strength": 2,
+      "label": "下降支撐"
+    },
+    {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 63,
+        "date": "2026-11-10",
+        "price": 7.93
+      },
+      "to": {
+        "index": 73,
+        "date": "2026-11-24",
+        "price": 6.45
+      },
+      "slope": -0.148,
       "strength": 2,
       "label": "下降支撐"
     },
@@ -1074,46 +1094,77 @@
     }
   ],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 7.9,
+      "high": 7.96,
+      "center": 7.93,
+      "touches": 1,
+      "last_date": "2026-11-10",
+      "last_index": 63,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 1,
+      "last_test_bars_ago": 6,
+      "ma_overlap": [
+        "MA20"
+      ],
+      "distance_pct_abs": 11.53,
+      "strength_score": 66,
+      "evidence_count": 4,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 11.53
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 7.91,
-      "high": 8.11,
-      "center": 8.01,
+      "low": 7.84,
+      "high": 8.04,
+      "center": 7.94,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 7.96,
+      "high": 8.09,
+      "center": 7.96,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 8.65,
-      "high": 9.17,
-      "center": 8.65,
+      "low": 8.58,
+      "high": 9.09,
+      "center": 8.58,
       "source": "ma20_extension/resistance"
     },
     {
       "kind": "invalidation",
       "label": "失效區",
-      "low": 6.09,
-      "high": 6.34,
-      "center": 6.31,
+      "low": 6.08,
+      "high": 6.33,
+      "center": 6.3,
       "source": "decision.invalidation"
     },
     {
       "kind": "target",
       "label": "目標一",
-      "low": 8.01,
-      "high": 8.01,
-      "center": 8.01,
+      "low": 7.94,
+      "high": 7.94,
+      "center": 7.94,
       "source": "decision.target"
     },
     {
       "kind": "target",
       "label": "目標二",
-      "low": 8.51,
-      "high": 8.51,
-      "center": 8.51,
+      "low": 8.48,
+      "high": 8.48,
+      "center": 8.48,
       "source": "decision.target"
     }
   ],
@@ -1144,15 +1195,15 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 49.4,
+    "score": 42.1,
     "grade": "D",
     "card_label": "完整 Decision Card",
     "action": "觀察，暫不建立部位",
     "trigger": null,
-    "invalidation": 6.31,
-    "target1": 8.01,
-    "target2": 8.51,
-    "risk_pct": 5.84,
-    "rr1": 3.35
+    "invalidation": 6.3,
+    "target1": 7.94,
+    "target2": 8.48,
+    "risk_pct": 11.41,
+    "rr1": 1.02
   }
 }

@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-25T04:16:59.776164+08:00",
+  "generated_at": "2026-11-26T03:30:45.695819+08:00",
   "code": "7710",
   "name": "東擎科技",
   "market": "TWSE",
-  "record_count": 23,
+  "record_count": 24,
   "first_date": "2026-10-27",
-  "last_date": "2026-11-25",
+  "last_date": "2026-11-26",
   "candles": [
     {
       "date": "2026-10-27",
@@ -283,6 +283,18 @@
       "ma20": 119.0,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-26",
+      "open": 98.9,
+      "high": 99.0,
+      "low": 96.5,
+      "close": 99.0,
+      "volume": 99835.0,
+      "ma5": 96.8,
+      "ma20": 117.05,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -324,6 +336,14 @@
       "type": "down",
       "low": 92.0,
       "high": 98.0,
+      "status": "filled"
+    },
+    {
+      "date": "2026-11-26",
+      "index": 23,
+      "type": "up",
+      "low": 92.0,
+      "high": 96.5,
       "status": "unfilled"
     }
   ],
@@ -380,6 +400,23 @@
       "label": "上升支撐"
     },
     {
+      "role": "support",
+      "direction": "descending",
+      "from": {
+        "index": 11,
+        "date": "2026-11-10",
+        "price": 121.0
+      },
+      "to": {
+        "index": 21,
+        "date": "2026-11-24",
+        "price": 87.0
+      },
+      "slope": -3.4,
+      "strength": 2,
+      "label": "下降支撐"
+    },
+    {
       "role": "resistance",
       "direction": "flat",
       "from": {
@@ -432,22 +469,51 @@
     }
   ],
   "support_zones": [],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 110.5,
+      "high": 111.0,
+      "center": 110.75,
+      "touches": 1,
+      "last_date": "2026-11-19",
+      "last_index": 18,
+      "type": "resistance",
+      "source": "gap",
+      "tests": 3,
+      "held_tests": 3,
+      "last_test_bars_ago": 4,
+      "ma_overlap": [],
+      "distance_pct_abs": 11.87,
+      "strength_score": 75,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 11.87
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
       "label": "回測區",
-      "low": 117.57,
-      "high": 120.43,
-      "center": 119.0,
+      "low": 115.65,
+      "high": 118.45,
+      "center": 117.05,
       "source": "decision.trigger/validated_support/ma20"
+    },
+    {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 111.0,
+      "high": 112.78,
+      "center": 111.0,
+      "source": "validated_resistance/trigger"
     },
     {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 128.52,
-      "high": 136.23,
-      "center": 128.52,
+      "low": 126.41,
+      "high": 134.0,
+      "center": 126.41,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -478,7 +544,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 48.8,
+    "score": 40.8,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
