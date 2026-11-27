@@ -1,12 +1,12 @@
 {
   "schema_version": "5.4.44.1-validated-zones",
-  "generated_at": "2026-11-27T03:12:55.587639+08:00",
+  "generated_at": "2026-11-28T03:07:38.820424+08:00",
   "code": "7812",
   "name": "稜研科技*-創",
   "market": "TWSE",
-  "record_count": 48,
+  "record_count": 49,
   "first_date": "2026-09-22",
-  "last_date": "2026-11-27",
+  "last_date": "2026-11-28",
   "candles": [
     {
       "date": "2026-09-22",
@@ -583,6 +583,18 @@
       "ma20": 52.01,
       "ma60": null,
       "ma120": null
+    },
+    {
+      "date": "2026-11-28",
+      "open": 39.3,
+      "high": 42.0,
+      "low": 39.25,
+      "close": 41.8,
+      "volume": 89567.0,
+      "ma5": 40.3,
+      "ma20": 51.01,
+      "ma60": null,
+      "ma120": null
     }
   ],
   "gaps": [
@@ -714,23 +726,6 @@
     },
     {
       "role": "resistance",
-      "direction": "descending",
-      "from": {
-        "index": 9,
-        "date": "2026-10-06",
-        "price": 67.5
-      },
-      "to": {
-        "index": 13,
-        "date": "2026-10-10",
-        "price": 66.3
-      },
-      "slope": -0.3,
-      "strength": 2,
-      "label": "下降壓力"
-    },
-    {
-      "role": "resistance",
       "direction": "flat",
       "from": {
         "index": 13,
@@ -779,12 +774,29 @@
       "slope": -0.39,
       "strength": 2,
       "label": "下降壓力"
+    },
+    {
+      "role": "resistance",
+      "direction": "descending",
+      "from": {
+        "index": 32,
+        "date": "2026-11-06",
+        "price": 62.6
+      },
+      "to": {
+        "index": 46,
+        "date": "2026-11-26",
+        "price": 43.65
+      },
+      "slope": -1.3536,
+      "strength": 2,
+      "label": "下降壓力"
     }
   ],
   "support_zones": [
     {
-      "low": 37.83,
-      "high": 38.17,
+      "low": 37.81,
+      "high": 38.19,
       "center": 38.0,
       "touches": 2,
       "last_date": "2026-11-25",
@@ -793,17 +805,38 @@
       "source": "pivot_cluster",
       "tests": 2,
       "held_tests": 2,
-      "last_test_bars_ago": 2,
+      "last_test_bars_ago": 3,
       "ma_overlap": [],
-      "distance_pct_abs": 0.78,
-      "strength_score": 82.4,
+      "distance_pct_abs": 9.09,
+      "strength_score": 66,
       "evidence_count": 3,
       "rank": 1,
       "display_label": "主要支撐",
-      "distance_pct": 0.79
+      "distance_pct": 10.0
     }
   ],
-  "resistance_zones": [],
+  "resistance_zones": [
+    {
+      "low": 43.46,
+      "high": 43.84,
+      "center": 43.65,
+      "touches": 1,
+      "last_date": "2026-11-26",
+      "last_index": 46,
+      "type": "resistance",
+      "source": "pivot_cluster",
+      "tests": 2,
+      "held_tests": 2,
+      "last_test_bars_ago": 2,
+      "ma_overlap": [],
+      "distance_pct_abs": 4.43,
+      "strength_score": 75.1,
+      "evidence_count": 3,
+      "rank": 1,
+      "display_label": "關鍵壓力",
+      "distance_pct": 4.43
+    }
+  ],
   "decision_zones": [
     {
       "kind": "retest",
@@ -814,11 +847,19 @@
       "source": "decision.trigger/validated_support/ma20"
     },
     {
+      "kind": "breakout",
+      "label": "突破確認區",
+      "low": 43.84,
+      "high": 44.54,
+      "center": 43.84,
+      "source": "validated_resistance/trigger"
+    },
+    {
       "kind": "no_chase",
       "label": "不追價區",
-      "low": 56.17,
-      "high": 59.54,
-      "center": 56.17,
+      "low": 55.09,
+      "high": 58.4,
+      "center": 55.09,
       "source": "ma20_extension/resistance"
     }
   ],
@@ -838,9 +879,9 @@
     "targets": true
   },
   "entry_hint": {
-    "label": "位於回測區，可觀察止跌或量縮",
-    "confidence": "medium",
-    "reason": "現價進入回測區，等待價格確認。"
+    "label": "位置中性，等待更明確訊號",
+    "confidence": "low",
+    "reason": "目前不在高品質回測區或突破確認區。"
   },
   "zone_methodology": {
     "max_distance_pct": 15,
@@ -849,7 +890,7 @@
     "ma_only_disallowed": true
   },
   "decision_snapshot": {
-    "score": 49.6,
+    "score": 43.8,
     "grade": "D",
     "card_label": "技術觀察卡",
     "action": "歷史資料累積中，暫不建立交易計畫",
